@@ -1,0 +1,36 @@
+---
+name:  jmvEstimateProportion
+title: Estimate Proportion
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: FALSE
+
+    - name:  summary_table
+      title: Estimated Proportion
+      type: Table
+      rows:  0
+      columns:
+        - name: var
+          title: Group
+          type: text
+
+    - name: bar_plot
+      title: Frequency Plot
+      type: Image
+      width:  530
+      height: 300
+      renderFun: .bplot     
+
+    - name: proportion_plot
+      title: Proportion Plot
+      type: Image
+      width:  300
+      height: 530
+      renderFun: .plot  
+      
+
+...

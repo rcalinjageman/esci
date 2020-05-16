@@ -1,0 +1,40 @@
+---
+name:  jmvIndContrasts
+title: Estimate Ind. Groups Contrasts
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: TRUE
+
+    - name:  means_table
+      title: Descriptive Statistics
+      visible: TRUE
+      type: Table
+      rows:  1
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name:  contrast_table
+      title: Contrasts
+      visible: TRUE
+      type: Table
+      rows:  1
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name: contrast_plot
+      title: Contrast Plot
+      visible: TRUE
+      type: Image
+      width:  900
+      height: 550
+      renderFun: .plot  
+
+...

@@ -1,0 +1,54 @@
+---
+name:  jmvComplexTwoByTwo
+title: Estimate Ind. 2x2
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: dep
+      title: Dependent Variable
+      type: Variable
+
+    - name: group1
+      title: Independent Variable 1
+      type: Variable
+
+    - name: group2
+      title: Independent Variable 2
+      type: Variable
+
+    - name: MEorInt
+      title: Analysis focus
+      type: List
+      options:
+        - name: fME
+          title: Focus on Main Effects
+        - name: fInt
+          title: Focus on Interaction
+      default: fInt
+
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+      
+    - name: show.mean.error
+      type: Bool
+      title: Show cat's eye for means
+      default: FALSE
+
+    - name: show.raw.data
+      type: Bool
+      title: Show raw data
+      default: FALSE
+      
+    - name: ylab
+      title: Y-axis label
+      type: String
+...

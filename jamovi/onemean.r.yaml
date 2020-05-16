@@ -1,0 +1,48 @@
+---
+name:  onemean
+title: Estimate Mean
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: FALSE
+      
+    - name:  descriptives
+      title: Descriptive Statistics
+      type: Table
+      rows:  1
+      columns:
+        - name: var
+          title: ''
+          type: text
+        - name: m
+          type: number
+        - name: s
+          type: number
+        - name: N
+          type: integer
+        - name: NA_count
+          type: integer
+        - name: median
+          type: number
+        - name: q1
+          type: number
+        - name: q3
+          type: number
+     
+    - name: distribution
+      title: Distribution
+      type: Image
+      width:  400
+      height: 300
+      renderFun: .plot     
+
+    - name: estimate
+      title: Estimate
+      type: Image
+      width:  400
+      height: 530
+      renderFun: .plot   
+...

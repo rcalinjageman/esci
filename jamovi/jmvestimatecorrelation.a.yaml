@@ -1,0 +1,99 @@
+---
+name:  jmvEstimateCorrelation
+title: Estimate Correlation
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      type: List
+      default: fromraw
+      options:
+        - name: fromraw
+          title: Analyze raw data
+        - name: fromsummary
+          title: Enter summary data
+
+    - name: data
+      type: Data
+
+    - name: dv
+      title: Variable to Predict (Y)
+      type: Variable
+
+    - name: iv
+      title: Predictor variable (X)
+      type: Variable
+
+    - name: show.line
+      title: Show regression line
+      type: Bool
+      default: false
+
+    - name: show.meanCI
+      title: Show CI on regression line
+      type: Bool
+      default: false
+
+    - name: show.PI
+      title: Show Prediction Intervals
+      type: Bool
+      default: false
+
+    - name: predictx
+      type: String
+      title: Give X value to make a prediction (Y')
+      default: none
+
+    - name: r
+      title: r value
+      type: Number
+      min:  0
+      max: 1
+
+    - name: n
+      title: Sample size
+      type: Number
+
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+    
+    - name: ylab
+      title: y-axis label
+      type: String
+
+    - name: xlab
+      title: x-axis label
+      type: String
+
+    - name: size
+      title: Point size
+      type: Number
+      default: 3
+
+    - name: ymin
+      title: y-axis minimum
+      type: String
+      default: auto
+
+    - name: ymax
+      title: y-axis maxmimum
+      type: String
+      default: auto
+
+    - name: xmin
+      title: x-axis minimum
+      type: String
+      default: auto
+
+    - name: xmax
+      title: x-axis maxmimum
+      type: String
+      default: auto
+
+...

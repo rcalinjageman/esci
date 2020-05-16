@@ -1,0 +1,92 @@
+title: Estimate Proportion
+name: jmvEstimateProportion
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: LayoutBox
+    margin: large
+    style: inline
+    children:
+      - type: RadioButton
+        name: switchr
+        optionName: switch
+        optionPart: fromraw
+      - type: RadioButton
+        name: switchs
+        optionName: switch
+        optionPart: fromsummary
+  - type: CollapseBox
+    label: Work with raw data
+    name: rpanel
+    collapsed: false
+    children:
+      - type: VariableSupplier
+        persistentItems: false
+        stretchFactor: 1
+        children:
+          - type: TargetLayoutBox
+            label: Variable
+            children:
+              - type: VariablesListBox
+                name: measure1
+                maxItemCount: 1
+                isTarget: true
+      - type: LayoutBox
+        children:
+          - type: TextBox
+            name: case.level
+            format: string                
+          - type: CheckBox
+            name: na.rm         
+  - type: CollapseBox
+    label: Work with summary data
+    name: spanel
+    collapsed: true
+    children:
+      - type: Label
+        label: Data
+        children:
+          - type: LayoutBox
+            style: inline
+            children:
+              - type: TextBox
+                name: cases
+                format: number
+              - type: TextBox
+                name: 'n'
+                format: number
+      - type: Label
+        label: Labels (Optional)
+        children:
+          - type: LayoutBox
+            style: inline
+            children:
+              - type: TextBox
+                name: caselabel1
+                format: string
+              - type: TextBox
+                name: caselabel2
+                format: string
+  - type: Label
+    label: Analysis Options
+    children:          
+      - type: TextBox
+        name: conf.level
+        format: number
+  - type: CollapseBox
+    label: Graph Options
+    collapsed: true
+    children:
+      - type: TextBox
+        name: ylab
+        format: string
+      - type: TextBox
+        name: xlab
+        format: string
+      - type: TextBox
+        name: ropeBottom
+        format: string
+      - type: TextBox
+        name: ropeTop
+        format: string

@@ -1,0 +1,44 @@
+---
+name:  jmvEstimateCorrelationDifference
+title: Estimate Correlation Difference
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errros
+      type:  Preformatted
+      visible: TRUE
+      
+    - name:  result_table
+      title: Difference between correlations
+      type: Table
+      rows:  0
+      columns:
+        - name: variables
+          title: Variables
+          type: text
+          
+    - name:  allrs
+      title: All group correlations
+      type: Table
+      rows:  0
+      columns:
+        - name: group
+          title: Group
+          type: text
+
+    - name: scatter_plot
+      title: Scatter Plot
+      type: Image
+      width:  600
+      height: 600
+      renderFun: .plotSP  
+
+    - name: correlation_plot
+      title: Correlation Plot
+      type: Image
+      width:  500
+      height: 600
+      renderFun: .plotCP  
+
+...

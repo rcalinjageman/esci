@@ -1,0 +1,78 @@
+---
+name:  jmvIndContrasts
+title: Estimate Ind. Groups Contrasts
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      type: List
+      default: fromraw
+      options:
+        - name: fromraw
+          title: Analyze raw data
+        - name: fromsummary
+          title: Enter summary data
+
+    - name: data
+      type: Data
+
+    - name: dep
+      title: Dependent Variable
+      type: Variable
+
+    - name: group
+      title: Grouping Variable
+      type: Variable
+
+    - name: labels
+      title: Group Labels
+      type: Variable
+
+    - name: means
+      title: Group means
+      type: Variable
+
+    - name: sds
+      title: Group standard deviations
+      type: Variable
+
+    - name: ns
+      title: Group sample sizes
+      type: Variable
+
+    - name: ref_labels
+      title: Combine into Reference group
+      type: String
+
+    - name: comparison_labels
+      title: Combine into Comparison group
+      type: String
+      
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+      
+    - name: show.mean.error
+      type: Bool
+      title: Show cat's eye for means
+      default: TRUE
+
+    - name: show.raw.data
+      type: Bool
+      title: Show raw data
+      default: TRUE
+      
+    - name: ylab
+      title: Y-axis label
+      type: String
+      
+    - name: contrast.colors
+      title: Comma-sepeated list of 2 contrast colors
+      type: String
+      default: blue, green
+...

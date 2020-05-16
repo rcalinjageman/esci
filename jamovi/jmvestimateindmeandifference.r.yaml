@@ -1,0 +1,66 @@
+---
+name:  jmvEstimateIndMeanDifference
+title: Estimate Independent Mean Difference
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: FALSE
+
+    - name:  ctmTable
+      title: Compare Two Means
+      visible: FALSE
+      type: Table
+      rows:  3
+      columns:
+        - name: Condition
+          type: text
+        - name: m
+          type: number
+        - name: CI_low
+          type: number
+        - name: CI_high
+          type: number
+        - name: s
+          type: number
+        - name: n
+          type: integer
+
+    - name:  notes
+      title: Notes
+      visible: FALSE
+      type:  Html
+
+    - name:  smd
+      title: Standardized Mean Difference
+      visible: FALSE
+      type:  Html
+
+    - name:  decisionMakingText
+      title: Decision Making
+      visible: FALSE
+      type:  Preformatted
+
+    - name:  decisionMaking
+      visible: FALSE
+      title: t-table
+      type: Table
+      rows:  1
+      columns:
+        - name: t
+          type: number
+        - name: df
+          type: number
+        - name: p
+          type: number
+      
+    - name: plot
+      visible: FALSE
+      title: Descriptives Plot
+      type: Image
+      width:  500
+      height: 600
+      renderFun: .plot
+...

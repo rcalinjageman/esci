@@ -1,0 +1,104 @@
+---
+name:  jmvEstimateProportionDifference
+title: Estimate Proportion Difference
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      type: List
+      default: fromraw
+      options:
+        - name: fromraw
+          title: Analyze raw data
+        - name: fromsummary
+          title: Enter summary data
+
+    - name: data
+      type: Data
+
+    - name: measure1
+      title: Outcome variable
+      type: Variable
+
+    - name: measure2
+      title: Category variable
+      type: Variable
+      
+    - name: na.rm
+      type: Bool
+      title: Remove NA data (checked) or not (not-checked)
+      default: true
+      
+    - name: case.level
+      type: String
+      title: Case level (numeric or name of)
+
+    - name: category.level
+      type: String
+      title: Classification level (numeric or name of)
+
+    - name: cases1
+      title: Cases2
+      type: Integer
+
+    - name: n1
+      title: N2
+      type: Integer
+      
+    - name: cases2
+      title: Cases1
+      type: Integer
+
+    - name: n2
+      title: N1
+      type: Integer
+
+    - name: caselabel1
+      title: Case label
+      type: String
+      default: Affected
+      
+    - name: caselabel2
+      title: Not case label
+      type: String
+      default: Not affected
+
+    - name: grouplabel1
+      title: 'Label 2'
+      type: String
+      default: Group 1
+      
+    - name: grouplabel2
+      title: 'Label 1'
+      type: String
+      default: Group 2
+
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+      
+    - name: ylab
+      title: y-axis label
+      type: String
+      default: auto
+
+    - name: xlab
+      title: x-axis label
+      type: String
+      default: auto
+
+    - name: ropeBottom
+      title: Region of Practical Equivalence (ROPE) Bottom
+      type: String
+      default: none
+
+    - name: ropeTop
+      title: Region of Practical Equivalence (ROPE) Top
+      type: String
+      default: none
+...

@@ -1,0 +1,55 @@
+---
+name:  jmvComplexTwoByTwo
+title: Estimate Ind. 2x2
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: TRUE
+
+    - name:  means_table
+      title: Descriptive Statistics
+      visible: TRUE
+      type: Table
+      rows:  0
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name:  contrast_table
+      title: Contrasts
+      visible: TRUE
+      type: Table
+      rows:  0
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name: ME1_plot
+      title: Main Effect 1 Plot
+      visible: FALSE
+      type: Image
+      width:  600
+      height: 350
+      renderFun: .ME1plot  
+      
+    - name: ME2_plot
+      title: Main Effect 2 Plot
+      visible: FALSE
+      type: Image
+      width:  600
+      height: 350
+      renderFun: .ME2plot  
+    
+    - name: Int_plot
+      title: Interaction Plot
+      visible: FALSE
+      type: Image
+      width:  600
+      height: 350
+      renderFun: .Intplot  
+...

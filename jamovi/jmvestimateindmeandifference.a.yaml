@@ -1,0 +1,131 @@
+---
+name:  jmvEstimateIndMeanDifference
+title: Estimate Ind. Mean Difference
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      type: List
+      default: fromraw
+      options:
+        - name: fromraw
+          title: Analyze raw data
+        - name: fromsummary
+          title: Enter summary data
+
+    - name: data
+      type: Data
+
+    - name: y
+      title: Dependent Variable
+      type: Variable
+
+    - name: x
+      title: Grouping Variable
+      type: Variable
+
+    - name: reference.group
+      title: Switch comparison order
+      type: Bool
+      default: false
+
+    - name: m1
+      title: m1
+      type: Number
+
+    - name: m2
+      title: m2
+      type: Number
+
+    - name: s1
+      title: s1
+      type: Number
+
+    - name: s2
+      title: s2
+      type: Number
+
+    - name: n1
+      title: n1
+      type: Number
+
+    - name: n2
+      title: n2
+      type: Number
+
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+
+    - name: var.equal
+      title: Assume equal variances
+      type: Bool
+      default: true
+
+    - name: ymin
+      title: y-axis minimum
+      type: String
+      default: auto
+
+    - name: ymax
+      title: y-axis maxmimum
+      type: String
+      default: auto
+      
+    - name: ylab
+      title: y-axis label
+      type: String
+
+    - name: xlab
+      title: x-axis label
+      type: String
+      
+    - name: g1lab
+      title: Group 1 label
+      type: String
+      default: auto
+
+    - name: g2lab
+      title: Group 2 label
+      type: String
+      default: auto
+      
+    - name: g1color
+      title: Group 1 color
+      type: String
+      default: white
+
+    - name: g2color
+      title: Group 2 color
+      type: String
+      default: gray75
+    
+    - name: bsize
+      type: Number
+      title: Point Size
+      min: .50
+      max: 10
+      default: 2
+      
+    - name: bcex
+      type: Number
+      title: Swarm Clustering
+      min: .50
+      max: 10
+      default: 1
+
+    - name: ropeBottom
+      title: Region of Practical Equivalence (ROPE) Bottom
+      type: String
+      default: none
+
+    - name: ropeTop
+      title: Region of Practical Equivalence (ROPE) Top
+      type: String
+      default: none
+...

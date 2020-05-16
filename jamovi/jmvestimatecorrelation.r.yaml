@@ -1,0 +1,39 @@
+---
+name:  jmvEstimateCorrelation
+title: Estimate Correlation
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errors
+      type:  Preformatted
+      visible: FALSE
+
+    - name:  summary_table
+      title: Estimated Correlation
+      type: Table
+      visible: FALSE
+      rows:  1
+      columns:
+        - name: var
+          title: Relationship
+          type: text
+
+    - name: scatter_plot
+      title: Scatter Plot
+      visible: FALSE
+      type: Image
+      width:  400
+      height: 400
+      renderFun: .plot  
+
+    - name: correlation_plot
+      title: Correlation Plot
+      visible: FALSE
+      type: Image
+      width:  300
+      height: 530
+      renderFun: .plot  
+
+
+...

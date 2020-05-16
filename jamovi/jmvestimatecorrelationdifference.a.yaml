@@ -1,0 +1,75 @@
+---
+name:  jmvEstimateCorrelationDifference
+title: Estimate Correlation Difference
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      type: List
+      default: fromraw
+      options:
+        - name: fromraw
+          title: Analyze raw data
+        - name: fromsummary
+          title: Enter summary data
+          
+    - name: data
+      type: Data
+
+    - name: dv
+      title: Variable to Predict (Y)
+      type: Variable
+
+    - name: iv
+      title: Predictor variable (X)
+      type: Variable
+
+    - name: group
+      title: Categorical moderator
+      type: Variable
+
+    - name: r1
+      title: r1
+      type: Number
+
+    - name: n1
+      title: N1
+      type: Integer
+      
+    - name: r2
+      title: r2
+      type: Number
+
+    - name: n2
+      title: N2
+      type: Integer
+
+    - name: grouplabel1
+      title: 'Label 1'
+      type: String
+      default: Group 1
+      
+    - name: grouplabel2
+      title: 'Label 2'
+      type: String
+      default: Group 2
+      
+    - name: varlabel1
+      title: 'Variable 1 Label'
+      type: String
+      default: Variable 1
+      
+    - name: varlabel2
+      title: 'Variable 2 Label'
+      type: String
+      default: Variable 2
+
+    - name: conf.level
+      type: Number
+      title: Confidence level
+      min: .50
+      max: .999999
+      default: .95
+...

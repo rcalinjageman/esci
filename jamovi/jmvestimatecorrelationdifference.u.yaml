@@ -1,0 +1,105 @@
+title: Estimate Correlation Difference
+name: jmvEstimateCorrelationDifference
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: LayoutBox
+    margin: large
+    style: inline
+    children:
+      - type: RadioButton
+        name: switchr
+        optionName: switch
+        optionPart: fromraw
+      - type: RadioButton
+        name: switchs
+        optionName: switch
+        optionPart: fromsummary
+  - type: CollapseBox
+    label: Work with raw data
+    name: rpanel
+    collapsed: false
+    children:
+      - type: VariableSupplier
+        persistentItems: false
+        stretchFactor: 1
+        children:
+          - type: TargetLayoutBox
+            label: Variable to Predict (Y)
+            children:
+              - type: VariablesListBox
+                name: dv
+                maxItemCount: 1
+                isTarget: true
+          - type: TargetLayoutBox
+            label: Predictor variable (X)
+            children:
+              - type: VariablesListBox
+                name: iv
+                maxItemCount: 1
+                isTarget: true
+          - type: TargetLayoutBox
+            label: Categorical moderator
+            children:
+              - type: VariablesListBox
+                name: group
+                maxItemCount: 1
+                isTarget: true
+  - type: CollapseBox
+    label: Work with summary data
+    name: spanel
+    collapsed: true
+    children:
+      - type: Label
+        label: Group 1 Data (Reference Group)
+        children:
+          - type: LayoutBox
+            margin: large
+            style: inline
+            children:
+              - type: TextBox
+                name: grouplabel1
+                format: string
+              - type: TextBox
+                name: r1
+                format: number
+              - type: TextBox
+                name: n1
+                format: number
+      - type: Label
+        label: Group 2 Data (Comparison Group)
+        children:
+          - type: LayoutBox
+            margin: large
+            style: inline
+            children:
+              - type: TextBox
+                name: grouplabel2
+                format: string
+              - type: TextBox
+                name: r2
+                format: number
+              - type: TextBox
+                name: n2
+                format: number
+      - type: Label
+        label: Correlated variable labels (optional)
+        children:
+          - type: LayoutBox
+            margin: large
+            style: inline
+            children:
+              - type: TextBox
+                name: varlabel1
+                format: string
+              - type: TextBox
+                name: varlabel2
+                format: string
+  - type: Label
+    label: Other analysis options
+    margin: large
+    children:
+      - type: TextBox
+        name: conf.level
+        format: number

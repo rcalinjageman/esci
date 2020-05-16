@@ -1,0 +1,39 @@
+---
+name:  jmvMetaAnalysisR
+title: Meta-Analysis - r
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Instructions/Errros
+      type:  Preformatted
+      visible: TRUE
+      
+    - name:  result_table
+      title: Meta-Analysis Results
+      visible: TRUE
+      type: Table
+      rows:  0
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name:  study_table
+      title: Table of Studies
+      visible: TRUE
+      type: Table
+      rows:  0
+      columns:
+        - name: label
+          title: Label
+          type: text
+
+    - name: forest_plot
+      title: Forest Plot
+      visible: TRUE
+      type: Image
+      width:  500
+      height: 800
+      renderFun: .plot 
+...

@@ -1,0 +1,100 @@
+---
+title: Effect Sizes and Confidence Intervals for R and Jamovi
+name: esci
+version: 0.1.1
+jms: '1.0'
+authors:
+  - Robert J Calin-Jageman
+maintainer: Robert J Calin-Jageman <rcalinjageman@dom.edu>
+date: '2019-06-01'
+type: R
+description: >-
+  This module is for estimation, providing analyses that focus on effect sizes,
+  uncertainty, and synthesis.  This module is designed for ease of use and 
+  provides high-quality visualizations that emphasize effect sizes and
+  uncertainty.</br></br> 
+
+  Currently, all analyses are frequentist, returning confidence
+  intervals.</br></br> 
+
+  This is alpha release.  Please submit feedback, bug reports, and feature
+  requests via the links provided <a href =
+  'https://thenewstatistics.com/itns/esci/jesci/'>here</a>: <a href =
+  'https://thenewstatistics.com/itns/esci/jesci/'>https://thenewstatistics.com/itns/esci/jesci/.</a>
+analyses:
+  - title: Estimate Mean
+    name: onemean
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Means
+    menuTitle: Estimate Mean
+  - title: Estimate Ind. Mean Difference
+    name: jmvEstimateIndMeanDifference
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Means
+    menuTitle: Estimate Ind. Mean Difference
+  - title: Estimate Paired Mean Difference
+    name: jmvEstimatePairedMeanDifference
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Means
+    menuTitle: Estimate Paired Mean Difference
+  - title: Estimate Proportion
+    name: jmvEstimateProportion
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Proportions
+    menuTitle: Estimate Proportion
+  - title: Estimate Proportion Difference
+    name: jmvEstimateProportionDifference
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Proportions
+    menuTitle: Estimate Proportion Difference
+  - title: Estimate Correlation
+    name: jmvEstimateCorrelation
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Correlations
+    menuTitle: Estimate Correlation
+  - title: Estimate Correlation Difference
+    name: jmvEstimateCorrelationDifference
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Correlations
+    menuTitle: Estimate Correlation Difference
+  - title: Estimate Ind. Groups Contrasts
+    name: jmvIndContrasts
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Complex Designs
+    menuTitle: Estimate Ind. Groups Contrasts
+  - title: Estimate Ind. 2x2
+    name: jmvComplexTwoByTwo
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Complex Designs
+    menuTitle: Estimate Ind. 2x2
+  - title: Meta-Analysis - Raw Scores
+    name: jmvMetaAnalysisRaw
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Meta-Analysis
+    menuTitle: Meta-Analysis - Raw Scores
+  - title: Meta-Analysis - Cohen d
+    name: jmvMetaAnalysisCohensd
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Meta-Analysis
+    menuTitle: Meta-Analysis - Cohen d
+  - title: Meta-Analysis - r
+    name: jmvMetaAnalysisR
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Meta-Analysis
+    menuTitle: Meta-Analysis - r
+usesNative: true
+minApp: 1.0.8
+
+...
