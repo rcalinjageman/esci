@@ -17,7 +17,7 @@ jmvMetaAnalysisRawOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             REorFE = "RE",
             g1label = NULL,
             g2label = NULL,
-            conf.level = 0.95,
+            conf.level = 95,
             report.cohens.d = FALSE,
             show.study.table = FALSE,
             explainDR = FALSE, ...) {
@@ -68,9 +68,9 @@ jmvMetaAnalysisRawOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..report.cohens.d <- jmvcore::OptionBool$new(
                 "report.cohens.d",
                 report.cohens.d,
@@ -148,7 +148,7 @@ jmvMetaAnalysisRawResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Meta-Analysis - Raw Scores")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errros",
@@ -225,7 +225,7 @@ jmvMetaAnalysisRawBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param explainDR .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$result_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$study_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$forest_plot} \tab \tab \tab \tab \tab an image \cr
@@ -251,7 +251,7 @@ jmvMetaAnalysisRaw <- function(
     REorFE = "RE",
     g1label,
     g2label,
-    conf.level = 0.95,
+    conf.level = 95,
     report.cohens.d = FALSE,
     show.study.table = FALSE,
     explainDR = FALSE) {

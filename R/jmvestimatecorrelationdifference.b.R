@@ -57,7 +57,7 @@ two levels of the cateogrical moderator.  If the categorical moderator has more 
                                                                       x = !!self$options$iv, 
                                                                       y = !!self$options$dv, 
                                                                       group = !!self$options$group,
-                                                                      conf.level = self$options$conf.level
+                                                                      conf.level = self$options$conf.level/100
                     ))
                 }
             } else {
@@ -91,7 +91,7 @@ can help make the results easier to understand.
                                                                   n2 = self$options$n2,
                                                                   group.labels = c(self$options$grouplabel1, self$options$grouplabel2),
                                                                   variable.labels = c(self$options$varlabel1, self$options$varlabel2),
-                                                                  conf.level = self$options$conf.level
+                                                                  conf.level = self$options$conf.level/100
                 ))
                 
             }
@@ -120,7 +120,7 @@ ERROR:
             
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                 
                                 
@@ -136,11 +136,11 @@ ERROR:
                 table$addColumn(name = "ci.low", 
                                 title = "ci.low", 
                                 type = 'number', 
-                                superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "ci.high", 
                                 title = "ci.high", 
-                                type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "n", title = "n", type = 'number')
     
@@ -162,12 +162,12 @@ ERROR:
                     table$addColumn(name = "ci.low", 
                                     title = "ci.low", 
                                     type = 'number', 
-                                    superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                    superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                     )
                     table$addColumn(name = "ci.high", 
                                     title = "ci.high", 
                                     type = 'number', 
-                                    superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                    superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                     )
                     table$addColumn(name = "n", title = "n", type = 'number')
                             
@@ -192,7 +192,7 @@ ERROR:
             if (is.null(image$state) | self$options$switch != "fromraw")
                 return(FALSE)
             plot <- plotScatterPlot(estimate, show.line = TRUE)                
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         },
         .plotCP=function(image, ...) {  # <-- the plot function
@@ -201,7 +201,7 @@ ERROR:
                 return(FALSE)
             plot <- plotCorrelationDifference(estimate, show.cat.eye = FALSE)
 
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         })
 )

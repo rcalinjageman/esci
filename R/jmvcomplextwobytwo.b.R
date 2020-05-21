@@ -32,7 +32,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
             
             if(run.analysis) {
-                estimate <- estimateComplex_2x2.default(data = self$data, dv = !!self$options$dep, iv1 = !!self$options$group1, iv2 = !!self$options$group2, conf.level = self$options$conf.level)
+                estimate <- estimateComplex_2x2.default(data = self$data, dv = !!self$options$dep, iv1 = !!self$options$group1, iv2 = !!self$options$group2, conf.level = self$options$conf.level/100)
                 
                 # Store result opbject for use with the graph
                 image <- self$results$ME1_plot
@@ -46,9 +46,9 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 # Setup the means_table, adding a column for each column we will report
                 table <- self$results$means_table
                 table$addColumn(name = "m", title = "m", type = 'number')
-                table$addColumn(name = "moe", title = paste(format(self$options$conf.level * 100, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
+                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 table$addColumn(name = "s", title = "s", type = 'number')
                 table$addColumn(name = "n", title = "N", type = 'integer')
                 
@@ -74,9 +74,9 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 # Now the same process with the contrast table--add columns and rows, then fill in table
                 table <- self$results$contrast_table
                 table$addColumn(name = "m", title = "m", type = 'number')
-                table$addColumn(name = "moe", title = paste(format(self$options$conf.level * 100, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
+                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 table$addColumn(name = "pvalue", title = "p.value", type = 'number')
                 
                 for(x in 1:length(corder)) {
@@ -96,7 +96,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
             } else {
                 # We didn't run the analysis.  Let's set the error text
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             }
             
         },
@@ -110,7 +110,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 }
 
                 plot <- plotContrast(estimate, contrast_number = 1, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
-                print(plot)
+                print(jmvClearPlotBackground(plot))
                 TRUE
             } else {
                 FALSE
@@ -127,7 +127,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 }
                 
                 plot <- plotContrast(estimate, contrast_number = 2, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
-                print(plot)
+                print(jmvClearPlotBackground(plot))
                 TRUE
             } else {
                 FALSE
@@ -145,7 +145,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 }
                 
                 plot <- plotContrast(estimate, contrast_number = 3, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
-                print(plot)
+                print(jmvClearPlotBackground(plot))
                 TRUE
             } else {
                 FALSE

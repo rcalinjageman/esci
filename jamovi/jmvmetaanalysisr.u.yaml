@@ -30,7 +30,7 @@ children:
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Categorical Moderator (optional)
+        label: Categorical moderator (optional)
         children:
           - type: VariablesListBox
             name: moderator

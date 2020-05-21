@@ -38,7 +38,7 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                                                        label = !!self$options$labels,
                                                        moderator = !!self$options$moderator,
                                                        random.effects = (self$options$REorFE == "RE"),
-                                                       conf.level = self$options$conf.level)
+                                                       conf.level = self$options$conf.level/100)
                 
                 # Store the estimate for the plot
                 image <- self$results$forest_plot
@@ -51,15 +51,15 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 table <- self$results$result_table
                 table$addColumn(name = "effect.size", title = eslabel, type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 table$addColumn(name = "p.value", title = "p.value", type = 'number')
                 table$addColumn(name = "diamond.ratio", title = "Diamond Ratio", type = 'number')
-                table$addColumn(name = "dr.low", title = "dr.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI"))
-                table$addColumn(name = "dr.high", title = "dr.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI"))
+                table$addColumn(name = "dr.low", title = "dr.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI"))
+                table$addColumn(name = "dr.high", title = "dr.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI"))
                 # table$addColumn(name = "I2", title = "I^2", type = 'number')
-                # table$addColumn(name = "I2.low", title = "I^2.ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                # table$addColumn(name = "I2.high", title = "I^2.ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                # table$addColumn(name = "I2.low", title = "I^2.ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                # table$addColumn(name = "I2.high", title = "I^2.ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 
                 reporttable <- nrow(estimate$result_table)
                 if(!is.null(self$options$moderator) & reporttable > 4) { reporttable <- reporttable-1}
@@ -85,8 +85,8 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 if(self$options$show.study.table) {
                     table <- self$results$study_table
                     table$addColumn(name = "effect.size", title = eslabel, type = 'number')
-                    table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                    table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                    table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                    table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                     table$addColumn(name = "N", title = "N", type = 'number')
                     
                     for(x in 1:nrow(estimate$data)) {
@@ -101,7 +101,7 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 
             } else {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             }
             
         },
@@ -109,7 +109,7 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             estimate <- image$state
             
             plot <- plotMetaEffect(estimate, xlims = c(-1, 1))
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         })
 )

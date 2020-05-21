@@ -15,7 +15,7 @@ jmvEstimateCorrelationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             predictx = "none",
             r = NULL,
             n = NULL,
-            conf.level = 0.95,
+            conf.level = 95,
             ylab = NULL,
             xlab = NULL,
             size = 3,
@@ -39,10 +39,14 @@ jmvEstimateCorrelationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                     "fromsummary"))
             private$..dv <- jmvcore::OptionVariable$new(
                 "dv",
-                dv)
+                dv,
+                permitted=list(
+                    "numeric"))
             private$..iv <- jmvcore::OptionVariable$new(
                 "iv",
-                iv)
+                iv,
+                permitted=list(
+                    "numeric"))
             private$..show.line <- jmvcore::OptionBool$new(
                 "show.line",
                 show.line,
@@ -70,9 +74,9 @@ jmvEstimateCorrelationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..ylab <- jmvcore::OptionString$new(
                 "ylab",
                 ylab)
@@ -170,7 +174,7 @@ jmvEstimateCorrelationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Estimate Correlation")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -246,7 +250,7 @@ jmvEstimateCorrelationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param xmax .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$summary_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$scatter_plot} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$correlation_plot} \tab \tab \tab \tab \tab an image \cr
@@ -270,7 +274,7 @@ jmvEstimateCorrelation <- function(
     predictx = "none",
     r,
     n,
-    conf.level = 0.95,
+    conf.level = 95,
     ylab,
     xlab,
     size = 3,

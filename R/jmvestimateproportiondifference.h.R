@@ -20,7 +20,7 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             caselabel2 = "Not affected",
             grouplabel1 = "Group 1",
             grouplabel2 = "Group 2",
-            conf.level = 0.95,
+            conf.level = 95,
             ylab = "auto",
             xlab = "auto",
             ropeBottom = "none",
@@ -86,9 +86,9 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..ylab <- jmvcore::OptionString$new(
                 "ylab",
                 ylab,
@@ -181,7 +181,7 @@ jmvEstimateProportionDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 options=options,
                 name="",
                 title="Estimate Proportion Difference")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -251,7 +251,7 @@ jmvEstimateProportionDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
 #' @param ropeTop .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$summary_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$proportion_plot} \tab \tab \tab \tab \tab an image \cr
 #' }
@@ -279,7 +279,7 @@ jmvEstimateProportionDifference <- function(
     caselabel2 = "Not affected",
     grouplabel1 = "Group 1",
     grouplabel2 = "Group 2",
-    conf.level = 0.95,
+    conf.level = 95,
     ylab = "auto",
     xlab = "auto",
     ropeBottom = "none",

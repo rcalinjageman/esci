@@ -6,7 +6,7 @@ jrs:   '1.1'
 items:
     - name:  text
       title: Instructions/Errros
-      type:  Preformatted
+      type:  Html
       visible: TRUE
       
     - name:  result_table

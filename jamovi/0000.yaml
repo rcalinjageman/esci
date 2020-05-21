@@ -28,12 +28,12 @@ analyses:
     menuGroup: esci
     menuSubgroup: Means
     menuTitle: Estimate Mean
-  - title: Estimate Ind. Mean Difference
+  - title: Estimate Independent Mean Difference
     name: jmvEstimateIndMeanDifference
     ns: esci
     menuGroup: esci
     menuSubgroup: Means
-    menuTitle: Estimate Ind. Mean Difference
+    menuTitle: Estimate Independent Mean Difference
   - title: Estimate Paired Mean Difference
     name: jmvEstimatePairedMeanDifference
     ns: esci

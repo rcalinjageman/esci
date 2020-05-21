@@ -55,7 +55,7 @@ be plotted in the proportion plot.
                     estimate <- try(estimateProportion.default(data = self$data, 
                                                            !!self$options$measure1, 
                                                            case.level = case.level, 
-                                                           conf.level = self$options$conf.level, 
+                                                           conf.level = self$options$conf.level/100, 
                                                            na.rm = self$options$na.rm))
                 }
             } else {
@@ -96,7 +96,7 @@ the not case label would be 'returning student'.
                 estimate <- try(estimateProportion.numeric(cases = self$options$cases, 
                                                        n = self$options$n, 
                                                        caselabels = c(caselabel1, caselabel2), 
-                                                       conf.level = self$options$conf.level
+                                                       conf.level = self$options$conf.level/100
                                 ))
                 
             }
@@ -126,14 +126,14 @@ ERROR:
             self$results$proportion_plot$setVisible(run.analysis)
 
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {                
                 table <- self$results$summary_table
                 table$addColumn(name = "cases", title = "Cases", type = 'integer')
                 table$addColumn(name = "n", title = "Total N", type = 'integer')
                 table$addColumn(name = "P", title = "P", type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 
                 if (self$options$switch == "fromraw") {
                     counter <- 1
@@ -217,7 +217,7 @@ ERROR:
                                          xlab = xlab,
                                          rope = rope
                 )
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         },
         .bplot=function(image, ...) {
@@ -228,7 +228,7 @@ ERROR:
             
             if (class(estimate) == "estimate") {
                 plot <- barplot(estimate$all_result$cases, names=estimate$all_result$level)
-                print(plot)
+                print(jmvClearPlotBackground(plot))
             }
             TRUE
         }

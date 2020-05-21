@@ -16,7 +16,7 @@ jmvEstimatePairedMeanDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             s2 = NULL,
             n1 = NULL,
             r = NULL,
-            conf.level = 0.95,
+            conf.level = 95,
             var.equal = TRUE,
             ymin = "auto",
             ymax = "auto",
@@ -75,9 +75,9 @@ jmvEstimatePairedMeanDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..var.equal <- jmvcore::OptionBool$new(
                 "var.equal",
                 var.equal,
@@ -227,7 +227,7 @@ jmvEstimatePairedMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 options=options,
                 name="",
                 title="Estimate Paired Mean Difference")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -347,7 +347,7 @@ jmvEstimatePairedMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
 #' @param ropeTop .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$ctmTable} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$notes} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$smd} \tab \tab \tab \tab \tab a html \cr
@@ -375,7 +375,7 @@ jmvEstimatePairedMeanDifference <- function(
     s2,
     n1,
     r,
-    conf.level = 0.95,
+    conf.level = 95,
     var.equal = TRUE,
     ymin = "auto",
     ymax = "auto",

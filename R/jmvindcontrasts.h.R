@@ -15,7 +15,7 @@ jmvIndContrastsOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             ns = NULL,
             ref_labels = NULL,
             comparison_labels = NULL,
-            conf.level = 0.95,
+            conf.level = 95,
             show.mean.error = TRUE,
             show.raw.data = TRUE,
             ylab = NULL,
@@ -61,9 +61,9 @@ jmvIndContrastsOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..show.mean.error <- jmvcore::OptionBool$new(
                 "show.mean.error",
                 show.mean.error,
@@ -141,7 +141,7 @@ jmvIndContrastsResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Estimate Ind. Groups Contrasts")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -217,7 +217,7 @@ jmvIndContrastsBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param contrast.colors .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$means_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$contrast_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$contrast_plot} \tab \tab \tab \tab \tab an image \cr
@@ -241,7 +241,7 @@ jmvIndContrasts <- function(
     ns,
     ref_labels,
     comparison_labels,
-    conf.level = 0.95,
+    conf.level = 95,
     show.mean.error = TRUE,
     show.raw.data = TRUE,
     ylab,

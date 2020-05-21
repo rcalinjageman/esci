@@ -11,7 +11,7 @@ jmvMetaAnalysisROptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             n = NULL,
             moderator = NULL,
             REorFE = "RE",
-            conf.level = 0.95,
+            conf.level = 95,
             show.study.table = FALSE, ...) {
 
             super$initialize(
@@ -42,9 +42,9 @@ jmvMetaAnalysisROptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..show.study.table <- jmvcore::OptionBool$new(
                 "show.study.table",
                 show.study.table,
@@ -90,7 +90,7 @@ jmvMetaAnalysisRResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Meta-Analysis - r")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errros",
@@ -159,7 +159,7 @@ jmvMetaAnalysisRBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param show.study.table .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$result_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$study_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$forest_plot} \tab \tab \tab \tab \tab an image \cr
@@ -179,7 +179,7 @@ jmvMetaAnalysisR <- function(
     n,
     moderator,
     REorFE = "RE",
-    conf.level = 0.95,
+    conf.level = 95,
     show.study.table = FALSE) {
 
     if ( ! requireNamespace('jmvcore'))

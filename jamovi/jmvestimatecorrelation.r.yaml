@@ -6,7 +6,7 @@ jrs:   '1.1'
 items:
     - name:  text
       title: Instructions/Errors
-      type:  Preformatted
+      type:  Html
       visible: FALSE
 
     - name:  summary_table

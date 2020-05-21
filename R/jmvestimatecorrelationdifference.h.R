@@ -18,7 +18,7 @@ jmvEstimateCorrelationDifferenceOptions <- if (requireNamespace('jmvcore')) R6::
             grouplabel2 = "Group 2",
             varlabel1 = "Variable 1",
             varlabel2 = "Variable 2",
-            conf.level = 0.95, ...) {
+            conf.level = 95, ...) {
 
             super$initialize(
                 package='esci',
@@ -73,9 +73,9 @@ jmvEstimateCorrelationDifferenceOptions <- if (requireNamespace('jmvcore')) R6::
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
 
             self$.addOption(private$..switch)
             self$.addOption(private$..dv)
@@ -136,7 +136,7 @@ jmvEstimateCorrelationDifferenceResults <- if (requireNamespace('jmvcore')) R6::
                 options=options,
                 name="",
                 title="Estimate Correlation Difference")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errros",
@@ -215,7 +215,7 @@ jmvEstimateCorrelationDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6C
 #' @param conf.level .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$result_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$allrs} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$scatter_plot} \tab \tab \tab \tab \tab an image \cr
@@ -243,7 +243,7 @@ jmvEstimateCorrelationDifference <- function(
     grouplabel2 = "Group 2",
     varlabel1 = "Variable 1",
     varlabel2 = "Variable 2",
-    conf.level = 0.95) {
+    conf.level = 95) {
 
     if ( ! requireNamespace('jmvcore'))
         stop('jmvEstimateCorrelationDifference requires jmvcore to be installed (restart may be required)')

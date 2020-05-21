@@ -1,6 +1,6 @@
 ---
 name:  jmvEstimateIndMeanDifference
-title: Estimate Ind. Mean Difference
+title: Estimate Independent Mean Difference
 menuGroup: esci
 version: '1.0.0'
 jas: '1.2'
@@ -19,11 +19,11 @@ options:
       type: Data
 
     - name: y
-      title: Dependent Variable
+      title: Dependent variable
       type: Variable
 
     - name: x
-      title: Grouping Variable
+      title: Grouping variable
       type: Variable
 
     - name: reference.group
@@ -58,9 +58,9 @@ options:
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
 
     - name: var.equal
       title: Assume equal variances
@@ -107,25 +107,25 @@ options:
     
     - name: bsize
       type: Number
-      title: Point Size
+      title: Point size
       min: .50
       max: 10
       default: 2
       
     - name: bcex
       type: Number
-      title: Swarm Clustering
+      title: Swarm clustering
       min: .50
       max: 10
       default: 1
 
     - name: ropeBottom
-      title: Region of Practical Equivalence (ROPE) Bottom
+      title: Region of Practical Equivalence (ROPE) bottom
       type: String
       default: none
 
     - name: ropeTop
-      title: Region of Practical Equivalence (ROPE) Top
+      title: Region of Practical Equivalence (ROPE) top
       type: String
       default: none
 ...

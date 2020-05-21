@@ -19,12 +19,16 @@ options:
       type: Data
 
     - name: dv
-      title: Variable to Predict (Y)
+      title: Variable to predict (Y)
       type: Variable
+      permitted:
+        - numeric
 
     - name: iv
       title: Predictor variable (X)
       type: Variable
+      permitted:
+        - numeric
 
     - name: show.line
       title: Show regression line
@@ -37,7 +41,7 @@ options:
       default: false
 
     - name: show.PI
-      title: Show Prediction Intervals
+      title: Prediction intervals
       type: Bool
       default: false
 
@@ -59,9 +63,9 @@ options:
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
     
     - name: ylab
       title: y-axis label

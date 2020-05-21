@@ -28,7 +28,7 @@ point size to improve the appearance of the dotplot.
 
 "
             
-            conf.level <- jmvSanitizeOption(self$options$conf.level, 0.95, type.numeric = TRUE, vrange = c(0.5,1))
+            conf.level <- self$options$conf.level/100
 
             if(is.null(self$options$measure1)) {
                 run.analysis <- FALSE
@@ -68,7 +68,7 @@ ERROR:
             self$results$estimate$setVisible(run.analysis)
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                            
                 table <- self$results$descriptives
@@ -104,7 +104,7 @@ ERROR:
             
             estimate <- image$state
             
-            if(self$options$dot.plot) {
+            if(self$options$plottype == "dotplot") {
                 plottype <- "Dotplot" 
             } else {
                 plottype <- "Histogram"
@@ -160,7 +160,7 @@ ERROR:
                                               bsize = size + 1
                                               )
                 }
-                print(plot)
+                print(jmvClearPlotBackground(plot))
             }
             TRUE
         })

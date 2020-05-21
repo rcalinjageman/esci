@@ -16,7 +16,7 @@ jmvEstimateIndMeanDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R6Cl
             s2 = NULL,
             n1 = NULL,
             n2 = NULL,
-            conf.level = 0.95,
+            conf.level = 95,
             var.equal = TRUE,
             ymin = "auto",
             ymax = "auto",
@@ -75,9 +75,9 @@ jmvEstimateIndMeanDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R6Cl
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..var.equal <- jmvcore::OptionBool$new(
                 "var.equal",
                 var.equal,
@@ -227,7 +227,7 @@ jmvEstimateIndMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R6Cl
                 options=options,
                 name="",
                 title="Estimate Independent Mean Difference")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -317,7 +317,7 @@ jmvEstimateIndMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class
                 requiresMissings = FALSE)
         }))
 
-#' Estimate Ind. Mean Difference
+#' Estimate Independent Mean Difference
 #'
 #' 
 #' @param switch .
@@ -347,7 +347,7 @@ jmvEstimateIndMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class
 #' @param ropeTop .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$ctmTable} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$notes} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$smd} \tab \tab \tab \tab \tab a html \cr
@@ -375,7 +375,7 @@ jmvEstimateIndMeanDifference <- function(
     s2,
     n1,
     n2,
-    conf.level = 0.95,
+    conf.level = 95,
     var.equal = TRUE,
     ymin = "auto",
     ymax = "auto",

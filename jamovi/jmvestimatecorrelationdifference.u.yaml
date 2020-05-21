@@ -17,7 +17,7 @@ children:
         optionName: switch
         optionPart: fromsummary
   - type: CollapseBox
-    label: Work with raw data
+    label: Work With Raw Data
     name: rpanel
     collapsed: false
     children:
@@ -26,7 +26,7 @@ children:
         stretchFactor: 1
         children:
           - type: TargetLayoutBox
-            label: Variable to Predict (Y)
+            label: Variable to predict (Y)
             children:
               - type: VariablesListBox
                 name: dv
@@ -47,7 +47,7 @@ children:
                 maxItemCount: 1
                 isTarget: true
   - type: CollapseBox
-    label: Work with summary data
+    label: Work With Summary Data
     name: spanel
     collapsed: true
     children:

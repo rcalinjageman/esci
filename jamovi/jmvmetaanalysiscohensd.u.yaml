@@ -23,21 +23,21 @@ children:
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Group 1 Sample Sizes
+        label: Group 1 sample sizes
         children:
           - type: VariablesListBox
             name: n1
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Group 2 Sample Sizes
+        label: Group 2 sample sizes
         children:
           - type: VariablesListBox
             name: n2
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Categorical Moderator (optional)
+        label: Categorical moderator (optional)
         children:
           - type: VariablesListBox
             name: moderator

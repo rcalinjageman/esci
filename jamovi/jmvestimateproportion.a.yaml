@@ -45,16 +45,16 @@ options:
       default: Affected
       
     - name: caselabel2
-      title: Not case label
+      title: Not-case label
       type: String
       default: Not affected
 
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
       
     - name: ylab
       title: y-axis label
@@ -67,12 +67,12 @@ options:
       default: auto
 
     - name: ropeBottom
-      title: Region of Practical Equivalence (ROPE) Bottom
+      title: Region of Practical Equivalence (ROPE) bottom
       type: String
       default: none
 
     - name: ropeTop
-      title: Region of Practical Equivalence (ROPE) Top
+      title: Region of Practical Equivalence (ROPE) top
       type: String
       default: none
 ...

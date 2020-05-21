@@ -10,45 +10,51 @@ options:
       type: Data
 
     - name: dep
-      title: Dependent Variable
+      title: Dependent variable
       type: Variable
+      permitted:
+        - numeric
 
     - name: group1
-      title: Independent Variable 1
+      title: Independent variable 1
       type: Variable
+      permitted:
+        - factor
 
     - name: group2
-      title: Independent Variable 2
+      title: Independent variable 2
       type: Variable
+      permitted:
+        - factor
 
     - name: MEorInt
       title: Analysis focus
       type: List
       options:
         - name: fME
-          title: Focus on Main Effects
+          title: Main effects
         - name: fInt
-          title: Focus on Interaction
+          title: Interaction
       default: fInt
 
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
       
     - name: show.mean.error
       type: Bool
-      title: Show cat's eye for means
+      title: Cat's eye for means
       default: FALSE
 
     - name: show.raw.data
       type: Bool
-      title: Show raw data
+      title: Raw data
       default: FALSE
       
     - name: ylab
-      title: Y-axis label
+      title: y-axis label
       type: String
 ...

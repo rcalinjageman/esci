@@ -57,7 +57,7 @@ from the same set of participants/observations as measure 1.
                                                                        reference.group = reference.group, 
                                                                        paired=TRUE, 
                                                                        var.equal = self$options$var.equal, 
-                                                                       conf.level = self$options$conf.level
+                                                                       conf.level = self$options$conf.level/100
                                                                        )
                                     )
                 }                
@@ -88,7 +88,7 @@ output (Measure 1 label and Measure 2 label).
                                                                     n1 = self$options$n1, 
                                                                     r = self$options$r,
                                                                     paired=TRUE, var.equal = self$options$var.equal, 
-                                                                    conf.level = self$options$conf.level,
+                                                                    conf.level = self$options$conf.level/100,
                                                                     labels = c(g2label, g1label)
                                                                     )
                                 )    
@@ -121,7 +121,7 @@ ERROR:
             self$results$decisionMaking$setVisible(run.analysis)
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                 # Report smd and notes
                 self$results$smd$setContent(paste("<h2>Standardized Mean Difference</h2>", estimate$html_d, estimate$html_summary))
@@ -186,7 +186,7 @@ ERROR:
                                             bcex = self$options$bcex, 
                                             bsize = self$options$bsize
                                             )
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         })
 )

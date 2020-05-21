@@ -56,7 +56,7 @@ Be sure the X value you enter is within the range of the X values used for the a
                     estimate <- try(estimateCorrelation.default(data = self$data, 
                                                             !!self$options$iv, 
                                                             !!self$options$dv, 
-                                                            conf.level = self$options$conf.level)
+                                                            conf.level = self$options$conf.level/100)
                                     )
                 }
             } else {
@@ -72,7 +72,7 @@ The analysis will provide the confidence interval on r.
                 
                 estimate <- try(estimateCorrelation.numeric(r = self$options$r,
                                                         n = self$options$n,
-                                                        conf.level = self$options$conf.level)
+                                                        conf.level = self$options$conf.level/100)
                                 )
             }
             
@@ -96,7 +96,7 @@ ERROR:
             self$results$correlation_plot$setVisible(run.analysis)
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
             
                 table <- self$results$summary_table
@@ -104,12 +104,12 @@ ERROR:
                 table$addColumn(name = "ci.low", 
                                 title = "ci.low", 
                                 type = 'number', 
-                                superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "ci.high", 
                                 title = "ci.high", 
                                 type = 'number', 
-                                superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "n", title = "N", type = 'integer')
     
@@ -177,7 +177,7 @@ ERROR:
             } else {
                 plot <- plotEstimatedCorrelation(estimate)
             }
-            print(plot)
+            print(jmvClearPlotBackground(plot))
 
             TRUE
         })

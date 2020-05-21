@@ -7,8 +7,8 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
     public = list(
         initialize = function(
             measure1 = NULL,
-            conf.level = ".95",
-            dot.plot = TRUE,
+            conf.level = 95,
+            plottype = "dotplot",
             marker = "none",
             bins = "12",
             show.mean = FALSE,
@@ -35,14 +35,19 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..measure1 <- jmvcore::OptionVariable$new(
                 "measure1",
                 measure1)
-            private$..conf.level <- jmvcore::OptionString$new(
+            private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                default=".95")
-            private$..dot.plot <- jmvcore::OptionBool$new(
-                "dot.plot",
-                dot.plot,
-                default=TRUE)
+                min=50,
+                max=99.9999,
+                default=95)
+            private$..plottype <- jmvcore::OptionList$new(
+                "plottype",
+                plottype,
+                default="dotplot",
+                options=list(
+                    "dotplot",
+                    "histogram"))
             private$..marker <- jmvcore::OptionString$new(
                 "marker",
                 marker,
@@ -108,7 +113,7 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
 
             self$.addOption(private$..measure1)
             self$.addOption(private$..conf.level)
-            self$.addOption(private$..dot.plot)
+            self$.addOption(private$..plottype)
             self$.addOption(private$..marker)
             self$.addOption(private$..bins)
             self$.addOption(private$..show.mean)
@@ -129,7 +134,7 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
     active = list(
         measure1 = function() private$..measure1$value,
         conf.level = function() private$..conf.level$value,
-        dot.plot = function() private$..dot.plot$value,
+        plottype = function() private$..plottype$value,
         marker = function() private$..marker$value,
         bins = function() private$..bins$value,
         show.mean = function() private$..show.mean$value,
@@ -149,7 +154,7 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
     private = list(
         ..measure1 = NA,
         ..conf.level = NA,
-        ..dot.plot = NA,
+        ..plottype = NA,
         ..marker = NA,
         ..bins = NA,
         ..show.mean = NA,
@@ -182,7 +187,7 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Estimate Mean")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -259,7 +264,7 @@ onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param data .
 #' @param measure1 .
 #' @param conf.level .
-#' @param dot.plot .
+#' @param plottype .
 #' @param marker .
 #' @param bins .
 #' @param show.mean .
@@ -278,7 +283,7 @@ onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param color.highlighted .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$descriptives} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$distribution} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$estimate} \tab \tab \tab \tab \tab an image \cr
@@ -294,8 +299,8 @@ onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 onemean <- function(
     data,
     measure1,
-    conf.level = ".95",
-    dot.plot = TRUE,
+    conf.level = 95,
+    plottype = "dotplot",
     marker = "none",
     bins = "12",
     show.mean = FALSE,
@@ -326,7 +331,7 @@ onemean <- function(
     options <- onemeanOptions$new(
         measure1 = measure1,
         conf.level = conf.level,
-        dot.plot = dot.plot,
+        plottype = plottype,
         marker = marker,
         bins = bins,
         show.mean = show.mean,

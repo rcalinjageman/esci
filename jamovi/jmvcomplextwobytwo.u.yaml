@@ -9,21 +9,21 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Dependent Variable
+        label: Dependent variable
         children:
           - type: VariablesListBox
             name: dep
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Independent Variable 1
+        label: Independent variable 1
         children:
           - type: VariablesListBox
             name: group1
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Independent Variable 2
+        label: Independent variable 2
         children:
           - type: VariablesListBox
             name: group2

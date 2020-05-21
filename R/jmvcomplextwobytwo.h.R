@@ -10,7 +10,7 @@ jmvComplexTwoByTwoOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             group1 = NULL,
             group2 = NULL,
             MEorInt = "fInt",
-            conf.level = 0.95,
+            conf.level = 95,
             show.mean.error = FALSE,
             show.raw.data = FALSE,
             ylab = NULL, ...) {
@@ -23,13 +23,19 @@ jmvComplexTwoByTwoOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
 
             private$..dep <- jmvcore::OptionVariable$new(
                 "dep",
-                dep)
+                dep,
+                permitted=list(
+                    "numeric"))
             private$..group1 <- jmvcore::OptionVariable$new(
                 "group1",
-                group1)
+                group1,
+                permitted=list(
+                    "factor"))
             private$..group2 <- jmvcore::OptionVariable$new(
                 "group2",
-                group2)
+                group2,
+                permitted=list(
+                    "factor"))
             private$..MEorInt <- jmvcore::OptionList$new(
                 "MEorInt",
                 MEorInt,
@@ -40,9 +46,9 @@ jmvComplexTwoByTwoOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..conf.level <- jmvcore::OptionNumber$new(
                 "conf.level",
                 conf.level,
-                min=0.5,
-                max=0.999999,
-                default=0.95)
+                min=50,
+                max=99.9999,
+                default=95)
             private$..show.mean.error <- jmvcore::OptionBool$new(
                 "show.mean.error",
                 show.mean.error,
@@ -100,7 +106,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Estimate Ind. 2x2")
-            self$add(jmvcore::Preformatted$new(
+            self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
@@ -186,7 +192,7 @@ jmvComplexTwoByTwoBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param ylab .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$means_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$contrast_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$ME1_plot} \tab \tab \tab \tab \tab an image \cr
@@ -207,7 +213,7 @@ jmvComplexTwoByTwo <- function(
     group1,
     group2,
     MEorInt = "fInt",
-    conf.level = 0.95,
+    conf.level = 95,
     show.mean.error = FALSE,
     show.raw.data = FALSE,
     ylab) {
@@ -225,6 +231,8 @@ jmvComplexTwoByTwo <- function(
             `if`( ! missing(group1), group1, NULL),
             `if`( ! missing(group2), group2, NULL))
 
+    for (v in group1) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in group2) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jmvComplexTwoByTwoOptions$new(
         dep = dep,

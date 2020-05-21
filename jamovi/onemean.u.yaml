@@ -18,29 +18,32 @@ children:
   - type: LayoutBox
     margin: large
     children:
-      - type: CheckBox
-        name: dot.plot
-  - type: LayoutBox
-    margin: large
-    children:
       - type: TextBox
         name: conf.level
-        format: string
-  - type: LayoutBox
-    margin: large
-    children:
+        format: number
+  - type: CollapseBox
+    label: Distribution-Graph Options
+    collapsed: false
+    children: 
+    - type: LayoutBox
+      margin: large
+      style: inline
+      children:
+        - type: RadioButton
+          optionName: plottype
+          optionPart: dotplot
+        - type: RadioButton
+          optionName: plottype
+          optionPart: histogram
+    - type: LayoutBox
+      margin: large
+      children:
       - type: TextBox
         name: marker
         format: string
-  - type: LayoutBox
-    margin: large
-    children:
       - type: TextBox
         name: bins
         format: string
-  - type: LayoutBox
-    margin: large
-    children:
       - type: CheckBox
         name: show.mean
       - type: CheckBox
@@ -50,7 +53,7 @@ children:
       - type: CheckBox
         name: show.s
   - type: CollapseBox
-    label: Graph Options
+    label: Other Graph Options
     collapsed: true
     children:
       - type: TextBox

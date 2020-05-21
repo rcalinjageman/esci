@@ -85,7 +85,7 @@ select the cateogry level for analysis.
                                                                      !!self$options$measure1,
                                                                      case.level = case.level,
                                                                      group.level = category.level,
-                                                                     conf.level = self$options$conf.level,
+                                                                     conf.level = self$options$conf.level/100,
                                                                      na.rm = self$options$na.rm
                                                                     ))
                 }                
@@ -150,7 +150,7 @@ Additionally, it would then be helpful to define the 'Case label' as 'Depressed'
                                                                  n2 = self$options$n2,
                                                                  caselabels = c(caselabel1, caselabel2),
                                                                  grouplabels = c(grouplabel1, grouplabel2),
-                                                                 conf.level = self$options$conf.level
+                                                                 conf.level = self$options$conf.level/100
                                 ))
                 
             }
@@ -175,7 +175,7 @@ ERROR:
             self$results$proportion_plot$setVisible(run.analysis)
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                 table <- self$results$summary_table
                 table$addColumn(name = "cases", title = names(estimate$summary_data)[2], type = 'integer')
@@ -185,12 +185,12 @@ ERROR:
                 table$addColumn(name = "ci.low", 
                                 title = "P.ci.low", 
                                 type = 'number', 
-                                superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "ci.high", 
                                 title = "P.ci.high", 
                                 type = 'number', 
-                                superTitle = paste(format(self$options$conf.level * 100, digits = 0), "% CI") 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 
                 table$setRow(rowNo=1, values=list(
@@ -277,7 +277,7 @@ ERROR:
                                                 xlab = xlab,
                                                 rope = rope
                 )
-                print(plot)
+                print(jmvClearPlotBackground(plot))
             }
             TRUE
         })

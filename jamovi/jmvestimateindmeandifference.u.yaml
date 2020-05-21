@@ -1,4 +1,4 @@
-title: Estimate Ind. Mean Difference
+title: Estimate Independent Mean Difference
 name: jmvEstimateIndMeanDifference
 jus: '3.0'
 stage: 0
@@ -17,7 +17,7 @@ children:
         optionName: switch
         optionPart: fromsummary
   - type: CollapseBox
-    label: Work with raw data
+    label: Work With Raw Data
     name: rpanel
     collapsed: false
     children:
@@ -26,14 +26,14 @@ children:
         stretchFactor: 1
         children:
           - type: TargetLayoutBox
-            label: Dependent Variable
+            label: Dependent variable
             children:
               - type: VariablesListBox
                 name: 'y'
                 maxItemCount: 1
                 isTarget: true
           - type: TargetLayoutBox
-            label: Grouping Variable
+            label: Grouping variable
             children:
               - type: VariablesListBox
                 name: x
@@ -42,12 +42,12 @@ children:
       - type: CheckBox
         name: reference.group
   - type: CollapseBox
-    label: Work with summary data
+    label: Work With Summary Data
     name: spanel
     collapsed: true
     children:
       - type: Label
-        label: Group 1 Data (Reference Group)
+        label: Group 1 data (reference group)
         children:
           - type: LayoutBox
             margin: large
@@ -63,7 +63,7 @@ children:
                 name: n1
                 format: number
       - type: Label
-        label: Group 2 Data (Comparison Group)
+        label: Group 2 data (comparison group)
         children:
           - type: LayoutBox
             margin: large
@@ -79,7 +79,7 @@ children:
                 name: n2
                 format: number
   - type: Label
-    label: Analysis Options
+    label: Analysis options
     children:
       - type: TextBox
         name: conf.level

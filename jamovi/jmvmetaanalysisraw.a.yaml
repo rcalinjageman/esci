@@ -14,23 +14,23 @@ options:
       type: Variable
 
     - name: m1
-      title: Group 1 Means
+      title: Group 1 means
       type: Variable
 
     - name: s1
-      title: Group 1 Standard Deviations
+      title: Group 1 standard deviations
       type: Variable
 
     - name: n1
-      title: Group 1 Sample Sizes
+      title: Group 1 sample sizes
       type: Variable
       
     - name: m2
-      title: Group 2 Means
+      title: Group 2 means
       type: Variable
 
     - name: s2
-      title: Group 2 Standard Deviations
+      title: Group 2 standard deviations
       type: Variable
 
     - name: n2
@@ -38,7 +38,7 @@ options:
       type: Variable
       
     - name: moderator
-      title: Categorical Moderator (optional)
+      title: Categorical moderator (optional)
       type: Variable
 
     - name: REorFE
@@ -62,9 +62,9 @@ options:
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
       
     - name: report.cohens.d
       type: Bool
@@ -73,12 +73,12 @@ options:
       
     - name: show.study.table
       type: Bool
-      title: Show table of studies
+      title: Table of studies
       default: FALSE
       
     - name: explainDR
       type: Bool
-      title: Show both fixed and random effects to explain diamond ratio
+      title: Graph has both fixed and random effects to explain diamond ratio
       default: FALSE
 
 ...

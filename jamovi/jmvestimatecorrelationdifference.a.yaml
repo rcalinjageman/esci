@@ -19,7 +19,7 @@ options:
       type: Data
 
     - name: dv
-      title: Variable to Predict (Y)
+      title: Variable to predict (Y)
       type: Variable
 
     - name: iv
@@ -57,19 +57,19 @@ options:
       default: Group 2
       
     - name: varlabel1
-      title: 'Variable 1 Label'
+      title: 'Variable 1 label'
       type: String
       default: Variable 1
       
     - name: varlabel2
-      title: 'Variable 2 Label'
+      title: 'Variable 2 label'
       type: String
       default: Variable 2
 
     - name: conf.level
       type: Number
       title: Confidence level
-      min: .50
-      max: .999999
-      default: .95
+      min: 50
+      max: 99.9999
+      default: 95
 ...

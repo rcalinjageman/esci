@@ -61,7 +61,7 @@ to analyze your data.
                                                        reference.group = reference.group, 
                                                        paired=FALSE, 
                                                        var.equal = self$options$var.equal, 
-                                                       conf.level = self$options$conf.level
+                                                       conf.level = self$options$conf.level/100
                                                         ))
                 }                    
             } else {
@@ -88,7 +88,7 @@ output (Group 1 label and Group 2 label).
                                                         s1 = self$options$s2, s2 = self$options$s1, 
                                                         n1 = self$options$n2, n2=self$options$n1, 
                                                         paired=FALSE, var.equal = self$options$var.equal, 
-                                                        conf.level = self$options$conf.level,
+                                                        conf.level = self$options$conf.level/100,
                                                         labels = c(g2label, g1label)
                 ))    
             }   
@@ -96,7 +96,7 @@ output (Group 1 label and Group 2 label).
             
             ###################
             # Check to see if the analysis ran
-            if (class(estimate) == "try-error") {
+            if (class(estimate) == "try-error" & run.analysis) {
                 run.analysis <- FALSE
                 emssg <- estimate[1]
                 if (regexpr("\n", emssg) < nchar(emssg)) {
@@ -120,7 +120,7 @@ ERROR:
             
             
             if(!run.analysis) {
-                self$results$text$setContent(err_string)
+                self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
             
                 ####################
@@ -195,7 +195,7 @@ ERROR:
                                             fills=fills, 
                                             grouplabels = mylabels, 
                                             bsize = self$options$bsize)
-            print(plot)
+            print(jmvClearPlotBackground(plot))
             TRUE
         })
 )

@@ -17,7 +17,7 @@ children:
         optionName: switch
         optionPart: fromsummary
   - type: CollapseBox
-    label: Work with raw data
+    label: Work With Raw Data
     name: rpanel
     collapsed: false
     children:
@@ -26,21 +26,21 @@ children:
         stretchFactor: 1
         children:
           - type: TargetLayoutBox
-            label: Dependent Variable
+            label: Dependent variable
             children:
               - type: VariablesListBox
                 name: dep
                 maxItemCount: 1
                 isTarget: true
           - type: TargetLayoutBox
-            label: Grouping Variable
+            label: Grouping variable
             children:
               - type: VariablesListBox
                 name: group
                 maxItemCount: 1
                 isTarget: true
   - type: CollapseBox
-    label: Work with summary data
+    label: Work With Summary Data
     name: spanel
     collapsed: true
     children:
@@ -49,7 +49,7 @@ children:
         stretchFactor: 1
         children:
           - type: TargetLayoutBox
-            label: Group Labels
+            label: Group labels
             children:
               - type: VariablesListBox
                 name: labels

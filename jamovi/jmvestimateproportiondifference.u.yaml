@@ -17,7 +17,7 @@ children:
         optionName: switch
         optionPart: fromsummary
   - type: CollapseBox
-    label: Work with raw data
+    label: Work with Raw Data
     name: rpanel
     collapsed: false
     children:
@@ -50,7 +50,7 @@ children:
           name: category.level
           format: string
   - type: CollapseBox
-    label: Work with summary data
+    label: Work with Summary Data
     name: spanel
     collapsed: true
     children:

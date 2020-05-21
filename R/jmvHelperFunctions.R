@@ -26,3 +26,14 @@ jmvSanitizeOption <- function(cvalue = NULL, default = NULL, type.numeric = FALS
   }
   return(result)
 }
+
+jmvClearPlotBackground <- function(myplot) {
+  return(myplot +     
+           theme(
+            panel.grid.major = element_blank(), 
+            panel.grid.minor = element_blank(),
+            panel.background = element_rect(fill = "transparent",colour = NA),
+            plot.background = element_rect(fill = "transparent",colour = NA)
+          )
+        )
+}
