@@ -192,8 +192,7 @@ jmvEstimateCorrelationDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6C
                 analysisId = analysisId,
                 revision = revision,
                 pause = NULL,
-                completeWhenFilled = FALSE,
-                requiresMissings = FALSE)
+                completeWhenFilled = FALSE)
         }))
 
 #' Estimate Correlation Difference

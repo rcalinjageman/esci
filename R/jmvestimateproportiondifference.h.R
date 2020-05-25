@@ -222,8 +222,7 @@ jmvEstimateProportionDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
                 analysisId = analysisId,
                 revision = revision,
                 pause = NULL,
-                completeWhenFilled = FALSE,
-                requiresMissings = FALSE)
+                completeWhenFilled = FALSE)
         }))
 
 #' Estimate Proportion Difference

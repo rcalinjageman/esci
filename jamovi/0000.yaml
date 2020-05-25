@@ -19,8 +19,9 @@ description: >-
 
   This is alpha release.  Please submit feedback, bug reports, and feature
   requests via the links provided <a href =
-  'https://thenewstatistics.com/itns/esci/jesci/'>here</a>: <a href =
-  'https://thenewstatistics.com/itns/esci/jesci/'>https://thenewstatistics.com/itns/esci/jesci/.</a>
+  "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
+  href = "https://thenewstatistics.com/itns/esci/jesci/"
+  target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a>
 analyses:
   - title: Estimate Mean
     name: onemean
