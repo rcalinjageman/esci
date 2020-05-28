@@ -305,14 +305,14 @@ estimateProportion.default <- function(data, x, conf.level=0.95, case.level = 1,
   report <- list()
   
   if (na_count > 0) {
-    summary_notes <- paste("NA responses = ", na_count, ".\n")
+    summary_notes <- paste("Missing responses = ", na_count, ".\n")
     if (na.rm) {
-      summary_notes <- paste(summary_notes, "The total N did *not* include these NA responses (na.rm was TRUE)\n")
+      summary_notes <- paste(summary_notes, "The total N did *not* include these missing responses (na.rm was TRUE)\n")
     } else {
-      summary_notes <- paste(summary_notes, "The total N *did* include these NA responses (na.rm was FALSE)\n")
+      summary_notes <- paste(summary_notes, "The total N *did* include these missing responses (na.rm was FALSE)\n")
     }
   } else {
-    summary_notes <- "There were no NA responses./n"
+    summary_notes <- "There were no missing responses.\n"
   }
 
   report$Notes <- list(
@@ -745,14 +745,14 @@ estimateProportionDifference.default <- function(data, x, y, conf.level=0.95, ca
   report <- list()
   
   if (na_count > 0) {
-    summary_notes <- paste("There were", na_group, "NA responses in the grouping variable (x) and", na_case, "NA responses in the outcome variable (y).\n")
+    summary_notes <- paste("There were", na_group, "missing responses in the grouping variable (x) and", na_case, "missing responses in the outcome variable (y).\n")
     if (na.rm) {
-      summary_notes <- paste(summary_notes, "Totals do *not* include these NA responses (na.rm was TRUE)\n")
+      summary_notes <- paste(summary_notes, "Totals do *not* include these missing responses (na.rm was TRUE)\n")
     } else {
-      summary_notes <- paste(summary_notes, "Totals *do* include these NA responses (na.rm was FALSE)\n")
+      summary_notes <- paste(summary_notes, "Totals *do* include these missing responses (na.rm was FALSE)\n")
     }
   } else {
-    summary_notes <- "There were no NA responses./n"
+    summary_notes <- "There were no missing responses.\n"
   }
   
   report$Notes <- list(

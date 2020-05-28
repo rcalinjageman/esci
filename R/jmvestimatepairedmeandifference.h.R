@@ -241,22 +241,7 @@ jmvEstimatePairedMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 columns=list(
                     list(
                         `name`="Condition", 
-                        `type`="text"),
-                    list(
-                        `name`="m", 
-                        `type`="number"),
-                    list(
-                        `name`="CI_low", 
-                        `type`="number"),
-                    list(
-                        `name`="CI_high", 
-                        `type`="number"),
-                    list(
-                        `name`="s", 
-                        `type`="number"),
-                    list(
-                        `name`="n", 
-                        `type`="integer"))))
+                        `type`="text"))))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="notes",
@@ -313,7 +298,8 @@ jmvEstimatePairedMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
                 analysisId = analysisId,
                 revision = revision,
                 pause = NULL,
-                completeWhenFilled = FALSE)
+                completeWhenFilled = FALSE,
+                requiresMissings = FALSE)
         }))
 
 #' Estimate Paired Mean Difference

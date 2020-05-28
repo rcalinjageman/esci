@@ -9,7 +9,6 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             switch = "fromraw",
             measure1 = NULL,
             measure2 = NULL,
-            na.rm = TRUE,
             case.level = NULL,
             category.level = NULL,
             cases1 = NULL,
@@ -45,10 +44,6 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             private$..measure2 <- jmvcore::OptionVariable$new(
                 "measure2",
                 measure2)
-            private$..na.rm <- jmvcore::OptionBool$new(
-                "na.rm",
-                na.rm,
-                default=TRUE)
             private$..case.level <- jmvcore::OptionString$new(
                 "case.level",
                 case.level)
@@ -109,7 +104,6 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
             self$.addOption(private$..switch)
             self$.addOption(private$..measure1)
             self$.addOption(private$..measure2)
-            self$.addOption(private$..na.rm)
             self$.addOption(private$..case.level)
             self$.addOption(private$..category.level)
             self$.addOption(private$..cases1)
@@ -130,7 +124,6 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
         switch = function() private$..switch$value,
         measure1 = function() private$..measure1$value,
         measure2 = function() private$..measure2$value,
-        na.rm = function() private$..na.rm$value,
         case.level = function() private$..case.level$value,
         category.level = function() private$..category.level$value,
         cases1 = function() private$..cases1$value,
@@ -150,7 +143,6 @@ jmvEstimateProportionDifferenceOptions <- if (requireNamespace('jmvcore')) R6::R
         ..switch = NA,
         ..measure1 = NA,
         ..measure2 = NA,
-        ..na.rm = NA,
         ..case.level = NA,
         ..category.level = NA,
         ..cases1 = NA,
@@ -222,7 +214,8 @@ jmvEstimateProportionDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
                 analysisId = analysisId,
                 revision = revision,
                 pause = NULL,
-                completeWhenFilled = FALSE)
+                completeWhenFilled = FALSE,
+                requiresMissings = FALSE)
         }))
 
 #' Estimate Proportion Difference
@@ -232,7 +225,6 @@ jmvEstimateProportionDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Cl
 #' @param data .
 #' @param measure1 .
 #' @param measure2 .
-#' @param na.rm .
 #' @param case.level .
 #' @param category.level .
 #' @param cases1 .
@@ -267,7 +259,6 @@ jmvEstimateProportionDifference <- function(
     data,
     measure1,
     measure2,
-    na.rm = TRUE,
     case.level,
     category.level,
     cases1,
@@ -300,7 +291,6 @@ jmvEstimateProportionDifference <- function(
         switch = switch,
         measure1 = measure1,
         measure2 = measure2,
-        na.rm = na.rm,
         case.level = case.level,
         category.level = category.level,
         cases1 = cases1,

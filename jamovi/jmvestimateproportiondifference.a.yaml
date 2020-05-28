@@ -26,11 +26,6 @@ options:
       title: Category variable
       type: Variable
       
-    - name: na.rm
-      type: Bool
-      title: Remove NA data (checked) or not (not-checked)
-      default: true
-      
     - name: case.level
       type: String
       title: Case level (numeric or name of)

@@ -56,7 +56,9 @@ be plotted in the proportion plot.
                                                            !!self$options$measure1, 
                                                            case.level = case.level, 
                                                            conf.level = self$options$conf.level/100, 
-                                                           na.rm = self$options$na.rm))
+                                                           na.rm = (self$options$na.rm == "remove")
+                                                           )
+                                    )
                 }
             } else {
 
@@ -132,8 +134,8 @@ ERROR:
                 table$addColumn(name = "cases", title = "Cases", type = 'integer')
                 table$addColumn(name = "n", title = "Total N", type = 'integer')
                 table$addColumn(name = "P", title = "P", type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 
                 if (self$options$switch == "fromraw") {
                     counter <- 1
@@ -148,7 +150,7 @@ ERROR:
                         ))
                         counter <- counter + 1
                     }
-                    table$setNote(key="Notes", note = reportEstimate(estimate, section = c("Notes"), print.title = FALSE))
+                    table$setNote(key="Notes", note = gsub("\n", "", reportEstimate(estimate, section = c("Notes"), print.title = FALSE)))
                 } else {
                     table$addRow(rowKey=1, values=list(
                         var=estimate$plot_info$plotiv,

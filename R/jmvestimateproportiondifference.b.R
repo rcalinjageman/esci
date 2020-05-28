@@ -86,7 +86,7 @@ select the cateogry level for analysis.
                                                                      case.level = case.level,
                                                                      group.level = category.level,
                                                                      conf.level = self$options$conf.level/100,
-                                                                     na.rm = self$options$na.rm
+                                                                     na.rm = TRUE
                                                                     ))
                 }                
             } else {                
@@ -183,12 +183,12 @@ ERROR:
                 table$addColumn(name = "n", title = "N", type = 'integer')
                 table$addColumn(name = "P", title = estimate$plot_info$plotdv, type = 'number')
                 table$addColumn(name = "ci.low", 
-                                title = "P.ci.low", 
+                                title = "Lower", 
                                 type = 'number', 
                                 superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "ci.high", 
-                                title = "P.ci.high", 
+                                title = "Upper", 
                                 type = 'number', 
                                 superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
@@ -224,7 +224,7 @@ ERROR:
                 ))
                 
                 
-                table$setNote(key="Notes", note = reportEstimate(estimate, section = c("Notes"), print.title = FALSE))
+                table$setNote(key="Notes", note = gsub("\n", "", reportEstimate(estimate, section = c("Notes"), print.title = FALSE)))
                 
                 image <- self$results$proportion_plot
                 image$setState(estimate)         

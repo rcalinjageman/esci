@@ -45,10 +45,10 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 # Setup the means_table, adding a column for each column we will report
                 table <- self$results$means_table
-                table$addColumn(name = "m", title = "m", type = 'number')
+                table$addColumn(name = "m", title = "M", type = 'number')
                 table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
                 table$addColumn(name = "s", title = "s", type = 'number')
                 table$addColumn(name = "n", title = "N", type = 'integer')
                 
@@ -73,11 +73,11 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 # Now the same process with the contrast table--add columns and rows, then fill in table
                 table <- self$results$contrast_table
-                table$addColumn(name = "m", title = "m", type = 'number')
+                table$addColumn(name = "m", title = "M", type = 'number')
                 table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "pvalue", title = "p.value", type = 'number')
+                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$addColumn(name = "pvalue", title = "p", type = 'number')
                 
                 for(x in 1:length(corder)) {
                     if(corder[x] == "B") {

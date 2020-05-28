@@ -137,6 +137,22 @@ ERROR:
                 
                 # Fill main result table
                 table <- self$results$ctmTable
+                
+                table$addColumn(name = "m", title = "M", type = 'number')
+                table$addColumn(name = "CI_low", 
+                                title = "Lower", 
+                                type = 'number', 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
+                )
+                table$addColumn(name = "CI_high", 
+                                title = "Upper", 
+                                type = 'number', 
+                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
+                )
+                table$addColumn(name = "s", title = "s", type = 'number')
+                table$addColumn(name = "n", title = "N", type = 'integer')
+                
+                
                 for (i in 1:3) {
                     table$setRow(rowNo=i, values=list(
                         Condition=paste(estimate$summary_data$iv[i]),

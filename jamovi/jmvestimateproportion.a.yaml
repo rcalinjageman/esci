@@ -27,9 +27,14 @@ options:
       title: Case level (numeric or name of)
 
     - name: na.rm
-      type: Bool
-      title: Remove NA data (checked) or not (not-checked)
-      default: true
+      title: How should missing data be handled?
+      type: List
+      default: remove
+      options:
+        - name: remove
+          title: Remove
+        - name: dontremove
+          title: Do not remove
       
     - name: cases
       title: Cases

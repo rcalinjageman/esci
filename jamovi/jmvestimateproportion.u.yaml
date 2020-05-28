@@ -37,8 +37,20 @@ children:
           - type: TextBox
             name: case.level
             format: string                
-          - type: CheckBox
-            name: na.rm         
+          - type: LayoutBox
+            margin: large
+            style: inline
+            children:
+              - type: Label
+                label: How should missing data be handled?
+                style: inline
+                children:
+                - type: RadioButton
+                  optionName: na.rm
+                  optionPart: remove
+                - type: RadioButton
+                  optionName: na.rm
+                  optionPart: dontremove   
   - type: CollapseBox
     label: Work With Summary Data
     name: spanel

@@ -73,8 +73,8 @@ ERROR:
                            
                 table <- self$results$descriptives
                 
-                table$addColumn(name = "ci.low", index = 3, title = "ci.low", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", index = 4, title = "ci.high", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "ci.low", index = 3, title = "Lower", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
+                table$addColumn(name = "ci.high", index = 4, title = "Upper", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
                 
                 table$setRow(rowNo=1, values=list(
                     var=estimate$plot_info$plotiv,

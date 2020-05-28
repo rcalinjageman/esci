@@ -102,12 +102,12 @@ ERROR:
                 table <- self$results$summary_table
                 table$addColumn(name = "r", title = "Pearson's r", type = 'number')
                 table$addColumn(name = "ci.low", 
-                                title = "ci.low", 
+                                title = "Lower", 
                                 type = 'number', 
                                 superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )
                 table$addColumn(name = "ci.high", 
-                                title = "ci.high", 
+                                title = "Upper", 
                                 type = 'number', 
                                 superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
                                 )

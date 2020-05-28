@@ -1,7 +1,7 @@
 ---
 title: Effect Sizes and Confidence Intervals for R and Jamovi
 name: esci
-version: 0.1.1
+version: 0.9.1
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -17,7 +17,7 @@ description: >-
   Currently, all analyses are frequentist, returning confidence
   intervals.</br></br> 
 
-  This is alpha release.  Please submit feedback, bug reports, and feature
+  This is an alpha release.  Please submit feedback, bug reports, and feature
   requests via the links provided <a href =
   "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
   href = "https://thenewstatistics.com/itns/esci/jesci/"

@@ -204,7 +204,8 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                         `type`="text"),
                     list(
                         `name`="m", 
-                        `type`="number"),
+                        `type`="number", 
+                        `title`="M"),
                     list(
                         `name`="s", 
                         `type`="number"),
@@ -213,16 +214,22 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                         `type`="integer"),
                     list(
                         `name`="NA_count", 
-                        `type`="integer"),
+                        `type`="integer", 
+                        `title`="Missing"),
                     list(
                         `name`="median", 
-                        `type`="number"),
+                        `type`="number", 
+                        `title`="Median"),
                     list(
                         `name`="q1", 
-                        `type`="number"),
+                        `type`="number", 
+                        `title`="25%", 
+                        `superTitle`="Quartiles"),
                     list(
                         `name`="q3", 
-                        `type`="number"))))
+                        `type`="number", 
+                        `title`="75%", 
+                        `superTitle`="Quartiles"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="distribution",
@@ -254,7 +261,8 @@ onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(
                 analysisId = analysisId,
                 revision = revision,
                 pause = NULL,
-                completeWhenFilled = FALSE)
+                completeWhenFilled = FALSE,
+                requiresMissings = FALSE)
         }))
 
 #' Estimate Mean

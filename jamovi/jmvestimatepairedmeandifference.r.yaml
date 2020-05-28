@@ -17,16 +17,6 @@ items:
       columns:
         - name: Condition
           type: text
-        - name: m
-          type: number
-        - name: CI_low
-          type: number
-        - name: CI_high
-          type: number
-        - name: s
-          type: number
-        - name: n
-          type: integer
 
     - name:  notes
       title: Notes
