@@ -207,6 +207,14 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                         `type`="number", 
                         `title`="M"),
                     list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
                         `name`="s", 
                         `type`="number"),
                     list(

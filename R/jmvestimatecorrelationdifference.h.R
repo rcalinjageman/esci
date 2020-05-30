@@ -140,31 +140,69 @@ jmvEstimateCorrelationDifferenceResults <- if (requireNamespace('jmvcore')) R6::
                 options=options,
                 name="text",
                 title="Instructions/Errros",
-                visible=TRUE))
+                visible=FALSE))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="result_table",
                 title="Difference between correlations",
-                rows=0,
+                rows=3,
                 columns=list(
                     list(
                         `name`="variables", 
                         `title`="Variables", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="r", 
+                        `title`="Pearson's r", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="allrs",
                 title="All group correlations",
+                visible="(switch:fromraw)",
                 rows=0,
                 columns=list(
                     list(
                         `name`="group", 
                         `title`="Group", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="variables", 
+                        `title`="Variables", 
+                        `type`="text"),
+                    list(
+                        `name`="r", 
+                        `title`="Pearson's r", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="integer"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="scatter_plot",
                 title="Scatter Plot",
+                visible="(switch:fromraw)",
                 width=600,
                 height=600,
                 renderFun=".plotSP"))

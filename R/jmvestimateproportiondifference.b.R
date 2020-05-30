@@ -5,6 +5,12 @@ jmvEstimateProportionDifferenceClass <- if (requireNamespace('jmvcore')) R6::R6C
     "jmvEstimateProportionDifferenceClass",
     inherit = jmvEstimateProportionDifferenceBase,
     private = list(
+        .init = function() {
+            table <- self$results$summary_table
+            table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -170,29 +176,17 @@ ERROR:
 
             }
         
-            self$results$text$setVisible(!run.analysis)
-            self$results$summary_table$setVisible(run.analysis)
-            self$results$proportion_plot$setVisible(run.analysis)
-            
+
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                 table <- self$results$summary_table
-                table$addColumn(name = "cases", title = names(estimate$summary_data)[2], type = 'integer')
-                table$addColumn(name = "ncases", title = names(estimate$summary_data)[3], type = 'integer')
-                table$addColumn(name = "n", title = "N", type = 'integer')
-                table$addColumn(name = "P", title = estimate$plot_info$plotdv, type = 'number')
-                table$addColumn(name = "ci.low", 
-                                title = "Lower", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
-                table$addColumn(name = "ci.high", 
-                                title = "Upper", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
+                table$getColumn("cases")$setTitle(names(estimate$summary_data)[2])
+                table$getColumn("ncases")$setTitle(names(estimate$summary_data)[3])
                 
+
                 table$setRow(rowNo=1, values=list(
                     var=as.character(estimate$summary_data[1,1]),
                     cases = estimate$summary_data[1,2],
@@ -231,11 +225,11 @@ ERROR:
             }
         },
         .plot=function(image, ...) {
-            estimate <- image$state
             if (is.null(image$state))
                 return(FALSE)
             
-            
+            estimate <- image$state
+
             if (class(estimate) == "estimate") {
                 xlab <- NULL
                 ylab <- NULL

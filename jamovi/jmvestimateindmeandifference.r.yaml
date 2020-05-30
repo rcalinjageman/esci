@@ -11,30 +11,45 @@ items:
 
     - name:  ctmTable
       title: Compare Two Means
-      visible: FALSE
+      visible: TRUE
       type: Table
       rows:  3
       columns:
         - name: Condition
           type: text
+        - name: m
+          title: M
+          type: number
+        - name: CI_low
+          title: Lower
+          type: number
+        - name: CI_high
+          title: Upper
+          type: number
+        - name: s
+          title: s
+          type: number
+        - name: n
+          title: N
+          type: integer
 
     - name:  notes
       title: Notes
-      visible: FALSE
+      visible: TRUE
       type:  Html
 
     - name:  smd
       title: Standardized Mean Difference
-      visible: FALSE
+      visible: TRUE
       type:  Html
 
-    - name:  decisionMakingText
+    - name: decisionMakingTitle
       title: Decision Making
-      visible: FALSE
-      type:  Preformatted
+      visible: TRUE
+      type: Preformatted
 
     - name:  decisionMaking
-      visible: FALSE
+      visible: TRUE
       title: t-table
       type: Table
       rows:  1
@@ -45,9 +60,10 @@ items:
           type: number
         - name: p
           type: number
+          format: zto,pvalue
       
     - name: plot
-      visible: FALSE
+      visible: TRUE
       title: Descriptives Plot
       type: Image
       width:  500

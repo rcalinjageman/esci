@@ -17,9 +17,25 @@ items:
         - name: var
           title: Group
           type: text
+        - name: cases
+          title: Cases
+          type: integer
+        - name: n
+          title: Total N
+          type: integer
+        - name: P
+          title: P
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
 
     - name: bar_plot
       title: Frequency Plot
+      visible: "(switch:fromraw)"
       type: Image
       width:  530
       height: 300

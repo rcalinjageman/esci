@@ -5,6 +5,14 @@ jmvEstimateCorrelationDifferenceClass <- if (requireNamespace('jmvcore')) R6::R6
     "jmvEstimateCorrelationDifferenceClass",
     inherit = jmvEstimateCorrelationDifferenceBase,
     private = list(
+        .init = function() {
+            tables <- list(self$results$result_table, self$results$allrs)
+            for(table in tables) {
+                table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            }
+            
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -110,16 +118,10 @@ ERROR:
                 }
             }
             
-            
-            # Set visibility of results based on if we are going to run the analysis
-            self$results$text$setVisible(!run.analysis)
-            self$results$result_table$setVisible(run.analysis)
-            self$results$scatter_plot$setVisible(self$options$switch == "fromraw" & run.analysis)
-            self$results$correlation_plot$setVisible(run.analysis)
-            self$results$allrs$setVisible(self$options$switch == "fromraw" & run.analysis)
-            
-            
+
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                 
@@ -132,21 +134,10 @@ ERROR:
                     
                 # Fill comparison result table - set columns and fill
                 table <- self$results$result_table
-                table$addColumn(name = "r", title = "r", type = 'number')
-                table$addColumn(name = "ci.low", 
-                                title = "Lower", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
-                table$addColumn(name = "ci.high", 
-                                title = "Upper", 
-                                type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
-                table$addColumn(name = "n", title = "N", type = 'number')
-    
+
                 reporttable <- nrow(estimate$summary_data)
                 for(x in 1:reporttable) {
-                    table$addRow(x, values = list(
+                    table$setRow(x, values = list(
                                 variables = as.character(estimate$summary_data[x, "variables"]),
                                 r = estimate$summary_data[x, "r"],
                                 ci.low = estimate$summary_data[x, "ci.low"],
@@ -157,20 +148,6 @@ ERROR:
                     
                 if(self$options$switch == "fromraw") {    
                     table <- self$results$allrs                    
-                    table$addColumn(name = "variables", title = "Variables", type = 'text')
-                    table$addColumn(name = "r", title = "r", type = 'number')
-                    table$addColumn(name = "ci.low", 
-                                    title = "Lower", 
-                                    type = 'number', 
-                                    superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                    )
-                    table$addColumn(name = "ci.high", 
-                                    title = "Upper", 
-                                    type = 'number', 
-                                    superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                    )
-                    table$addColumn(name = "n", title = "N", type = 'number')
-                            
                             
                     reporttable <- nrow(estimate$allrs)
                     for(x in 1:reporttable) {
@@ -188,19 +165,20 @@ ERROR:
             }
         },
         .plotSP=function(image, ...) {  # <-- the plot function
-            estimate <- image$state
             if (is.null(image$state) | self$options$switch != "fromraw")
                 return(FALSE)
+    
+            estimate <- image$state
             plot <- plotScatterPlot(estimate, show.line = TRUE)                
             print(jmvClearPlotBackground(plot))
             TRUE
         },
         .plotCP=function(image, ...) {  # <-- the plot function
-            estimate <- image$state
             if (is.null(image$state))
                 return(FALSE)
+            
+            estimate <- image$state
             plot <- plotCorrelationDifference(estimate, show.cat.eye = FALSE)
-
             print(jmvClearPlotBackground(plot))
             TRUE
         })

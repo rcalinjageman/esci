@@ -5,36 +5,78 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvComplexTwoByTwoClass",
     inherit = jmvComplexTwoByTwoBase,
     private = list(
+        .init = function() {
+            tables <- list(self$results$means_table, self$results$contrast_table, self$results$interaction_table)
+            for (table in tables) {
+                table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("moe")$setTitle(paste(self$options$conf.level, "% MoE"))
+            }
+        },
         .run = function() {
-
+            
             # `self$data` contains the data
             # `self$options` contains the options
             # `self$results` contains the results object (to populate)
-
+            
             # Set flag to see if we will actually run the analysis
             run.analysis <- TRUE
-            err_string <- "This analysis is for a 2x2 fully between-subjects design.\nSelect a numeric variable for the dependent variable two independent variables.\nRemember each dependent variable should have only 2 levels."
+            estimate <- "b"
+            class(estimate) <- "try-error"
+            
+            err_string <- 
+                "This analysis is for a 2x2 fully between-subjects design.
+Select a numeric variable for the dependent variable.
+Then select two nominal variables as the two independent variables.
+Remember each dependent variable should have only 2 levels.
+
+"
             
             
-            if(is.null(self$options$dep) |
-               is.null(self$options$group1) |
-               is.null(self$options$group2)) {
+            if(is.null(self$options$dep)) {
                 run.analysis <- FALSE
+                err_string <- paste(err_string, "* Waiting for you to define the independent variable.
+")
             }
             
-            # Set visibility of results based on if we are going to run the analysis
-            self$results$text$setVisible(!run.analysis)
-            self$results$contrast_table$setVisible(run.analysis)
-            self$results$means_table$setVisible(run.analysis)
-            self$results$ME1_plot$setVisible(run.analysis & self$options$MEorInt == "fME" )
-            self$results$ME2_plot$setVisible(run.analysis & self$options$MEorInt == "fME" )
-            self$results$Int_plot$setVisible(run.analysis & self$options$MEorInt == "fInt" )
+            if(is.null(self$options$group1)) {
+                run.analysis <- FALSE
+                err_string <- paste(err_string, "* Waiting for you to define independent variable 1.
+")
+            }
+            
+            if(is.null(self$options$group2)) {
+                run.analysis <- FALSE
+                err_string <- paste(err_string, "* Waiting for you to define independent variable 2.
+")
+            }
             
             
+            estimate <- try(estimateComplex_2x2.default(data = self$data, 
+                                                        dv = !!self$options$dep, 
+                                                        iv1 = !!self$options$group1, 
+                                                        iv2 = !!self$options$group2, 
+                                                        conf.level = self$options$conf.level/100
+            )
+            )
+            
+            # Check to see if the analysis ran
+            if (class(estimate) == "try-error" & run.analysis) {
+                run.analysis <- FALSE
+                emssg <- estimate[1]
+                if (regexpr("\n", emssg) < nchar(emssg)) {
+                    emssg <- substr(emssg, regexpr("\n", emssg)+3, nchar(emssg))
+                    emssg <- paste("
+ERROR:
+", emssg)
+                    err_string <- paste(err_string, emssg)
+                }
+            }
+            
+
             if(run.analysis) {
-                estimate <- estimateComplex_2x2.default(data = self$data, dv = !!self$options$dep, iv1 = !!self$options$group1, iv2 = !!self$options$group2, conf.level = self$options$conf.level/100)
-                
-                # Store result opbject for use with the graph
+        
+                # Store result object for use with the graph
                 image <- self$results$ME1_plot
                 image$setState(estimate)
                 image <- self$results$ME2_plot
@@ -42,19 +84,10 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 image <- self$results$Int_plot
                 image$setState(estimate) 
                 
-                
-                # Setup the means_table, adding a column for each column we will report
-                table <- self$results$means_table
-                table$addColumn(name = "m", title = "M", type = 'number')
-                table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "s", title = "s", type = 'number')
-                table$addColumn(name = "n", title = "N", type = 'integer')
-                
                 # Set each row (need to write a generic function for filling in jamovi tables)
+                table <- self$results$means_table
                 for(x in 1:nrow(estimate$means_table)) {
-                    table$addRow(x, values = list(
+                    table$setRow(x, values = list(
                         label = as.character(estimate$means_table[x, "label"]),
                         m = estimate$means_table[x, "m"],
                         moe = estimate$means_table[x, "moe"],
@@ -69,21 +102,17 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 corder <- c("1", "2", "3", "B", "4", "5", "6")
                 if(self$options$MEorInt == "fInt") {
                     corder <- c("10", "11", "12", "B", "13", "14", "15", "B", "7", "8", "9")
+                    table <- self$results$interaction_table
+                } else {
+                    table <- self$results$contrast_table
                 }
                 
-                # Now the same process with the contrast table--add columns and rows, then fill in table
-                table <- self$results$contrast_table
-                table$addColumn(name = "m", title = "M", type = 'number')
-                table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "pvalue", title = "p", type = 'number')
                 
                 for(x in 1:length(corder)) {
                     if(corder[x] == "B") {
-                        table$addRow(paste(corder[x], x, sep=""))
+                        table$setRow(rowNo = x, values=NULL)
                     } else {
-                        table$addRow(paste(corder[x], x, sep=""), values = list(
+                        table$setRow(x, values = list(
                             label = as.character(estimate$contrast_table[as.numeric(corder[x]), "label"]),
                             m = estimate$contrast_table[as.numeric(corder[x]), "m"],
                             moe = estimate$contrast_table[as.numeric(corder[x]), "moe"],
@@ -96,11 +125,16 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
             } else {
                 # We didn't run the analysis.  Let's set the error text
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             }
             
         },
         .ME1plot=function(image, ...) {  # <-- the plot function
+            if (is.null(image$state))
+                return(FALSE)
+            
             if(self$options$MEorInt == "fME") {
                 estimate <- image$state
                 
@@ -108,7 +142,7 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 if(!is.null(self$options$ylab)) {
                     ylab <- self$options$ylab
                 }
-
+                
                 plot <- plotContrast(estimate, contrast_number = 1, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
                 print(jmvClearPlotBackground(plot))
                 TRUE
@@ -118,9 +152,12 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
         },
         .ME2plot=function(image, ...) {  # <-- the plot function
+            if (is.null(image$state))
+                return(FALSE)
+            
             if(self$options$MEorInt == "fME") {
                 estimate <- image$state
-            
+                
                 ylab = "Dependent Variable"
                 if(!is.null(self$options$ylab)) {
                     ylab <- self$options$ylab
@@ -136,6 +173,8 @@ jmvComplexTwoByTwoClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
         },
         .Intplot=function(image, ...) {  # <-- the plot function
+            if (is.null(image$state))
+                return(FALSE)
             if(self$options$MEorInt != "fME") {
                 estimate <- image$state
                 

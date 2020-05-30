@@ -5,6 +5,15 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvIndContrastsClass",
     inherit = jmvIndContrastsBase,
     private = list(
+        .init = function() {
+            tables <- list(self$results$means_table, self$results$contrast_table)
+            for(table in tables) {
+                table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("moe")$setTitle(paste(self$options$conf.level, "% MoE"))
+                
+            }
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -16,24 +25,30 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         estimate <- "b"
         class(estimate) <- "try-error"
         
+        clabels <- length(self$options$comparison_labels) > 0
+        rlabels <- length(self$options$ref_labels) > 0
+        if(clabels) {
+            clabels <- clabels & nchar(self$options$comparison_labels) > 0
+        }
+        if(rlabels) {
+            rlabels <- rlabels & nchar(self$options$ref_labels)> 0
+        }
+        
+        
         if (self$options$switch == "fromraw") {
             err_string <- "Select a numeric variable for the dependent variable and a nominal variable for the grouping variable.\nIn the reference and comparison group textboxes you will write out a comma-separated list of the group names that you want to compare."
             
             
             # Check to see if all needed options have been set
-            if (is.null(self$options$dep) | is.null(self$options$group) | length(self$options$comparison_labels) ==0 | length(self$options$ref_labels) ==0) {
+            if (is.null(self$options$dep) | is.null(self$options$group) | !clabels | !rlabels) {
                 run.analysis <- FALSE
-                if(!is.null(self$options$group)) {
-                    err_string <- stringr::str_interp(
-                        "Define the reference and comparison groups by listing levels in ${self$options$group}, which has levels ${levels(as.factor(self$data[, self$options$group]))}."
-                    )
-                } else {
+                if(is.null(self$options$group)) {
                     err_string <- paste(err_string,"\nWaiting for you to define dependent variable, grouping variable, reference labels, and comparison labels.", sep="\n")
                 }
             }
         
             if(!is.null(self$options$group)) {
-                if(length(self$options$ref_labels) !=0) {    
+                if(rlabels) {  
                     # Verify list of reference groups
                     # Split by comma, then trim ws whil also reducing the list returned by split to a vector
                     refgs <- strsplit(as.character(self$options$ref_labels), ",")
@@ -53,7 +68,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                         ))
                 }
                 
-                if(length(self$options$comparison_labels) !=0) {
+                if(clabels) {
                      # Verify list of comparison groups, same as above
                     compgs <- strsplit(as.character(self$options$comparison_labels), ",")
                     compgs <- trimws(compgs[[1]], which = "both")
@@ -90,22 +105,18 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                is.null(self$options$means) | 
                is.null(self$options$sds) | 
                is.null(self$options$ns) |
-               length(self$options$comparison_labels) == 0|
-               length(self$options$ref_labels) ==0   ) {
+               !clabels |
+               !rlabels ) {
                 run.analysis <- FALSE
                 
-                if(!is.null(self$options$labels)) {
-                    err_string <- stringr::str_interp(
-                        "Define the reference and comparison groups by listing levels from ${self$options$labels}, which has levels ${self$data[, self$options$labels]}."
-                    )
-                } else { 
+                if(is.null(self$options$labels)) {
                     err_string <- paste(err_string, "Waiting for you to define variables containing group labels, means, standard deviations, and sample sizes.", sep="\n")
                 }
             }
             
             # Check that reference labels are within the list of groups names            
             if(!is.null(self$options$labels)) {
-                if(length(self$options$ref_labels) != 0) {
+                if(rlabels) {
                     # Split the comma-separated list, then trim ws while reducing the list to a vector
                     refgs <- strsplit(as.character(self$options$ref_labels), ",")
                     refgs <- trimws(refgs[[1]], which = "both")
@@ -126,7 +137,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 }
                 
                 # Now check the comparison list, same as for the refernece list (clearly need to write a function for this)
-                if(length(self$options$comparison_labels) !=0) {
+                if(clabels) {
                     compgs <- strsplit(as.character(self$options$comparison_labels), ",")
                     compgs <- trimws(compgs[[1]], which = "both")
                     for (tlevel in compgs) {
@@ -144,16 +155,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                     ))
                 }
             }
-            
-            if(nchar(self$options$comparison_labels) == 0) {
-                run.analysis <- FALSE
-                err_string <- paste(err_string, stringr::str_interp("\nNow define the comparison groups.  Type a list of levels from ${self$options$labels} to be considered the reference group.  This variable has levels: ${self$data[, self$options$labels]}."))
-            }
-            
-            if(nchar(self$options$ref_labels) == 0) {
-                run.analysis <- FALSE
-                err_string <- paste(err_string, stringr::str_interp("\nNow define the reference groups.  Type a list of levels from ${self$options$labels} to be considered the reference group.  This variable has levels: ${self$data[, self$options$labels]}."))
-            }
+        
             
             if(run.analysis) {
                 # We are running the analysis
@@ -184,37 +186,22 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
         }
         
-                    
-        # Set visibility of results based on if we are going to run the analysis
-        self$results$text$setVisible(!run.analysis)
-        self$results$contrast_table$setVisible(run.analysis)
-        self$results$means_table$setVisible(run.analysis)
-        self$results$contrast_plot$setVisible(run.analysis)
-        
-        
+
         if(run.analysis & class(estimate) != "try-error") {
 
             # Store result pbject for use with the graph
             image <- self$results$contrast_plot
             image$setState(estimate) 
             
+            # # Add needed rows to means table (got to be a better way to do this)
+            # for(x in 1:(nrow(estimate$means_table)-1)) {
+            #     table$addRow(x+1)
+            # }
+            
             # Setup the means_table, adding a column for each column we will report
             table <- self$results$means_table
-            table$addColumn(name = "m", title = "M", type = 'number')
-            table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-            table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-            table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-            table$addColumn(name = "s", title = "s", type = 'number')
-            table$addColumn(name = "n", title = "N", type = 'integer')
-            
-            # Add needed rows to means table (got to be a better way to do this)
-            for(x in 1:(nrow(estimate$means_table)-1)) {
-                table$addRow(x+1)
-            }
-            
-            # Set each row (need to write a generic function for filling in jamovi tables)
             for(x in 1:nrow(estimate$means_table)) {
-                table$setRow(rowNo = x, values = list(
+                table$addRow(x, values = list(
                     label = as.character(estimate$means_table[x, "label"]),
                     m = estimate$means_table[x, "m"],
                     moe = estimate$means_table[x, "moe"],
@@ -227,17 +214,6 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
             # Now the same process with the contrast table--add columns and rows, then fill in table
             table <- self$results$contrast_table
-            table$addColumn(name = "m", title = "M", type = 'number')
-            table$addColumn(name = "moe", title = paste(format(self$options$conf.level, digits = 0), "% MoE"), type = 'number')
-            table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-            table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-            table$addColumn(name = "pvalue", title = "p", type = 'number')
-    
-            for(x in 1:(nrow(estimate$contrast_table)-1)) {
-                table$addRow(x+1)
-            }
-            
-            
             for(x in 1:nrow(estimate$contrast_table)) {
                 table$setRow(rowNo = x, values = list(
                     label = as.character(estimate$contrast_table[x, "label"]),
@@ -250,6 +226,8 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             
             } else {
                 # We didn't run the analysis.  Let's set the error text
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             }
         

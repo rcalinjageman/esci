@@ -145,29 +145,74 @@ jmvIndContrastsResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
-                visible=TRUE))
+                visible=FALSE))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="means_table",
                 title="Descriptive Statistics",
                 visible=TRUE,
-                rows=1,
+                rows=0,
                 columns=list(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="moe", 
+                        `title`="MoE", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="s", 
+                        `title`="s", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="contrast_table",
                 title="Contrasts",
                 visible=TRUE,
-                rows=1,
+                rows=3,
                 columns=list(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="moe", 
+                        `title`="MoE", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="pvalue", 
+                        `title`="p", 
+                        `type`="number", 
+                        `format`="zto,pvalue"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="contrast_plot",

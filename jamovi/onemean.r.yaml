@@ -20,6 +20,12 @@ items:
         - name: m
           type: number
           title: M
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
         - name: s
           type: number
         - name: N

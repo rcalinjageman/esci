@@ -13,19 +13,36 @@ items:
       title: Estimated Difference in Proportion
       type: Table
       rows:  3
-      visible: FALSE
+      visible: TRUE
       columns:
         - name: var
           title: ''
           type: text
+        - name: cases
+          title: Cases
+          type: integer
+        - name: ncases
+          title: NotCases
+          type: integer
+        - name: n
+          title: Total N
+          type: integer
+        - name: P
+          title: P
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
 
     - name: proportion_plot
       title: Proportion Plot
       type: Image
-      visible: FALSE
+      visible: TRUE
       width:  300
       height: 530
       renderFun: .plot  
-
 
 ...

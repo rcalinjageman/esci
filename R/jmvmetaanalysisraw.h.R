@@ -152,7 +152,7 @@ jmvMetaAnalysisRawResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="text",
                 title="Instructions/Errros",
-                visible=TRUE))
+                visible=FALSE))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="result_table",
@@ -163,18 +163,87 @@ jmvMetaAnalysisRawResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="effect.size", 
+                        `title`="Effect Size", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="p.value", 
+                        `title`="p", 
+                        `type`="number", 
+                        `format`="zto,pvalue"),
+                    list(
+                        `name`="diamond.ratio", 
+                        `title`="Diamond Ratio", 
+                        `type`="number"),
+                    list(
+                        `name`="dr.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="dr.high", 
+                        `title`="Upper", 
+                        `type`="number"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="study_table",
                 title="Table of Studies",
-                visible=TRUE,
+                visible="(show.study.table)",
                 rows=0,
                 columns=list(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m1", 
+                        `title`="M1", 
+                        `type`="number"),
+                    list(
+                        `name`="s1", 
+                        `title`="s1", 
+                        `type`="number"),
+                    list(
+                        `name`="n1", 
+                        `title`="N1", 
+                        `type`="integer"),
+                    list(
+                        `name`="spacer", 
+                        `title`=" ", 
+                        `type`="text"),
+                    list(
+                        `name`="m2", 
+                        `title`="M2", 
+                        `type`="number"),
+                    list(
+                        `name`="s2", 
+                        `title`="s2", 
+                        `type`="number"),
+                    list(
+                        `name`="n2", 
+                        `title`="N2", 
+                        `type`="integer"),
+                    list(
+                        `name`="effect.size", 
+                        `title`="Effect size", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="forest_plot",

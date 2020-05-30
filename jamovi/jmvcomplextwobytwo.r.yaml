@@ -1,37 +1,97 @@
 ---
 name:  jmvComplexTwoByTwo
-title: Estimate Ind. 2x2
+title: Estimate Independent Groups 2x2
 jrs:   '1.1'
 
 items:
     - name:  text
       title: Instructions/Errors
       type:  Html
-      visible: TRUE
+      visible: FALSE
 
     - name:  means_table
       title: Descriptive Statistics
       visible: TRUE
       type: Table
-      rows:  0
+      rows:  4
       columns:
         - name: label
           title: Label
           type: text
-
+        - name: m
+          title: M
+          type: number
+        - name: moe
+          title: MoE
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
+        - name: s
+          title: s
+          type: number
+        - name: n
+          title: N
+          type: integer
+          
     - name:  contrast_table
       title: Contrasts
-      visible: TRUE
+      visible: "(MEorInt:fME)"
       type: Table
-      rows:  0
+      rows:  7
       columns:
         - name: label
           title: Label
           type: text
+        - name: m
+          title: M
+          type: number
+        - name: moe
+          title: MoE
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
+        - name: pvalue
+          title: p
+          type: number
+          format: zto,pvalue
+          
+    - name:  interaction_table
+      title: Contrasts
+      visible: "(MEorInt:fInt)"
+      type: Table
+      rows:  12
+      columns:
+        - name: label
+          title: Label
+          type: text
+        - name: m
+          title: M
+          type: number
+        - name: moe
+          title: MoE
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
+        - name: pvalue
+          title: p
+          type: number
+          format: zto,pvalue
 
     - name: ME1_plot
       title: Main Effect 1 Plot
-      visible: FALSE
+      visible: "(MEorInt:fME)"
       type: Image
       width:  600
       height: 350
@@ -39,7 +99,7 @@ items:
       
     - name: ME2_plot
       title: Main Effect 2 Plot
-      visible: FALSE
+      visible: "(MEorInt:fME)"
       type: Image
       width:  600
       height: 350
@@ -47,7 +107,7 @@ items:
     
     - name: Int_plot
       title: Interaction Plot
-      visible: FALSE
+      visible: "(MEorInt:fInt)"
       type: Image
       width:  600
       height: 350

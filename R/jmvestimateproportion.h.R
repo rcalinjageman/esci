@@ -155,11 +155,32 @@ jmvEstimateProportionResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                     list(
                         `name`="var", 
                         `title`="Group", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="cases", 
+                        `title`="Cases", 
+                        `type`="integer"),
+                    list(
+                        `name`="n", 
+                        `title`="Total N", 
+                        `type`="integer"),
+                    list(
+                        `name`="P", 
+                        `title`="P", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="bar_plot",
                 title="Frequency Plot",
+                visible="(switch:fromraw)",
                 width=530,
                 height=300,
                 renderFun=".bplot"))

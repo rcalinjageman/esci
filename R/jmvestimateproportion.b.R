@@ -5,6 +5,12 @@ jmvEstimateProportionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvEstimateProportionClass",
     inherit = jmvEstimateProportionBase,
     private = list(
+        .init = function() {
+            table <- self$results$summary_table
+            table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -120,23 +126,14 @@ ERROR:
             
             ####################
             # Report the results
-            
-            # Analysis ran so set report sections visible
-            self$results$text$setVisible(!run.analysis)            
-            self$results$summary_table$setVisible(run.analysis)
-            self$results$bar_plot$setVisible(self$options$switch == "fromraw" & run.analysis)
-            self$results$proportion_plot$setVisible(run.analysis)
 
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {                
                 table <- self$results$summary_table
-                table$addColumn(name = "cases", title = "Cases", type = 'integer')
-                table$addColumn(name = "n", title = "Total N", type = 'integer')
-                table$addColumn(name = "P", title = "P", type = 'number')
-                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                
+
                 if (self$options$switch == "fromraw") {
                     counter <- 1
                     for(i in 1:nrow(estimate$all_result)) {

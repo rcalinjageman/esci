@@ -183,18 +183,34 @@ jmvEstimateCorrelationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="summary_table",
                 title="Estimated Correlation",
-                visible=FALSE,
+                visible=TRUE,
                 rows=1,
                 columns=list(
                     list(
                         `name`="var", 
                         `title`="Relationship", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="r", 
+                        `title`="Pearson's r", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Higher", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="Integer"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="scatter_plot",
                 title="Scatter Plot",
-                visible=FALSE,
+                visible="(switch:fromraw)",
                 width=400,
                 height=400,
                 renderFun=".plot"))
@@ -202,7 +218,7 @@ jmvEstimateCorrelationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="correlation_plot",
                 title="Correlation Plot",
-                visible=FALSE,
+                visible=TRUE,
                 width=300,
                 height=530,
                 renderFun=".plot"))}))

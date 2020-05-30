@@ -217,7 +217,7 @@ jmvEstimateIndMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R6Cl
         ctmTable = function() private$.items[["ctmTable"]],
         notes = function() private$.items[["notes"]],
         smd = function() private$.items[["smd"]],
-        decisionMakingText = function() private$.items[["decisionMakingText"]],
+        decisionMakingTitle = function() private$.items[["decisionMakingTitle"]],
         decisionMaking = function() private$.items[["decisionMaking"]],
         plot = function() private$.items[["plot"]]),
     private = list(),
@@ -236,31 +236,51 @@ jmvEstimateIndMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R6Cl
                 options=options,
                 name="ctmTable",
                 title="Compare Two Means",
-                visible=FALSE,
+                visible=TRUE,
                 rows=3,
                 columns=list(
                     list(
                         `name`="Condition", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="CI_low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="CI_high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="s", 
+                        `title`="s", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="integer"))))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="notes",
                 title="Notes",
-                visible=FALSE))
+                visible=TRUE))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="smd",
                 title="Standardized Mean Difference",
-                visible=FALSE))
+                visible=TRUE))
             self$add(jmvcore::Preformatted$new(
                 options=options,
-                name="decisionMakingText",
+                name="decisionMakingTitle",
                 title="Decision Making",
-                visible=FALSE))
+                visible=TRUE))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="decisionMaking",
-                visible=FALSE,
+                visible=TRUE,
                 title="t-table",
                 rows=1,
                 columns=list(
@@ -272,11 +292,12 @@ jmvEstimateIndMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R6Cl
                         `type`="number"),
                     list(
                         `name`="p", 
-                        `type`="number"))))
+                        `type`="number", 
+                        `format`="zto,pvalue"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot",
-                visible=FALSE,
+                visible=TRUE,
                 title="Descriptives Plot",
                 width=500,
                 height=600,
@@ -336,7 +357,7 @@ jmvEstimateIndMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class
 #'   \code{results$ctmTable} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$notes} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$smd} \tab \tab \tab \tab \tab a html \cr
-#'   \code{results$decisionMakingText} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$decisionMakingTitle} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$decisionMaking} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$plot} \tab \tab \tab \tab \tab an image \cr
 #' }

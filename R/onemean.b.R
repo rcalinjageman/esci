@@ -5,6 +5,14 @@ onemeanClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "onemeanClass",
     inherit = onemeanBase,
     private = list(
+        .init = function() {
+            tables <- list(self$results$descriptives)
+            for(table in tables) {
+                table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            }
+
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -60,21 +68,14 @@ ERROR:
             
             ####################
             # Report the results
-            
-            # Analysis ran so set report sections visible
-            self$results$text$setVisible(!run.analysis)            
-            self$results$descriptives$setVisible(run.analysis)
-            self$results$distribution$setVisible(run.analysis)
-            self$results$estimate$setVisible(run.analysis)
-            
+
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
                            
                 table <- self$results$descriptives
-                
-                table$addColumn(name = "ci.low", index = 3, title = "Lower", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", index = 4, title = "Upper", type = 'number', superTitle = paste(format(conf.level * 100, digits = 0), "% CI") )
                 
                 table$setRow(rowNo=1, values=list(
                     var=estimate$plot_info$plotiv,

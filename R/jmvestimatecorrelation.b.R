@@ -5,6 +5,13 @@ jmvEstimateCorrelationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvEstimateCorrelationClass",
     inherit = jmvEstimateCorrelationBase,
     private = list(
+        .init = function() {
+            table <- self$results$summary_table
+            table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+        
+            
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -90,29 +97,14 @@ ERROR:
                 }
             }
             
-            self$results$text$setVisible(!run.analysis)
-            self$results$scatter_plot$setVisible(self$options$switch == "fromraw" & run.analysis)
-            self$results$summary_table$setVisible(run.analysis)
-            self$results$correlation_plot$setVisible(run.analysis)
-            
+
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
-            
+                
                 table <- self$results$summary_table
-                table$addColumn(name = "r", title = "Pearson's r", type = 'number')
-                table$addColumn(name = "ci.low", 
-                                title = "Lower", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
-                table$addColumn(name = "ci.high", 
-                                title = "Upper", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                                )
-                table$addColumn(name = "n", title = "N", type = 'integer')
-    
                 table$setRow(rowNo=1, values=list(
                     var=as.character(estimate$summary_data[1,1]),
                     r = estimate$summary_data[1,2],
@@ -133,9 +125,12 @@ ERROR:
             }
         },
         .plot=function(image, ...) {
-            estimate <- image$state
             if (is.null(image$state))
                 return(FALSE)
+            
+            
+            estimate <- image$state
+            
 
             xlab <- jmvSanitizeOption(self$options$xlab)
             ylab <- jmvSanitizeOption(self$options$ylab)

@@ -5,6 +5,16 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvMetaAnalysisRawClass",
     inherit = jmvMetaAnalysisRawBase,
     private = list(
+        .init = function() {
+            tables <- list(self$results$result_table, self$results$study_table)
+            for(table in tables) {
+                table$getColumn("ci.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+                table$getColumn("ci.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            }
+            self$results$result_table$getColumn("dr.low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            self$results$result_table$getColumn("dr.high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -27,13 +37,7 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                     err_string <- paste(err_string, "Waiting for you to define variables containing study labels labels and means, sds, and ns for each group.", sep="\n")
             }            
             
-            
-            # Set visibility of results based on if we are going to run the analysis
-            self$results$text$setVisible(!run.analysis)
-            self$results$result_table$setVisible(run.analysis)
-            self$results$study_table$setVisible(run.analysis & self$options$show.study.table)
-            self$results$forest_plot$setVisible(run.analysis)
-            
+
             
             if(run.analysis) {
                 estimate <- estimateOverallRaw(data = self$data, 
@@ -53,15 +57,15 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 image <- self$results$forest_plot
                 image$setState(estimate)
                 
-                # self$results$text$setVisible(TRUE)
-                # self$results$text$setContent(estimate$result_table)
-                
+
                 eslabel <- "M2-M1"
                 if(self$options$report.cohens.d) {
                     eslabel <- "Cohen's d (unbiased)"
                 } else {
                     if(length(self$options$g1label)>0 & length(self$options$g2label) >0) {
+                        if(nchar(self$options$g1label)>0 & nchar(self$options$g2label)>0) {
                         eslabel <- paste(self$options$g2label, "-", self$options$g1label)
+                        }
                     }
                 }
                 
@@ -73,16 +77,7 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 g2labels <-c("M", "SD", "N")
                 
                 table <- self$results$result_table
-                table$addColumn(name = "effect.size", title = eslabel, type = 'number')
-                table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                table$addColumn(name = "p.value", title = "p", type = 'number')
-                table$addColumn(name = "diamond.ratio", title = "Diamond Ratio", type = 'number')
-                table$addColumn(name = "dr.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI"))
-                table$addColumn(name = "dr.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI"))
-                # table$addColumn(name = "I2", title = "I^2", type = 'number')
-                # table$addColumn(name = "I2.low", title = "I^2.ci.low", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                # table$addColumn(name = "I2.high", title = "I^2.ci.high", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                table$getColumn("effect.size")$setTitle(eslabel)
                 
                 reporttable <- nrow(estimate$result_table)
                 if(!is.null(self$options$moderator) & reporttable > 4) { reporttable <- reporttable-1}
@@ -99,23 +94,25 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                         dr.high = estimate$result_table[x, "dr.high"]
                     ))}
                 
-                # I2 = estimate$result_table[x, "I2"],
-                # I2.low = estimate$result_table[x, "I2.low"],
-                # I2.high = estimate$result_table[x, "I2.high"]
-                # 
-                
+
                 if(self$options$show.study.table) {
                     table <- self$results$study_table
-                    table$addColumn(name = "m1", title = g1labels[1], superTitle = g1label, type = 'number')
-                    table$addColumn(name = "s1", title = g1labels[2], superTitle = g1label, type = 'number')
-                    table$addColumn(name = "n1", title = g1labels[3], superTitle = g1label, type = 'number')
-                    table$addColumn(name = "spacer", title = " ", type = 'text')
-                    table$addColumn(name = "m2", title = g2labels[1], superTitle = g2label, type = 'number')
-                    table$addColumn(name = "s2", title = g2labels[2], superTitle = g2label, type = 'number')
-                    table$addColumn(name = "n2", title = g2labels[3], superTitle = g2label, type = 'number')
-                    table$addColumn(name = "effect.size", title = eslabel, type = 'number')
-                    table$addColumn(name = "ci.low", title = "Lower", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
-                    table$addColumn(name = "ci.high", title = "Upper", type = 'number', superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") )
+                    table$getColumn("m1")$setTitle(g1labels[1])
+                    table$getColumn("s1")$setTitle(g1labels[2])
+                    table$getColumn("n1")$setTitle(g1labels[3])
+                    table$getColumn("m1")$setTitle(g2labels[1])
+                    table$getColumn("s1")$setTitle(g2labels[2])
+                    table$getColumn("n1")$setTitle(g2labels[3])
+                    
+                    table$getColumn("m1")$setSuperTitle(g1label)
+                    table$getColumn("s1")$setSuperTitle(g1label)
+                    table$getColumn("n1")$setSuperTitle(g1label)
+                    table$getColumn("m2")$setSuperTitle(g2label)
+                    table$getColumn("s2")$setSuperTitle(g2label)
+                    table$getColumn("n2")$setSuperTitle(g2label)
+                    
+                    table$getColumn("effect.size")$setTitle(eslabel)
+                    
                     
                     for(x in 1:nrow(estimate$data)) {
                         table$addRow(x, values = list(
@@ -133,11 +130,15 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
 
             } else {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             }
             
         },
         .plot=function(image, ...) {  # <-- the plot function
+            if (is.null(image$state))
+                return(FALSE)
             estimate <- image$state
             
             plot <- plotMetaEffect(estimate, xlims = c(NULL, NULL), dr.explain = self$options$explainDR)

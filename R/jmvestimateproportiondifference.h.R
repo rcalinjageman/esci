@@ -183,17 +183,41 @@ jmvEstimateProportionDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 name="summary_table",
                 title="Estimated Difference in Proportion",
                 rows=3,
-                visible=FALSE,
+                visible=TRUE,
                 columns=list(
                     list(
                         `name`="var", 
                         `title`="", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="cases", 
+                        `title`="Cases", 
+                        `type`="integer"),
+                    list(
+                        `name`="ncases", 
+                        `title`="NotCases", 
+                        `type`="integer"),
+                    list(
+                        `name`="n", 
+                        `title`="Total N", 
+                        `type`="integer"),
+                    list(
+                        `name`="P", 
+                        `title`="P", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="proportion_plot",
                 title="Proportion Plot",
-                visible=FALSE,
+                visible=TRUE,
                 width=300,
                 height=530,
                 renderFun=".plot"))}))

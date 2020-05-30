@@ -7,28 +7,62 @@ items:
     - name:  text
       title: Instructions/Errors
       type:  Html
-      visible: TRUE
+      visible: FALSE
 
     - name:  means_table
       title: Descriptive Statistics
       visible: TRUE
       type: Table
-      rows:  1
+      rows:  0
       columns:
         - name: label
           title: Label
           type: text
+        - name: m
+          title: M
+          type: number
+        - name: moe
+          title: MoE
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
+        - name: s
+          title: s
+          type: number
+        - name: n
+          title: N
+          type: integer
 
     - name:  contrast_table
       title: Contrasts
       visible: TRUE
       type: Table
-      rows:  1
+      rows:  3
       columns:
         - name: label
           title: Label
           type: text
-
+        - name: m
+          title: M
+          type: number
+        - name: moe
+          title: MoE
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Upper
+          type: number
+        - name: pvalue
+          title: p
+          type: number
+          format: zto,pvalue
+          
     - name: contrast_plot
       title: Contrast Plot
       visible: TRUE

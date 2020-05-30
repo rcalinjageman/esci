@@ -12,16 +12,28 @@ items:
     - name:  summary_table
       title: Estimated Correlation
       type: Table
-      visible: FALSE
+      visible: TRUE
       rows:  1
       columns:
         - name: var
           title: Relationship
           type: text
+        - name: r
+          title: Pearson's r
+          type: number
+        - name: ci.low
+          title: Lower
+          type: number
+        - name: ci.high
+          title: Higher
+          type: number
+        - name: n
+          title: N
+          type: Integer
 
     - name: scatter_plot
       title: Scatter Plot
-      visible: FALSE
+      visible: "(switch:fromraw)"
       type: Image
       width:  400
       height: 400
@@ -29,7 +41,7 @@ items:
 
     - name: correlation_plot
       title: Correlation Plot
-      visible: FALSE
+      visible: TRUE
       type: Image
       width:  300
       height: 530

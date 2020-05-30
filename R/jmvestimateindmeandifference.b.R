@@ -5,6 +5,12 @@ jmvEstimateIndMeanDifferenceClass <- if (requireNamespace('jmvcore')) R6::R6Clas
     "jmvEstimateIndMeanDifferenceClass",
     inherit = jmvEstimateIndMeanDifferenceBase,
     private = list(
+        .init = function() {
+            table <- self$results$ctmTable
+            table$getColumn("CI_low")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+            table$getColumn("CI_high")$setSuperTitle(paste(self$options$conf.level, "% CI"))
+
+        },
         .run = function() {
 
             # `self$data` contains the data
@@ -109,35 +115,16 @@ ERROR:
                 }
             }
             
-            # Set visibility of results based on if we are going to run the analysis
-            self$results$text$setVisible(!run.analysis)
-            self$results$ctmTable$setVisible(run.analysis)
-            self$results$notes$setVisible(run.analysis)
-            self$results$smd$setVisible(run.analysis)
-            self$results$decisionMakingText$setVisible(run.analysis)
-            self$results$decisionMaking$setVisible(run.analysis)
-            self$results$plot$setVisible(run.analysis)
-            
-            
             if(!run.analysis) {
+                self$results$text$setVisible(TRUE)
+                err_string <- paste("<h2>Instructions</h2>", err_string, "</p><hr></p>")
                 self$results$text$setContent(gsub("\n", "</br>", err_string))
             } else {
             
                 ####################
                 # Report the results
                 
-                # Analysis ran so set report sections visible
-                self$results$text$setVisible(FALSE)            
-                self$results$ctmTable$setVisible(TRUE)
-                self$results$notes$setVisible(TRUE)
-                self$results$smd$setVisible(TRUE)
-                self$results$plot$setVisible(TRUE)
-                self$results$decisionMakingText$setVisible(TRUE)
-                self$results$decisionMaking$setVisible(TRUE)
-                
                 # Report smd and notes
-                self$results$smd$setTitle("Standardized Mean Difference")
-                self$results$notes$setTitle("Notes")
                 self$results$smd$setContent(paste("<h2>Standardized Mean Difference</h2>", estimate$html_d, estimate$html_summary))
                 self$results$notes$setContent(paste("<h2>Notes</h2>", gsub("\n", "</br>", reportEstimate(estimate, "Notes", print.title = FALSE))))
                 
@@ -151,22 +138,7 @@ ERROR:
                 
                 # Fill main result table
                 table <- self$results$ctmTable
-                table$addColumn(name = "m", title = "M", type = 'number')
-                table$addColumn(name = "CI_low", 
-                                title = "Lower", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                )
-                table$addColumn(name = "CI_high", 
-                                title = "Upper", 
-                                type = 'number', 
-                                superTitle = paste(format(self$options$conf.level, digits = 0), "% CI") 
-                )
-                table$addColumn(name = "s", title = "s", type = 'number')
-                table$addColumn(name = "n", title = "N", type = 'integer')
-                
-            
-                
+
                 for (i in 1:3) {
                     table$setRow(rowNo=i, values=list(
                         Condition=paste(estimate$summary_data$iv[i]),

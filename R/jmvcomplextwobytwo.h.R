@@ -96,6 +96,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
         text = function() private$.items[["text"]],
         means_table = function() private$.items[["means_table"]],
         contrast_table = function() private$.items[["contrast_table"]],
+        interaction_table = function() private$.items[["interaction_table"]],
         ME1_plot = function() private$.items[["ME1_plot"]],
         ME2_plot = function() private$.items[["ME2_plot"]],
         Int_plot = function() private$.items[["Int_plot"]]),
@@ -105,39 +106,116 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Estimate Ind. 2x2")
+                title="Estimate Independent Groups 2x2")
             self$add(jmvcore::Html$new(
                 options=options,
                 name="text",
                 title="Instructions/Errors",
-                visible=TRUE))
+                visible=FALSE))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="means_table",
                 title="Descriptive Statistics",
                 visible=TRUE,
-                rows=0,
+                rows=4,
                 columns=list(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="moe", 
+                        `title`="MoE", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="s", 
+                        `title`="s", 
+                        `type`="number"),
+                    list(
+                        `name`="n", 
+                        `title`="N", 
+                        `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="contrast_table",
                 title="Contrasts",
-                visible=TRUE,
-                rows=0,
+                visible="(MEorInt:fME)",
+                rows=7,
                 columns=list(
                     list(
                         `name`="label", 
                         `title`="Label", 
-                        `type`="text"))))
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="moe", 
+                        `title`="MoE", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="pvalue", 
+                        `title`="p", 
+                        `type`="number", 
+                        `format`="zto,pvalue"))))
+            self$add(jmvcore::Table$new(
+                options=options,
+                name="interaction_table",
+                title="Contrasts",
+                visible="(MEorInt:fInt)",
+                rows=12,
+                columns=list(
+                    list(
+                        `name`="label", 
+                        `title`="Label", 
+                        `type`="text"),
+                    list(
+                        `name`="m", 
+                        `title`="M", 
+                        `type`="number"),
+                    list(
+                        `name`="moe", 
+                        `title`="MoE", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.low", 
+                        `title`="Lower", 
+                        `type`="number"),
+                    list(
+                        `name`="ci.high", 
+                        `title`="Upper", 
+                        `type`="number"),
+                    list(
+                        `name`="pvalue", 
+                        `title`="p", 
+                        `type`="number", 
+                        `format`="zto,pvalue"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="ME1_plot",
                 title="Main Effect 1 Plot",
-                visible=FALSE,
+                visible="(MEorInt:fME)",
                 width=600,
                 height=350,
                 renderFun=".ME1plot"))
@@ -145,7 +223,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="ME2_plot",
                 title="Main Effect 2 Plot",
-                visible=FALSE,
+                visible="(MEorInt:fME)",
                 width=600,
                 height=350,
                 renderFun=".ME2plot"))
@@ -153,7 +231,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="Int_plot",
                 title="Interaction Plot",
-                visible=FALSE,
+                visible="(MEorInt:fInt)",
                 width=600,
                 height=350,
                 renderFun=".Intplot"))}))
@@ -195,6 +273,7 @@ jmvComplexTwoByTwoBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$means_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$contrast_table} \tab \tab \tab \tab \tab a table \cr
+#'   \code{results$interaction_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$ME1_plot} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$ME2_plot} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$Int_plot} \tab \tab \tab \tab \tab an image \cr
