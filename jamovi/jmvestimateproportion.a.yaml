@@ -29,7 +29,7 @@ options:
     - name: na.rm
       title: How should missing data be handled?
       type: List
-      default: remove
+      default: dontremove
       options:
         - name: remove
           title: Remove

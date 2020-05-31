@@ -9,7 +9,7 @@ jmvEstimateProportionOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             switch = "fromraw",
             measure1 = NULL,
             case.level = NULL,
-            na.rm = "remove",
+            na.rm = "dontremove",
             cases = NULL,
             n = NULL,
             caselabel1 = "Affected",
@@ -42,7 +42,7 @@ jmvEstimateProportionOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..na.rm <- jmvcore::OptionList$new(
                 "na.rm",
                 na.rm,
-                default="remove",
+                default="dontremove",
                 options=list(
                     "remove",
                     "dontremove"))
@@ -249,7 +249,7 @@ jmvEstimateProportion <- function(
     data,
     measure1,
     case.level,
-    na.rm = "remove",
+    na.rm = "dontremove",
     cases,
     n,
     caselabel1 = "Affected",

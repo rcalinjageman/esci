@@ -271,13 +271,13 @@ estimateProportion.default <- function(data, x, conf.level=0.95, case.level = 1,
   
   all_result <- data.frame(level = NULL, cases = NULL, total = NULL, P = NULL, ci.low = NULL, ci.high = NULL)
   for (i in levels(data$iv)) {
-    cases <- length(data[data$iv == i, ])
+    cases <- length(na.omit(data[data$iv == i, ]))
     level1 <- i
     level2 <- paste("not", i)
     tout <- estimateProportion(cases = cases, n = n, caselabels = c(level1, level2), conf.level = conf.level)
     all_result <- rbind(all_result, data.frame(level = i, cases = cases, total = n, P = tout$P, ci.low = tout$ci.low, ci.high = tout$ci.high))
   }
-  
+
   cases <- length(data[data$iv == levels(data$iv)[case.level], ])
   level1 <- levels(data$iv)[[case.level]]
   if (length(levels(data$iv)) == 2) {

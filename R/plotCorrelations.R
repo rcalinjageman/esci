@@ -353,13 +353,16 @@ plotCorrelationDifference <- function(estimate, show.cat.eye = TRUE) {
   if (0 < saxisStart) {saxisStart <- 0}
   if (0 > saxisEnd) {saxisEnd <- 0}
   
+  ymax <- max(c(1.1, estimate$plot_info$summary_data$ci.high))
+  ymin <- min(c(-1.1, estimate$plot_info$summary_data$ci.low))
+  
   # Adjust starting point to be a multiple of 0.1 so that 0 will be a tick mark
   tozero <- ceiling(abs(saxisStart - 0)/.1)
   saxisStart <- -0.1 * tozero
   
   # Make the saxis braks and set the y scale
   saxisBreaks <- seq(saxisStart, saxisEnd, by=0.1)
-  myplot <- myplot + scale_y_continuous(limits = c(-1.1,1.1), sec.axis = sec_axis(trans = ~.-estimate$r1$r, breaks = saxisBreaks, labels = scaleFUN))
+  myplot <- myplot + scale_y_continuous(limits = c(ymin, ymax), sec.axis = sec_axis(trans = ~.-estimate$r1$r, breaks = saxisBreaks, labels = scaleFUN))
   
   # Now make the secondary axis floating
   myplot <- myplot + theme( axis.line.y.right = element_blank())
