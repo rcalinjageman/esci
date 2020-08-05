@@ -20,45 +20,6 @@ options:
       max: 99.9999
       default: 95
       
-    - name: plottype
-      type: List
-      default: dotplot
-      options:
-        - name: dotplot
-          title: Dot plot
-        - name: histogram
-          title: Histogram
-      
-    - name: marker
-      type: String
-      title: Percentile for marker
-      default: none
-
-    - name: bins
-      type: String
-      title: Number of bins
-      default: '12'
-
-    - name: show.mean
-      title: Mean marker
-      type: Bool
-      default: false
-      
-    - name: show.median
-      title: Median marker
-      type: Bool
-      default: false
-
-    - name: show.zlines
-      title: z-line markers
-      type: Bool
-      default: false
-      
-    - name: show.s
-      title: Standard deviation marker
-      type: Bool
-      default: false
-
     - name: ylab
       title: y-axis label
       type: String
@@ -82,16 +43,6 @@ options:
       type: String
       default: auto
 
-    - name: xmin
-      title: x-axis minimum
-      type: String
-      default: auto
-
-    - name: xmax
-      title: x-axis maximum
-      type: String
-      default: auto
-
     - name: bcex
       title: Plot spread
       type: String
@@ -101,9 +52,5 @@ options:
       title: Color for bars/dots
       type: String
       default: gray
-      
-    - name: color.highlighted
-      title: Color for highlighted bars/dots
-      type: String
-      default: red
+
 ...

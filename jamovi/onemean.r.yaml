@@ -33,24 +33,6 @@ items:
         - name: NA_count
           type: integer
           title: Missing
-        - name: median
-          type: number
-          title: Median
-        - name: q1
-          type: number
-          title: 25%
-          superTitle: Quartiles
-        - name: q3
-          type: number
-          title: 75%
-          superTitle: Quartiles
-     
-    - name: distribution
-      title: Distribution
-      type: Image
-      width:  400
-      height: 300
-      renderFun: .plot     
 
     - name: estimate
       title: Estimate

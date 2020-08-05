@@ -22,38 +22,7 @@ children:
         name: conf.level
         format: number
   - type: CollapseBox
-    label: Distribution-Graph Options
-    collapsed: false
-    children: 
-    - type: LayoutBox
-      margin: large
-      style: inline
-      children:
-        - type: RadioButton
-          optionName: plottype
-          optionPart: dotplot
-        - type: RadioButton
-          optionName: plottype
-          optionPart: histogram
-    - type: LayoutBox
-      margin: large
-      children:
-      - type: TextBox
-        name: marker
-        format: string
-      - type: TextBox
-        name: bins
-        format: string
-      - type: CheckBox
-        name: show.mean
-      - type: CheckBox
-        name: show.median
-      - type: CheckBox
-        name: show.zlines
-      - type: CheckBox
-        name: show.s
-  - type: CollapseBox
-    label: Other Graph Options
+    label: Graph Options
     collapsed: true
     children:
       - type: TextBox
@@ -69,12 +38,6 @@ children:
         name: ymax
         format: string
       - type: TextBox
-        name: xmin
-        format: string
-      - type: TextBox
-        name: xmax
-        format: string
-      - type: TextBox
         name: size
         format: string
       - type: TextBox
@@ -82,7 +45,4 @@ children:
         format: string
       - type: TextBox
         name: color.regular
-        format: string
-      - type: TextBox
-        name: color.highlighted
         format: string

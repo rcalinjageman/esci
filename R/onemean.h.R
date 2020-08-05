@@ -8,23 +8,13 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         initialize = function(
             measure1 = NULL,
             conf.level = 95,
-            plottype = "dotplot",
-            marker = "none",
-            bins = "12",
-            show.mean = FALSE,
-            show.median = FALSE,
-            show.zlines = FALSE,
-            show.s = FALSE,
             ylab = NULL,
             xlab = NULL,
             size = "1",
             ymin = "auto",
             ymax = "auto",
-            xmin = "auto",
-            xmax = "auto",
             bcex = "1",
-            color.regular = "gray",
-            color.highlighted = "red", ...) {
+            color.regular = "gray", ...) {
 
             super$initialize(
                 package='esci',
@@ -41,37 +31,6 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 min=50,
                 max=99.9999,
                 default=95)
-            private$..plottype <- jmvcore::OptionList$new(
-                "plottype",
-                plottype,
-                default="dotplot",
-                options=list(
-                    "dotplot",
-                    "histogram"))
-            private$..marker <- jmvcore::OptionString$new(
-                "marker",
-                marker,
-                default="none")
-            private$..bins <- jmvcore::OptionString$new(
-                "bins",
-                bins,
-                default="12")
-            private$..show.mean <- jmvcore::OptionBool$new(
-                "show.mean",
-                show.mean,
-                default=FALSE)
-            private$..show.median <- jmvcore::OptionBool$new(
-                "show.median",
-                show.median,
-                default=FALSE)
-            private$..show.zlines <- jmvcore::OptionBool$new(
-                "show.zlines",
-                show.zlines,
-                default=FALSE)
-            private$..show.s <- jmvcore::OptionBool$new(
-                "show.s",
-                show.s,
-                default=FALSE)
             private$..ylab <- jmvcore::OptionString$new(
                 "ylab",
                 ylab)
@@ -90,14 +49,6 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 "ymax",
                 ymax,
                 default="auto")
-            private$..xmin <- jmvcore::OptionString$new(
-                "xmin",
-                xmin,
-                default="auto")
-            private$..xmax <- jmvcore::OptionString$new(
-                "xmax",
-                xmax,
-                default="auto")
             private$..bcex <- jmvcore::OptionString$new(
                 "bcex",
                 bcex,
@@ -106,71 +57,37 @@ onemeanOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 "color.regular",
                 color.regular,
                 default="gray")
-            private$..color.highlighted <- jmvcore::OptionString$new(
-                "color.highlighted",
-                color.highlighted,
-                default="red")
 
             self$.addOption(private$..measure1)
             self$.addOption(private$..conf.level)
-            self$.addOption(private$..plottype)
-            self$.addOption(private$..marker)
-            self$.addOption(private$..bins)
-            self$.addOption(private$..show.mean)
-            self$.addOption(private$..show.median)
-            self$.addOption(private$..show.zlines)
-            self$.addOption(private$..show.s)
             self$.addOption(private$..ylab)
             self$.addOption(private$..xlab)
             self$.addOption(private$..size)
             self$.addOption(private$..ymin)
             self$.addOption(private$..ymax)
-            self$.addOption(private$..xmin)
-            self$.addOption(private$..xmax)
             self$.addOption(private$..bcex)
             self$.addOption(private$..color.regular)
-            self$.addOption(private$..color.highlighted)
         }),
     active = list(
         measure1 = function() private$..measure1$value,
         conf.level = function() private$..conf.level$value,
-        plottype = function() private$..plottype$value,
-        marker = function() private$..marker$value,
-        bins = function() private$..bins$value,
-        show.mean = function() private$..show.mean$value,
-        show.median = function() private$..show.median$value,
-        show.zlines = function() private$..show.zlines$value,
-        show.s = function() private$..show.s$value,
         ylab = function() private$..ylab$value,
         xlab = function() private$..xlab$value,
         size = function() private$..size$value,
         ymin = function() private$..ymin$value,
         ymax = function() private$..ymax$value,
-        xmin = function() private$..xmin$value,
-        xmax = function() private$..xmax$value,
         bcex = function() private$..bcex$value,
-        color.regular = function() private$..color.regular$value,
-        color.highlighted = function() private$..color.highlighted$value),
+        color.regular = function() private$..color.regular$value),
     private = list(
         ..measure1 = NA,
         ..conf.level = NA,
-        ..plottype = NA,
-        ..marker = NA,
-        ..bins = NA,
-        ..show.mean = NA,
-        ..show.median = NA,
-        ..show.zlines = NA,
-        ..show.s = NA,
         ..ylab = NA,
         ..xlab = NA,
         ..size = NA,
         ..ymin = NA,
         ..ymax = NA,
-        ..xmin = NA,
-        ..xmax = NA,
         ..bcex = NA,
-        ..color.regular = NA,
-        ..color.highlighted = NA)
+        ..color.regular = NA)
 )
 
 onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
@@ -178,7 +95,6 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
     active = list(
         text = function() private$.items[["text"]],
         descriptives = function() private$.items[["descriptives"]],
-        distribution = function() private$.items[["distribution"]],
         estimate = function() private$.items[["estimate"]]),
     private = list(),
     public=list(
@@ -223,28 +139,7 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                     list(
                         `name`="NA_count", 
                         `type`="integer", 
-                        `title`="Missing"),
-                    list(
-                        `name`="median", 
-                        `type`="number", 
-                        `title`="Median"),
-                    list(
-                        `name`="q1", 
-                        `type`="number", 
-                        `title`="25%", 
-                        `superTitle`="Quartiles"),
-                    list(
-                        `name`="q3", 
-                        `type`="number", 
-                        `title`="75%", 
-                        `superTitle`="Quartiles"))))
-            self$add(jmvcore::Image$new(
-                options=options,
-                name="distribution",
-                title="Distribution",
-                width=400,
-                height=300,
-                renderFun=".plot"))
+                        `title`="Missing"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="estimate",
@@ -279,28 +174,17 @@ onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param data .
 #' @param measure1 .
 #' @param conf.level .
-#' @param plottype .
-#' @param marker .
-#' @param bins .
-#' @param show.mean .
-#' @param show.median .
-#' @param show.zlines .
-#' @param show.s .
 #' @param ylab .
 #' @param xlab .
 #' @param size .
 #' @param ymin .
 #' @param ymax .
-#' @param xmin .
-#' @param xmax .
 #' @param bcex .
 #' @param color.regular .
-#' @param color.highlighted .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$text} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$descriptives} \tab \tab \tab \tab \tab a table \cr
-#'   \code{results$distribution} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$estimate} \tab \tab \tab \tab \tab an image \cr
 #' }
 #'
@@ -315,23 +199,13 @@ onemean <- function(
     data,
     measure1,
     conf.level = 95,
-    plottype = "dotplot",
-    marker = "none",
-    bins = "12",
-    show.mean = FALSE,
-    show.median = FALSE,
-    show.zlines = FALSE,
-    show.s = FALSE,
     ylab,
     xlab,
     size = "1",
     ymin = "auto",
     ymax = "auto",
-    xmin = "auto",
-    xmax = "auto",
     bcex = "1",
-    color.regular = "gray",
-    color.highlighted = "red") {
+    color.regular = "gray") {
 
     if ( ! requireNamespace('jmvcore'))
         stop('onemean requires jmvcore to be installed (restart may be required)')
@@ -346,23 +220,13 @@ onemean <- function(
     options <- onemeanOptions$new(
         measure1 = measure1,
         conf.level = conf.level,
-        plottype = plottype,
-        marker = marker,
-        bins = bins,
-        show.mean = show.mean,
-        show.median = show.median,
-        show.zlines = show.zlines,
-        show.s = show.s,
         ylab = ylab,
         xlab = xlab,
         size = size,
         ymin = ymin,
         ymax = ymax,
-        xmin = xmin,
-        xmax = xmax,
         bcex = bcex,
-        color.regular = color.regular,
-        color.highlighted = color.highlighted)
+        color.regular = color.regular)
 
     analysis <- onemeanClass$new(
         options = options,

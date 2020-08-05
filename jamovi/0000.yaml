@@ -1,7 +1,7 @@
 ---
 title: Effect Sizes and Confidence Intervals for R and Jamovi
 name: esci
-version: 0.9.1
+version: 0.9.2
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -22,7 +22,18 @@ description: >-
   "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
   href = "https://thenewstatistics.com/itns/esci/jesci/"
   target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a>
+
+  0.9.2 ----
+    * Split estimate means into descriptives and estimate means
+    * Improved dotplot for descriptives
+    * Fixed a bug for Mdiff where cohen's d didn't take the conf.level argument
 analyses:
+  - title: Descriptives
+    name: jmvDescriptives
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Descriptive Stats
+    menuTitle: Descriptives
   - title: Estimate Mean
     name: onemean
     ns: esci

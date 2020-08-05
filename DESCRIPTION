@@ -12,5 +12,5 @@ Description: esci is an r package and jamovi module for the estimation approach 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: jmvcore (>= 0.8.5), R6, ggplot2, ggbeeswarm, metafor
+Imports: jmvcore (>= 0.8.5), R6, ggplot2, ggbeeswarm, metafor, ggforce
 RoxygenNote: 6.1.1
