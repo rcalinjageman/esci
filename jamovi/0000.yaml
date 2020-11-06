@@ -1,12 +1,12 @@
 ---
 title: Effect Sizes and Confidence Intervals for R and Jamovi
 name: esci
-version: 0.9.1
+version: 0.9.2
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
 maintainer: Robert J Calin-Jageman <rcalinjageman@dom.edu>
-date: '2019-06-01'
+date: '2020-11-05'
 type: R
 description: >-
   This module is for estimation, providing analyses that focus on effect sizes,
@@ -22,6 +22,8 @@ description: >-
   "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
   href = "https://thenewstatistics.com/itns/esci/jesci/"
   target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a>
+
+  Updated for better function on OSX - thanks to JLove for code updates.
 analyses:
   - title: Estimate Mean
     name: onemean

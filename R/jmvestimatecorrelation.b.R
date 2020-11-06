@@ -117,11 +117,24 @@ ERROR:
                     table$setNote(key="Notes", note = estimate$regression_equation)
                 }
                             
+                state <- list(
+                    plot_info=list(
+                        summary_data=estimate$plot_info$summary_data,
+                        error_data=estimate$plot_info$error_data,
+                        raw_data=estimate$plot_info$raw_data,
+                        dv_name=estimate$plot_info$dv_name,
+                        y_name=estimate$plot_info$y_name),
+                    formatted_r=estimate$formatted_r,
+                    na_count=estimate$na_count,
+                    type=estimate$type)
+                class(state) <- "estimate"
+                
                 image <- self$results$scatter_plot
-                image$setState(estimate)   
+                image$setState(state)
                 
                 image <- self$results$correlation_plot
-                image$setState(estimate)   
+                image$setState(state)
+                
             }
         },
         .plot=function(image, ...) {
