@@ -210,6 +210,80 @@ estimateOverallCorrelation <- function(data, rvalues, ns, label = NULL, moderato
   return(res)
 }
 
+estimateOverallProportionDifference <- function(data, cases1, n1, cases2, n2, label = NULL, moderator = NULL, random.effects = TRUE, effect.size = "RD", conf.level = 0.95) {
+  
+  # Initialization ---------------------------
+  # Create quosures and quonames.
+  # Stolen directly from dabestr
+  cases1_enquo        <-  rlang::enquo(cases1)
+  cases1_quoname      <-  rlang::quo_name(cases1_enquo)
+  
+  n1_enquo        <-  rlang::enquo(n1)
+  n1_quoname      <-  rlang::quo_name(n1_enquo)
+  
+  cases2_enquo        <-  rlang::enquo(cases2)
+  cases2_quoname      <-  rlang::quo_name(cases2_enquo)
+  
+  n2_enquo        <-  rlang::enquo(n2)
+  n2_quoname      <-  rlang::quo_name(n2_enquo)
+  
+  moderator_enquo        <-  rlang::enquo(moderator)
+  moderator_quoname      <-  rlang::quo_name(moderator_enquo)
+  
+  label_enquo        <-  rlang::enquo(label)
+  label_quoname      <-  rlang::quo_name(label_enquo)
+  
+  moderator <- FALSE
+  if(!is.null(data[[moderator_quoname]])) {
+    data$moderator         <- data[[moderator_quoname]]    
+    moderator <- TRUE
+  }
+  
+  if(!is.null(data[[label_quoname]])) {
+    data$label <- as.character(data[[label_quoname]])
+  } else {
+    data$label <- paste("Study", seq(1:nrow(data)))
+  }
+  
+  
+  # Kludgey - but make column names to pass along to escalc
+  data$cases1 <- data[[cases1_quoname]]
+  data$n1 <- data[[n1_quoname]]
+  data$cases2 <- data[[cases2_quoname]]
+  data$n2 <- data[[n2_quoname]]
+
+  # Reduce down to only the iv and dv columns.  Since we're passing this data back, best to limit its size, I think
+  keeps <- c("label", "cases1", "n1", "cases2", "n2")
+  if(!is.null(data$moderator)) {keeps <- c(keeps, "moderator")}
+  data <- data[keeps]  
+  
+  
+  # Use escalc to obtain yi and vi for each study in raw scores
+  if (!effect.size %in% c("RR", "OR", "RD", "AS", "PETO")) {
+    effect.size <- "RD"
+  }
+  effect.size.name <- switch(effect.size, 
+                            "RR" = "log risk ratio",
+                           "OR" = "log odds ratio",
+                           "RD" = "risk difference",
+                           "AS" = "arcsine square-root transformed risk difference",
+                           "PETO" = "log odds ratio estimated with Peto's method"
+                           )
+  
+  data <- metafor::escalc(measure = effect.size, data = data, ai = cases1, ci = cases2, n1i = n1, n2i = n2)
+  
+  
+  # Now store CI upper and lower bounds
+  b <- summary(data)
+  data$ci.low <- b$ci.lb
+  data$ci.high <-b$ci.ub
+  
+  
+  res <- estimateMetaEffect(data = data, moderator = moderator, effect.size.name = effect.size.name, random.effects = random.effects, conf.level = conf.level)
+  
+  return(res)
+}
+
 
 estimateMetaEffect <- function(data, moderator = FALSE, effect.size.name = "MDiff", random.effects = TRUE, conf.level = 0.95) {
   # We've passed in a prepared data table with columns:

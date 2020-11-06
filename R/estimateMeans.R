@@ -194,9 +194,9 @@ estimateMeanDifference.numeric <- function(m1, m2, s1, s2, n1, n2 = NA, r = NA, 
   
   # Obtain the standardized mean difference and CI
   if(paired) {
-    smd <- estimateStandardizedMeanDifference(m1 = m1, m2 = m2, s1 = s1, s2 = s2, n1 = n1, r = r, paired = paired)
+    smd <- estimateStandardizedMeanDifference(m1 = m1, m2 = m2, s1 = s1, s2 = s2, n1 = n1, r = r, paired = paired, conf.level = conf.level)
   } else {
-    smd <- estimateStandardizedMeanDifference(m1 = m1, m2 = m2, s1 = s1, s2 = s2, n1 = n1, n2 = n2, paired = paired, var.equal = var.equal)
+    smd <- estimateStandardizedMeanDifference(m1 = m1, m2 = m2, s1 = s1, s2 = s2, n1 = n1, n2 = n2, paired = paired, var.equal = var.equal, conf.level = conf.level)
   }
   
   # Now the actual t test ad p value (blech)
