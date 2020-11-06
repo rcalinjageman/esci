@@ -126,6 +126,12 @@ ERROR:
                         y_name=estimate$plot_info$y_name),
                     formatted_r=estimate$formatted_r,
                     na_count=estimate$na_count,
+                    lm = estimate$lm,
+                    a = estimate$a,
+                    b = estimate$b,
+                    n = estimate$n,
+                    regression_equation = estimate$regression_equation,
+                    conf.level = estimate$conf.level,
                     type=estimate$type)
                 class(state) <- "estimate"
                 
