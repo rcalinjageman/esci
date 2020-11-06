@@ -117,79 +117,63 @@ ERROR:
                     table$setNote(key="Notes", note = estimate$regression_equation)
                 }
                             
-                state <- list(
-                    plot_info=list(
-                        summary_data=estimate$plot_info$summary_data,
-                        error_data=estimate$plot_info$error_data,
-                        raw_data=estimate$plot_info$raw_data,
-                        dv_name=estimate$plot_info$dv_name,
-                        y_name=estimate$plot_info$y_name),
-                    formatted_r=estimate$formatted_r,
-                    na_count=estimate$na_count,
-                    lm = estimate$lm,
-                    a = estimate$a,
-                    b = estimate$b,
-                    n = estimate$n,
-                    regression_equation = estimate$regression_equation,
-                    conf.level = estimate$conf.level,
-                    type=estimate$type)
-                class(state) <- "estimate"
+                xlab <- jmvSanitizeOption(self$options$xlab)
+                ylab <- jmvSanitizeOption(self$options$ylab)
+                ymin <- jmvSanitizeOption(self$options$ymin, type.numeric = TRUE)
+                ymax <- jmvSanitizeOption(self$options$ymax, type.numeric = TRUE)
+                xmin <- jmvSanitizeOption(self$options$xmin, type.numeric = TRUE)
+                xmax <- jmvSanitizeOption(self$options$xmax, type.numeric = TRUE)
                 
-                image <- self$results$scatter_plot
-                image$setState(state)
+                ylims <- c(ymin, ymax)
+                xlims <- c(xmin, xmax)
                 
+                
+                predictx <- NULL
+                if(!is.null(self$options$predictx)) {
+                    if(nchar(self$options$predictx) > 0) {
+                        if(self$options$predictx != "none") {
+                            if(!is.na(as.numeric(self$options$predictx))) {
+                                predictx <- as.numeric(self$options$predictx)
+                            }
+                        }
+                    }
+                }
+                
+                if (self$options$switch == "fromraw") {
+                    image <- self$results$scatter_plot
+                    plot <- plotScatterPlot(estimate,
+                                            ylims = ylims,
+                                            xlims = xlims,
+                                            xlab = xlab,
+                                            ylab = ylab,
+                                            size = self$options$size,
+                                            show.line = self$options$show.line,
+                                            show.meanCI = self$options$show.meanCI,
+                                            show.PI = self$options$show.PI,
+                                            predictx = predictx, 
+                    )
+                    image$setState(plot)
+                }
+
                 image <- self$results$correlation_plot
-                image$setState(state)
+                plot <- plotEstimatedCorrelation(estimate)
+                image$setState(plot)
                 
+
             }
         },
         .plot=function(image, ...) {
             if (is.null(image$state))
                 return(FALSE)
             
-            
-            estimate <- image$state
-            
-
-            xlab <- jmvSanitizeOption(self$options$xlab)
-            ylab <- jmvSanitizeOption(self$options$ylab)
-            ymin <- jmvSanitizeOption(self$options$ymin, type.numeric = TRUE)
-            ymax <- jmvSanitizeOption(self$options$ymax, type.numeric = TRUE)
-            xmin <- jmvSanitizeOption(self$options$xmin, type.numeric = TRUE)
-            xmax <- jmvSanitizeOption(self$options$xmax, type.numeric = TRUE)
-            
-            ylims <- c(ymin, ymax)
-            xlims <- c(xmin, xmax)
-            
-            predictx <- NULL
-            if(!is.null(self$options$predictx)) {
-                if(nchar(self$options$predictx) > 0) {
-                    if(self$options$predictx != "none") {
-                        if(!is.na(as.numeric(self$options$predictx))) {
-                            predictx <- as.numeric(self$options$predictx)
-                        }
-                    }
-                }
-            }
-            
             if(image$name == "scatter_plot") {
                 if (self$options$switch == "fromraw") {
-                plot <- plotScatterPlot(estimate,
-                                        ylims = ylims,
-                                        xlims = xlims,
-                                        xlab = xlab,
-                                        ylab = ylab,
-                                        size = self$options$size,
-                                        show.line = self$options$show.line,
-                                        show.meanCI = self$options$show.meanCI,
-                                        show.PI = self$options$show.PI,
-                                        predictx = predictx, 
-                )
+                    plot <- image$state
                 } else {
                     return(FALSE)
                 }
             } else {
-                plot <- plotEstimatedCorrelation(estimate)
+                plot <- image$state
             }
             print(jmvClearPlotBackground(plot))
 
