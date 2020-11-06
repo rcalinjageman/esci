@@ -60,6 +60,11 @@ options:
       title: x-axis label
       type: String
 
+    - name: size
+      title: Point size
+      type: String
+      default: '1'
+
     - name: ymin
       title: y-axis minimum
       type: String

@@ -16,6 +16,7 @@ jmvDescriptivesOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             show.s = FALSE,
             ylab = NULL,
             xlab = NULL,
+            size = "1",
             ymin = "auto",
             ymax = "auto",
             xmin = "auto",
@@ -69,6 +70,10 @@ jmvDescriptivesOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             private$..xlab <- jmvcore::OptionString$new(
                 "xlab",
                 xlab)
+            private$..size <- jmvcore::OptionString$new(
+                "size",
+                size,
+                default="1")
             private$..ymin <- jmvcore::OptionString$new(
                 "ymin",
                 ymin,
@@ -104,6 +109,7 @@ jmvDescriptivesOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             self$.addOption(private$..show.s)
             self$.addOption(private$..ylab)
             self$.addOption(private$..xlab)
+            self$.addOption(private$..size)
             self$.addOption(private$..ymin)
             self$.addOption(private$..ymax)
             self$.addOption(private$..xmin)
@@ -122,6 +128,7 @@ jmvDescriptivesOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         show.s = function() private$..show.s$value,
         ylab = function() private$..ylab$value,
         xlab = function() private$..xlab$value,
+        size = function() private$..size$value,
         ymin = function() private$..ymin$value,
         ymax = function() private$..ymax$value,
         xmin = function() private$..xmin$value,
@@ -139,6 +146,7 @@ jmvDescriptivesOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         ..show.s = NA,
         ..ylab = NA,
         ..xlab = NA,
+        ..size = NA,
         ..ymin = NA,
         ..ymax = NA,
         ..xmin = NA,
@@ -268,6 +276,7 @@ jmvDescriptivesBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param show.s .
 #' @param ylab .
 #' @param xlab .
+#' @param size .
 #' @param ymin .
 #' @param ymax .
 #' @param xmin .
@@ -300,6 +309,7 @@ jmvDescriptives <- function(
     show.s = FALSE,
     ylab,
     xlab,
+    size = "1",
     ymin = "auto",
     ymax = "auto",
     xmin = "auto",
@@ -328,6 +338,7 @@ jmvDescriptives <- function(
         show.s = show.s,
         ylab = ylab,
         xlab = xlab,
+        size = size,
         ymin = ymin,
         ymax = ymax,
         xmin = xmin,

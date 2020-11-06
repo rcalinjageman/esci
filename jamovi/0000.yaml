@@ -21,10 +21,19 @@ description: >-
   requests via the links provided <a href =
   "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
   href = "https://thenewstatistics.com/itns/esci/jesci/"
-  target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a>
+  target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a></br></br>
 
-  Updated for better function on OSX - thanks to JLove for code updates.
+  0.9.2 ----</br>
+    * Updated estimate correlation to prevent crashes on OSx - Thanks to JLove's suggested code</br>
+    * Split estimate means into descriptives and estimate means</br>
+    * Fixed a bug for Mdiff where cohen's d didn't take the conf.level argument</br>
 analyses:
+  - title: Descriptives
+    name: jmvDescriptives
+    ns: esci
+    menuGroup: esci
+    menuSubgroup: Descriptive Stats
+    menuTitle: Descriptives
   - title: Estimate Mean
     name: onemean
     ns: esci

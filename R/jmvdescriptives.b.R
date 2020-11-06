@@ -112,6 +112,7 @@ ERROR:
                 marker <- quantile(estimate$plot_info$raw_data$dv, marker/100)
             }
             bins <- jmvSanitizeOption(self$options$bins, 12, type.numeric = TRUE)
+            size <- jmvSanitizeOption(self$options$size, 1, type.numeric = TRUE)
             
             color.regular <- jmvSanitizeOption(self$options$color.regular, "gray")
             color.highlighted <- jmvSanitizeOption(self$options$color.highlighted, "red")

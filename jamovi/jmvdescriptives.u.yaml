@@ -74,3 +74,9 @@ children:
       - type: TextBox
         name: color.highlighted
         format: string
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: size
+        format: string
