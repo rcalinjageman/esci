@@ -37,7 +37,8 @@ items:
       type: Image
       width:  400
       height: 400
-      renderFun: .plot  
+      requiresData: true
+      renderFun: .scatter_plot  
 
     - name: correlation_plot
       title: Correlation Plot
@@ -45,7 +46,8 @@ items:
       type: Image
       width:  300
       height: 530
-      renderFun: .plot  
+      requiresData: true
+      renderFun: .correlation_plot  
 
 
 ...

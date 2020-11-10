@@ -213,7 +213,8 @@ jmvEstimateCorrelationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible="(switch:fromraw)",
                 width=400,
                 height=400,
-                renderFun=".plot"))
+                requiresData=TRUE,
+                renderFun=".scatter_plot"))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="correlation_plot",
@@ -221,7 +222,8 @@ jmvEstimateCorrelationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible=TRUE,
                 width=300,
                 height=530,
-                renderFun=".plot"))}))
+                requiresData=TRUE,
+                renderFun=".correlation_plot"))}))
 
 jmvEstimateCorrelationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
     "jmvEstimateCorrelationBase",

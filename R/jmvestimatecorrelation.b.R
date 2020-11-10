@@ -117,16 +117,7 @@ ERROR:
                     table$setNote(key="Notes", note = estimate$regression_equation)
                 }
                             
-                xlab <- jmvSanitizeOption(self$options$xlab)
-                ylab <- jmvSanitizeOption(self$options$ylab)
-                ymin <- jmvSanitizeOption(self$options$ymin, type.numeric = TRUE)
-                ymax <- jmvSanitizeOption(self$options$ymax, type.numeric = TRUE)
-                xmin <- jmvSanitizeOption(self$options$xmin, type.numeric = TRUE)
-                xmax <- jmvSanitizeOption(self$options$xmax, type.numeric = TRUE)
-                
-                ylims <- c(ymin, ymax)
-                xlims <- c(xmin, xmax)
-                
+
                 
                 predictx <- NULL
                 if(!is.null(self$options$predictx)) {
@@ -139,44 +130,86 @@ ERROR:
                     }
                 }
                 
+                
+                
                 if (self$options$switch == "fromraw") {
                     image <- self$results$scatter_plot
-                    plot <- plotScatterPlot(estimate,
-                                            ylims = ylims,
-                                            xlims = xlims,
-                                            xlab = xlab,
-                                            ylab = ylab,
-                                            size = self$options$size,
-                                            show.line = self$options$show.line,
-                                            show.meanCI = self$options$show.meanCI,
-                                            show.PI = self$options$show.PI,
-                                            predictx = predictx, 
-                    )
-                    image$setState(plot)
+                    image$setState(TRUE)
                 }
 
                 image <- self$results$correlation_plot
-                plot <- plotEstimatedCorrelation(estimate)
-                image$setState(plot)
+                image$setState(TRUE)
                 
 
             }
         },
-        .plot=function(image, ...) {
-            if (is.null(image$state))
+        .scatter_plot=function(image, ...) {
+            if (is.null(image$state) | self$options$switch == "fromsummary")
                 return(FALSE)
             
-            if(image$name == "scatter_plot") {
-                if (self$options$switch == "fromraw") {
-                    plot <- image$state
-                } else {
-                    return(FALSE)
+                xlab <- jmvSanitizeOption(self$options$xlab)
+                ylab <- jmvSanitizeOption(self$options$ylab)
+                ymin <- jmvSanitizeOption(self$options$ymin, type.numeric = TRUE)
+                ymax <- jmvSanitizeOption(self$options$ymax, type.numeric = TRUE)
+                xmin <- jmvSanitizeOption(self$options$xmin, type.numeric = TRUE)
+                xmax <- jmvSanitizeOption(self$options$xmax, type.numeric = TRUE)
+
+                ylims <- c(ymin, ymax)
+                xlims <- c(xmin, xmax)
+
+                predictx <- NULL
+                if(!is.null(self$options$predictx)) {
+                    if(nchar(self$options$predictx) > 0) {
+                        if(self$options$predictx != "none") {
+                            if(!is.na(as.numeric(self$options$predictx))) {
+                                predictx <- as.numeric(self$options$predictx)
+                            }
+                        }
+                    }
                 }
-            } else {
-                plot <- image$state
-            }
+                
+                estimate <- estimateCorrelation.default(data = self$data,
+                                                            !!self$options$iv,
+                                                            !!self$options$dv,
+                                                            conf.level = self$options$conf.level/100)
+
+
+                plot <- plotScatterPlot(estimate,
+                                        ylims = ylims,
+                                        xlims = xlims,
+                                        xlab = xlab,
+                                        ylab = ylab,
+                                        size = self$options$size,
+                                        show.line = self$options$show.line,
+                                        show.meanCI = self$options$show.meanCI,
+                                        show.PI = self$options$show.PI,
+                                        predictx = predictx,
+                )
+
+          
             print(jmvClearPlotBackground(plot))
 
+            TRUE
+        }, .correlation_plot=function(image, ...) {
+            if (is.null(image$state))
+                return(FALSE)
+
+            if (self$options$switch == "fromraw") {
+                estimate <- estimateCorrelation.default(data = self$data,
+                                                        !!self$options$iv,
+                                                        !!self$options$dv,
+                                                        conf.level = self$options$conf.level/100)
+                plot <- plotEstimatedCorrelation(estimate)
+                print(jmvClearPlotBackground(plot))
+            } else {
+                estimate <- estimateCorrelation.numeric(r = self$options$r,
+                                                            n = self$options$n,
+                                                            conf.level = self$options$conf.level/100)
+                plot <- plotEstimatedCorrelation(estimate)
+                print(jmvClearPlotBackground(plot))
+            }
+
+            
             TRUE
         })
 )

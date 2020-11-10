@@ -1,7 +1,7 @@
 ---
 title: Effect Sizes and Confidence Intervals for R and Jamovi
 name: esci
-version: 0.9.2
+version: 0.9.3
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -23,8 +23,11 @@ description: >-
   href = "https://thenewstatistics.com/itns/esci/jesci/"
   target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a></br></br>
 
+  0.9.3 ----</br>
+    * Additional update to try to fix estimate correlation of OSx.  Hopefully fixed this time.
+
   0.9.2 ----</br>
-    * Updated estimate correlation to prevent crashes on OSx - Thanks to JLove's suggested code</br>
+    * Updated estimate correlation to hopefully prevent crashes on OSx - Thanks to JLove's suggested code</br>
     * Split estimate means into descriptives and estimate means</br>
     * Fixed a bug for Mdiff where cohen's d didn't take the conf.level argument</br>
 analyses:
