@@ -270,7 +270,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             plot <- plotContrast(estimate, contrast_number = 1, contrast_colors = contrast_colors, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
             print(jmvClearPlotBackground(plot))
             TRUE
-        },
+        }
 
      )
 )

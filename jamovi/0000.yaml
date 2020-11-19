@@ -22,7 +22,6 @@ description: >-
   "https://thenewstatistics.com/itns/esci/jesci/" target="_blank">here</a>: <a
   href = "https://thenewstatistics.com/itns/esci/jesci/"
   target="_blank">https://thenewstatistics.com/itns/esci/jesci/.</a></br></br>
-
   0.9.4 ----</br>
     * Updating analyses to build graphs from data directly; should eliminate problems occuring on OSx and some Chromebooks</br>
   0.9.3 ----</br>
