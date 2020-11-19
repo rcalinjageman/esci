@@ -128,9 +128,9 @@ ERROR:
                                 
                 # Store the estimate for the plots
                 image <- self$results$scatter_plot
-                image$setState(estimate)
+                image$setState(TRUE)
                 image <- self$results$correlation_plot
-                image$setState(estimate)
+                image$setState(TRUE)
                     
                 # Fill comparison result table - set columns and fill
                 table <- self$results$result_table
@@ -165,10 +165,18 @@ ERROR:
             }
         },
         .plotSP=function(image, ...) {  # <-- the plot function
-            if (is.null(image$state) | self$options$switch != "fromraw")
+            if (is.null(image$state))
                 return(FALSE)
     
-            estimate <- image$state
+            if(self$options$switch != "fromraw")
+                return(FALSE)
+            
+            estimate <- estimateCorrelationDifference.default(data = self$data, 
+                                                              x = !!self$options$iv, 
+                                                              y = !!self$options$dv, 
+                                                              group = !!self$options$group,
+                                                              conf.level = self$options$conf.level/100
+                                                                )
             plot <- plotScatterPlot(estimate, show.line = TRUE)                
             print(jmvClearPlotBackground(plot))
             TRUE
@@ -177,7 +185,25 @@ ERROR:
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            if(self$options$switch == "fromraw") {
+                estimate <- estimateCorrelationDifference.default(data = self$data, 
+                                                                  x = !!self$options$iv, 
+                                                                  y = !!self$options$dv, 
+                                                                  group = !!self$options$group,
+                                                                  conf.level = self$options$conf.level/100
+                )
+            } else {
+                estimate <- estimateCorrelationDifference.numeric(r1 = self$options$r1,
+                                                                  n1 = self$options$n1,
+                                                                  r2 = self$options$r2,
+                                                                  n2 = self$options$n2,
+                                                                  group.labels = c(self$options$grouplabel1, self$options$grouplabel2),
+                                                                  variable.labels = c(self$options$varlabel1, self$options$varlabel2),
+                                                                  conf.level = self$options$conf.level/100
+                )
+            }
+            
+            
             plot <- plotCorrelationDifference(estimate, show.cat.eye = FALSE)
             print(jmvClearPlotBackground(plot))
             TRUE

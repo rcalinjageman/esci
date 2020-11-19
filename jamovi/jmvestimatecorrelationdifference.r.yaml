@@ -61,6 +61,7 @@ items:
       type: Image
       width:  600
       height: 600
+      requiresData: true
       renderFun: .plotSP  
 
     - name: correlation_plot
@@ -68,6 +69,7 @@ items:
       type: Image
       width:  500
       height: 600
+      requiresData: true
       renderFun: .plotCP  
 
 ...

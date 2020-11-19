@@ -205,6 +205,7 @@ jmvEstimateCorrelationDifferenceResults <- if (requireNamespace('jmvcore')) R6::
                 visible="(switch:fromraw)",
                 width=600,
                 height=600,
+                requiresData=TRUE,
                 renderFun=".plotSP"))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -212,6 +213,7 @@ jmvEstimateCorrelationDifferenceResults <- if (requireNamespace('jmvcore')) R6::
                 title="Correlation Plot",
                 width=500,
                 height=600,
+                requiresData=TRUE,
                 renderFun=".plotCP"))}))
 
 jmvEstimateCorrelationDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class(

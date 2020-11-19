@@ -39,6 +39,7 @@ items:
       type: Image
       width:  530
       height: 300
+      requiresData: true
       renderFun: .bplot     
 
     - name: proportion_plot
@@ -46,6 +47,7 @@ items:
       type: Image
       width:  300
       height: 530
+      requiresData: true
       renderFun: .plot  
       
 

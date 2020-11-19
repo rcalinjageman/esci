@@ -43,6 +43,7 @@ items:
       visible: TRUE
       width:  300
       height: 530
+      requiresData: true
       renderFun: .plot  
 
 ...

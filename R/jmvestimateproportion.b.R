@@ -164,17 +164,65 @@ ERROR:
                 #self$results$text$setContent(estimate$all_result)
                     
                 image <- self$results$proportion_plot
-                image$setState(estimate)     
+                image$setState(TRUE)     
                     
                 image <- self$results$bar_plot
-                image$setState(estimate)   
+                image$setState(TRUE)   
             }
         },
         .plot=function(image, ...) {
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            if (self$options$switch == "fromraw") {
+                case.level <- 1
+                if (is.null(self$options$case.level)) {
+                    
+                } else {
+                    if (nchar(self$options$case.level) >0) {
+                        if (!is.na(as.numeric(self$options$case.level))) {
+                            case.level <- as.numeric(self$options$case.level)
+                        } else {
+                            case.level <- self$options$case.level 
+                        }
+                    }
+                }
+                
+                
+                    estimate <- try(estimateProportion.default(data = self$data, 
+                                                               !!self$options$measure1, 
+                                                               case.level = case.level, 
+                                                               conf.level = self$options$conf.level/100, 
+                                                               na.rm = (self$options$na.rm == "remove")
+                    )
+                    )
+                
+            } else {
+                caselabel1 <- "Affected"
+                if (is.null(self$options$caselabel1)) {
+                    
+                } else {
+                    if (nchar(self$options$caselabel1) >0) {
+                        caselabel1 <- self$options$caselabel1 
+                    }
+                }
+                
+                caselabel2 <- "Not Affected"
+                if (is.null(self$options$caselabel2)) {
+                    
+                } else {
+                    if (nchar(self$options$caselabel2) >0) {
+                        caselabel2 <- self$options$caselabel2 
+                    }
+                }
+                
+                estimate <- try(estimateProportion.numeric(cases = self$options$cases, 
+                                                           n = self$options$n, 
+                                                           caselabels = c(caselabel1, caselabel2), 
+                                                           conf.level = self$options$conf.level/100
+                ))
+                
+            }
             
             xlab <- NULL
             ylab <- NULL
@@ -223,7 +271,29 @@ ERROR:
             if (is.null(image$state) | self$options$switch == "fromsummary")
                 return(FALSE)
             
-            estimate <- image$state
+            
+                case.level <- 1
+                if (is.null(self$options$case.level)) {
+                    
+                } else {
+                    if (nchar(self$options$case.level) >0) {
+                        if (!is.na(as.numeric(self$options$case.level))) {
+                            case.level <- as.numeric(self$options$case.level)
+                        } else {
+                            case.level <- self$options$case.level 
+                        }
+                    }
+                }
+                
+                
+                estimate <- try(estimateProportion.default(data = self$data, 
+                                                           !!self$options$measure1, 
+                                                           case.level = case.level, 
+                                                           conf.level = self$options$conf.level/100, 
+                                                           na.rm = (self$options$na.rm == "remove")
+                )
+                )
+                
             
             if (class(estimate) == "estimate") {
                 plot <- barplot(estimate$all_result$cases, names=estimate$all_result$level)

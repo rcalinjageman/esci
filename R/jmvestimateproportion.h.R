@@ -183,6 +183,7 @@ jmvEstimateProportionResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible="(switch:fromraw)",
                 width=530,
                 height=300,
+                requiresData=TRUE,
                 renderFun=".bplot"))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -190,6 +191,7 @@ jmvEstimateProportionResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 title="Proportion Plot",
                 width=300,
                 height=530,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvEstimateProportionBase <- if (requireNamespace('jmvcore')) R6::R6Class(

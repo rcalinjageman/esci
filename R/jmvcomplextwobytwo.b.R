@@ -78,11 +78,11 @@ ERROR:
         
                 # Store result object for use with the graph
                 image <- self$results$ME1_plot
-                image$setState(estimate)
+                image$setState(TRUE)
                 image <- self$results$ME2_plot
-                image$setState(estimate) 
+                image$setState(TRUE) 
                 image <- self$results$Int_plot
-                image$setState(estimate) 
+                image$setState(TRUE) 
                 
                 # Set each row (need to write a generic function for filling in jamovi tables)
                 table <- self$results$means_table
@@ -136,8 +136,13 @@ ERROR:
                 return(FALSE)
             
             if(self$options$MEorInt == "fME") {
-                estimate <- image$state
-                
+                estimate <- estimateComplex_2x2.default(data = self$data, 
+                                                        dv = !!self$options$dep, 
+                                                        iv1 = !!self$options$group1, 
+                                                        iv2 = !!self$options$group2, 
+                                                        conf.level = self$options$conf.level/100
+                )
+
                 ylab = "Dependent Variable"
                 if(!is.null(self$options$ylab)) {
                     ylab <- self$options$ylab
@@ -156,7 +161,12 @@ ERROR:
                 return(FALSE)
             
             if(self$options$MEorInt == "fME") {
-                estimate <- image$state
+                estimate <- estimateComplex_2x2.default(data = self$data, 
+                                                        dv = !!self$options$dep, 
+                                                        iv1 = !!self$options$group1, 
+                                                        iv2 = !!self$options$group2, 
+                                                        conf.level = self$options$conf.level/100
+                )
                 
                 ylab = "Dependent Variable"
                 if(!is.null(self$options$ylab)) {
@@ -176,7 +186,12 @@ ERROR:
             if (is.null(image$state))
                 return(FALSE)
             if(self$options$MEorInt != "fME") {
-                estimate <- image$state
+                estimate <- estimateComplex_2x2.default(data = self$data, 
+                                                        dv = !!self$options$dep, 
+                                                        iv1 = !!self$options$group1, 
+                                                        iv2 = !!self$options$group2, 
+                                                        conf.level = self$options$conf.level/100
+                )
                 
                 ylab = "Dependent Variable"
                 if(!is.null(self$options$ylab)) {

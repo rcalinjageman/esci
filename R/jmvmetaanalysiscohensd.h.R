@@ -188,6 +188,7 @@ jmvMetaAnalysisCohensdResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible=TRUE,
                 width=500,
                 height=800,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvMetaAnalysisCohensdBase <- if (requireNamespace('jmvcore')) R6::R6Class(

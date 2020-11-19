@@ -301,6 +301,7 @@ jmvEstimateIndMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R6Cl
                 title="Descriptives Plot",
                 width=500,
                 height=600,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvEstimateIndMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class(

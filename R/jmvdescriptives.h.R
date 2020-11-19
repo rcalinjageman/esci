@@ -240,6 +240,7 @@ jmvDescriptivesResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 title="Distribution",
                 width=400,
                 height=300,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvDescriptivesBase <- if (requireNamespace('jmvcore')) R6::R6Class(

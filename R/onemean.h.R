@@ -244,6 +244,7 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 title="Distribution",
                 width=400,
                 height=300,
+                requiresData=TRUE,
                 renderFun=".plot"))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -251,6 +252,7 @@ onemeanResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 title="Estimate",
                 width=400,
                 height=530,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 onemeanBase <- if (requireNamespace('jmvcore')) R6::R6Class(

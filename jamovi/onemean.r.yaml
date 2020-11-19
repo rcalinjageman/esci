@@ -50,6 +50,7 @@ items:
       type: Image
       width:  400
       height: 300
+      requiresData: true
       renderFun: .plot     
 
     - name: estimate
@@ -57,5 +58,6 @@ items:
       type: Image
       width:  400
       height: 530
+      requiresData: true
       renderFun: .plot   
 ...

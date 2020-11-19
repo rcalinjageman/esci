@@ -220,6 +220,7 @@ jmvIndContrastsResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible=TRUE,
                 width=900,
                 height=550,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvIndContrastsBase <- if (requireNamespace('jmvcore')) R6::R6Class(

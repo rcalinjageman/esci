@@ -32,11 +32,12 @@ and to mark the mean, median, z-lines, or standard deviation.
             }
             
             if(run.analysis) {
-                estimate <- estimateMean(
+                estimate <- try(estimateMean(
                     data = self$data, 
                     !!self$options$measure1, 
                     conf.level = 0.95, 
                     na.rm = TRUE
+                )
                 )
             }
             
@@ -80,7 +81,7 @@ ERROR:
                 ))
                 
                 image <- self$results$distribution
-                image$setState(estimate)
+                image$setState(TRUE)
                 
             }
 
@@ -89,8 +90,14 @@ ERROR:
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
             
+            estimate <- estimateMean(
+                data = self$data, 
+                !!self$options$measure1, 
+                conf.level = 0.95, 
+                na.rm = TRUE
+            )
+
             if(self$options$plottype == "dotplot") {
                 plottype <- "Dotplot" 
             } else {

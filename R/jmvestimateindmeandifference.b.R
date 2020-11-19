@@ -152,14 +152,45 @@ ERROR:
                 
                 # Save for image state
                 image <- self$results$plot
-                image$setState(estimate)
+                image$setState(TRUE)
             }
         },
         .plot=function(image, ...) {
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            
+            if (self$options$switch == "fromraw") {
+                if(self$options$reference.group) { 
+                    reference.group = 2
+                } else { 
+                    reference.group = 1
+                }
+                estimate <- try(estimateMeanDifference(self$data, 
+                                                       !!self$options$x, 
+                                                       !!self$options$y, 
+                                                       reference.group = reference.group, 
+                                                       paired=FALSE, 
+                                                       var.equal = self$options$var.equal, 
+                                                       conf.level = self$options$conf.level/100
+                ))
+            } else {
+                if (is.null(self$options$g1lab)) {g1label <= "Reference Group"} else {g1label <- self$options$g1lab}
+                if (is.null(self$options$g2lab)) {g2label <= "Comparison Group"} else {g2label <- self$options$g2lab}
+                if (g1label == g2label) {
+                    g1label <= "Reference Group"
+                    g2label <= "Comparison Group"
+                }
+                estimate <-  try(estimateMeanDifference(m1 = self$options$m2, m2 = self$options$m1, 
+                                                        s1 = self$options$s2, s2 = self$options$s1, 
+                                                        n1 = self$options$n2, n2=self$options$n1, 
+                                                        paired=FALSE, var.equal = self$options$var.equal, 
+                                                        conf.level = self$options$conf.level/100,
+                                                        labels = c(g2label, g1label)
+                ))    
+            }    
+            
+            
             ylims <- NULL
             if(self$options$ymin !="auto" & self$options$ymax != "auto") {
                 ylims<-c(as.numeric(self$options$ymin), as.numeric(self$options$ymax))

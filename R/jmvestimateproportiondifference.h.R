@@ -220,6 +220,7 @@ jmvEstimateProportionDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 visible=TRUE,
                 width=300,
                 height=530,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvEstimateProportionDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class(

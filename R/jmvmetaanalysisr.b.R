@@ -45,7 +45,7 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 # Store the estimate for the plot
                 image <- self$results$forest_plot
-                image$setState(estimate)
+                image$setState(TRUE)
                 
 
                 eslabel <- estimate$effect.size.name
@@ -92,7 +92,13 @@ jmvMetaAnalysisRClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            estimate <- estimateOverallCorrelation(data = self$data, 
+                                                   rvalues = !!self$options$r, 
+                                                   ns = !!self$options$n,
+                                                   label = !!self$options$labels,
+                                                   moderator = !!self$options$moderator,
+                                                   random.effects = (self$options$REorFE == "RE"),
+                                                   conf.level = self$options$conf.level/100)
             
             plot <- plotMetaEffect(estimate, xlims = c(-1, 1))
             print(jmvClearPlotBackground(plot))

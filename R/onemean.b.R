@@ -91,10 +91,10 @@ ERROR:
                 ))
                 
                 image <- self$results$distribution
-                image$setState(estimate)
+                image$setState(TRUE)
                 
                 eimage <- self$results$estimate
-                eimage$setState(estimate)
+                eimage$setState(TRUE)
                 
                 #self$results$text$setContent(image$name)
             }
@@ -103,7 +103,16 @@ ERROR:
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            
+            conf.level <- self$options$conf.level/100
+            
+            estimate <- estimateMean(
+                data = self$data, 
+                !!self$options$measure1, 
+                conf.level = conf.level, 
+                na.rm = TRUE
+            )
+
             
             if(self$options$plottype == "dotplot") {
                 plottype <- "Dotplot" 

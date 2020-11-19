@@ -55,7 +55,7 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
                 
                 # Store the estimate for the plot
                 image <- self$results$forest_plot
-                image$setState(estimate)
+                image$setState(TRUE)
                 
 
                 eslabel <- "M2-M1"
@@ -139,7 +139,19 @@ jmvMetaAnalysisRawClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         .plot=function(image, ...) {  # <-- the plot function
             if (is.null(image$state))
                 return(FALSE)
-            estimate <- image$state
+            
+            estimate <- estimateOverallRaw(data = self$data, 
+                                           m1 = !!self$options$m1, 
+                                           m2 = !!self$options$m2,
+                                           s1 = !!self$options$s1,
+                                           s2 = !!self$options$s2,
+                                           n1 = !!self$options$n1,
+                                           n2 = !!self$options$n2,
+                                           label = !!self$options$labels,
+                                           moderator = !!self$options$moderator,
+                                           random.effects = (self$options$REorFE == "RE"),
+                                           report.cohens.d = self$options$report.cohens.d,
+                                           conf.level = self$options$conf.level/100)
             
             plot <- plotMetaEffect(estimate, xlims = c(NULL, NULL), dr.explain = self$options$explainDR)
             print(jmvClearPlotBackground(plot))

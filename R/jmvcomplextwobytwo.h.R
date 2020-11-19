@@ -218,6 +218,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible="(MEorInt:fME)",
                 width=600,
                 height=350,
+                requiresData=TRUE,
                 renderFun=".ME1plot"))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -226,6 +227,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible="(MEorInt:fME)",
                 width=600,
                 height=350,
+                requiresData=TRUE,
                 renderFun=".ME2plot"))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -234,6 +236,7 @@ jmvComplexTwoByTwoResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 visible="(MEorInt:fInt)",
                 width=600,
                 height=350,
+                requiresData=TRUE,
                 renderFun=".Intplot"))}))
 
 jmvComplexTwoByTwoBase <- if (requireNamespace('jmvcore')) R6::R6Class(

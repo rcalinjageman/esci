@@ -300,6 +300,7 @@ jmvEstimatePairedMeanDifferenceResults <- if (requireNamespace('jmvcore')) R6::R
                 title="Descriptives Plot",
                 width=500,
                 height=600,
+                requiresData=TRUE,
                 renderFun=".plot"))}))
 
 jmvEstimatePairedMeanDifferenceBase <- if (requireNamespace('jmvcore')) R6::R6Class(

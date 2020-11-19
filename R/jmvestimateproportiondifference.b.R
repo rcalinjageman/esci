@@ -221,14 +221,95 @@ ERROR:
                 table$setNote(key="Notes", note = gsub("\n", "", reportEstimate(estimate, section = c("Notes"), print.title = FALSE)))
                 
                 image <- self$results$proportion_plot
-                image$setState(estimate)         
+                image$setState(TRUE)         
             }
         },
         .plot=function(image, ...) {
             if (is.null(image$state))
                 return(FALSE)
             
-            estimate <- image$state
+            if (self$options$switch == "fromraw") {
+                case.level <- 1
+                if (is.null(self$options$case.level)) {
+                } else {
+                    if (nchar(self$options$case.level) >0) {
+                        if (!is.na(as.numeric(self$options$case.level))) {
+                            case.level <- as.numeric(self$options$case.level)
+                        } else {
+                            case.level <- self$options$case.level 
+                        }
+                    }
+                }
+                
+                category.level <- 1
+                if (is.null(self$options$category.level)) {
+                } else {
+                    if (nchar(self$options$category.level) >0) {
+                        if (!is.na(as.numeric(self$options$category.level))) {
+                            category.level <- as.numeric(self$options$category.level)
+                        } else {
+                            category.level <- self$options$category.level 
+                        }
+                    }
+                }
+                
+                
+                    
+                    estimate <- try(estimateProportionDifference.default(data = self$data,
+                                                                         !!self$options$measure2,
+                                                                         !!self$options$measure1,
+                                                                         case.level = case.level,
+                                                                         group.level = category.level,
+                                                                         conf.level = self$options$conf.level/100,
+                                                                         na.rm = TRUE
+                    ))
+                   
+            } else {
+                caselabel1 <- "Affected"
+                if (is.null(self$options$caselabel1)) {
+                    
+                } else {
+                    if (nchar(self$options$caselabel1) >0) {
+                        caselabel1 <- self$options$caselabel1 
+                    }
+                }
+                
+                caselabel2 <- "Not Affected"
+                if (is.null(self$options$caselabel2)) {
+                    
+                } else {
+                    if (nchar(self$options$caselabel2) >0) {
+                        caselabel2 <- self$options$caselabel2 
+                    }
+                }
+                
+                grouplabel1 <- "Group 1"
+                if (is.null(self$options$grouplabel1)) {
+                    
+                } else {
+                    if (nchar(self$options$grouplabel1) >0) {
+                        grouplabel1 <- self$options$grouplabel1 
+                    }
+                }
+                
+                grouplabel2 <- "Group 2"
+                if (is.null(self$options$grouplabel2)) {
+                    
+                } else {
+                    if (nchar(self$options$grouplabel2) >0) {
+                        grouplabel2 <- self$options$grouplabel2 
+                    }
+                }
+                
+                estimate <- try(estimateProportionDifference.numeric(cases1 = self$options$cases1, 
+                                                                     n1 = self$options$n1, 
+                                                                     cases2 = self$options$cases2,
+                                                                     n2 = self$options$n2,
+                                                                     caselabels = c(caselabel1, caselabel2),
+                                                                     grouplabels = c(grouplabel1, grouplabel2),
+                                                                     conf.level = self$options$conf.level/100
+                ))
+            }
 
             if (class(estimate) == "estimate") {
                 xlab <- NULL

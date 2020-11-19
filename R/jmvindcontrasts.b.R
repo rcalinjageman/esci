@@ -191,7 +191,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
 
             # Store result pbject for use with the graph
             image <- self$results$contrast_plot
-            image$setState(estimate) 
+            image$setState(mycontrasts) 
             
             # # Add needed rows to means table (got to be a better way to do this)
             # for(x in 1:(nrow(estimate$means_table)-1)) {
@@ -235,9 +235,25 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         
         },
         .plot=function(image, ...) {  # <-- the plot function
-            estimate <- image$state
+            
             if (is.null(image$state))
                 return(FALSE)
+
+            if (self$options$switch == "fromraw") {
+                estimate <- estimateContrasts.default(data = self$data, 
+                                                          x = !!self$options$group, 
+                                                          y = !!self$options$dep, 
+                                                          contrasts = image$state, 
+                                                          conf.level = self$options$conf.level/100
+                )
+            } else {
+                estimate <- estimateContrasts.numeric(means = self$data[[self$options$means]],
+                                                          sds = self$data[[self$options$sds]],
+                                                          ns = self$data[[self$options$ns]],
+                                                          contrasts = image$state,
+                                                          labels = self$data[[self$options$labels]],
+                                                          conf.level = self$options$conf.level/100)
+            }
             
             contrast_colors = c("blue", "green")
             
@@ -254,5 +270,7 @@ jmvIndContrastsClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             plot <- plotContrast(estimate, contrast_number = 1, contrast_colors = contrast_colors, show.mean.error = self$options$show.mean.error, show.raw.data = self$options$show.raw.data, ylab = ylab)
             print(jmvClearPlotBackground(plot))
             TRUE
-        })
+        },
+
+     )
 )

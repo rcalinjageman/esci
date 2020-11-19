@@ -63,5 +63,6 @@ items:
       type: Image
       width:  400
       height: 300
+      requiresData: true
       renderFun: .plot     
 ...
