@@ -1,0 +1,1405 @@
+#'
+#' @export
+plot_mdiff <- function(
+  estimate,
+  effect_size = c("mean", "median"),
+  data_layout = c("random", "swarm", "none"),
+  data_spread = 0.15,
+  error_layout = c("halfeye", "eye", "gradient", "none"),
+  error_scale = 0.3,
+  error_nudge = 0.4,
+  error_normalize = c("groups", "all", "panels"),
+  difference_axis_units = c("raw", "sd"),
+  difference_axis_breaks = 5,
+  difference_axis_space = 1,
+  simple_contrast_labels = TRUE,
+  ylim = c(NA, NA),
+  ybreaks = 5,
+  rope = c(NA, NA),
+  rope_units = c("raw", "sd"),
+  ggtheme = NULL
+) {
+
+  # Input checks ---------------------------------------------------------------
+  warnings <- NULL
+
+  esci_assert_type(estimate, "is.estimate")
+  effect_size <- match.arg(effect_size)
+  rope_units <- match.arg(rope_units)
+  if (effect_size == "median" & is.null(estimate$es_median_difference) & !is.null(estimate$properties$contrast)) {
+    stop("effect_size parameter is 'median' but no median-based effect size available to plot")
+  }
+  data_layout <- match.arg(data_layout)
+  error_layout <- match.arg(error_layout)
+  error_normalize <- match.arg(error_normalize)
+  difference_axis_units <- match.arg(difference_axis_units)
+  if (is.null(data_spread) | !is.numeric(data_spread) | data_spread < 0) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "data_spread = {data_spread} but this is invalid; replaced with 0.25"
+      )
+    )
+    data_spread <- 0.25
+  }
+  if (is.null(error_scale) | !is.numeric(error_scale) | error_scale < 0) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "error_scale = {error_scale} but this is invalid; replaced with 0.3"
+      )
+    )
+    error_scale = 0.3
+  }
+  if (is.null(error_nudge) | !is.numeric(error_nudge) | error_nudge < 0) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "error_nudge = {error_nudge} but this is invalid; replaced with 0.25"
+      )
+    )
+    error_nudge <- 0.25
+  }
+  if (is.null(difference_axis_breaks) | !is.numeric(difference_axis_breaks) | difference_axis_breaks < 1) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "difference_axis_breaks = {difference_axis_breaks} but this is invalid; replaced with 5"
+      )
+    )
+    difference_axis_breaks = 5
+  }
+  if(is.null(ggtheme)) { ggtheme <- ggplot2::theme_classic()}
+
+
+  # Data prep --------------------------------------
+  # Initialization
+  no_contrast <- is.null(estimate$es_mean_difference)
+  conf_level <- estimate$properties$conf_level
+  contrast <- estimate$properties$contrast
+  reference_groups <- names(contrast[which(contrast < 0)])
+  comparison_groups <- names(contrast[which(contrast > 0)])
+  plot_raw <- !is.null(estimate$raw_data) & data_layout != "none"
+  # simple_contrast <- (length(reference_groups) == 1) & (length(comparison_groups) == 1)
+  simple_contrast <- (length(contrast) == 2)
+  plot_paired <- !is.null(estimate$es_r)
+  plot_mixed <- !is.null(estimate$raw_data$paired)
+  plot_interaction <- all(estimate$properties$contrast == c(1, -1, -1, 1))
+  difference_es_name <- if (difference_axis_units == "sd")
+    estimate$es_smd_properties$effect_size_name_html
+  else
+    if (effect_size == "mean")
+      "<i>M</i><sub>diff</sub>"
+    else
+      "<i>Mdn</i><sub>diff</sub>"
+
+
+  if (plot_interaction & difference_axis_units != "sd") {
+    difference_es_name <- paste(
+      difference_es_name,
+      "<sub>diff</sub>",
+      sep = ""
+    )
+    #difference_es_name <- "Difference~of~Differences"
+  }
+
+  #
+  if (length(rope) > 1) {
+
+    if (!is.na(rope[[1]]) & !is.na(rope[[2]])) {
+      if (rope[[1]] != rope[[2]]) {
+        if (rope_units == "sd") {
+          sd <- estimate$es_smd[[1, "denominator"]]
+          rope <- rope * sd
+        }
+      }
+    }
+
+
+  }
+
+  # Raw data
+  if (plot_raw) {
+    rdata <- estimate$raw_data
+  } else {
+    rdata <- NULL
+  }
+
+  if (no_contrast) {
+    return(
+      plot_nocontrast(
+        estimate = estimate,
+        effect_size = effect_size,
+        data_layout = data_layout,
+        data_spread = data_spread,
+        error_layout = error_layout,
+        error_scale = error_scale,
+        error_nudge = error_nudge,
+        error_normalize = error_normalize,
+        difference_axis_space = difference_axis_space,
+        ylim = ylim,
+        ybreaks = ybreaks,
+        ggtheme = ggtheme
+      )
+    )
+  }
+
+  # Group data
+  if (effect_size == "mean") {
+    gdata <- estimate$es_mean_difference
+  } else {
+    gdata <- estimate$es_median_difference
+    gdata$df <- NA
+    # gdata$ta_LL <- NULL
+    # gdata$ta_UL <- NULL
+  }
+  gdata$y_value <- gdata$effect_size
+  gdata$x_label <- gdata$effect
+
+  if (simple_contrast) {
+    if (simple_contrast_labels) {
+      gdata$x_label[[3]] <- "Difference"
+    }
+  } else {
+    if (simple_contrast_labels) {
+      gdata$x_label <- c("Reference", "Comparison", "Difference")
+    } else {
+      gdata$x_label <- gdata$effect
+      gdata$x_label <- gsub(" - ", "\n-\n", gdata$x_label)
+      gdata$x_label <- gsub(" and ", "\nand\n", gdata$x_label)
+    }
+  }
+
+  # If complex contrast, add overview data
+  if (!simple_contrast) {
+    overview <- data.frame(
+      type = "Unused",
+      outcome_variable_name = estimate$overview$outcome_variable_name,
+      grouping_variable_name = estimate$overview$grouping_variable_name,
+      effect = estimate$overview$grouping_variable_level,
+      effect_size = if (effect_size == "mean") estimate$overview$mean else estimate$overview$median,
+      LL = if (effect_size == "mean") estimate$overview$mean_LL else estimate$overview$median_LL,
+      UL = if (effect_size == "mean") estimate$overview$mean_UL else estimate$overview$median_UL,
+      ta_LL = NA,
+      ta_UL = NA,
+      SE = if (effect_size == "mean") estimate$overview$mean_SE else estimate$overview$median_SE,
+      df = estimate$overview$df,
+      x_label = estimate$overview$grouping_variable_level,
+      y_value = if (effect_size == "mean") estimate$overview$mean else estimate$overview$median
+    )
+
+  } else {
+    overview <- NULL
+  }
+
+  myplot <- plot_mdiff_base(
+    gdata = gdata,
+    conf_level = conf_level,
+    contrast = contrast,
+    plot_paired = plot_paired,
+    plot_mixed = plot_mixed,
+    plot_interaction = plot_interaction,
+    rdata = rdata,
+    overview = overview,
+    effect_size = effect_size,
+    data_layout = data_layout,
+    data_spread = data_spread,
+    error_layout = error_layout,
+    error_scale = error_scale,
+    error_nudge = error_nudge,
+    error_normalize = error_normalize,
+    difference_axis_units = difference_axis_units,
+    difference_axis_breaks = difference_axis_breaks,
+    difference_axis_normalizer = estimate$es_smd$denominator[[1]],
+    difference_es_name = difference_es_name,
+    ylim = ylim,
+    ybreaks = ybreaks,
+    daxis_space = difference_axis_space,
+    rope = rope,
+    ggtheme = ggtheme
+  )
+
+  # Customize plot -------------------------------
+  # Default aesthetics
+  myplot <- esci_plot_mdiff_aesthetics(
+    myplot,
+    use_ggdist = (effect_size == "mean"),
+    plot_paired = plot_paired
+  )
+
+
+  # Labels -----------------------------
+  vnames <- if (plot_paired)
+    paste(estimate$overview$outcome_variable_name, collapse = " and ", sep = "")
+  else
+    estimate$es_mean_difference$outcome_variable_name[[1]]
+  esize <- paste(toupper(substr(effect_size, 1, 1)), substr(effect_size, 2, nchar(effect_size)), sep = "")
+  ylab <- glue::glue("{vnames}\n{if (plot_raw) 'Data, ' else ''}{esize} and {conf_level*100}% Confidence Interval")
+  xlab <- estimate$es_mean_difference$grouping_variable_name[[1]]
+
+
+  myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
+
+
+  # Attach warnings and return    -------------------
+  myplot$warnings <- c(myplot$warnings, warnings)
+
+  return(myplot)
+
+}
+
+plot_mdiff_base <- function(
+  gdata,
+  conf_level,
+  contrast,
+  plot_paired,
+  plot_mixed = FALSE,
+  plot_interaction = FALSE,
+  rdata = NULL,
+  overview = NULL,
+  effect_size = c("mean", "median", "r", "P"),
+  data_layout = c("random", "swarm", "none"),
+  data_spread = 0.25,
+  error_layout = c("halfeye", "eye", "gradient", "none"),
+  error_scale = 0.3,
+  error_nudge = 0.35,
+  error_normalize = c("groups", "all", "panels"),
+  difference_axis_units = c("raw", "sd"),
+  difference_axis_breaks = 5,
+  difference_axis_normalizer = 1,
+  difference_es_name = "Difference",
+  ylim = c(NA, NA),
+  ybreaks = 5,
+  daxis_space = 1,
+  rope = c(NA, NA),
+  ggtheme = NULL
+) {
+
+  # Input checks ---------------------------------------------------------------
+  warnings <- NULL
+  difference_axis_units <- match.arg(difference_axis_units)
+  if (length(rope) == 1) rope[[2]] = rope[[1]]
+
+    # Data prep --------------------------------------
+  # Initialization
+  reference_groups <- names(contrast[which(contrast < 0)])
+  comparison_groups <- names(contrast[which(contrast > 0)])
+  simple_contrast <- is.null(overview)
+  one_group <- is.na(gdata$SE[[2]])
+  plot_raw <- !is.null(rdata)
+  nudge <- if (plot_raw) error_nudge/2 else 0
+  pooled_sd <- difference_axis_normalizer
+
+  plot_main_effect_A <- all(contrast == c(-1/2, -1/2, 1/2, 1/2))
+  plot_main_effect_B <- all(contrast == c(-1/2, 1/2, -1/2, 1/2))
+
+  # Group data --------------------------------
+  # Add comparison values to difference row
+  comparison_es <- gdata[[1, "y_value"]]
+  reference_es <- gdata[[2, "y_value"]]
+  difference_LL <- gdata[[3, "LL"]]
+  difference_UL <- gdata[[3, "UL"]]
+
+
+  if (plot_interaction) {
+    reference_es <- gdata[2, "y_value"] + overview[3, "y_value"]
+    gdata[3, c("y_value", "LL", "UL")] <- gdata[3, c("y_value", "LL", "UL")]  + reference_es
+  } else {
+    gdata[3, c("y_value", "LL", "UL")] <- gdata[3, c("y_value", "LL", "UL")]  + reference_es
+    # Reorder comparison data
+    gdata <- gdata[c(2, 1, 3), ]
+  }
+
+  gdata$effect_type <- NULL
+  gdata$effects_complex <- NULL
+  gdata$p <- NULL
+  gdata$t <- NULL
+
+  # Handle comparisons to a specified reference value
+  if (one_group) {
+    gdata[is.na(gdata$df), "df"] <- 1
+    gdata[is.na(gdata$SE), "SE"] <- .Machine$double.xmin
+  }
+  if (sum(is.na(gdata$SE)) > 0) {
+    gdata[is.na(gdata$SE), ]$SE <- .Machine$double.xmin
+  }
+  if (sum(is.na(gdata$df)) > 0) {
+    gdata[is.na(gdata$df), ]$df <- 1
+  }
+  if (nrow(gdata[gdata$SE <= 0, ]) > 0) {
+    gdata[gdata$SE <= 0, ]$SE <- .Machine$double.xmin
+  }
+  if (!is.null(overview[is.na(overview$df), ])) {
+    overview[is.na(overview$df), "df"] <- 1
+  }
+  if (!is.null(overview[overview$df < 1, ])) {
+    overview[overview$df < 1, "df"] <- 1
+  }
+
+  # If complex contrast, add overview data -----------------
+
+  if (!simple_contrast) {
+    overview$type <- "Unused"
+    overview[overview$effect %in% reference_groups, ]$type <- "Reference"
+    overview[overview$effect %in% comparison_groups, ]$type <- "Comparison"
+    orows <- nrow(overview)
+    overview$x_value <- seq(from = 1, to = orows, by = 1)
+    overview$nudge <- nudge
+    if (plot_interaction | plot_main_effect_B | plot_main_effect_A) {
+      overview$x_value <- c(1, 2, 3.5, 4.5)
+    }
+    if (plot_mixed) {
+      overview$x_value <- c(1, 2, 4, 5)
+      overview$nudge <- c(nudge*-2, nudge, nudge*-2, nudge)
+    }
+
+    rlines <- overview[overview$type == "Reference", c("y_value", "x_value", "nudge", "type")]
+    clines <- overview[overview$type == "Comparison", c("y_value", "x_value", "nudge", "type") ]
+
+    if (plot_interaction) {
+      gdata$x_value <- orows + 2.5
+    } else {
+      gdata$x_value <- seq(from = orows + 2, to = orows + 4, by = 1)
+      if (plot_main_effect_B | plot_main_effect_A | plot_mixed) { gdata$x_value <- gdata$x_value + 1}
+    }
+    gdata$nudge <- 0
+
+    ref_x <- gdata$x_value[[1]] + gdata$nudge[[1]]
+    comp_x <- gdata$x_value[[2]] + gdata$nudge[[2]]
+    rlines$xend <- ref_x
+    clines$xend <- comp_x
+    rlines$yend <- rlines$y_value
+    clines$yend <- clines$y_value
+
+    if (nrow(clines) > 1) {
+      clines$xend <- clines$xend - 0.5
+      clines <- rbind(
+        clines,
+        data.frame(
+          y_value = c(min(clines$yend), gdata$y_value[[2]]),
+          x_value = c(comp_x - 0.5, comp_x - 0.5),
+          nudge = c(0, 0),
+          type = "Comparison",
+          xend = c(comp_x - 0.5, comp_x),
+          yend = c(max(clines$yend), gdata$y_value[[2]])
+        )
+      )
+    }
+    if (nrow(rlines) > 1) {
+      rlines$xend <- rlines$xend - 0.5
+      rlines <- rbind(
+        rlines,
+        data.frame(
+          y_value = c(min(rlines$yend), gdata$y_value[[1]]),
+          x_value = c(ref_x - 0.5, ref_x - 0.5),
+          nudge = c(0, 0),
+          type = "Reference",
+          xend = c(ref_x - 0.5, ref_x),
+          yend = c(max(rlines$yend), gdata$y_value[[1]])
+        )
+      )
+    }
+    rlines$type <- paste(rlines$type, "_summary", sep = "")
+    clines$type <- paste(clines$type, "_summary", sep = "")
+
+
+    if (plot_interaction) {
+      gdata <- gdata[3, ]
+      overview$type <- "Unused"
+    }
+
+    gdata <- rbind(
+      overview,
+      gdata
+    )
+    x_end <- 4 + orows
+    if (plot_main_effect_B | plot_main_effect_A | plot_mixed) x_end <- x_end + 1
+  } else {
+    gdata$x_value <- c(1, 2, 3)
+    if (plot_paired) {
+      gdata$nudge <- c(nudge* -2, nudge, nudge)
+    } else {
+      gdata$nudge <- c(nudge, nudge, 0)
+    }
+  }
+
+
+
+  # Update types for aesthetic control
+  gdata$type <- paste(gdata$type, "_summary", sep = "")
+
+
+  # Prep raw data ------------------
+  if (plot_raw) {
+    if (plot_paired) {
+        rdata <- data.frame(
+          grouping_variable = c(
+            rep(gdata$effect[[1]], nrow(rdata)),
+            rep(gdata$effect[[2]], nrow(rdata)),
+            rep(gdata$effect[[3]], nrow(rdata))
+          ),
+          outcome_variable = c(
+            rdata$reference_measure,
+            rdata$comparison_measure,
+            rdata$comparison_measure - rdata$reference_measure + reference_es
+          )
+        )
+       rdata$type <- "Difference"
+    }
+
+    # Types
+    if (!plot_paired) rdata$type <- "Unused"
+    if (!one_group) {
+      rdata[rdata$grouping_variable %in% reference_groups, ]$type <- "Reference"
+    }
+    rdata[rdata$grouping_variable %in% comparison_groups, ]$type <- "Comparison"
+
+    if (plot_interaction) {
+      rdata$type <- "Unused"
+    }
+
+    rdata$type <- paste(rdata$type, "_raw", sep = "")
+
+    # x_value
+    if (simple_contrast) {
+      rdata$x_value <- gdata[match(rdata$grouping_variable, gdata$effect), "x_value"]
+    } else {
+      rdata$x_value <- overview[match(rdata$grouping_variable, overview$effect), "x_value"]
+    }
+
+    rdata$y_value <- rdata$outcome_variable
+
+  }
+
+  # Initialize Null
+  plot_null <- FALSE
+  interval_null <- FALSE
+  null_symbol <- sapply(
+    effect_size,
+    switch,
+    r = "rho",
+    rdiff = "rho[diff]",
+    mean = "mu[diff]",
+    median = "eta[diff]",
+    P = "Pi[diff]",
+    Proportion = "Pi[diff]"
+  )
+
+  if (plot_interaction) {
+    null_symbol <- switch(
+      effect_size,
+      mean = "mu[diffdiff]",
+      median = "eta[diffdiff]"
+    )
+  }
+
+  if (length(rope) == 1) rope[[2]] = rope[[1]]
+
+  if (!is.na(rope[[1]])) {
+    plot_null <- TRUE
+    null_label <- paste(
+      "H[0]: ",
+      null_symbol,
+      " == ",
+      rope[[1]],
+      sep = ""
+    )
+  }
+
+  if (!is.na(rope[[1]]) & !is.na(rope[[2]])) {
+    if (rope[[1]] != rope[[2]]) {
+      plot_null <- TRUE
+      interval_null <- TRUE
+      null_label <- glue::glue(
+        "{rope[[1]]}*' < '*{null_symbol}*' < '*{rope[[2]]}"
+      )
+    }
+  }
+
+
+  # Difference axis ------------------------------------
+  daxis_x <- max(gdata$x_value) + daxis_space
+  if (plot_null) daxis_x <- daxis_x + 0.5
+
+  if ( (difference_UL + reference_es) > reference_es) {
+    rawEnd <- difference_UL
+    saxisEnd <- ceiling(difference_UL/pooled_sd)
+    if (saxisEnd < 1) saxisEnd = 1
+  } else {
+    rawEnd <- 0
+    saxisEnd <- 0
+  }
+
+  if (!is.na(rope[[2]])) {
+      if (rope[[2]] > rawEnd) {
+          rawEnd <- rope[[2]]
+          saxisEnd <- ceiling(difference_UL/pooled_sd)
+          if (saxisEnd < 1) saxisEnd = 1
+      }
+  }
+
+
+  if ( (difference_LL + reference_es) < reference_es) {
+    rawStart <- difference_LL
+    saxisStart <- floor(difference_LL/pooled_sd)
+    if (saxisStart > -1) saxisStart <- -1
+  } else {
+    rawStart <- 0
+    saxisStart <- 0
+  }
+
+  if (!is.na(rope[[1]])) {
+    if (rope[[1]] < rawStart) {
+      rawStart <- rope[[1]]
+      saxisStart <- floor(difference_LL/pooled_sd)
+      if (saxisStart > -1) saxisStart <- -1
+    }
+  }
+
+  if (plot_raw) {
+    rdata_max <- max(rdata$outcome_variable, na.rm = TRUE)
+    rdata_min <- min(rdata$outcome_variable, na.rm = TRUE)
+    rdata_range <- rdata_max - rdata_min
+    axis_range <- rawEnd - rawStart
+    if (axis_range / rdata_range < .3) {
+      ref_percent <- (reference_es -  rdata_min) / rdata_range
+      rangeEnd <- reference_es + (0.15 * (1-ref_percent) * rdata_range)
+      rangeStart <- reference_es - (0.15 * (ref_percent) * rdata_range)
+
+      if (rangeEnd > rawEnd) rawEnd <- rangeEnd
+      if (rangeStart < rawStart) rawStart <- rangeStart
+
+      saxisEnd <- ceiling(difference_UL/pooled_sd)
+      if (saxisEnd < 1) saxisEnd = 1
+      saxisStart <- floor(difference_LL/pooled_sd)
+      if (saxisStart > -1) saxisStart = -1
+    }
+    #Adjust floating axis points for cases where small % of raw data range
+  }
+
+
+  if (difference_axis_units == "raw") {
+    saxisBreaks <- pretty(c(rawStart,rawEnd), n = difference_axis_breaks)
+    if(! 0 %in% saxisBreaks) {
+      saxisBreaks <- sort(c(0, saxisBreaks))
+    }
+    slabels <- esci_scaleFUN(saxisBreaks)
+  } else {
+    saxisBreaks <- pretty(c(saxisStart,saxisEnd), n = difference_axis_breaks)
+    slabels <- esci_scaleFUN(saxisBreaks)
+    saxisBreaks <- saxisBreaks * pooled_sd
+  }
+
+  saxisStart <- reference_es + (saxisBreaks[1])
+  saxisEnd <- reference_es + (saxisBreaks[length(saxisBreaks)])
+
+  daxis_name <- difference_es_name
+  # epart <-
+  daxis_name <- gsub("<sub>", "[", daxis_name)
+  daxis_name <- gsub("</sub>", "]", daxis_name)
+  daxis_name <- gsub("<i>", "italic(", daxis_name)
+  daxis_name <- gsub("</i>", ")", daxis_name)
+  daxis_name <- parse(text = daxis_name)
+
+
+  # Initialize htests
+
+
+  # Build plot ------------------------------------
+  # Base plot
+  myplot <- ggplot2::ggplot() + ggtheme
+
+  # 90% CI
+  if (interval_null) {
+    alpha <- 1 - conf_level
+    conf_level <- c(
+      1 - (alpha*2),
+      conf_level
+    )
+
+
+    myplot <- myplot + ggplot2::geom_segment(
+      data = gdata[gdata$type == "Difference_summary", ],
+      aes(
+        x = x_value + nudge,
+        xend = x_value + nudge,
+        y = ta_LL + reference_es,
+        yend = ta_UL + reference_es
+      ),
+      colour = "black",
+      size = 2
+    )
+
+    myplot <- esci_plot_layers(myplot, "ta_CI")
+  }
+
+
+  if (!simple_contrast) {
+
+
+    if (!plot_interaction) {
+      myplot <- myplot + ggplot2::geom_segment(
+        data = rbind(rlines, clines),
+        aes(
+          x = x_value + nudge,
+          xend = xend,
+          y = y_value,
+          yend = yend,
+          color = type
+        ),
+        linetype = "solid"
+      )
+
+    }
+
+  }
+
+  # Group data
+  error_glue <-esci_plot_group_data(effect_size)
+  error_call <- esci_plot_error_layouts(error_layout)
+  error_expression <- parse(text = glue::glue(error_glue))
+  myplot <- try(eval(error_expression))
+
+  # Reference lines
+  if (!plot_interaction) {
+    myplot <- myplot + ggplot2::geom_segment(
+      data = tail(gdata, 3),
+      aes(
+        x = x_value + nudge,
+        xend = daxis_x,
+        y = y_value,
+        yend = y_value,
+      ),
+      linetype = "dotted"
+    )
+  }
+
+  # Raw data
+  if (plot_raw) {
+    raw_expression <- esci_plot_raw_data(myplot, data_layout, data_spread)
+    myplot <- try(eval(raw_expression))
+
+
+    if (plot_paired) {
+      p <- ggplot2::ggplot_build(myplot)
+      last_layer <- length(p$data)
+      m1 <- p$data[[last_layer]][1:(nrow(rdata)/3), ]
+      m2 <- p$data[[last_layer]][((nrow(rdata)/3)+1):(nrow(rdata)*2/3), ]
+      colnames(m2) <- paste("m2.", colnames(m2), sep = "")
+      line_data <- cbind(m1, m2)
+
+      myplot <- myplot + ggplot2::geom_segment(
+        data = line_data,
+        ggplot2::aes(
+          x = x,
+          xend = m2.x,
+          y = y,
+          yend = m2.y
+        ),
+        color = "gray",
+        alpha = 0.5
+      )
+
+      temp <- myplot$layers[[last_layer]]
+      myplot$layers[[last_layer]] <- myplot$layers[[last_layer+1]]
+      myplot$layers[[last_layer+1]] <- temp
+
+      #myplot <- try(eval(raw_expression))
+    }
+
+    if (plot_mixed) {
+      rrows <- nrow(rdata)
+      mrows <- rrows/2
+      mdata <- rdata[1:mrows, ]
+      nextrow <- mrows+1
+      mdata$x_end <- rdata[nextrow:rrows, "x_value"]
+      myplot <- myplot + ggplot2::geom_segment(
+        data = mdata,
+        ggplot2::aes(
+          x = x_value,
+          xend = x_end,
+          y = y_value,
+          yend = paired
+        ),
+        color = "gray",
+        alpha = 0.5
+      )
+    }
+
+  }
+
+  # paired measure lines
+  if (plot_paired) {
+    myplot <- myplot + ggplot2::geom_segment(
+      data = NULL,
+      ggplot2::aes(
+        x = gdata$x_value[[1]] + gdata$nudge[[1]],
+        xend = gdata$x_value[[2]] + gdata$nudge[[2]],
+        y = gdata$y_value[[1]],
+        yend = gdata$y_value[[2]]
+      ),
+      linetype = "solid",
+      colour = "black"
+    )
+  }
+
+  if (plot_mixed & !plot_interaction) {
+    myplot <- myplot + ggplot2::geom_segment(
+      data = NULL,
+      ggplot2::aes(
+        x = gdata$x_value[[1]] + gdata$nudge[[1]],
+        xend = gdata$x_value[[2]] + gdata$nudge[[2]],
+        y = gdata$y_value[[1]],
+        yend = gdata$y_value[[2]]
+      ),
+      linetype = "dotted",
+      colour = "black"
+    )
+    myplot <- myplot + ggplot2::geom_segment(
+      data = NULL,
+      ggplot2::aes(
+        x = gdata$x_value[[3]] + gdata$nudge[[3]],
+        xend = gdata$x_value[[4]] + gdata$nudge[[4]],
+        y = gdata$y_value[[3]],
+        yend = gdata$y_value[[4]]
+      ),
+      linetype = "dotted",
+      colour = "black"
+    )
+  }
+
+  if (plot_interaction) {
+    dots <- overview[c(2, 4), ]
+    dots$type <- c("Reference_summary", "Comparison_summary")
+    dots$y_end <- overview[c(1, 3), "y_value"]
+    ref_middle <- (sum(gdata[1:2, "x_value"])+sum(gdata[1:2, "nudge"]))/2
+    comp_middle <- (sum(gdata[3:4, "x_value"])+sum(gdata[3:4, "nudge"]))/2
+    dots$x_value <- c(ref_middle, comp_middle)
+
+    myplot <- myplot + ggplot2::geom_segment(
+      data = dots,
+      ggplot2::aes(
+        x = x_value,
+        xend = x_value,
+        y = y_value,
+        yend = y_end,
+        colour = type,
+        alpha = type,
+        linetype = type,
+      ),
+      size = 1,
+      linewidth = 3
+    )
+    myplot <- esci_plot_layers(myplot, "simple_effect_lines")
+
+    myplot <- myplot + ggplot2::geom_point(
+      data = dots,
+      ggplot2::aes(
+        x = x_value,
+        y = y_value,
+        colour = type,
+        alpha = type,
+      ),
+      size = 4,
+      fill = "white",
+      shape = 23
+    )
+    myplot <- esci_plot_layers(myplot, "simple_effect_points")
+
+  }
+
+
+  if (plot_interaction) {
+    intlines <- overview[c(1, 2, 4), c("x_value", "nudge", "y_value")]
+    intlines[4, ] <- intlines[3, ]
+    intlines$x_value <- c(ref_middle, ref_middle, comp_middle, comp_middle)
+    intlines[4, "y_value"] <- reference_es
+    intlines$x_end <- c(
+      comp_middle,
+      comp_middle,
+      Inf,
+      Inf
+    )
+    intlines$y_end <- c(
+      overview[3, "y_value"],
+      reference_es,
+      overview[4, "y_value"],
+      reference_es
+    )
+    myplot <- myplot + ggplot2::geom_segment(
+      data = intlines,
+      aes(
+        x = x_value,
+        xend = x_end,
+        y = y_value,
+        yend = y_end
+      ),
+      linetype = "dotted"
+    )
+  }
+
+  # Plot null
+  rope <- rope + reference_es
+
+
+  if (plot_null & !interval_null) {
+    myplot <- myplot + ggplot2::geom_segment(
+      ggplot2::aes(
+        y = rope[[1]],
+        yend = rope[[1]],
+        x = max(gdata$x_value) - .2,
+        xend = daxis_x
+      ),
+      colour = "red",
+      size = 1,
+      linetype = "solid"
+    )
+    myplot <- esci_plot_layers(myplot, "null_line")
+
+    myplot <- myplot + ggplot2::annotate(
+      geom = "text",
+      label = null_label,
+      y = rope[[1]],
+      x = daxis_x - .05,
+      vjust = 0,
+      hjust = "inward",
+      parse = TRUE
+    )
+  }
+
+  if (plot_null & interval_null) {
+    myplot <- myplot + ggplot2::geom_segment(
+      ggplot2::aes(
+        y = rope[[2]] - ((rope[[2]] - rope[[1]])/2),
+        yend = rope[[2]] - ((rope[[2]] - rope[[1]])/2),
+        x = max(gdata$x_value) - .2,
+        xend = daxis_x
+      ),
+      colour = "red",
+      size = 1,
+      linetype = "solid"
+    )
+    myplot <- esci_plot_layers(myplot, "null_line")
+
+    myplot <- myplot + ggplot2::geom_rect(
+      ggplot2::aes(
+        ymin = rope[[1]],
+        ymax = rope[[2]],
+        xmin = max(gdata$x_value) - .2,
+        xmax = daxis_x
+      ),
+      alpha = 0.12,
+      fill = "red"
+    )
+    myplot <- esci_plot_layers(myplot, "null_interval")
+
+  }
+
+
+  # Floating axis
+  myplot <- myplot + ggplot2::geom_segment(color="black",
+                                           linetype="solid",
+                                           ggplot2::aes(x=daxis_x,
+                                                        xend=daxis_x,
+                                                        y=max(c(saxisStart, ylim[1]), na.rm = TRUE),
+                                                        yend=min(c(saxisEnd, ylim[2]), na.rm = TRUE)
+                                           ),
+                                           size=1
+  )
+
+
+  # Now define the y-axis
+  p <- ggplot2::ggplot_build(myplot)
+  lowest <- min(c(gdata$y_value, ylim[[1]], saxisStart, saxisEnd, rope), na.rm = TRUE)
+  highest <- max(c(gdata$y_value, ylim[[2]], saxisEnd, saxisStart, rope), na.rm = TRUE)
+  for (x in 1:length(p$data)) {
+    lowest <- min(c(lowest, p$data[[x]]$y), na.rm = TRUE)
+    highest <- max(c(highest, p$data[[x]]$y), na.rm = TRUE)
+  }
+  if (is.na(ylim[[1]])) {
+    switch(
+      effect_size,
+      mean = {ylim[[1]] <- lowest - (abs(lowest)*.15)},
+      median = {ylim[[1]] <- lowest - (abs(lowest) *.15)},
+      rdiff = {ylim[[1]] <- min(c(-1.05, saxisBreaks+reference_es))},
+      P = {ylim[[1]] <- min(c(-.05, saxisBreaks+reference_es))}
+    )
+  }
+  if (is.na(ylim[[2]])) {
+    switch(
+      effect_size,
+      mean = {ylim[[2]] <- highest + (abs(highest)*.1)},
+      median = {ylim[[2]] <- highest + (abs(highest) * .1)},
+      rdiff = {ylim[[2]] <- max(c(1.05, saxisBreaks+reference_es))},
+      P = {ylim[[2]] <- max(c(1.05, saxisBreaks+reference_es))}
+    )
+  }
+  lowest <- min(c(lowest, ylim))
+  highest <- max(c(highest, ylim))
+
+  myplot <- myplot + ggplot2::scale_y_continuous(
+    limits = ylim,
+    n.breaks = ybreaks,
+    sec.axis = ggplot2::sec_axis(
+      name = daxis_name,
+      trans = ~.-reference_es,
+      breaks = saxisBreaks,
+      labels = slabels
+    )
+  )
+
+  if (inherits(try(ggplot_build(myplot)), "try-error"))
+    myplot <- myplot + ggplot2::scale_y_continuous(
+      limits = ylim,
+      n.breaks = ybreaks
+    )
+
+
+  # Set x axis labels
+  mybreaks <- gdata$x_value + gdata$nudge
+  if (plot_paired) mybreaks[[1]] <- mybreaks[[1]] + nudge
+
+  myplot <- myplot + ggplot2::scale_x_continuous(
+    breaks = mybreaks,
+    labels = gdata$x_label
+  )
+
+
+  # No legend and difference axis placement
+
+  label_placement <- (highest-((saxisStart + saxisEnd)/2)) / (highest - lowest)
+
+  myplot <- myplot + ggplot2::theme(
+    legend.position = "none",
+    axis.line.y.right = ggplot2::element_blank(),
+    axis.title.y.right = ggplot2::element_text(hjust = label_placement)
+  )
+
+
+  # And finally, adjust coordinates
+  # Set boundaries
+  xmin <- min(gdata$x_value)
+  xdeduct <- if (plot_paired | plot_mixed) 2*nudge else nudge
+  xmin <- xmin - xdeduct - 0.5
+
+
+
+  myplot <- myplot + ggplot2::coord_cartesian(
+    xlim = c(
+      xmin,
+      daxis_x
+    ),
+    ylim = ylim,
+    expand = FALSE
+  )
+
+
+  # Attach warnings and return    -------------------
+  myplot$warnings <- warnings
+
+  return(myplot)
+}
+
+
+
+#'
+#' @export
+plot_pdiff <- function(
+  estimate,
+  error_layout = c("halfeye", "eye", "gradient", "none"),
+  error_scale = 0.3,
+  error_normalize = c("groups", "all", "panels"),
+  difference_axis_breaks = 5,
+  difference_axis_space = 1,
+  simple_contrast_labels = TRUE,
+  ybreaks = 5,
+  rope = c(NA, NA),
+  ggtheme = NULL
+) {
+
+  # Input checks ---------------------------------------------------------------
+  warnings <- NULL
+
+  esci_assert_type(estimate, "is.estimate")
+  error_layout <- match.arg(error_layout)
+  error_normalize <- match.arg(error_normalize)
+  if (is.null(error_scale) | !is.numeric(error_scale) | error_scale < 0) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "error_scale = {error_scale} but this is invalid; replaced with 0.3"
+      )
+    )
+    error_scale = 0.3
+  }
+  if(is.null(ggtheme)) { ggtheme <- ggplot2::theme_classic()}
+
+
+  # Data prep --------------------------------------
+  # Initialization
+  conf_level <- estimate$properties$conf_level
+  contrast <- estimate$properties$contrast
+  reference_groups <- names(contrast[which(contrast < 0)])
+  comparison_groups <- names(contrast[which(contrast > 0)])
+  simple_contrast <- (length(reference_groups) == 1) & (length(comparison_groups) == 1)
+  plot_paired <- is.null(estimate$es_proportion_difference$grouping_variable_name[[1]])
+  rdata <- NULL
+  effect_size <- "P"
+  difference_es_name <- "<i>Proportion</i><sub>diff</sub>"
+
+  gdata <- estimate$es_proportion_difference
+  outcome_var <- estimate$overview$outcome_variable_name[[1]]
+  clevel <- estimate$es_proportion_difference$case_label[[1]]
+
+  gdata$y_value <- gdata$effect_size
+  gdata$x_label <- gsub(paste(" P_", clevel, sep = ""), "", gdata$effect)
+
+  if (simple_contrast) {
+    if (simple_contrast_labels) {
+      gdata$x_label[[3]] <- "Difference"
+    }
+  } else {
+    if (simple_contrast_labels) {
+      gdata$x_label <- c("Reference", "Comparison", "Difference")
+    } else {
+      gdata$x_label <- gdata$effect
+      gdata$x_label <- gsub(" - ", "\n-\n", gdata$x_label)
+      gdata$x_label <- gsub(" and ", "\nand\n", gdata$x_label)
+    }
+  }
+
+
+  # If complex contrast, add overview data
+  if (!simple_contrast) {
+    overview <- estimate$overview[estimate$overview$outcome_variable_level == clevel, ]
+    overview <- data.frame(
+      type = "Unused",
+      outcome_variable_name = overview$outcome_variable_name,
+      grouping_variable_name = overview$grouping_variable_name,
+      effect = overview$grouping_variable_level,
+      effect_size = overview$P,
+      LL = overview$P_LL,
+      UL = overview$P_UL,
+      SE = overview$P_SE,
+      x_label = overview$grouping_variable_level,
+      y_value = overview$P
+    )
+  } else {
+    overview <- NULL
+  }
+
+  myplot <- plot_mdiff_base(
+    gdata = gdata,
+    conf_level = conf_level,
+    contrast = contrast,
+    plot_paired = plot_paired,
+    rdata = rdata,
+    overview = overview,
+    effect_size = effect_size,
+    difference_es_name = difference_es_name,
+    error_layout = error_layout,
+    error_scale = error_scale,
+    error_nudge = 0,
+    error_normalize = error_normalize,
+    difference_axis_breaks = difference_axis_breaks,
+    daxis_space = difference_axis_space,
+    ybreaks = ybreaks,
+    rope = rope,
+    ggtheme = ggtheme
+  )
+
+  # Customize plot -------------------------------
+  # Default aesthetics
+  myplot <- esci_plot_mdiff_aesthetics(
+    myplot,
+    use_ggdist = FALSE,
+    plot_paired = plot_paired
+  )
+
+
+  # Labels -----------------------------
+  clevel <- paste(
+    gsub("P_", "*P*<sub>", clevel),
+    "</sub>",
+    sep = ""
+  )
+
+  if (plot_paired) {
+    vname <- " "
+    xlab <- NULL
+    ylab <- glue::glue("{clevel} and {conf_level*100}% Confidence Interval'")
+    myplot <- myplot + ggplot2::ylab(ylab) + ggplot2::xlab(NULL)
+  } else {
+    vname <- outcome_var
+    xlab <- estimate$es_proportion_difference$grouping_variable_name[[1]]
+    ylab <- glue::glue("{vname}: {clevel} and {conf_level*100}% Confidence Interval'")
+
+    myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
+  }
+
+
+  myplot <- myplot + ggplot2::theme(
+    axis.title.y = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown(),
+  )
+
+
+  # Attach warnings and return    -------------------
+  myplot$warnings <- c(myplot$warnings, warnings)
+
+  return(myplot)
+
+}
+
+
+
+#'
+#' @export
+plot_rdiff <- function(
+  estimate,
+  error_layout = c("halfeye", "eye", "gradient", "none"),
+  error_scale = 0.3,
+  error_normalize = c("groups", "all", "panels"),
+  simple_contrast_labels = TRUE,
+  difference_axis_breaks = 5,
+  ylim = c(NA, NA),
+  ybreaks = 5,
+  rope = c(NA, NA),
+  ggtheme = NULL
+) {
+
+
+  # Input checks ---------------------------------------------------------------
+  warnings <- NULL
+
+  esci_assert_type(estimate, "is.estimate")
+  error_layout <- match.arg(error_layout)
+  error_normalize <- match.arg(error_normalize)
+  if (is.null(error_scale) | !is.numeric(error_scale) | error_scale < 0) {
+    warnings <- c(
+      warnings,
+      glue::glue(
+        "error_scale = {error_scale} but this is invalid; replaced with 0.3"
+      )
+    )
+    error_scale = 0.3
+  }
+  if(is.null(ggtheme)) { ggtheme <- ggplot2::theme_classic()}
+
+
+  # Data prep --------------------------------------
+  # Initialization
+  conf_level <- estimate$properties$conf_level
+  contrast <- c(1, -1)
+  names(contrast) <- estimate$es_r[1:2, "effect"]
+  reference_groups <- names(contrast[which(contrast < 0)])
+  comparison_groups <- names(contrast[which(contrast > 0)])
+  simple_contrast <- (length(reference_groups) == 1) & (length(comparison_groups) == 1)
+  plot_paired <- FALSE
+  rdata <- NULL
+  effect_size <- "rdiff"
+  difference_es_name <- "<i>r</i><sub>diff</sub>"
+
+  gdata <- estimate$es_r_difference
+  if (is.null(gdata)) gdata <- estimate$es_r
+  gdata$y_value <- gdata$effect_size
+  gdata$x_label <- gdata$effect
+
+  if (simple_contrast) {
+    if (simple_contrast_labels) {
+      gdata$x_label[[3]] <- "Difference"
+    }
+  } else {
+    if (simple_contrast_labels) {
+      gdata$x_label <- c("Reference", "Comparison", "Difference")
+    } else {
+      gdata$x_label <- gdata$effect
+      gdata$x_label <- gsub(" - ", "\n-\n", gdata$x_label)
+      gdata$x_label <- gsub(" and ", "\nand\n", gdata$x_label)
+    }
+  }
+
+
+  # If complex contrast, add overview data
+  if (!simple_contrast) {
+      # tbd in case this is ever impplemented
+  } else {
+    overview <- NULL
+  }
+
+  myplot <- plot_mdiff_base(
+    gdata = gdata,
+    conf_level = conf_level,
+    contrast = contrast,
+    plot_paired = plot_paired,
+    rdata = rdata,
+    overview = overview,
+    effect_size = effect_size,
+    difference_es_name = difference_es_name,
+    error_layout = error_layout,
+    error_scale = error_scale,
+    error_nudge = 0,
+    error_normalize = error_normalize,
+    difference_axis_units = "raw",
+    difference_axis_breaks = difference_axis_breaks,
+    ylim = ylim,
+    ybreaks = ybreaks,
+    rope = rope,
+    ggtheme = ggtheme
+  )
+
+
+  # Customize plot -------------------------------
+  # Default aesthetics
+  myplot <- esci_plot_mdiff_aesthetics(
+    myplot,
+    use_ggdist = FALSE,
+    plot_paired = plot_paired
+  )
+
+  # Labels -----------------------------
+  vname <- paste(estimate$es_r$x_variable_name[[1]], estimate$es_r$y_variable_name[[1]], sep = " and ")
+  ylab <- glue::glue("Correlation between {vname}<br> *r* and {conf_level*100}% Confidence Interval")
+  xlab <- estimate$es_r$grouping_variable[[1]]
+
+
+  myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
+
+
+  myplot <- myplot + ggplot2::theme(
+    axis.title.x = ggtext::element_markdown(),
+    axis.title.y = ggtext::element_markdown(),
+    axis.text.x = ggtext::element_markdown()
+  )
+
+  # Attach warnings and return    -------------------
+  myplot$warnings <- c(myplot$warnings, warnings)
+
+  return(myplot)
+
+}
+
+
+plot_nocontrast <- function(
+    estimate,
+    effect_size = c("mean", "median"),
+    data_layout = c("random", "swarm", "none"),
+    data_spread = 0.15,
+    error_layout = c("halfeye", "eye", "gradient", "none"),
+    error_scale = 0.3,
+    error_nudge = 0.4,
+    error_normalize = c("groups", "all", "panels"),
+    difference_axis_space = 1,
+    ylim = c(NA, NA),
+    ybreaks = 5,
+    ggtheme = NULL
+) {
+
+
+  # Initialization
+  conf_level <- estimate$properties$conf_level
+  plot_raw <- !is.null(estimate$raw_data) & data_layout != "none"
+  plot_paired <- !is.null(estimate$es_r)
+  nudge <- if (plot_raw) error_nudge/2 else 0
+
+
+
+  # Overview
+  overview <- data.frame(
+    type = "Unused",
+    outcome_variable_name = estimate$overview$outcome_variable_name,
+    grouping_variable_name = estimate$overview$grouping_variable_name,
+    effect = estimate$overview$grouping_variable_level,
+    effect_size = if (effect_size == "mean") estimate$overview$mean else estimate$overview$median,
+    LL = if (effect_size == "mean") estimate$overview$mean_LL else estimate$overview$median_LL,
+    UL = if (effect_size == "mean") estimate$overview$mean_UL else estimate$overview$median_UL,
+    SE = if (effect_size == "mean") estimate$overview$mean_SE else estimate$overview$median_SE,
+    df = estimate$overview$df,
+    x_label = estimate$overview$grouping_variable_level,
+    y_value = if (effect_size == "mean") estimate$overview$mean else estimate$overview$median
+  )
+
+  overview$type <- "Unused"
+  orows <- nrow(overview)
+  overview$x_value <- seq(from = 1, to = orows, by = 1)
+  overview$nudge <- nudge
+
+  if (!is.null(overview[is.na(overview$df), ])) {
+    overview[is.na(overview$df), "df"] <- 1
+  }
+  if (!is.null(overview[overview$df < 1, ])) {
+    overview[overview$df < 1, "df"] <- 1
+  }
+
+
+  gdata <- overview
+  gdata$type <- paste(gdata$type, "_summary", sep = "")
+
+  # Raw data
+  if (plot_raw) {
+    rdata <- estimate$raw_data
+    rdata$type <- "Unused_raw"
+    rdata$x_value <- overview[match(rdata$grouping_variable, overview$effect), "x_value"]
+    rdata$y_value <- rdata$outcome_variable
+  } else {
+    rdata <- NULL
+  }
+
+  # Base plot
+  myplot <- ggplot2::ggplot() + ggtheme
+
+  error_glue <-esci_plot_group_data(effect_size)
+  error_call <- esci_plot_error_layouts(error_layout)
+  error_expression <- parse(text = glue::glue(error_glue))
+  myplot <- try(eval(error_expression))
+
+  if (plot_raw) {
+    raw_expression <- esci_plot_raw_data(myplot, data_layout, data_spread)
+    myplot <- try(eval(raw_expression))
+  }
+
+  myplot <- esci_plot_mdiff_aesthetics(
+    myplot,
+    use_ggdist = (effect_size == "mean"),
+    plot_paired = plot_paired
+  )
+
+  # Labels -----------------------------
+  # Set x axis labels
+  mybreaks <- gdata$x_value + gdata$nudge
+  if (plot_paired) mybreaks[[1]] <- mybreaks[[1]] + nudge
+
+  myplot <- myplot + ggplot2::scale_x_continuous(
+    breaks = mybreaks,
+    labels = gdata$x_label
+  )
+
+  vnames <- if (plot_paired)
+    paste(estimate$overview$outcome_variable_name, collapse = " and ", sep = "")
+  else
+    estimate$overview$outcome_variable_name[[1]]
+  esize <- paste(toupper(substr(effect_size, 1, 1)), substr(effect_size, 2, nchar(effect_size)), sep = "")
+  ylab <- glue::glue("{vnames}\n{if (plot_raw) 'Data, ' else ''}{esize} and {conf_level*100}% Confidence Interval")
+  xlab <- estimate$es_mean_difference$grouping_variable_name[[1]]
+
+  # And finally, adjust coordinates
+  # Set boundaries
+  xmin <- min(gdata$x_value)
+  xdeduct <- if (plot_paired) 2*nudge else nudge
+  xmin <- xmin - xdeduct - 0.25
+  daxis_x <- max(gdata$x_value) + difference_axis_space
+  bonus <- 3
+  if (nrow(overview) == 2) bonus <- 1
+
+  myplot <- myplot + ggplot2::coord_cartesian(
+    xlim = c(
+      xmin,
+      daxis_x+3
+    )
+  )
+
+  myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
+
+  return(myplot)
+
+}

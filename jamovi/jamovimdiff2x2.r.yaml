@@ -1,0 +1,565 @@
+---
+name:  jamovimdiff2x2
+title: 'Means and Medians: 2x2 Factorial'
+jrs:   '1.1'
+
+items:
+    - name: analysis_type
+      type: Html
+      visible: true
+
+    - name: debug
+      type: Preformatted
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  4
+      clearWith:
+        - switch
+        - outcome_variable
+        - grouping_variable_A
+        - grouping_variable_B
+        - outcome_variable_level1
+        - outcome_variable_level2
+        - outcome_variable_name_bs
+        - grouping_variable
+        - repeated_measures_name
+        - outcome_variable_name
+        - A1_label
+        - A2_label
+        - B1_label
+        - B2_label
+        - A_label
+        - B_label
+        - A1B1_mean
+        - A1B1_sd
+        - A1B1_n
+        - A1B2_mean
+        - A1B2_sd
+        - A1B2_n
+        - A2B1_mean
+        - A2B1_sd
+        - A2B1_n
+        - A2B2_mean
+        - A2B2_sd
+        - A2B2_n
+        - conf_level
+        - effect_size
+        - assume_equal_variance
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: grouping_variable_level
+          title: 'Group'
+          type: text
+          visible: false
+        - name: grouping_variable_name_A
+          title: 'Grouping variable A'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: grouping_variable_A_level
+          title: 'Group A'
+          type: text
+        - name: grouping_variable_name_B
+          title: 'Grouping variable B'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: grouping_variable_B_level
+          title: 'Group B'
+          type: text
+        - name: mean
+          type: number
+          title: <i>M</i>
+        - name: mean_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: mean_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details & effect_size == 'mean_difference')
+        - name: mean_SE
+          title: <i>SE</i><sub>Mean</sub>
+          type: number
+          visible: (show_details & effect_size == 'mean_difference')
+        - name: median
+          title: <i>Mdn</i>
+          type: number
+          visible: (switch == 'from_raw')
+        - name: median_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'median_difference' & switch == 'from_raw')
+        - name: median_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'median_difference' & switch == 'from_raw')
+        - name: median_SE
+          type: number
+          title: <i>SE</i><sub>Median</sub>
+          visible: (show_details & effect_size == 'median_difference' & switch == 'from_raw')
+        - name: sd
+          type: number
+          title: <i>s</i>
+        - name: min
+          title: Minimum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: max
+          title: Maximum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: q1
+          title: 25th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: q3
+          title: 75th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: n
+          title: <i>n</i>
+          type: integer
+        - name: missing
+          type: integer
+          title: Missing
+          visible: FALSE
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (show_details & effect_size == 'mean_difference')
+        - name: s_pooled
+          type: number
+          title: <i>s</i><sub>p</sub>
+          visible: (effect_size == 'mean_difference' & assume_equal_variance & design == 'fully_between')
+
+    - name:  es_median_difference
+      title: Median Difference
+      type: Table
+      visible: (effect_size == 'median_difference' & design == 'fully_between')
+      rows:  15
+        - switch
+        - outcome_variable
+        - grouping_variable_A
+        - grouping_variable_B
+        - outcome_variable_level1
+        - outcome_variable_level2
+        - outcome_variable_name_bs
+        - grouping_variable
+        - repeated_measures_name
+        - outcome_variable_name
+        - conf_level
+        - effect_size
+        - assume_equal_variance
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: effect_type
+          title: "Effect type"
+          type: text
+          combineBelow: true
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effects_complex
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>Mdn</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+
+    - name:  es_mean_difference
+      title: Mean Difference
+      type: Table
+      rows:  15
+      visible: (effect_size == 'mean_difference')
+      clearWith:
+        - switch
+        - outcome_variable
+        - grouping_variable_A
+        - grouping_variable_B
+        - outcome_variable_level1
+        - outcome_variable_level2
+        - outcome_variable_name_bs
+        - grouping_variable
+        - repeated_measures_name
+        - outcome_variable_name
+        - A1_label
+        - A2_label
+        - B1_label
+        - B2_label
+        - A_label
+        - B_label
+        - A1B1_mean
+        - A1B1_sd
+        - A1B1_n
+        - A1B2_mean
+        - A1B2_sd
+        - A1B2_n
+        - A2B1_mean
+        - A2B1_sd
+        - A2B1_n
+        - A2B2_mean
+        - A2B2_sd
+        - A2B2_n
+        - conf_level
+        - effect_size
+        - assume_equal_variance
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: effect_type
+          title: "Effect type"
+          type: text
+          combineBelow: true
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effects_complex
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>M</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details)
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: df
+          title: <i>df</i>
+          type: number
+          visible: (show_details & !assume_equal_variance)
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (show_details & assume_equal_variance)
+        - name: s_component
+          type: number
+          title: <i>s</i><sub>p</sub>
+          visible: (show_details & assume_equal_variance & design == 'fully_between')
+
+    - name:  es_smd
+      title: Standardized Mean Difference
+      type: Table
+      rows:  5
+      visible: (effect_size == 'mean_difference' & design == 'fully_between')
+      clearWith:
+        - switch
+        - outcome_variable
+        - grouping_variable_A
+        - grouping_variable_B
+        - outcome_variable_level1
+        - outcome_variable_level2
+        - outcome_variable_name_bs
+        - grouping_variable
+        - repeated_measures_name
+        - outcome_variable_name
+        - A1_label
+        - A2_label
+        - B1_label
+        - B2_label
+        - A_label
+        - B_label
+        - A1B1_mean
+        - A1B1_sd
+        - A1B1_n
+        - A1B2_mean
+        - A1B2_sd
+        - A1B2_n
+        - A2B1_mean
+        - A2B1_sd
+        - A2B1_n
+        - A2B2_mean
+        - A2B2_sd
+        - A2B2_n
+        - conf_level
+        - effect_size
+        - assume_equal_variance
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effect_type
+          title: 'Effect type'
+          type: text
+          visible: true
+        - name: effects_complex
+          title: 'Effect'
+          type: text
+        - name: numerator
+          title: <i>M</i><sub>diff</sub>
+          superTitle: Numerator
+          type: number
+        - name: denominator
+          title: Standardizer
+          superTitle: Standardizer
+          type: number
+        - name: effect_size
+          type: number
+          title: "<i>d</i>"
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: df
+          title: <i>df</i>
+          type: number
+          visible: (show_details & !assume_equal_variance)
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (show_details & assume_equal_variance)
+        - name: d_biased
+          title: "<i>d</i><sub>biased</sub>"
+          type: number
+          visible: (assume_equal_variance)
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - switch
+        - outcome_variable
+        - grouping_variable_A
+        - grouping_variable_B
+        - outcome_variable_level1
+        - outcome_variable_level2
+        - outcome_variable_name_bs
+        - grouping_variable
+        - repeated_measures_name
+        - outcome_variable_name
+        - A1_label
+        - A2_label
+        - B1_label
+        - B2_label
+        - A_label
+        - B_label
+        - A1B1_mean
+        - A1B1_sd
+        - A1B1_n
+        - A1B2_mean
+        - A1B2_sd
+        - A1B2_n
+        - A2B1_mean
+        - A2B1_sd
+        - A2B1_n
+        - A2B2_mean
+        - A2B2_sd
+        - A2B2_n
+        - conf_level
+        - effect_size
+        - assume_equal_variance
+        - show_details
+        - null_boundary
+        - rope_units
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+          visible: false
+        - name: effect_type
+          title: 'Effect type'
+          type: text
+          visible: true
+        - name: effects_complex
+          title: 'Effect'
+          type: text
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: t
+          title: '<i>t</i>'
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: df
+          title: <i>df</i>
+          type: number
+          visible: (effect_size == 'mean_difference' & !assume_equal_variance)
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (effect_size == 'mean_difference' & assume_equal_variance)
+        - name: p
+          title: "<i>p</i>, two-tailed"
+          type: number
+          format: zto,pvalue
+          visible: (effect_size == 'mean_difference')
+        - name: p_result
+          title: "<i>p</i>, two-tailed"
+          type: text
+          visible: (effect_size == 'median_difference')
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+          visible: false
+        - name: effect_type
+          title: 'Effect type'
+          type: text
+          visible: true
+        - name: effects_complex
+          title: 'Effect'
+          type: text
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name: estimation_plot_warnings
+      title: Estimation Figure Warnings
+      type: Html
+      visible: true
+
+    - name: main_effect_A
+      title: Main Effect A
+      type: Image
+      requiresData: true
+      width:  700
+      height: 400
+      renderFun: .estimation_plot
+
+    - name: main_effect_B
+      title: Main Effect B
+      type: Image
+      requiresData: true
+      width:  700
+      height: 400
+      renderFun: .estimation_plot
+
+    - name: interaction
+      title: Interaction
+      type: Image
+      requiresData: true
+      width:  700
+      height: 400
+      renderFun: .estimation_plot
+
+    - name: interaction_plot
+      title: Figure Emphasizing Interaction
+      type: Image
+      visible: (show_interaction_plot)
+      requiresData: true
+      width:  700
+      height: 400
+      renderFun: .interaction_plot
+
+...

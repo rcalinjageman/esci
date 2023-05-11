@@ -1,0 +1,812 @@
+title: 'Correlations: Single Group'
+name: jamovicorrelation
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: LayoutBox
+    margin: small
+    style: inline
+    children:
+      - type: RadioButton
+        name: raw_button
+        optionName: switch
+        optionPart: from_raw
+      - type: RadioButton
+        name: summary_button
+        optionName: switch
+        optionPart: from_summary
+  - type: CollapseBox
+    label: Work with full data
+    name: rpanel
+    collapsed: false
+    children:
+      - type: Label
+        label: Raw data
+      - type: VariableSupplier
+        persistentItems: false
+        stretchFactor: 1
+        children:
+          - type: TargetLayoutBox
+            label: <i>X</i> variable
+            children:
+              - type: VariablesListBox
+                name: x
+                maxItemCount: 1
+                isTarget: true
+                enable: '(switch:from_raw)'
+          - type: TargetLayoutBox
+            label: <i>Y</i> variable
+            children:
+              - type: VariablesListBox
+                name: 'y'
+                maxItemCount: 1
+                isTarget: true
+                enable: '(switch:from_raw)'
+  - type: CollapseBox
+    label: Work with summary data
+    name: spanel
+    style: inline
+    stretchFactor: 7
+    collapsed: true
+    children:
+      - type: Label
+        label: Summary data
+        stretchFactor: 1
+        horizontalAlignment: center
+        cell:
+          column: 0
+          row: 0
+      - type: Label
+        label: '<span style="font-weight:normal">Correlation (<i>r</i>)</span>'
+        stretchFactor: 1
+        horizontalAlignment: center
+        cell:
+          column: 0
+          row: 1
+      - type: TextBox
+        name: r
+        format: string
+        stretchFactor: 3
+        enable: '(switch:from_summary)'
+        cell:
+          column: 1
+          row: 1
+      - type: Label
+        label: '<span style="font-weight:normal">Sample size (<i>N</i>)</span>'
+        stretchFactor: 1
+        horizontalAlignment: center
+        cell:
+          column: 0
+          row: 2
+      - type: TextBox
+        name: 'n'
+        format: string
+        stretchFactor: 3
+        enable: '(switch:from_summary)'
+        cell:
+          column: 1
+          row: 2
+      - type: LayoutBox
+        stretchFactor: 2
+        margin: none
+        cell:
+          column: 0
+          row: 3
+        children:
+          - type: TextBox
+            name: x_variable_name
+            format: string
+            stretchFactor: 2
+            enable: '(switch:from_summary)'
+          - type: TextBox
+            name: y_variable_name
+            format: string
+            stretchFactor: 2
+            enable: '(switch:from_summary)'
+  - type: Label
+    label: Analysis options
+    children:
+      - type: TextBox
+        name: conf_level
+        format: number
+  - type: Label
+    label: Results options
+    stretchFactor: 1
+    children:
+      - type: CheckBox
+        name: show_details
+  - type: Label
+    label: Regression
+    children:
+      - type: CheckBox
+        name: do_regression
+        enable: '(switch:from_raw)'
+      - type: LayoutBox
+        margin: small
+        style: inline
+        children:
+          - type: CheckBox
+            name: show_line
+            enable: '(switch:from_raw && do_regression)'
+          - type: CheckBox
+            name: show_line_CI
+            enable: '(switch:from_raw && do_regression)'
+          - type: CheckBox
+            name: show_residuals
+            enable: '(switch:from_raw && do_regression)'
+      - type: CheckBox
+        name: show_PI
+        enable: '(switch:from_raw && do_regression)'
+      - type: TextBox
+        name: predict_from_x
+        format: string
+        enable: '(switch:from_raw && do_regression)'
+  - type: CollapseBox
+    label: Scatterplot options
+    stretchFactor: 1
+    collapsed: true
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        margin: none
+        children:
+          - type: Label
+            label: 'Dimensions'
+            enable: '(switch:from_raw)'
+            cell:
+              column: 0
+              row: 1
+          - type: TextBox
+            name: sp_plot_width
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 1
+          - type: TextBox
+            name: sp_plot_height
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 1
+          - type: Label
+            label: '<i>Y</i> axis'
+            enable: '(switch:from_raw)'
+            cell:
+              column: 0
+              row: 2
+          - type: TextBox
+            name: sp_ylab
+            stretchFactor: 2
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 2
+          - type: TextBox
+            name: sp_axis.text.y
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 3
+          - type: TextBox
+            name: sp_axis.title.y
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 3
+          - type: TextBox
+            name: sp_ymin
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 4
+          - type: TextBox
+            name: sp_ymax
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 4
+          - type: TextBox
+            name: sp_ybreaks
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 5
+          - type: Label
+            label: '<i>X</i> axis'
+            cell:
+              column: 0
+              row: 6
+          - type: TextBox
+            name: sp_xlab
+            stretchFactor: 2
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 6
+          - type: TextBox
+            name: sp_axis.text.x
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 7
+          - type: TextBox
+            name: sp_axis.title.x
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 7
+          - type: TextBox
+            name: sp_xmin
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 8
+          - type: TextBox
+            name: sp_xmax
+            format: string
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 8
+          - type: TextBox
+            name: sp_xbreaks
+            enable: '(switch:from_raw)'
+            format: string
+            cell:
+              column: 1
+              row: 9
+          - type: Label
+            label: 'Other options'
+            cell:
+              column: 0
+              row: 10
+          - type: CheckBox
+            name: show_mean_lines
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 10
+          - type: CheckBox
+            name: plot_as_z
+            enable: '(switch:from_raw)'
+            cell:
+              column: 2
+              row: 10
+          - type: CheckBox
+            name: show_r
+            enable: '(switch:from_raw)'
+            cell:
+              column: 1
+              row: 11
+          - type: CollapseBox
+            label: Scatterplot aesthetics
+            stretchFactor: 1
+            collapsed: true
+            children:
+              - type: Label
+                label: 'Raw data'
+                cell:
+                  column: 0
+                  row: 2
+              - type: Label
+                label: Regression
+                cell:
+                  column: 1
+                  row: 8
+              - type: Label
+                label: Prediction
+                cell:
+                  column: 2
+                  row: 8
+              - type: Label
+                label: Residual
+                cell:
+                  column: 3
+                  row: 8
+              - type: Label
+                label: '<span style="font-weight:normal">Shape</span>'
+                cell:
+                  column: 0
+                  row: 3
+              - type: Label
+                label: '<span style="font-weight:normal">Size</span>'
+                cell:
+                  column: 0
+                  row: 4
+              - type: Label
+                label: '<span style="font-weight:normal">Outline</span>'
+                cell:
+                  column: 0
+                  row: 5
+              - type: Label
+                label: '<span style="font-weight:normal">Fill</span>'
+                cell:
+                  column: 0
+                  row: 6
+              - type: Label
+                label: '<span style="font-weight:normal">Transparency</span>'
+                cell:
+                  column: 0
+                  row: 7
+              - type: Label
+                label: '<span style="font-weight:normal">Style</span>'
+                cell:
+                  column: 0
+                  row: 9
+              - type: Label
+                label: '<span style="font-weight:normal">Thickness</span>'
+                cell:
+                  column: 0
+                  row: 10
+              - type: Label
+                label: '<span style="font-weight:normal">Color</span>'
+                cell:
+                  column: 0
+                  row: 11
+              - type: Label
+                label: '<span style="font-weight:normal">Transparency</span>'
+                cell:
+                  column: 0
+                  row: 12
+              - type: ComboBox
+                name: sp_shape_raw_reference
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 3
+              - type: ComboBox
+                name: sp_color_raw_reference
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 5
+              - type: ComboBox
+                name: sp_fill_raw_reference
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 6
+              - type: ComboBox
+                name: sp_size_raw_reference
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 4
+              - type: ComboBox
+                name: sp_alpha_raw_reference
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 7
+              - type: ComboBox
+                name: sp_linetype_summary_reference
+                enable: '(switch:from_raw && show_line)'
+                cell:
+                  column: 1
+                  row: 9
+              - type: ComboBox
+                name: sp_linetype_PI_reference
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 9
+              - type: ComboBox
+                name: sp_linetype_residual_reference
+                enable: '(switch:from_raw && show_residuals)'
+                cell:
+                  column: 3
+                  row: 9
+              - type: ComboBox
+                name: sp_size_summary_reference
+                enable: '(switch:from_raw && show_line)'
+                cell:
+                  column: 1
+                  row: 10
+              - type: ComboBox
+                name: sp_size_PI_reference
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 10
+              - type: ComboBox
+                name: sp_size_residual_reference
+                enable: '(switch:from_raw && show_residuals)'
+                cell:
+                  column: 3
+                  row: 10
+              - type: ComboBox
+                name: sp_color_summary_reference
+                enable: '(switch:from_raw && (show_line || show_line_CI))'
+                cell:
+                  column: 1
+                  row: 11
+              - type: ComboBox
+                name: sp_color_PI_reference
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 11
+              - type: ComboBox
+                name: sp_color_residual_reference
+                enable: '(switch:from_raw && show_residuals)'
+                cell:
+                  column: 3
+                  row: 11
+              - type: ComboBox
+                name: sp_alpha_summary_reference
+                enable: '(switch:from_raw && show_line_CI)'
+                cell:
+                  column: 1
+                  row: 12
+              - type: ComboBox
+                name: sp_alpha_PI_reference
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 12
+              - type: ComboBox
+                name: sp_alpha_residual_reference
+                enable: '(switch:from_raw && show_residuals)'
+                cell:
+                  column: 3
+                  row: 12
+              - type: Label
+                label: 'Prediction from <i>X</i>'
+                cell:
+                  column: 0
+                  row: 13
+              - type: Label
+                label: '<span style="font-weight:normal">Label size</span>'
+                cell:
+                  column: 0
+                  row: 14
+              - type: ComboBox
+                name: sp_prediction_label
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 14
+              - type: Label
+                label: '<span style="font-weight:normal">Label color</span>'
+                cell:
+                  column: 0
+                  row: 15
+              - type: ComboBox
+                name: sp_prediction_color
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 15
+              - type: Label
+                label: Guidelines
+                cell:
+                  column: 1
+                  row: 16
+              - type: Label
+                label: PI
+                cell:
+                  column: 2
+                  row: 16
+              - type: Label
+                label: CI
+                cell:
+                  column: 3
+                  row: 16
+              - type: Label
+                label: '<span style="font-weight:normal">Style</span>'
+                cell:
+                  column: 0
+                  row: 17
+              - type: Label
+                label: '<span style="font-weight:normal">Thickness</span>'
+                cell:
+                  column: 0
+                  row: 18
+              - type: Label
+                label: '<span style="font-weight:normal">Color</span>'
+                cell:
+                  column: 0
+                  row: 19
+              - type: Label
+                label: '<span style="font-weight:normal">Transparency</span>'
+                cell:
+                  column: 0
+                  row: 20
+              - type: ComboBox
+                name: sp_linetype_ref
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 17
+              - type: ComboBox
+                name: sp_linetype_PI
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 17
+              - type: ComboBox
+                name: sp_linetype_CI
+                enable: '(switch:from_raw && show_line_CI)'
+                cell:
+                  column: 3
+                  row: 17
+              - type: ComboBox
+                name: sp_size_ref
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 18
+              - type: ComboBox
+                name: sp_size_PI
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 18
+              - type: ComboBox
+                name: sp_size_CI
+                enable: '(switch:from_raw && show_line_CI)'
+                cell:
+                  column: 3
+                  row: 18
+              - type: ComboBox
+                name: sp_color_ref
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 19
+              - type: ComboBox
+                name: sp_color_PI
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 19
+              - type: ComboBox
+                name: sp_color_CI
+                enable: '(switch:from_raw && show_line_CI)'
+                cell:
+                  column: 3
+                  row: 19
+              - type: ComboBox
+                name: sp_alpha_ref
+                enable: '(switch:from_raw)'
+                cell:
+                  column: 1
+                  row: 20
+              - type: ComboBox
+                name: sp_alpha_PI
+                enable: '(switch:from_raw && show_PI)'
+                cell:
+                  column: 2
+                  row: 20
+              - type: ComboBox
+                name: sp_alpha_CI
+                enable: '(switch:from_raw && show_line_CI)'
+                cell:
+                  column: 3
+                  row: 20
+  - type: CollapseBox
+    label: Estimation figure options
+    stretchFactor: 1
+    collapsed: true
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        margin: none
+        children:
+          - type: Label
+            label: 'Dimensions'
+            cell:
+              column: 0
+              row: 1
+          - type: TextBox
+            name: es_plot_width
+            format: string
+            cell:
+              column: 1
+              row: 1
+          - type: TextBox
+            name: es_plot_height
+            format: string
+            cell:
+              column: 2
+              row: 1
+          - type: Label
+            label: '<i>Y</i> axis'
+            cell:
+              column: 0
+              row: 2
+          - type: TextBox
+            name: ylab
+            stretchFactor: 2
+            format: string
+            cell:
+              column: 1
+              row: 2
+          - type: TextBox
+            name: axis.text.y
+            format: string
+            cell:
+              column: 1
+              row: 3
+          - type: TextBox
+            name: axis.title.y
+            format: string
+            cell:
+              column: 2
+              row: 3
+          - type: TextBox
+            name: ymin
+            format: string
+            cell:
+              column: 1
+              row: 4
+          - type: TextBox
+            name: ymax
+            format: string
+            cell:
+              column: 2
+              row: 4
+          - type: TextBox
+            name: ybreaks
+            format: string
+            cell:
+              column: 1
+              row: 5
+          - type: Label
+            label: '<i>X</i> axis'
+            cell:
+              column: 0
+              row: 6
+          - type: TextBox
+            name: xlab
+            stretchFactor: 2
+            format: string
+            cell:
+              column: 1
+              row: 6
+          - type: TextBox
+            name: axis.text.x
+            format: string
+            cell:
+              column: 1
+              row: 7
+          - type: TextBox
+            name: axis.title.x
+            format: string
+            cell:
+              column: 2
+              row: 7
+          - type: Label
+            label: 'Distributions'
+            cell:
+              column: 0
+              row: 8
+          - type: ComboBox
+            name: error_layout
+            enable: '(switch:never)'
+            cell:
+              column: 1
+              row: 8
+          - type: CollapseBox
+            label: Estimation figure aesthetics
+            stretchFactor: 1
+            collapsed: true
+            children:
+              - type: Label
+                label: 'Summary'
+                cell:
+                  column: 0
+                  row: 1
+              - type: ComboBox
+                name: shape_summary
+                cell:
+                  column: 0
+                  row: 2
+              - type: ComboBox
+                name: size_summary
+                cell:
+                  column: 1
+                  row: 2
+              - type: ComboBox
+                name: color_summary
+                cell:
+                  column: 0
+                  row: 3
+              - type: ComboBox
+                name: fill_summary
+                cell:
+                  column: 1
+                  row: 3
+              - type: ComboBox
+                name: alpha_summary
+                cell:
+                  column: 0
+                  row: 4
+              - type: Label
+                label: 'CI'
+                cell:
+                  column: 0
+                  row: 5
+              - type: ComboBox
+                name: linetype_summary
+                cell:
+                  column: 0
+                  row: 6
+              - type: ComboBox
+                name: size_interval
+                cell:
+                  column: 1
+                  row: 6
+              - type: ComboBox
+                name: color_interval
+                cell:
+                  column: 0
+                  row: 7
+              - type: ComboBox
+                name: alpha_interval
+                cell:
+                  column: 1
+                  row: 7
+              - type: Label
+                label: 'Error distribution'
+                cell:
+                  column: 0
+                  row: 8
+              - type: ComboBox
+                name: fill_error
+                enable: '(switch:never)'
+                cell:
+                  column: 0
+                  row: 9
+              - type: ComboBox
+                name: alpha_error
+                enable: '(switch:never)'
+                cell:
+                  column: 1
+                  row: 9
+  - type: CollapseBox
+    label: Hypothesis evaluation
+    name: hpanel
+    collapsed: true
+    children:
+      - type: LayoutBox
+        margin: large
+        children:
+          - type: CheckBox
+            name: evaluate_hypotheses
+      - type: LayoutBox
+        margin: large
+        style: inline
+        children:
+          - type: TextBox
+            name: null_value
+            format: string
+            enable: (evaluate_hypotheses)
+          - type: TextBox
+            name: null_boundary
+            format: string
+            enable: (evaluate_hypotheses)
+          - type: TextBox
+            name: alpha
+            format: number
+            enable: (switch:never)
+      - type: LayoutBox
+        margin: large
+        style: inline
+        children:
+          - type: ComboBox
+            name: null_color
+            enable: (evaluate_hypotheses)

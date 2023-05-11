@@ -1,0 +1,359 @@
+---
+name:  jamovipdifftwo
+title: "Proportions: Two Groups"
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: true
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  1
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+        - name: grouping_variable_level
+          title: 'Grouping variable level'
+          type: text
+          combineBelow: true
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: outcome_variable_level
+          title: 'Outcome variable level'
+          type: text
+          combineBelow: true
+        - name: cases
+          title: Cases
+          type: integer
+        - name: n
+          title: <i>n</i>
+          type: integer
+        - name: P
+          title: <i>P</i>
+          type: number
+        - name: P_LL
+          title: LL
+          type: number
+        - name: P_UL
+          title: UL
+          type: number
+        - name: P_SE
+          type: number
+          title: <i>SE</i><sub>Proportion</sub>
+          visible: (show_details)
+        - name: P_adjusted
+          type: number
+          title: <i>P</i><sub>adjusted</sub>
+          visible: (show_details)
+
+    - name:  es_proportion_difference
+      title: Proportion Difference
+      type: Table
+      rows:  3
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>P</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: effect_size_adjusted
+          title: <i>P</i><sub>adjusted</sub>
+          type: number
+          visible: (show_details)
+
+    - name: contingency_table
+      title: Chi-Square Analysis
+      type: Table
+      rows: 0
+      visible: (show_chi_square)
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: outcome_variable_level
+          title: 'Outcome variable level'
+          type: text
+
+    - name:  es_phi
+      title: Correlation
+      type: Table
+      rows:  1
+      visible: (show_phi)
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: '&#981;'
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+
+    - name:  es_odds_ratio
+      title: Odds Ratio
+      type: Table
+      rows:  1
+      visible: true
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: grouping_variable_name
+          title: 'Grouping variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>OR</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - outcome_variable
+        - grouping_variable
+        - comparison_cases
+        - comparison_not_cases
+        - reference_cases
+        - reference_not_cases
+        - case_label
+        - not_case_label
+        - grouping_variable_level1
+        - grouping_variable_level2
+        - outcome_variable_name
+        - grouping_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+        - null_value
+        - null_boundary
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+          combineBelow: false
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: t
+          title: '<i>z</i>'
+          type: number
+        - name: p
+          title: "<i>p</i>, two-tailed"
+          type: number
+          format: zto,pvalue
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name: estimation_plot_warnings
+      title: Estimation Figure Warnings
+      type: Html
+      visible: true
+
+    - name: estimation_plots
+      title: Estimation Figure
+      type: Array
+      template:
+          title: $key
+          type: Image
+          width:  300
+          height: 450
+          requiresData: true
+          renderFun: .estimation_plots
+...

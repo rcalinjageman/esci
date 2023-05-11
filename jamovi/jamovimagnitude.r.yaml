@@ -1,0 +1,281 @@
+---
+name:  jamovimagnitude
+title: 'Means and Medians: Single Group'
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  (outcome_variable)
+      clearWith:
+        - outcome_variable
+        - mean
+        - sd
+        - n
+        - outcome_variable_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: mean
+          type: number
+          title: <i>M</i>
+        - name: mean_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'mean')
+        - name: mean_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'mean')
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details & effect_size == 'mean')
+        - name: mean_SE
+          title: <i>SE</i><sub>Mean</sub>
+          type: number
+          visible: (show_details & effect_size == 'mean')
+        - name: median
+          title: <i>Mdn</i>
+          type: number
+          visible: (switch == 'from_raw')
+        - name: median_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'median' & switch == 'from_raw')
+        - name: median_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'median' & switch == 'from_raw')
+        - name: median_SE
+          type: number
+          title: <i>SE</i><sub>Median</sub>
+          visible: (show_details & effect_size == 'median' & switch == 'from_raw')
+        - name: sd
+          type: number
+          title: <i>s</i>
+        - name: min
+          title: Minimum
+          type: number
+          visible: (switch == 'from_raw' & show_details)
+        - name: max
+          title: Maximum
+          type: number
+          visible: (switch == 'from_raw' & show_details)
+        - name: q1
+          title: 25th
+          type: number
+          superTitle: Percentile
+          visible: (switch == 'from_raw' & show_details)
+        - name: q3
+          title: 75th
+          type: number
+          superTitle: Percentile
+          visible: (switch == 'from_raw' & show_details)
+        - name: n
+          title: <i>N</i>
+          type: integer
+        - name: missing
+          type: integer
+          title: Missing
+          visible: (switch == 'from_raw')
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (show_details & effect_size == 'mean')
+        - name: t_multiplier
+          type: number
+          title: <i>t</i>
+          superTitle: Calculation component
+          visible: (show_calculations & effect_size == 'mean')
+        - name: s_component
+          type: number
+          title: Variability
+          superTitle: Calculation component
+          visible: (show_calculations & effect_size == 'mean')
+        - name: n_component
+          type: number
+          title: Sample size
+          superTitle: Calculation component
+          visible: (show_calculations & effect_size == 'mean')
+
+    - name:  es_smd
+      title: Standardized Mean Difference
+      type: Table
+      rows:  (outcome_variable)
+      visible: (effect_size == 'mean' & evaluate_hypotheses)
+      clearWith:
+        - outcome_variable
+        - mean
+        - sd
+        - n
+        - outcome_variable_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: mean
+          title: <i>M</i>
+          type: number
+        - name: reference_value
+          title: Reference value
+          type: number
+        - name: numerator
+          title: <i>M</i> &ndash; Reference
+          superTitle: Numerator
+          type: number
+        - name: denominator
+          title: Standardizer
+          superTitle: Standardizer
+          type: number
+        - name: effect_size
+          type: number
+          title: "<i>d</i>"
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: df
+          title: <i>df</i>
+          type: integer
+          visible: (show_details)
+        - name: d_biased
+          title: "<i>d</i><sub>biased</sub>"
+          type: number
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - outcome_variable
+        - mean
+        - sd
+        - n
+        - outcome_variable_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+        - null_value
+        - null_boundary
+      columns:
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: t
+          title: '<i>t</i>'
+          type: number
+          visible: (effect_size == 'mean')
+        - name: df
+          title: '<i>df</i>'
+          type: integer
+          visible: (effect_size == 'mean')
+        - name: p
+          title: "<i>p</i>, two tailed"
+          type: number
+          format: zto,pvalue
+          visible: (effect_size == 'mean')
+        - name: p_result
+          title: "<i>p</i>, two-tailed"
+          type: text
+          visible: (effect_size == 'median')
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      clearWith:
+        - outcome_variable
+        - mean
+        - sd
+        - n
+        - outcome_variable_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+        - null_value
+        - null_boundary
+      columns:
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name: magnitude_plot_warnings
+      title: Figure Warnings
+      type: Html
+      visible: true
+
+    - name: magnitude_plot
+      title: Estimation Figure
+      type: Image
+      requiresData: true
+      width:  400
+      height: 300
+      renderFun: .magnitude_plot
+...

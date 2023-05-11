@@ -1,0 +1,245 @@
+title: Describe
+name: jamovidescribe
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: VariableSupplier
+    persistentItems: false
+    stretchFactor: 1
+    children:
+      - type: TargetLayoutBox
+        label: Outcome variable
+        children:
+          - type: VariablesListBox
+            name: outcome_variable
+            maxItemCount: 1
+            isTarget: true
+  - type: Label
+    label: 'Results options'
+    stretchFactor: 1
+    children:
+      - type: CheckBox
+        name: show_details
+  - type: Label
+    label: 'Explore'
+    stretchFactor: 1
+    children:
+      - type: Label
+        label: 'Location'
+        cell:
+          column: 1
+          row: 1
+      - type: CheckBox
+        name: mark_mean
+        cell:
+          column: 2
+          row: 1
+      - type: CheckBox
+        name: mark_median
+        cell:
+          column: 3
+          row: 1
+      - type: Label
+        label: 'Spread'
+        cell:
+          column: 1
+          row: 2
+      - type: CheckBox
+        name: mark_sd
+        cell:
+          column: 2
+          row: 2
+      - type: CheckBox
+        name: mark_quartiles
+        cell:
+          column: 3
+          row: 2
+      - type: Label
+        label: 'z scores'
+        cell:
+          column: 1
+          row: 3
+      - type: CheckBox
+        name: mark_z_lines
+        cell:
+          column: 2
+          row: 3
+      - type: Label
+        label: 'Percentiles'
+        cell:
+          column: 1
+          row: 4
+      - type: TextBox
+        name: mark_percentile
+        format: string
+        suffix: '%'
+        cell:
+          column: 2
+          row: 4
+  - type: CollapseBox
+    label: Figure options
+    stretchFactor: 1
+    collapsed: true
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        margin: none
+        children:
+          - type: Label
+            label: 'Dimensions'
+            cell:
+              column: 0
+              row: 1
+          - type: TextBox
+            name: es_plot_width
+            format: string
+            cell:
+              column: 1
+              row: 1
+          - type: TextBox
+            name: es_plot_height
+            format: string
+            cell:
+              column: 2
+              row: 1
+          - type: Label
+            label: 'Histogram'
+            cell:
+              column: 0
+              row: 2
+          - type: TextBox
+            name: histogram_bins
+            format: string
+            cell:
+              column: 1
+              row: 2
+          - type: Label
+            label: '<i>Y</i> axis'
+            cell:
+              column: 0
+              row: 3
+          - type: TextBox
+            name: ylab
+            stretchFactor: 2
+            format: string
+            cell:
+              column: 1
+              row: 3
+          - type: TextBox
+            name: axis.text.y
+            format: string
+            cell:
+              column: 1
+              row: 4
+          - type: TextBox
+            name: axis.title.y
+            format: string
+            cell:
+              column: 2
+              row: 4
+          - type: TextBox
+            name: ymin
+            format: string
+            cell:
+              column: 1
+              row: 5
+          - type: TextBox
+            name: ymax
+            format: string
+            cell:
+              column: 2
+              row: 5
+          - type: TextBox
+            name: breaks
+            format: string
+            cell:
+              column: 1
+              row: 6
+          - type: Label
+            label: '<i>X</i> axis'
+            cell:
+              column: 0
+              row: 7
+          - type: TextBox
+            name: xlab
+            stretchFactor: 2
+            format: string
+            cell:
+              column: 1
+              row: 7
+          - type: TextBox
+            name: axis.text.x
+            format: string
+            cell:
+              column: 1
+              row: 8
+          - type: TextBox
+            name: axis.title.x
+            format: string
+            cell:
+              column: 2
+              row: 8
+          - type: TextBox
+            name: xmin
+            format: string
+            cell:
+              column: 1
+              row: 9
+          - type: TextBox
+            name: xmax
+            format: string
+            cell:
+              column: 2
+              row: 9
+          - type: TextBox
+            name: xbreaks
+            format: string
+            cell:
+              column: 1
+              row: 10
+          - type: CollapseBox
+            label: Aesthetics
+            stretchFactor: 1
+            collapsed: true
+            children:
+              - type: Label
+                label: 'Bars and dots'
+                cell:
+                  column: 0
+                  row: 1
+              - type: ComboBox
+                name: color
+                cell:
+                  column: 1
+                  row: 2
+              - type: Label
+                label: 'Not-highlighted'
+                cell:
+                  column: 0
+                  row: 3
+              - type: ComboBox
+                name: fill_regular
+                cell:
+                  column: 1
+                  row: 4
+              - type: Label
+                label: 'Highlighted'
+                cell:
+                  column: 0
+                  row: 5
+              - type: ComboBox
+                name: fill_highlighted
+                cell:
+                  column: 1
+                  row: 6
+              - type: Label
+                label: 'Markers'
+                cell:
+                  column: 0
+                  row: 7
+              - type: ComboBox
+                name: marker_size
+                cell:
+                  column: 1
+                  row: 8

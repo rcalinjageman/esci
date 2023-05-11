@@ -1,0 +1,158 @@
+---
+name:  jamoviproportion
+title: 'Proportions: Single Group'
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: true
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  1
+      clearWith:
+        - outcome_variable
+        - cases
+        - not_cases
+        - case_label
+        - not_case_label
+        - outcome_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: outcome_variable_level
+          type: text
+          title: Level
+        - name: cases
+          title: Cases
+          type: integer
+        - name: n
+          title: <i>N</i>
+          type: integer
+        - name: P
+          title: <i>P</i>
+          type: number
+        - name: P_LL
+          title: LL
+          type: number
+        - name: P_UL
+          title: UL
+          type: number
+        - name: P_SE
+          type: number
+          title: <i>SE</i><sub>Proportion</sub>
+          visible: (show_details)
+        - name: P_adjusted
+          type: number
+          title: <i>P</i><sub>adjusted</sub>
+          visible: (show_details)
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - outcome_variable
+        - cases
+        - not_cases
+        - case_label
+        - not_case_label
+        - outcome_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+        - null_value
+        - null_boundary
+      columns:
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: t
+          title: '<i>z</i>'
+        - name: p
+          title: "<i>p</i>, two tailed"
+          type: number
+          format: zto,pvalue
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      clearWith:
+        - outcome_variable
+        - cases
+        - not_cases
+        - case_label
+        - not_case_label
+        - outcome_variable_name
+        - count_NA
+        - conf_level
+        - show_details
+        - null_value
+        - null_boundary
+      columns:
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name: magnitude_plot_warnings
+      title: Figure Warnings
+      type: Html
+      visible: true
+
+    - name: estimation_plots
+      title: Estimation Figure
+      type: Array
+      template:
+          title: $key
+          type: Image
+          width:  300
+          height: 450
+          requiresData: true
+          renderFun: .estimation_plots
+
+...
