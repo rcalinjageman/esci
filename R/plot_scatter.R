@@ -382,16 +382,7 @@ plot_scatter <- function(
 
     pi_input <- if (plot_as_z) (predict_from_x * x_sd) + x_mean else predict_from_x
 
-    if (show_PI) {
-      pi <- predict(estimate$properties$lm, interval = "prediction", newdata = data.frame(x = pi_input), level = estimate$properties$conf_level)
-      if (plot_as_z) {
-        pi[1, "lwr"] <- (pi[1, "lwr"] - y_mean) / y_sd
-        pi[1, "upr"] <- (pi[1, "upr"] - y_mean) / y_sd
-      }
-      xlab <- paste(xlab, "\n<br>At ", zfix, "*X*", zpost, " =", predict_from_x, ": ", zfix, "*\U0176*", zpost, " = ", format(ypr, digits = 4), ", ", format(estimate$properties$conf_level*100, digits=0), "% PI[", format(pi[1, "lwr"], digits=3), ",", format(pi[1, "upr"], digits=3), "]", sep = "")
-      myplot <- myplot + geom_segment(alpha = 0.1, size = 2, color = "red", aes(x = predict_from_x, xend = predict_from_x, y=pi[1, "lwr"], yend = pi[1, "upr"]))
-      myplot <- esci_plot_layers(myplot, "prediction_prediction_interval")
-    }
+    xlab <- paste(xlab, "\n<br>At ", zfix, "*X*", zpost, " =", predict_from_x, ": ", zfix, "*\U0176*", zpost, " = ", format(ypr, digits = 4))
 
     if (show_line_CI) {
       ci <- predict(estimate$properties$lm, interval = "confidence", newdata = data.frame(x = pi_input), level = estimate$properties$conf_level)
@@ -401,7 +392,7 @@ plot_scatter <- function(
       }
       xlab <- paste(
         xlab,
-        ", ",
+        "<br>",
         format(estimate$properties$conf_level*100, digits=0),
         "% CI[", format(ci[1, "lwr"], digits=3),
         ",", format(ci[1, "upr"], digits=3),
@@ -411,6 +402,19 @@ plot_scatter <- function(
       myplot <- myplot + geom_segment(alpha = 0.1, size = 2, color = "blue", aes(x = predict_from_x, xend = predict_from_x, y=ci[1, "lwr"], yend = ci[1, "upr"]))
       myplot <- esci_plot_layers(myplot, "prediction_confidence_interval")
     }
+
+
+    if (show_PI) {
+      pi <- predict(estimate$properties$lm, interval = "prediction", newdata = data.frame(x = pi_input), level = estimate$properties$conf_level)
+      if (plot_as_z) {
+        pi[1, "lwr"] <- (pi[1, "lwr"] - y_mean) / y_sd
+        pi[1, "upr"] <- (pi[1, "upr"] - y_mean) / y_sd
+      }
+      xlab <- paste(xlab, "<br>", format(estimate$properties$conf_level*100, digits=0), "% PI[", format(pi[1, "lwr"], digits=3), ",", format(pi[1, "upr"], digits=3), "]", sep = "")
+      myplot <- myplot + geom_segment(alpha = 0.1, size = 2, color = "red", aes(x = predict_from_x, xend = predict_from_x, y=pi[1, "lwr"], yend = pi[1, "upr"]))
+      myplot <- esci_plot_layers(myplot, "prediction_prediction_interval")
+    }
+
 
 
     myplot <- myplot + annotate("point", x = predict_from_x, y = ypr, colour = "red", shape = 23, size=4, fill="white")
