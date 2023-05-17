@@ -911,16 +911,16 @@ esci_build_chi_square <- function(estimate) {
   o <- estimate$overview
   ctable <- NULL
 
-  for (mylevel in rev(levels(as.factor(o$outcome_variable_level)))) {
+  for (mylevel in unique(o$outcome_variable_level)) {
     ctable <- rbind(
       ctable,
       as.data.frame(t(o[o$outcome_variable_level == mylevel, "cases"]))
     )
   }
   colnames(ctable) <-  t(o[o$outcome_variable_level == mylevel, "grouping_variable_level"])
-  rownames(ctable) <- rev(levels(as.factor(o$outcome_variable_level)))
+  rownames(ctable) <- unique(o$outcome_variable_level)
 
-  estimate$properties$chi_square <- chisq.test(ctable, correct = TRUE)
+  estimate$properties$chi_square <- chisq.test(ctable, correct = FALSE)
 
   if (all(dim(estimate$properties$chi_square$observed) == c(2,2))) {
     res <- statpsych::ci.phi(

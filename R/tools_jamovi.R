@@ -895,7 +895,7 @@ jamovi_contingency_table <- function(self, estimate) {
 
   # Set a note with the chi square results
   mynote <- glue::glue(
-    "&#120536;<sup>2</sup>({format(estimate$properties$chi_square$parameter, digits = 0)}) = {format(estimate$properties$chi_square$statistic, digits = 2)}, <i>p</i> = {esci_pvalr(estimate$properties$chi_square$p.value)}.  Continuity correction has been applied."
+    "&#120536;<sup>2</sup>({format(estimate$properties$chi_square$parameter, digits = 0)}) = {format(estimate$properties$chi_square$statistic, digits = 2)}, <i>p</i> = {esci_pvalr(estimate$properties$chi_square$p.value)}.  Continuity correction has *not* been applied."
   )
 
   tbl$setNote(

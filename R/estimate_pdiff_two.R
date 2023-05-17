@@ -266,6 +266,19 @@ estimate_pdiff_two <- function(
       estimate$overview[
         estimate$overview$outcome_variable_level == old_case_label,
       ]$outcome_variable_level = not_case_label
+      if (!is.null(estimate$properties$chi_square)) {
+        rownames(estimate$properties$chi_square$observed)[[
+          which(rownames(estimate$properties$chi_square$observed) == old_case_label)
+
+        ]] <- not_case_label
+
+        rownames(estimate$properties$chi_square$expected)[[
+          which(rownames(estimate$properties$chi_square$expected) == old_case_label)
+
+        ]] <- not_case_label
+
+
+      }
     }
     return(estimate)
 
