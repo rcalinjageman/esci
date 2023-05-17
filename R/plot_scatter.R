@@ -348,7 +348,7 @@ plot_scatter <- function(
 
 
 
-    myplot <- myplot + geom_segment(linetype = "dotted", aes(x = predict_from_x, xend = predict_from_x, y = ny_min - (0.20* (ny_max - ny_min)), yend = ypr), alpha = 0.5, size = 2)
+    myplot <- myplot + geom_segment(linetype = "dotted", aes(x = predict_from_x, xend = predict_from_x, y = ny_min - (0.05* (ny_max - ny_min)), yend = ypr), alpha = 0.5, size = 2)
     myplot <- esci_plot_layers(myplot, "prediction_vertical_line")
     myplot <- myplot + geom_segment(linetype = "dotted", aes(x = nx_min - 0.20*nxrange, xend = predict_from_x, y = ypr, yend = ypr), alpha = 1, size = 2)
     myplot <- esci_plot_layers(myplot, "prediction_horizontal_line")
@@ -367,7 +367,7 @@ plot_scatter <- function(
     myplot <- esci_plot_layers(myplot, "prediction_y_label")
 
     xlabel <- paste(zfix, "*X*", zpost, " =", predict_from_x, sep = "")
-    y_half <- ny_min - (0.20* (ny_max - ny_min))
+    y_half <- ny_min - (0.05* (ny_max - ny_min))
     myplot <- myplot + ggtext::geom_richtext(
       ggplot2::aes(
         x = predict_from_x,
@@ -436,8 +436,8 @@ plot_scatter <- function(
   if (show_r) {
     myplot <- myplot + ggtext::geom_richtext(
       ggplot2::aes(
-        x = x_min + (0.1 * (x_max - x_min)),
-        y = y_max - (0.1 * (y_max - y_min)),
+        x = x_min + (0.10 * (x_max - x_min)),
+        y = y_max - (0.05 * (y_max - y_min)),
         label = paste("*r* = ", format(myr, digits = 2))
       ),
       text.color = "black",
