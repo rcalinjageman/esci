@@ -691,15 +691,15 @@ jamovicorrelationClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6C
 
           # Axis labels
           xlab <- jamovi_sanitize(
-            my_value = myplot$esci_xlab,
-            return_value = NULL,
+            my_value = self$options$sp_xlab ,
+            return_value = myplot$esci_xlab,
             na_ok = FALSE,
             my_value_name = "Scatterplot X axis: Title"
           )
 
           ylab <- jamovi_sanitize(
-            my_value = myplot$esci_ylab,
-            return_value = NULL,
+            my_value = self$options$sp_ylab,
+            return_value = myplot$esci_ylab,
             na_ok = FALSE,
             my_value_name = "Scatterplot Y axis: Title"
           )
