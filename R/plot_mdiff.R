@@ -910,8 +910,8 @@ plot_mdiff_base <- function(
 
   # Now define the y-axis
   p <- ggplot2::ggplot_build(myplot)
-  lowest <- min(c(gdata$y_value, ylim[[1]], saxisStart, saxisEnd, rope), na.rm = TRUE)
-  highest <- max(c(gdata$y_value, ylim[[2]], saxisEnd, saxisStart, rope), na.rm = TRUE)
+  lowest <- min(c(gdata$y_value, gdata$LL, ylim[[1]], saxisStart, saxisEnd, rope), na.rm = TRUE)
+  highest <- max(c(gdata$y_value, gdata$UL, ylim[[2]], saxisEnd, saxisStart, rope), na.rm = TRUE)
   for (x in 1:length(p$data)) {
     lowest <- min(c(lowest, p$data[[x]]$y), na.rm = TRUE)
     highest <- max(c(highest, p$data[[x]]$y), na.rm = TRUE)
