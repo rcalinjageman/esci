@@ -1391,11 +1391,17 @@ plot_nocontrast <- function(
   bonus <- 3
   if (nrow(overview) == 2) bonus <- 1
 
+
   myplot <- myplot + ggplot2::coord_cartesian(
     xlim = c(
       xmin,
       daxis_x+3
     )
+  )
+
+  myplot <- myplot + ggplot2::scale_y_continuous(
+    limits = ylim,
+    n.breaks = ybreaks
   )
 
   myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
