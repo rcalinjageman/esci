@@ -162,7 +162,7 @@ plot_mdiff <- function(
     }
   } else {
     if (simple_contrast_labels) {
-      gdata$x_label <- c("Reference", "Comparison", "Difference")
+      gdata$x_label <- c( "Comparison", "Reference", "Difference")
     } else {
       gdata$x_label <- gdata$effect
       gdata$x_label <- gsub(" - ", "\n-\n", gdata$x_label)
