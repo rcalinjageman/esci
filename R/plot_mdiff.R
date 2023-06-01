@@ -685,6 +685,7 @@ plot_mdiff_base <- function(
       last_layer <- length(p$data)
       m1 <- p$data[[last_layer]][1:(nrow(rdata)/3), ]
       m2 <- p$data[[last_layer]][((nrow(rdata)/3)+1):(nrow(rdata)*2/3), ]
+      m2 <- p$data[[last_layer]][((nrow(rdata)*2/3)+1):(nrow(rdata)), ]
       colnames(m2) <- paste("m2.", colnames(m2), sep = "")
       line_data <- cbind(m1, m2)
 

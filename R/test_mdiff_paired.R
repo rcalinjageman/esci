@@ -106,4 +106,44 @@ test_mdiff_paired <- function() {
   # Check data frame, columns as tidy
   estimate <- estimate_mdiff_paired(wrapper, wc, bk)
 
+
+  pret <- c(
+    13,
+    12,
+    12,
+    9,
+    14,
+    17,
+    14,
+    9,
+    6,
+    7,
+    11,
+    15
+  )
+
+  post <- c(
+    14,
+    13,
+    16,
+    12,
+    15,
+    18,
+    13,
+    10,
+    10,
+    8,
+    14,
+    16
+  )
+
+  mydf <- data.frame(
+    pretest = pret,
+    posttest = post
+  )
+
+  estimate <- estimate_mdiff_paired(mydf, reference_measure = pretest, comparison_measure = posttest)
+
+  plot_mdiff(estimate)
+
 }

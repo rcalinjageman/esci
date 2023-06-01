@@ -17,6 +17,7 @@ items:
       type: Table
       rows:  2
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -112,6 +113,7 @@ items:
       type: Table
       rows:  1
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -168,6 +170,7 @@ items:
       rows:  3
       visible: (effect_size == 'mean_difference')
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -242,6 +245,7 @@ items:
       rows:  1
       visible: (effect_size == 'mean_difference')
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -307,6 +311,7 @@ items:
       visible: (show_ratio & effect_size == 'mean_difference')
       rows:  1
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -359,6 +364,7 @@ items:
       visible: (effect_size == 'median_difference')
       rows:  3
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -410,6 +416,7 @@ items:
       visible: (show_ratio & effect_size == 'median_difference')
       rows:  1
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -462,6 +469,7 @@ items:
       rows:  1
       visible: (evaluate_hypotheses & null_boundary == 0)
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
@@ -529,6 +537,7 @@ items:
       rows:  1
       visible: (evaluate_hypotheses & null_boundary != 0)
       clearWith:
+        - switch
         - reference_measure
         - comparison_measure
         - comparison_mean
