@@ -8,13 +8,14 @@ jas: '1.2'
 
 options:
     - name: switch
+      title: Analysis Mode
       type: List
       default: from_raw
       options:
           - name: from_raw
-            title: Analyze full data
+            title: Full Data
           - name: from_summary
-            title: Analyze summary data
+            title: Summary Data
 
     - name: data
       type: Data
@@ -48,14 +49,6 @@ options:
       default: 'Sick'
 
     - name: not_case_label
-      type: String
-      default: 'Well'
-
-    - name: case_label_repeat
-      type: String
-      default: 'Sick'
-
-    - name: not_case_label_repeat
       type: String
       default: 'Well'
 

@@ -4,212 +4,188 @@ jus: '3.0'
 stage: 0
 compilerMode: tame
 children:
+  - type: ModeSelector
+    name: switch
+    stretchFactor: 1
+    margin: normal
+    children:
+      - type: Content
+        name: from_raw
+        children:
+          - type: VariableSupplier
+            persistentItems: false
+            stretchFactor: 1
+            children:
+              - type: TargetLayoutBox
+                label: <i>X</i> Variable
+                children:
+                  - type: VariablesListBox
+                    name: x
+                    maxItemCount: 1
+                    isTarget: true
+              - type: TargetLayoutBox
+                label: <i>Y</i> variable
+                children:
+                  - type: VariablesListBox
+                    name: 'y'
+                    maxItemCount: 1
+                    isTarget: true
+              - type: TargetLayoutBox
+                label: Grouping variable
+                children:
+                  - type: VariablesListBox
+                    name: grouping_variable
+                    maxItemCount: 1
+                    isTarget: true
+      - type: Content
+        name: from_summary
+        children:
+          - type: Label
+            label: Reference group
+            heading: true
+            cell:
+              column: 1
+              row: 0
+          - type: Label
+            label: Comparison group
+            heading: true
+            cell:
+              column: 2
+              row: 0
+          - type: Label
+            label: '<span style="font-weight:normal">Name</span> '
+            stretchFactor: 1
+            cell:
+              column: 0
+              row: 1
+          - type: TextBox
+            name: reference_level_name
+            format: string
+            stretchFactor: 3
+            horizontalAlignment: left
+            enable: '(switch:from_summary)'
+            cell:
+              column: 1
+              row: 1
+          - type: TextBox
+            name: comparison_level_name
+            format: string
+            stretchFactor: 3
+            horizontalAlignment: left
+            enable: '(switch:from_summary)'
+            cell:
+              column: 2
+              row: 1
+          - type: Label
+            stretchFactor: 1
+            label: '<span style="font-weight:normal">Correlation (<i>r</i>)</span> '
+            cell:
+              column: 0
+              row: 2
+          - type: TextBox
+            name: reference_r
+            format: string
+            enable: '(switch:from_summary)'
+            cell:
+              column: 1
+              row: 2
+          - type: TextBox
+            name: comparison_r
+            format: string
+            enable: '(switch:from_summary)'
+            cell:
+              column: 2
+              row: 2
+          - type: Label
+            label: '<span style="font-weight:normal">Sample size (<i>n</i>)</span> '
+            stretchFactor: 1
+            cell:
+              column: 0
+              row: 3
+          - type: TextBox
+            name: reference_n
+            format: string
+            horizontalAlignment: left
+            stretchFactor: 3
+            enable: '(switch:from_summary)'
+            cell:
+              column: 1
+              row: 3
+          - type: TextBox
+            name: comparison_n
+            format: string
+            horizontalAlignment: left
+            stretchFactor: 3
+            enable: '(switch:from_summary)'
+            cell:
+              column: 2
+              row: 3
+          - type: LayoutBox
+            stretchFactor: 2
+            margin: none
+            cell:
+              column: 0
+              row: 4
+            children:
+              - type: TextBox
+                name: x_variable_name
+                format: string
+                stretchFactor: 2
+                enable: '(switch:from_summary)'
+              - type: TextBox
+                name: y_variable_name
+                format: string
+                stretchFactor: 2
+                enable: '(switch:from_summary)'
+              - type: TextBox
+                name: grouping_variable_name
+                format: string
+                stretchFactor: 2
+                enable: '(switch:from_summary)'
   - type: LayoutBox
-    margin: small
-    style: inline
-    children:
-      - type: RadioButton
-        name: raw_button
-        optionName: switch
-        optionPart: from_raw
-      - type: RadioButton
-        name: summary_button
-        optionName: switch
-        optionPart: from_summary
-  - type: CollapseBox
-    label: Work with full data
-    name: rpanel
-    collapsed: false
-    children:
-      - type: Label
-        label: Raw data
-      - type: VariableSupplier
-        persistentItems: false
-        stretchFactor: 1
-        children:
-          - type: TargetLayoutBox
-            label: <i>X</i> Variable
-            children:
-              - type: VariablesListBox
-                name: x
-                maxItemCount: 1
-                isTarget: true
-          - type: TargetLayoutBox
-            label: <i>Y</i> variable
-            children:
-              - type: VariablesListBox
-                name: 'y'
-                maxItemCount: 1
-                isTarget: true
-          - type: TargetLayoutBox
-            label: Grouping variable
-            children:
-              - type: VariablesListBox
-                name: grouping_variable
-                maxItemCount: 1
-                isTarget: true
-  - type: CollapseBox
-    label: Work with summary data
-    name: spanel
-    style: inline
-    stretchFactor: 7
-    collapsed: true
-    children:
-      - type: Label
-        label: Summary data
-        stretchFactor: 1
-        horizontalAlignment: center
-        cell:
-          column: 0
-          row: 0
-      - type: Label
-        label: ' '
-        stretchFactor: 1
-        horizontalAlignment: center
-        cell:
-          column: 0
-          row: 1
-      - type: Label
-        label: Reference group
-        stretchFactor: 3
-        horizontalAlignment: right
-        cell:
-          column: 1
-          row: 1
-      - type: Label
-        label: Comparison group
-        horizontalAlignment: right
-        stretchFactor: 3
-        cell:
-          column: 2
-          row: 1
-      - type: Label
-        label: '<span style="font-weight:normal">Name</span> '
-        stretchFactor: 1
-        cell:
-          column: 0
-          row: 2
-      - type: TextBox
-        name: reference_level_name
-        format: string
-        stretchFactor: 3
-        horizontalAlignment: left
-        enable: '(switch:from_summary)'
-        cell:
-          column: 1
-          row: 2
-      - type: TextBox
-        name: comparison_level_name
-        format: string
-        stretchFactor: 3
-        horizontalAlignment: left
-        enable: '(switch:from_summary)'
-        cell:
-          column: 2
-          row: 2
-      - type: Label
-        stretchFactor: 1
-        label: '<span style="font-weight:normal">Correlation (<i>r</i>)</span> '
-        cell:
-          column: 0
-          row: 3
-      - type: TextBox
-        name: reference_r
-        format: string
-        enable: '(switch:from_summary)'
-        cell:
-          column: 1
-          row: 3
-      - type: TextBox
-        name: comparison_r
-        format: string
-        enable: '(switch:from_summary)'
-        cell:
-          column: 2
-          row: 3
-      - type: Label
-        label: '<span style="font-weight:normal">Sample size (<i>n</i>)</span> '
-        stretchFactor: 1
-        cell:
-          column: 0
-          row: 4
-      - type: TextBox
-        name: reference_n
-        format: string
-        horizontalAlignment: left
-        stretchFactor: 3
-        enable: '(switch:from_summary)'
-        cell:
-          column: 1
-          row: 4
-      - type: TextBox
-        name: comparison_n
-        format: string
-        horizontalAlignment: left
-        stretchFactor: 3
-        enable: '(switch:from_summary)'
-        cell:
-          column: 2
-          row: 4
-      - type: LayoutBox
-        stretchFactor: 2
-        margin: none
-        cell:
-          column: 0
-          row: 5
-        children:
-          - type: TextBox
-            name: x_variable_name
-            format: string
-            stretchFactor: 2
-            enable: '(switch:from_summary)'
-          - type: TextBox
-            name: y_variable_name
-            format: string
-            stretchFactor: 2
-            enable: '(switch:from_summary)'
-          - type: TextBox
-            name: grouping_variable_name
-            format: string
-            stretchFactor: 2
-            enable: '(switch:from_summary)'
-  - type: Label
-    label: Analysis options
+    margin: large
     stretchFactor: 1
     children:
-      - type: TextBox
-        name: conf_level
-        format: number
-  - type: Label
-    label: Results options
-    stretchFactor: 1
-    children:
-      - type: CheckBox
-        name: show_details
-  - type: Label
-    label: Regression
-    children:
-      - type: LayoutBox
-        margin: small
-        style: inline
+      - type: Label
+        label: Analysis options
+        stretchFactor: 1
+        children:
+          - type: TextBox
+            name: conf_level
+            format: number
+      - type: Label
+        label: Results options
+        stretchFactor: 1
         children:
           - type: CheckBox
-            name: show_line
-            enable: '(switch:from_raw)'
-          - type: CheckBox
-            name: show_line_CI
-            enable: '(switch:from_raw)'
+            name: show_details
+      - type: Label
+        label: Regression
+        contentLink: '(switch:from_raw)'
+        children:
+          - type: LayoutBox
+            margin: small
+            style: inline
+            children:
+              - type: CheckBox
+                name: show_line
+                enable: '(switch:from_raw)'
+              - type: CheckBox
+                name: show_line_CI
+                enable: '(switch:from_raw)'
   - type: CollapseBox
     label: Scatterplot options
     stretchFactor: 1
     collapsed: true
+    contentLink: '(switch:from_raw)'
     children:
       - type: LayoutBox
         stretchFactor: 1
         margin: none
         children:
           - type: Label
-            label: 'Dimensions'
+            label: Dimensions
+            heading: true
             enable: '(switch:from_raw)'
             cell:
               column: 0
@@ -230,6 +206,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             enable: '(switch:from_raw)'
             cell:
               column: 0
@@ -279,6 +256,7 @@ children:
               row: 5
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 6
@@ -332,71 +310,76 @@ children:
             children:
               - type: Label
                 label: Reference
+                heading: true
                 cell:
                   column: 1
                   row: 1
               - type: Label
                 label: Comparison
+                heading: true
                 cell:
                   column: 2
                   row: 1
               - type: Label
                 label: Unused
+                heading: true
                 cell:
                   column: 3
                   row: 1
               - type: Label
                 label: 'Raw data'
+                heading: true
                 cell:
                   column: 0
                   row: 2
               - type: Label
                 label: 'Regression lines'
+                heading: true
                 cell:
                   column: 0
                   row: 8
               - type: Label
-                label: '<span style="font-weight:normal">Shape</span>'
+                label: Shape
                 cell:
                   column: 0
                   row: 3
               - type: Label
-                label: '<span style="font-weight:normal">Size</span>'
+                label: Size
                 cell:
                   column: 0
                   row: 4
               - type: Label
-                label: '<span style="font-weight:normal">Outline</span>'
+                label: Outline
                 cell:
                   column: 0
                   row: 5
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: Fill
                 cell:
                   column: 0
                   row: 6
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: Transparency
                 cell:
                   column: 0
                   row: 7
               - type: Label
-                label: '<span style="font-weight:normal">Style</span>'
+                label: Style
                 cell:
                   column: 0
                   row: 9
               - type: Label
-                label: '<span style="font-weight:normal">Thickness</span>'
+                label: Thickness
                 cell:
                   column: 0
                   row: 10
               - type: Label
-                label: '<span style="font-weight:normal">Color</span>'
+                label: Color
                 cell:
                   column: 0
                   row: 11
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: Transparency
                 cell:
                   column: 0
                   row: 12
@@ -549,6 +532,7 @@ children:
         children:
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -566,6 +550,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -608,6 +593,7 @@ children:
               row: 5
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 6
@@ -632,6 +618,7 @@ children:
               row: 7
           - type: Label
             label: 'Difference axis'
+            heading: true
             cell:
               column: 0
               row: 8
@@ -648,26 +635,31 @@ children:
             children:
               - type: Label
                 label: Reference
+                heading: true
                 cell:
                   column: 1
                   row: 1
               - type: Label
                 label: Comparison
+                heading: true
                 cell:
                   column: 2
                   row: 1
               - type: Label
                 label: Difference
+                heading: true
                 cell:
                   column: 3
                   row: 1
               - type: Label
                 label: 'Summary'
+                heading: true
                 cell:
                   column: 0
                   row: 2
               - type: Label
                 label: 'CI'
+                heading: true
                 cell:
                   column: 0
                   row: 8

@@ -8,13 +8,14 @@ jas: '1.2'
 
 options:
     - name: switch
+      title: Analysis Mode
       type: List
       default: from_raw
       options:
           - name: from_raw
-            title: Analyze full data
+            title: Full data
           - name: from_summary
-            title: Analyze summary data
+            title: Summary data
 
     - name: data
       type: Data
