@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^build$
+^.*\.jmo
+^.*\.pdf
+^data-raw$
+esci_logo.svg
+^.*\.csv

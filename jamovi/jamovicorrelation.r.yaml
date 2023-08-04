@@ -1,0 +1,352 @@
+---
+name:  jamovicorrelation
+title: 'Correlations: Single Group'
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  2
+      clearWith:
+        - switch
+        - x
+        - y
+        - r
+        - n
+        - x_variable_name
+        - y_variable_name
+        - conf_level
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: mean
+          type: number
+          title: <i>M</i>
+        - name: mean_LL
+          title: LL
+          type: number
+        - name: mean_UL
+          title: UL
+          type: number
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details)
+        - name: mean_SE
+          title: <i>SE</i><sub>Mean</sub>
+          type: number
+          visible: (show_details)
+        - name: median
+          title: <i>Mdn</i>
+          type: number
+          visible: (switch == 'from_raw')
+        - name: median_LL
+          title: LL
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: median_UL
+          title: UL
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: median_SE
+          type: number
+          title: <i>SE</i><sub>Median</sub>
+          visible: (show_details & switch == 'from_raw')
+        - name: sd
+          type: number
+          title: <i>s</i>
+        - name: min
+          title: Minimum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: max
+          title: Maximum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: q1
+          title: 25th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: q3
+          title: 75th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: n
+          title: <i>N</i>
+          type: integer
+        - name: missing
+          type: integer
+          title: Missing
+          visible: (switch == 'from_raw')
+        - name: df
+          title: <i>df</i>
+          type: integer
+          visible: (show_details)
+
+    - name:  es_r
+      title: Linear Correlation
+      type: Table
+      rows:  1
+      clearWith:
+        - switch
+        - x
+        - y
+        - r
+        - n
+        - x_variable_name
+        - y_variable_name
+        - conf_level
+        - show_details
+      columns:
+        - name: x_variable_name
+          title: '<i>X</i> variable'
+          type: text
+          combineBelow: true
+        - name: y_variable_name
+          title: '<i>Y</i> variable'
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>r</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: syx
+          title: <i>s<sub>Y.X</sub></i>
+          type: number
+          visible: (switch == 'from_raw')
+        - name: SE
+          title: <i>SE<sub>r</sub></i>
+          type: number
+          visible: (show_details)
+        - name: n
+          title: <i>N</i><sub>pairs</sub>
+          type: integer
+        - name: df
+          title: <i>df</i>
+          type: integer
+
+    - name:  regression
+      title: Regression
+      type: Table
+      rows:  2
+      visible: (do_regression & switch == "from_raw")
+      clearWith:
+        - switch
+        - x
+        - y
+        - r
+        - n
+        - x_variable_name
+        - y_variable_name
+        - conf_level
+        - show_details
+      columns:
+        - name: component
+          title: 'Component'
+          type: text
+          combineBelow: true
+        - name: values
+          type: number
+          title: 'Value'
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - switch
+        - x
+        - y
+        - r
+        - n
+        - x_variable_name
+        - y_variable_name
+        - conf_level
+        - null_value
+        - null_boundary
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p
+          title: "<i>p</i>, two-tailed"
+          type: number
+          format: zto,pvalue
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      clearWith:
+        - switch
+        - x
+        - y
+        - r
+        - n
+        - x_variable_name
+        - y_variable_name
+        - conf_level
+        - null_value
+        - null_boundary
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: true
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name: scatter_plot_warnings
+      title: Scatterplot Warnings
+      type: Html
+      visible: (switch == 'from_raw')
+
+    - name: scatter_plots
+      title: Scatterplot
+      type: Image
+      width:  650
+      height: 650
+      requiresData: true
+      renderFun: .scatter_plots
+      visible: (switch == 'from_raw')
+      clearWith:
+        - x
+        - y
+        - conf_level
+        - show_line
+        - show_line_CI
+        - show_residuals
+        - show_PI
+        - show_mean_lines
+        - show_r
+        - plot_as_z
+        - predict_from_x
+        - sp_plot_width
+        - sp_plot_height
+        - sp_ymin
+        - sp_ymax
+        - sp_ybreaks
+        - sp_xmin
+        - sp_xmax
+        - sp_xbreaks
+        - sp_ylab
+        - sp_xlab
+        - sp_axis.text.y
+        - sp_axis.title.y
+        - sp_axis.text.x
+        - sp_axis.title.x
+        - sp_shape_raw_reference
+        - sp_color_raw_reference
+        - sp_fill_raw_reference
+        - sp_size_raw_reference
+        - sp_alpha_raw_reference
+        - sp_linetype_summary_reference
+        - sp_color_summary_reference
+        - sp_size_summary_reference
+        - sp_alpha_summary_reference
+        - sp_linetype_PI_reference
+        - sp_color_PI_reference
+        - sp_size_PI_reference
+        - sp_alpha_PI_reference
+        - sp_linetype_residual_reference
+        - sp_color_residual_reference
+        - sp_size_residual_reference
+        - sp_alpha_residual_reference
+        - sp_prediction_label
+        - sp_prediction_color
+        - sp_linetype_CI
+        - sp_color_CI
+        - sp_size_CI
+        - sp_alpha_CI
+        - sp_linetype_ref
+        - sp_color_ref
+        - sp_size_ref
+        - sp_alpha_ref
+        - sp_linetype_PI
+        - sp_color_PI
+        - sp_size_PI
+        - sp_alpha_PI
+
+
+    - name: estimation_plot_warnings
+      title: Estimation Figure Warnings
+      type: Html
+      visible: true
+
+    - name: estimation_plots
+      title: Estimation Figure
+      type: Image
+      width:  300
+      height: 400
+      requiresData: true
+      renderFun: .estimation_plots
+
+...

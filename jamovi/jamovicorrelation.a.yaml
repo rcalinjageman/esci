@@ -1,0 +1,1917 @@
+---
+name:  jamovicorrelation
+title: 'Correlations: Single Group'
+menuTitle: "Single Group"
+menuGroup: esci
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: switch
+      title: ''
+      type: List
+      default: from_raw
+      options:
+          - name: from_raw
+            title: 'Analyze full data'
+          - name: from_summary
+            title: 'Analyze summary data'
+
+
+    - name: data
+      type: Data
+
+    - name: x
+      title: <i>X</i> Variable
+      type: Variable
+      permitted: [numeric]
+
+    - name: y
+      title: <i>Y</i> variable
+      type: Variable
+      permitted: [numeric]
+
+    - name: r
+      type: String
+      default: ' '
+
+    - name: n
+      type: String
+      default: ' '
+
+    - name: x_variable_name
+      title: X-variable name
+      type: String
+      default: X variable
+
+    - name: y_variable_name
+      title: Y-variable name
+      type: String
+      default: Y variable
+
+    - name: conf_level
+      type: Number
+      title: Confidence level
+      default: 95
+
+    - name: show_details
+      title: Extra details
+      type: Bool
+      default: false
+
+    - name: do_regression
+      title: Regression analysis
+      type: Bool
+      default: false
+
+    - name: show_line
+      title: Line
+      type: Bool
+      default: false
+
+    - name: show_line_CI
+      title: CI on line
+      type: Bool
+      default: false
+
+    - name: show_residuals
+      title: Residuals
+      type: Bool
+      default: false
+
+    - name: show_PI
+      title: Prediction intervals
+      type: Bool
+      default: false
+
+    - name: show_mean_lines
+      title: 'Cross through means of <i>X</i> and <i>Y</i>'
+      type: Bool
+      default: false
+
+    - name: show_r
+      title: <i>r</i> value on scatterplot
+      type: Bool
+      default: false
+
+    - name: plot_as_z
+      title: <i>Z</i> scores rather than raw scores
+      type: Bool
+      default: false
+
+    - name: predict_from_x
+      title: "Enter <i>X</i> value to generate prediction (<i>&#374;</i>)"
+      type: String
+      default: ' '
+
+    - name: evaluate_hypotheses
+      title: 'Hypothesis evaluation'
+      type: Bool
+      default: false
+
+    - name: null_value
+      title: 'Evaluate against <i>H</i><sub>0</sub> of: '
+      type: String
+      default: '0'
+
+    - name: null_boundary
+      title: '+/-'
+      type: String
+      default: '0'
+
+    - name: alpha
+      title: '&alpha;'
+      type: Number
+      default: 0.05
+
+    - name: null_color
+      type: List
+      title: 'Color for null hypothesis'
+      default: '#A40122'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: es_plot_width
+      title: Width
+      type: String
+      default: '300'
+
+    - name: es_plot_height
+      title: Height
+      type: String
+      default: '400'
+
+    - name: sp_plot_width
+      title: Width
+      type: String
+      default: '650'
+
+    - name: sp_plot_height
+      title: Height
+      type: String
+      default: '650'
+
+    - name: ymin
+      title: Min
+      type: String
+      default: '-1'
+
+    - name: ymax
+      title: Max
+      type: String
+      default: '1'
+
+    - name: ybreaks
+      title: 'Num. tick marks'
+      type: String
+      default: auto
+
+    - name: ylab
+      title: Label
+      type: String
+      default: auto
+
+    - name: xlab
+      title: Label
+      type: String
+      default: auto
+
+    - name: axis.text.y
+      title: 'Tick font size'
+      type: String
+      default: '14'
+
+    - name: axis.title.y
+      title: 'Label font size'
+      type: String
+      default: '15'
+
+    - name: axis.text.x
+      title: 'Tick font size'
+      type: String
+      default: '14'
+
+    - name: axis.title.x
+      title: 'Label font size'
+      type: String
+      default: '15'
+
+    - name: error_layout
+      type: List
+      title: Style
+      default: none
+      options:
+        - name: halfeye
+          title: Plausibility curve
+        - name: eye
+          title: "Cat's eye"
+        - name: none
+          title: None
+
+    - name: sp_ymin
+      title: Min
+      type: String
+      default: auto
+
+    - name: sp_ymax
+      title: Max
+      type: String
+      default: auto
+
+    - name: sp_ybreaks
+      title: 'Num. tick marks'
+      type: String
+      default: auto
+
+    - name: sp_xmin
+      title: Min
+      type: String
+      default: auto
+
+    - name: sp_xmax
+      title: Max
+      type: String
+      default: auto
+
+    - name: sp_xbreaks
+      title: 'Num. tick marks'
+      type: String
+      default: auto
+
+    - name: sp_ylab
+      title: Label
+      type: String
+      default: auto
+
+    - name: sp_xlab
+      title: Label
+      type: String
+      default: auto
+
+    - name: sp_axis.text.y
+      title: 'Tick font size'
+      type: String
+      default: '14'
+
+    - name: sp_axis.title.y
+      title: 'Label font size'
+      type: String
+      default: '15'
+
+    - name: sp_axis.text.x
+      title: 'Tick font size'
+      type: String
+      default: '14'
+
+    - name: sp_axis.title.x
+      title: 'Label font size'
+      type: String
+      default: '15'
+
+    - name: shape_summary
+      type: List
+      title: 'Shape'
+      default: 'circle filled'
+      options:
+        - name: 'circle filled'
+          title: Circle
+        - name: 'square filled'
+          title: Square
+        - name: 'triangle filled'
+          title: Triangle
+        - name: 'diamond filled'
+          title: Diamond
+
+    - name: color_summary
+      type: List
+      title: 'Outline'
+      default: '#008DF9'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: fill_summary
+      type: List
+      title: 'Fill'
+      default: '#008DF9'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: size_summary
+      type: List
+      title: 'Size'
+      default: '4'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: alpha_summary
+      type: List
+      title: 'Transparency'
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: linetype_summary
+      type: List
+      title: 'Style'
+      default: 'solid'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: color_interval
+      type: List
+      title: 'Color'
+      default: 'black'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: size_interval
+      type: List
+      title: 'Thickness'
+      default: '3'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+        - name: '7'
+          title: '7'
+        - name: '8'
+          title: '8'
+
+    - name: alpha_interval
+      type: List
+      title: 'Transparency'
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: alpha_error
+      type: List
+      title: 'Transparency'
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: fill_error
+      type: List
+      title: 'Fill'
+      default: 'gray75'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_shape_raw_reference
+      type: List
+      default: 'circle filled'
+      options:
+        - name: 'circle filled'
+          title: Circle
+        - name: 'square filled'
+          title: Square
+        - name: 'triangle filled'
+          title: Triangle
+        - name: 'diamond filled'
+          title: Diamond
+
+    - name: sp_color_raw_reference
+      type: List
+      default: 'black'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_fill_raw_reference
+      type: List
+      default: '#008DF9'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_raw_reference
+      type: List
+      default: '3'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_raw_reference
+      type: List
+      default: '.25'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_linetype_summary_reference
+      type: List
+      default: 'solid'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_summary_reference
+      type: List
+      default: '#008DF9'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_summary_reference
+      type: List
+      default: '3'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_summary_reference
+      type: List
+      default: '.25'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_linetype_PI_reference
+      type: List
+      default: 'dotted'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_PI_reference
+      type: List
+      default: '#E20134'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_PI_reference
+      type: List
+      default: '2'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_PI_reference
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_linetype_residual_reference
+      type: List
+      default: 'solid'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_residual_reference
+      type: List
+      default: '#E20134'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_residual_reference
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_residual_reference
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_prediction_label
+      type: List
+      default: '5'
+      options:
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+        - name: '7'
+          title: '7'
+        - name: '8'
+          title: '8'
+
+    - name: sp_prediction_color
+      type: List
+      default: '#E20134'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_linetype_CI
+      type: List
+      default: 'solid'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_CI
+      type: List
+      default: '#008DF9'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_CI
+      type: List
+      default: '4'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_CI
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_linetype_ref
+      type: List
+      default: 'dotted'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_ref
+      type: List
+      default: 'gray60'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_ref
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_ref
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+    - name: sp_linetype_PI
+      type: List
+      default: 'solid'
+      options:
+        - name: 'solid'
+          title: 'Solid'
+        - name: 'dotted'
+          title: 'Dotted'
+        - name: 'dotdash'
+          title: 'Dotdash'
+        - name: 'dashed'
+          title: 'Dashed'
+        - name: 'blank'
+          title: 'Blank'
+
+    - name: sp_color_PI
+      type: List
+      default: '#E20134'
+      options:
+         - name: 'black'
+           title: 'Black'
+         - name: '#00C2F9'
+           title: 'Blue'
+         - name: '#008DF9'
+           title: 'Dark blue'
+         - name: '#009F81'
+           title: 'Dark greenish'
+         - name: '#FF5AAF'
+           title: 'Dark pink'
+         - name: '#9F0162'
+           title: 'Dark purplish'
+         - name: '#A40122'
+           title: 'Dark red'
+         - name: '#00FCCF'
+           title: 'Greenish'
+         - name: '#FF6E3A'
+           title: 'Orange'
+         - name: '#FFB2FD'
+           title: 'Pink'
+         - name: '#8400CD'
+           title: 'Purple'
+         - name: '#E20134'
+           title: 'Red'
+         - name: '#FFC33B'
+           title: 'Yellow'
+         - name: 'white'
+           title: 'White'
+         - name: 'NA'
+           title: 'None'
+         - name: 'NA'
+           title: '-------'
+         - name: 'gray0'
+           title: 'Gray0'
+         - name: 'gray5'
+           title: 'Gray5'
+         - name: 'gray10'
+           title: 'Gray10'
+         - name: 'gray15'
+           title: 'Gray15'
+         - name: 'gray20'
+           title: 'Gray20'
+         - name: 'gray25'
+           title: 'Gray25'
+         - name: 'gray30'
+           title: 'Gray30'
+         - name: 'gray35'
+           title: 'Gray35'
+         - name: 'gray40'
+           title: 'Gray40'
+         - name: 'gray45'
+           title: 'Gray45'
+         - name: 'gray50'
+           title: 'Gray50'
+         - name: 'gray55'
+           title: 'Gray55'
+         - name: 'gray60'
+           title: 'Gray60'
+         - name: 'gray65'
+           title: 'Gray65'
+         - name: 'gray70'
+           title: 'Gray70'
+         - name: 'gray75'
+           title: 'Gray75'
+         - name: 'gray80'
+           title: 'Gray80'
+         - name: 'gray85'
+           title: 'Gray85'
+         - name: 'gray90'
+           title: 'Gray90'
+         - name: 'gray95'
+           title: 'Gray95'
+         - name: 'gray100'
+           title: 'Gray100'
+
+    - name: sp_size_PI
+      type: List
+      default: '2'
+      options:
+        - name: '1'
+          title: '1'
+        - name: '2'
+          title: '2'
+        - name: '3'
+          title: '3'
+        - name: '4'
+          title: '4'
+        - name: '5'
+          title: '5'
+        - name: '6'
+          title: '6'
+
+    - name: sp_alpha_PI
+      type: List
+      default: '1'
+      options:
+        - name: '1'
+          title: '0'
+        - name: '.75'
+          title: '.25'
+        - name: '.5'
+          title: '.5'
+        - name: '.25'
+          title: '.75'
+        - name: '.20'
+          title: '.80'
+        - name: '.15'
+          title: '.85'
+        - name: '.10'
+          title: '.90'
+        - name: '.05'
+          title: '.95'
+        - name: '0'
+          title: '1'
+
+...

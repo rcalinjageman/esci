@@ -1,0 +1,228 @@
+---
+name:  jamovimetaproportion
+title: "Meta-Analysis: Proportions"
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Html
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  raw_data
+      title: Table of Studies
+      type: Table
+      rows:  1
+      clearWith:
+        - cases
+        - ns
+        - labels
+        - moderator
+        - effect_label
+        - conf_level
+        - random_effects
+        - show_details
+      columns:
+        - name: label
+          title: 'Study label'
+          type: text
+        - name: moderator
+          title: 'Moderator level'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>P</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: weight
+          title: Weight
+          type: number
+          visible: (show_details)
+        - name: SE
+          title: <i>SE</i><sub>proportion<sub>
+          type: number
+          visible: (show_details)
+        - name: sample_variance
+          title: <i>SE</i><sup>2</sup><sub>proportion<sub>
+          type: number
+          visible: (show_details)
+        - name: cases
+          title: Cases
+          type: integer
+          visible: (show_details)
+        - name: N
+          title: <i>N</i>
+          type: integer
+          visible: (show_details)
+        - name: P_adjusted
+          title: "<i>P</i><sub>adjusted</sub>"
+          visible: (show_details)
+          type: number
+
+    - name:  es_meta
+      title: Meta-Analytic Effect Sizes
+      type: Table
+      rows:  1
+      clearWith:
+        - cases
+        - ns
+        - labels
+        - moderator
+        - effect_label
+        - conf_level
+        - random_effects
+        - show_details
+      columns:
+        - name: effect_label
+          title: 'Effect'
+          type: text
+          combineBelow: true
+        - name: moderator_variable_name
+          title: 'Moderator'
+          type: text
+          combineBelow: true
+        - name: moderator_variable_level
+          title: 'Level'
+          type: text
+          combineBelow: true
+        - name: effect_size
+          type: number
+          title: <i>P</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: k
+          title: <i>k</i>
+          type: integer
+        - name: PI_LL
+          title: LL
+          type: number
+          visible: (include_PIs & random_effects == 'random_effects')
+        - name: PI_UL
+          title: UL
+          type: number
+          visible: (include_PIs & random_effects == 'random_effects')
+        - name: p
+          visible: (show_details)
+          title: "<i>p</i>, two tailed"
+          type: number
+          format: zto,pvalue
+        - name: FE_CI_width
+          type: number
+          title: FE CI length
+          visible: (show_details)
+        - name: RE_CI_width
+          type: number
+          title: RE CI length
+          visible: (show_details)
+
+    - name:  es_heterogeneity
+      title: Effect Size Heterogeneity
+      type: Table
+      rows:  1
+      clearWith:
+        - cases
+        - ns
+        - labels
+        - moderator
+        - effect_label
+        - conf_level
+        - random_effects
+        - show_details
+      columns:
+        - name: measure
+          title: 'Measure'
+          type: text
+          combineBelow: true
+          visible: false
+        - name: measure_html
+          title: 'Measure'
+          type: text
+          combineBelow: true
+        - name: moderator_level
+          title: 'Level'
+          type: text
+          combineBelow: true
+        - name: estimate
+          type: number
+          title: Estimate
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
+    - name:  es_meta_difference
+      title: Moderator Analysis
+      type: Table
+      rows:  3
+      clearWith:
+        - cases
+        - ns
+        - labels
+        - moderator
+        - effect_label
+        - conf_level
+        - random_effects
+        - show_details
+      columns:
+        - name: effect_label
+          title: 'Effect'
+          type: text
+          combineBelow: true
+        - name: moderator_variable_name
+          title: 'Moderator'
+          type: text
+          combineBelow: true
+        - name: moderator_level
+          title: 'Level'
+          type: text
+          combineBelow: true
+        - name: effect_size
+          type: number
+          title: <i>P</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: p
+          visible: (show_details)
+          title: "<i>p</i>, two tailed"
+          type: number
+          format: zto,pvalue
+
+    - name: estimation_plot_warnings
+      title: Forest Plot Warnings
+      type: Html
+      visible: true
+
+    - name: estimation_plots
+      title: Forest Plot
+      type: Image
+      requiresData: true
+      width:  400
+      height: 300
+      renderFun: .estimation_plots
+
+...

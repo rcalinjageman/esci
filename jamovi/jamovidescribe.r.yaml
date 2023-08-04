@@ -1,0 +1,105 @@
+---
+name:  jamovidescribe
+title: Describe
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  (outcome_variable)
+      clearWith:
+        - outcome_variable
+        - show_details
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: mean
+          type: number
+          title: <i>M</i>
+        - name: mean_LL
+          title: LL
+          type: number
+          visible: (show_details)
+        - name: mean_UL
+          title: UL
+          type: number
+          visible: (show_details)
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details)
+        - name: mean_SE
+          title: <i>SE</i><sub>Mean</sub>
+          type: number
+          visible: (show_details)
+        - name: median
+          title: <i>Mdn</i>
+          type: number
+        - name: median_LL
+          title: LL
+          type: number
+          visible: (show_details)
+        - name: median_UL
+          title: UL
+          type: number
+          visible: (show_details)
+        - name: sd
+          type: number
+          title: <i>s</i>
+        - name: min
+          title: Minimum
+          type: number
+        - name: max
+          title: Maximum
+          type: number
+        - name: q1
+          title: 25th
+          type: number
+          superTitle: Percentile
+        - name: q3
+          title: 75th
+          type: number
+          superTitle: Percentile
+        - name: n
+          title: <i>N</i>
+          type: integer
+        - name: missing
+          type: integer
+          title: Missing
+        - name: df
+          title: <i>df</i>
+          type: integer
+          visible: (show_details)
+
+    - name: describe_plot_warnings
+      title: Figure Warnings
+      type: Html
+      visible: true
+
+    - name: describe_plot
+      title: Histogram
+      type: Image
+      requiresData: true
+      width:  400
+      height: 300
+      renderFun: .describe_plot
+
+    - name: describe_dotplot
+      title: Dotplot
+      type: Image
+      requiresData: true
+      width:  400
+      height: 300
+      renderFun: .describe_plot
+...

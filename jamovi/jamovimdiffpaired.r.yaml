@@ -1,0 +1,600 @@
+---
+name:  jamovimdiffpaired
+title: "Means and Medians: Paired"
+jrs:   '1.1'
+
+items:
+    - name: debug
+      type: Preformatted
+      visible: false
+
+    - name: help
+      type: Html
+      visible: false
+
+    - name:  overview
+      title: Overview
+      type: Table
+      rows:  2
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+          combineBelow: true
+        - name: mean
+          type: number
+          title: <i>M</i>
+        - name: mean_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: mean_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details & effect_size == 'mean_difference')
+        - name: mean_SE
+          title: <i>SE</i><sub>Mean</sub>
+          type: number
+          visible: (show_details & effect_size == 'mean_difference')
+        - name: median
+          title: <i>Mdn</i>
+          type: number
+          visible: (switch == 'from_raw')
+        - name: median_LL
+          title: LL
+          type: number
+          visible: (effect_size == 'median_difference' & switch == 'from_raw')
+        - name: median_UL
+          title: UL
+          type: number
+          visible: (effect_size == 'median_difference' & switch == 'from_raw')
+        - name: median_SE
+          type: number
+          title: <i>SE</i><sub>Median</sub>
+          visible: (show_details & effect_size == 'median_difference' & switch == 'from_raw')
+        - name: sd
+          type: number
+          title: <i>s</i>
+        - name: min
+          title: Minimum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: max
+          title: Maximum
+          type: number
+          visible: (show_details & switch == 'from_raw')
+        - name: q1
+          title: 25th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: q3
+          title: 75th
+          type: number
+          superTitle: Percentile
+          visible: (show_details & switch == 'from_raw')
+        - name: n
+          title: <i>N</i>
+          type: integer
+          visible: false
+        - name: missing
+          type: integer
+          title: Missing
+          visible: false
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (show_details & effect_size == 'mean_difference')
+
+    - name:  es_r
+      title: Correlation Between Paired Measures
+      type: Table
+      rows:  1
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: y_variable_name
+          title: 'Reference measure name'
+          visible: false
+          type: text
+          combineBelow: true
+        - name: x_variable_name
+          title: 'Comparison variable name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Measures'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>r</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: n
+          title: <i>N</i><sub>pairs</sub>
+          type: integer
+        - name: df
+          title: <i>df</i>
+          type: integer
+
+    - name:  es_mean_difference
+      title: Mean Difference
+      type: Table
+      rows:  3
+      visible: (effect_size == 'mean_difference')
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: comparison_measure_name
+          title: 'Outcome measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: reference_measure_name
+          title: 'Grouping measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>M</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: moe
+          type: number
+          title: <i>MoE</i>
+          visible: (show_details | show_calculations)
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: df
+          title: <i>df</i>
+          type: integer
+          visible: (show_details)
+        - name: t_multiplier
+          type: number
+          title: <i>t</i>
+          superTitle: Calculation component
+          visible: (show_calculations)
+        - name: s_component
+          type: number
+          title: Variability
+          superTitle: Calculation component
+          visible: (show_calculations)
+        - name: n_component
+          type: number
+          title: Sample size
+          superTitle: Calculation component
+          visible: (show_calculations)
+
+
+    - name:  es_smd
+      title: Standardized Mean Difference
+      type: Table
+      rows:  1
+      visible: (effect_size == 'mean_difference')
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: comparison_measure_name
+          title: 'Outcome measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: reference_measure_name
+          title: 'Grouping measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: numerator
+          title: <i>M</i><sub>diff</sub>
+          superTitle: Numerator
+          type: number
+        - name: denominator
+          title: Standardizer
+          superTitle: Standardizer
+          type: number
+        - name: effect_size
+          type: number
+          title: "<i>d</i>"
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+        - name: df
+          title: <i>df</i>
+          type: integer
+          visible: (show_details)
+        - name: d_biased
+          title: "<i>d</i><sub>biased</sub>"
+          type: number
+
+    - name:  es_mean_ratio
+      title: Ratio of Means
+      type: Table
+      visible: (show_ratio & effect_size == 'mean_difference')
+      rows:  1
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: comparison_measure_name
+          title: 'Outcome measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: reference_measure_name
+          title: 'Grouping measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: comparison_mean
+          title: <i>M<sub>comparison</sub></i>
+          type: number
+        - name: reference_mean
+          title: <i>M<sub>reference</sub></i>
+          type: number
+        - name: effect_size
+          title: <i>M<sub>comparison</sub> / M<sub>reference</sub></i>
+          type: number
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
+    - name:  es_median_difference
+      title: Median Difference
+      type: Table
+      visible: (effect_size == 'median_difference')
+      rows:  3
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: comparison_measure_name
+          title: 'Outcome measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: reference_measure_name
+          title: 'Grouping measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>Mdn</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+        - name: SE
+          title: <i>SE</i>
+          type: number
+          visible: (show_details)
+
+
+    - name:  es_median_ratio
+      title: Ratio of Medians
+      type: Table
+      visible: (show_ratio & effect_size == 'median_difference')
+      rows:  1
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+      columns:
+        - name: comparison_measure_name
+          title: 'Outcome measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: reference_measure_name
+          title: 'Grouping measure name'
+          type: text
+          visible: false
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+        - name: comparison_median
+          title: <i>Mdn<sub>comparison</sub></i>
+          type: number
+        - name: reference_median
+          title: <i>Mdn<sub>reference</sub></i>
+          type: number
+        - name: effect_size
+          title: <i>Mdn<sub>comparison</sub> / Mdn<sub>reference</sub></i>
+          type: number
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
+    - name:  point_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary == 0)
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+        - null_value
+        - null_boundary
+        - rope_units
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: false
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: null_words
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: CI_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: t
+          title: '<i>t</i>'
+          type: number
+          visible: (effect_size == 'mean_difference')
+        - name: df_i
+          title: <i>df</i>
+          type: integer
+          visible: (effect_size == 'mean_difference')
+        - name: p
+          title: "<i>p</i>, two-tailed"
+          type: number
+          format: zto,pvalue
+          visible: (effect_size == 'mean_difference')
+        - name: p_result
+          title: "<i>p</i>, two-tailed"
+          type: text
+          visible: (effect_size == 'median_difference')
+        - name: null_decision
+          title: "<i>H</i><sub>0</sub> decision"
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+    - name:  interval_null
+      title: Hypothesis Evaluation
+      type: Table
+      rows:  1
+      visible: (evaluate_hypotheses & null_boundary != 0)
+      clearWith:
+        - switch
+        - reference_measure
+        - comparison_measure
+        - comparison_mean
+        - comparison_sd
+        - reference_measure
+        - reference_sd
+        - n
+        - enter_r_or_sdiff
+        - correlation
+        - sdiff
+        - comparison_measure_name
+        - reference_measure_name
+        - conf_level
+        - effect_size
+        - show_details
+        - show_calculations
+        - null_value
+        - null_boundary
+        - rope_units
+      columns:
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          visible: false
+          type: text
+          combineBelow: true
+        - name: effect
+          title: 'Effect'
+          type: text
+          combineBelow: false
+        - name: rope
+          title: "<i>H</i><sub>0</sub>"
+          type: text
+        - name: CI
+          title: "CI"
+          type: text
+        - name: rope_compare
+          title: "Compare CI with <i>H</i><sub>0</sub>"
+          type: text
+        - name: p_result
+          title: "<i>p</i>, two tailed"
+          type: text
+        - name: conclusion
+          title: 'Conclusion'
+          type: text
+
+
+    - name: estimation_plot_warnings
+      title: Estimation Figure Warnings
+      type: Html
+      visible: true
+
+    - name: estimation_plots
+      title: Estimation Figure
+      type: Image
+      width:  300
+      height: 450
+      requiresData: true
+      renderFun: .estimation_plots
+
+...
