@@ -615,6 +615,10 @@ jamovi_plot_pdiff <- function(
     args,
     "ylim",
     my_value = self$options$ymin,
+    lower = 0,
+    lower_inclusive = TRUE,
+    upper = 1,
+    upper_inclusive = TRUE,
     return_value = 0,
     na_ok = TRUE,
     convert_to_number = TRUE,
@@ -626,8 +630,10 @@ jamovi_plot_pdiff <- function(
     my_value = self$options$ymax,
     return_value = 1,
     na_ok = TRUE,
-    lower = if(is.na(args$ylim)) NULL else args$ylim,
+    lower = if(is.na(args$ylim)) 0 else args$ylim,
     lower_inclusive = FALSE,
+    upper = 1,
+    upper_inclusive = TRUE,
     convert_to_number = TRUE,
     my_value_name = "Y axis: Axis maximum"
   )
