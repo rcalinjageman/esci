@@ -183,12 +183,12 @@ options:
     - name: ymin
       title: Min
       type: String
-      default: '0'
+      default: 'auto'
 
     - name: ymax
       title: Max
       type: String
-      default: '1'
+      default: 'auto'
 
     - name: ybreaks
       title: 'Num. tick marks'
