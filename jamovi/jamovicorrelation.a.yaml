@@ -24,12 +24,18 @@ options:
     - name: x
       title: <i>X</i> Variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: y
       title: <i>Y</i> variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: r
       type: String

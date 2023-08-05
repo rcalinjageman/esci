@@ -56,7 +56,12 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                     "from_summary"))
             private$..outcome_variable <- jmvcore::OptionVariables$new(
                 "outcome_variable",
-                outcome_variable)
+                outcome_variable,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..cases <- jmvcore::OptionString$new(
                 "cases",
                 cases,
@@ -753,6 +758,7 @@ jamoviproportion <- function(
             parent.frame(),
             `if`( ! missing(outcome_variable), outcome_variable, NULL))
 
+    for (v in outcome_variable) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamoviproportionOptions$new(
         switch = switch,

@@ -114,11 +114,15 @@ jamovimdiffpairedOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
             private$..reference_measure <- jmvcore::OptionVariable$new(
                 "reference_measure",
                 reference_measure,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_measure <- jmvcore::OptionVariable$new(
                 "comparison_measure",
                 comparison_measure,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_mean <- jmvcore::OptionString$new(

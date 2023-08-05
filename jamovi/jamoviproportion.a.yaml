@@ -23,6 +23,11 @@ options:
     - name: outcome_variable
       title: Outcome variable
       type: Variables
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: cases
       title: ''

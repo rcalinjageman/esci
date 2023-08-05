@@ -23,17 +23,27 @@ options:
     - name: x
       title: <i>X</i> Variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: y
       title: <i>Y</i> variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: grouping_variable
       title: Grouping variable
       type: Variable
-      permitted: [factor]
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: comparison_r
       type: String

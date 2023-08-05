@@ -149,26 +149,38 @@ jamovimdiff2x2Options <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..outcome_variable <- jmvcore::OptionVariable$new(
                 "outcome_variable",
                 outcome_variable,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..grouping_variable_A <- jmvcore::OptionVariable$new(
                 "grouping_variable_A",
                 grouping_variable_A,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..grouping_variable_B <- jmvcore::OptionVariable$new(
                 "grouping_variable_B",
                 grouping_variable_B,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..outcome_variable_level1 <- jmvcore::OptionVariable$new(
                 "outcome_variable_level1",
                 outcome_variable_level1,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..outcome_variable_level2 <- jmvcore::OptionVariable$new(
                 "outcome_variable_level2",
                 outcome_variable_level2,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..outcome_variable_name_bs <- jmvcore::OptionString$new(
@@ -178,6 +190,9 @@ jamovimdiff2x2Options <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..grouping_variable <- jmvcore::OptionVariable$new(
                 "grouping_variable",
                 grouping_variable,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..repeated_measures_name <- jmvcore::OptionString$new(

@@ -87,19 +87,33 @@ jamovimetarOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             private$..rs <- jmvcore::OptionVariable$new(
                 "rs",
                 rs,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..ns <- jmvcore::OptionVariable$new(
                 "ns",
                 ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..labels <- jmvcore::OptionVariable$new(
                 "labels",
-                labels)
+                labels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..moderator <- jmvcore::OptionVariable$new(
                 "moderator",
-                moderator)
+                moderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..effect_label <- jmvcore::OptionString$new(
                 "effect_label",
                 effect_label,
@@ -2096,6 +2110,8 @@ jamovimetar <- function(
             `if`( ! missing(labels), labels, NULL),
             `if`( ! missing(moderator), moderator, NULL))
 
+    for (v in labels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in moderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamovimetarOptions$new(
         rs = rs,

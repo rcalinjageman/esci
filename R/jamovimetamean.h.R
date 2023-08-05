@@ -102,40 +102,70 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..means <- jmvcore::OptionVariable$new(
                 "means",
                 means,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..sds <- jmvcore::OptionVariable$new(
                 "sds",
                 sds,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..ns <- jmvcore::OptionVariable$new(
                 "ns",
                 ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..labels <- jmvcore::OptionVariable$new(
                 "labels",
-                labels)
+                labels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..moderator <- jmvcore::OptionVariable$new(
                 "moderator",
-                moderator)
+                moderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..ds <- jmvcore::OptionVariable$new(
                 "ds",
                 ds,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dns <- jmvcore::OptionVariable$new(
                 "dns",
                 dns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dlabels <- jmvcore::OptionVariable$new(
                 "dlabels",
-                dlabels)
+                dlabels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..dmoderator <- jmvcore::OptionVariable$new(
                 "dmoderator",
-                dmoderator)
+                dmoderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..conf_level <- jmvcore::OptionNumber$new(
                 "conf_level",
                 conf_level,
@@ -2261,6 +2291,10 @@ jamovimetamean <- function(
             `if`( ! missing(dlabels), dlabels, NULL),
             `if`( ! missing(dmoderator), dmoderator, NULL))
 
+    for (v in labels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in moderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in dlabels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in dmoderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamovimetameanOptions$new(
         switch = switch,

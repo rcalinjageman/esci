@@ -72,10 +72,20 @@ jamovipdiffpairedOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                     "from_summary"))
             private$..reference_measure <- jmvcore::OptionVariable$new(
                 "reference_measure",
-                reference_measure)
+                reference_measure,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..comparison_measure <- jmvcore::OptionVariable$new(
                 "comparison_measure",
-                comparison_measure)
+                comparison_measure,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..cases_consistent <- jmvcore::OptionString$new(
                 "cases_consistent",
                 cases_consistent,
@@ -1177,6 +1187,8 @@ jamovipdiffpaired <- function(
             `if`( ! missing(reference_measure), reference_measure, NULL),
             `if`( ! missing(comparison_measure), comparison_measure, NULL))
 
+    for (v in reference_measure) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in comparison_measure) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamovipdiffpairedOptions$new(
         switch = switch,

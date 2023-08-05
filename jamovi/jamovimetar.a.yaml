@@ -13,20 +13,36 @@ options:
     - name: rs
       title: r values
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: ns
       title: Sample sizes
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: labels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: moderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: effect_label
       title: Effect label

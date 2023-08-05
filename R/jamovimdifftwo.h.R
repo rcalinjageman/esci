@@ -111,11 +111,16 @@ jamovimdifftwoOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..outcome_variable <- jmvcore::OptionVariables$new(
                 "outcome_variable",
                 outcome_variable,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..grouping_variable <- jmvcore::OptionVariable$new(
                 "grouping_variable",
                 grouping_variable,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..reference_level_name <- jmvcore::OptionString$new(

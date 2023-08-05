@@ -23,43 +23,78 @@ options:
     - name: means
       title: Means
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: sds
       title: Standard deviations
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: ns
       title: Sample sizes
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: labels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: moderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: ds
       title: Cohen's d unbiased
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dns
       title: Sample sizes
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dlabels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: dmoderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: conf_level
       type: Number

@@ -23,10 +23,20 @@ options:
     - name: reference_measure
       title: Reference measure
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: comparison_measure
       title: Comparison measure
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: cases_consistent
       type: String

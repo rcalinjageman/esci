@@ -15,6 +15,11 @@ children:
           - type: VariableSupplier
             persistentItems: false
             stretchFactor: 1
+            suggested:
+              - nominal
+              - ordinal
+            permitted:
+              - factor
             children:
               - type: TargetLayoutBox
                 label: Reference measure
