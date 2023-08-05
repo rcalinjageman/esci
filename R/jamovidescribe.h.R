@@ -43,6 +43,8 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..outcome_variable <- jmvcore::OptionVariable$new(
                 "outcome_variable",
                 outcome_variable,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..show_details <- jmvcore::OptionBool$new(

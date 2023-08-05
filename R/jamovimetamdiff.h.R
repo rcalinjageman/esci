@@ -108,70 +108,112 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             private$..comparison_means <- jmvcore::OptionVariable$new(
                 "comparison_means",
                 comparison_means,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_sds <- jmvcore::OptionVariable$new(
                 "comparison_sds",
                 comparison_sds,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_ns <- jmvcore::OptionVariable$new(
                 "comparison_ns",
                 comparison_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..reference_means <- jmvcore::OptionVariable$new(
                 "reference_means",
                 reference_means,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..reference_sds <- jmvcore::OptionVariable$new(
                 "reference_sds",
                 reference_sds,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..reference_ns <- jmvcore::OptionVariable$new(
                 "reference_ns",
                 reference_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..r <- jmvcore::OptionVariable$new(
                 "r",
                 r,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..labels <- jmvcore::OptionVariable$new(
                 "labels",
-                labels)
+                labels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..moderator <- jmvcore::OptionVariable$new(
                 "moderator",
-                moderator)
+                moderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..d <- jmvcore::OptionVariable$new(
                 "d",
                 d,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dcomparison_ns <- jmvcore::OptionVariable$new(
                 "dcomparison_ns",
                 dcomparison_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dreference_ns <- jmvcore::OptionVariable$new(
                 "dreference_ns",
                 dreference_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dr <- jmvcore::OptionVariable$new(
                 "dr",
                 dr,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..dlabels <- jmvcore::OptionVariable$new(
                 "dlabels",
-                dlabels)
+                dlabels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..dmoderator <- jmvcore::OptionVariable$new(
                 "dmoderator",
-                dmoderator)
+                dmoderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..conf_level <- jmvcore::OptionNumber$new(
                 "conf_level",
                 conf_level,
@@ -2397,6 +2439,10 @@ jamovimetamdiff <- function(
             `if`( ! missing(dlabels), dlabels, NULL),
             `if`( ! missing(dmoderator), dmoderator, NULL))
 
+    for (v in labels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in moderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in dlabels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in dmoderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamovimetamdiffOptions$new(
         switch = switch,

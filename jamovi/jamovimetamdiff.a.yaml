@@ -23,73 +23,126 @@ options:
     - name: comparison_means
       title: Comparison means (<i>M</i><sub>comparison</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_sds
       title: Comparison standard deviations (<i>s</i><sub>comparison</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_ns
       title: Comparison sample sizes (<i>N</i><sub>comparison</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: reference_means
       title: Reference means (<i>M</i><sub>reference</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: reference_sds
       title: Reference standard deviations (<i>s</i><sub>reference</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: reference_ns
       title: Reference sample sizes (<i>N</i><sub>reference</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: r
       title: Correlation between measures (optional)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: labels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: moderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: d
       title: Standardized mean difference, bias corrected
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dcomparison_ns
       title: Comparison sample sizes (<i>N</i><sub>comparison</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dreference_ns
       title: Reference sample sizes (<i>N</i><sub>reference</sub>)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dr
       title: Correlation between measures (optional)
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: dlabels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: dmoderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: conf_level
       type: Number

@@ -24,12 +24,19 @@ options:
     - name: outcome_variable
       title: Outcome variable(s)
       type: Variables
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: grouping_variable
       title: Grouping variable
       type: Variable
-      permitted: [factor]
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: reference_level_name
       type: String

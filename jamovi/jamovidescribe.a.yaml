@@ -12,7 +12,10 @@ options:
     - name: outcome_variable
       title: Outcome variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: show_details
       title: Extra details

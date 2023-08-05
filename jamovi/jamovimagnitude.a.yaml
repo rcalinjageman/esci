@@ -23,7 +23,10 @@ options:
     - name: outcome_variable
       title: Outcome variable(s)
       type: Variables
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: mean
       title: Mean (<i>M</i>)

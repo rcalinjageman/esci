@@ -23,32 +23,52 @@ options:
     - name: outcome_variable
       title: Outcome variable(s)
       type: Variables
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: grouping_variable
       title: Grouping variable
       type: Variable
-      permitted: [factor]
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: means
       title: Group means
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: sds
       title: Group standard deviations
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: ns
       title: Group sample sizes
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: grouping_variable_levels
       title: Grouping variable levels
       type: Variable
-      permitted: [factor]
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: outcome_variable_name
       title: Outcome variable name

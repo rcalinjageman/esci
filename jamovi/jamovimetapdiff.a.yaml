@@ -13,30 +13,52 @@ options:
     - name: reference_cases
       title: Case counts in reference group
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: reference_ns
       title: Sample sizes in reference group
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_cases
       title: Case counts in comparison group
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_ns
       title: Sample sizes in comparison group
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: labels
       title: Study labels (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: moderator
       title: Moderator (optional)
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: effect_label
       title: Effect label

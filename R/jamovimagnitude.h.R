@@ -70,6 +70,8 @@ jamovimagnitudeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             private$..outcome_variable <- jmvcore::OptionVariables$new(
                 "outcome_variable",
                 outcome_variable,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..mean <- jmvcore::OptionString$new(

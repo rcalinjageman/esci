@@ -114,11 +114,15 @@ jamovicorrelationOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
             private$..x <- jmvcore::OptionVariable$new(
                 "x",
                 x,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..y <- jmvcore::OptionVariable$new(
                 "y",
                 y,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..r <- jmvcore::OptionString$new(

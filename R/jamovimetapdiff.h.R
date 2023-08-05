@@ -90,29 +90,47 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             private$..reference_cases <- jmvcore::OptionVariable$new(
                 "reference_cases",
                 reference_cases,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..reference_ns <- jmvcore::OptionVariable$new(
                 "reference_ns",
                 reference_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_cases <- jmvcore::OptionVariable$new(
                 "comparison_cases",
                 comparison_cases,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..comparison_ns <- jmvcore::OptionVariable$new(
                 "comparison_ns",
                 comparison_ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..labels <- jmvcore::OptionVariable$new(
                 "labels",
-                labels)
+                labels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..moderator <- jmvcore::OptionVariable$new(
                 "moderator",
-                moderator)
+                moderator,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..effect_label <- jmvcore::OptionString$new(
                 "effect_label",
                 effect_label,
@@ -2138,6 +2156,8 @@ jamovimetapdiff <- function(
             `if`( ! missing(labels), labels, NULL),
             `if`( ! missing(moderator), moderator, NULL))
 
+    for (v in labels) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in moderator) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- jamovimetapdiffOptions$new(
         reference_cases = reference_cases,

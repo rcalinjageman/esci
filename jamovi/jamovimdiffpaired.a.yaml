@@ -23,12 +23,18 @@ options:
     - name: reference_measure
       title: Reference variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_measure
       title: Comparison variable
       type: Variable
-      permitted: [numeric]
+      suggested:
+        - continuous
+      permitted:
+        - numeric
 
     - name: comparison_mean
       type: String

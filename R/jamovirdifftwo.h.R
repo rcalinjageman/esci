@@ -112,16 +112,23 @@ jamovirdifftwoOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             private$..x <- jmvcore::OptionVariable$new(
                 "x",
                 x,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..y <- jmvcore::OptionVariable$new(
                 "y",
                 y,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..grouping_variable <- jmvcore::OptionVariable$new(
                 "grouping_variable",
                 grouping_variable,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..comparison_r <- jmvcore::OptionString$new(

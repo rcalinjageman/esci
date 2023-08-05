@@ -122,31 +122,45 @@ jamovimdiffindcontrastOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) 
             private$..outcome_variable <- jmvcore::OptionVariables$new(
                 "outcome_variable",
                 outcome_variable,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..grouping_variable <- jmvcore::OptionVariable$new(
                 "grouping_variable",
                 grouping_variable,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..means <- jmvcore::OptionVariable$new(
                 "means",
                 means,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..sds <- jmvcore::OptionVariable$new(
                 "sds",
                 sds,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..ns <- jmvcore::OptionVariable$new(
                 "ns",
                 ns,
+                suggested=list(
+                    "continuous"),
                 permitted=list(
                     "numeric"))
             private$..grouping_variable_levels <- jmvcore::OptionVariable$new(
                 "grouping_variable_levels",
                 grouping_variable_levels,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
                 permitted=list(
                     "factor"))
             private$..outcome_variable_name <- jmvcore::OptionString$new(
