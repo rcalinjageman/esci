@@ -30,12 +30,10 @@ Imports:
   ggdist,
   ggh4x,
   ggtext,
-  distributional, 
   ggbeeswarm, 
   glue,
   Rdpack,
   mathjaxr,
-  vctrs,
   stringr
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
