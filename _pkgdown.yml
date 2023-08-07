@@ -8,6 +8,8 @@ development:
 
 home:
   links:
+  - text: Source code
+    href: https://github.com/rcalinjageman/esci
   - text: New Statistics Website
     href: https://thenewstatistics.com
   - text: Interactive Stats Demos
