@@ -43,6 +43,96 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returns object of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{es_mean}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_median}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{grouping_variable} -
+\item \emph{outcome_variable} -
+}
+\item \strong{es_mean_difference}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{type} -
+}
+\item \strong{es_median_difference}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{type} -
+}
+\item \strong{es_smd}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{numerator} -
+\item \emph{denominator} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{d_biased} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -64,4 +154,49 @@ The estimated mean differences are from \code{\link[statpsych:ci.mean1]{statpsyc
 The estimated SMDs are from \code{\link[=CI_smd_one]{CI_smd_one()}}.
 
 The estimated median differences are from \code{\link[statpsych:ci.median1]{statpsych::ci.median1()}}
+}
+\examples{
+# From raw data
+data("data_penlaptop1")
+estimate <- esci::estimate_mdiff_one(
+  data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
+  outcome_variable = transcription,
+  reference_mean = 10
+)
+estimate
+
+\dontrun{
+# To visualize the estimate
+plot_mdiff(estimate)
+}
+
+\dontrun{
+# To conduct a hypothesis test
+test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
+}
+
+
+# From summary data
+mymean <- 12.09
+mysd <- 5.52
+myn <- 103
+
+estimate <- esci::estimate_mdiff_one(
+  comparison_mean = mymean,
+  comparison_sd = mysd,
+  comparison_n = myn,
+  reference_mean = 12
+)
+estimate
+
+\dontrun{
+# To visualize the estimate
+plot_mdiff(estimate)
+}
+
+\dontrun{
+# To conduct a hypothesis test
+test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
+}
+
 }

@@ -42,6 +42,57 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returns an object of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{es_mean}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_median}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{grouping_variable} -
+\item \emph{outcome_variable} -
+}
+}
 }
 \description{
 \code{estimate_magnitude} is suitable for a single group design with a
@@ -61,4 +112,38 @@ use \code{\link[=estimate_mdiff_one]{estimate_mdiff_one()}}.
 The estimated mean is from \code{\link[statpsych:ci.mean1]{statpsych::ci.mean1()}}.
 
 The estimated median is from \code{\link[statpsych:ci.median1]{statpsych::ci.median1()}}
+}
+\examples{
+# From raw data
+data("data_penlaptop1")
+
+estimate <- esci::estimate_magnitude(
+  data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
+    outcome_variable = transcription
+)
+estimate
+
+\dontrun{
+# To visualize the estimate
+plot_magnitude(estimate)
+}
+
+# From summary data
+mymean <- 24.5
+mysd <- 3.65
+myn <- 40
+
+estimate <- esci::estimate_magnitude(
+  mean = mymean,
+  sd = mysd,
+  n = myn
+)
+estimate
+
+
+\dontrun{
+# To visualize the estimate
+plot_mdiff(estimate)
+}
+
 }
