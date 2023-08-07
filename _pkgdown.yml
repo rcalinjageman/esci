@@ -1,0 +1,68 @@
+url: https://rcalinjageman.github.io/esci
+
+template:
+  bootstrap: 5
+
+development:
+  mode: auto
+
+home:
+  links:
+  - text: New Statistics Website
+    href: https://thenewstatistics.com
+  - text: Interactive Stats Demos
+    href: https://esci.thenewstatistics.com
+  - text: statpsych
+    href: https://github.com/dgbonett/statpsych/
+
+
+reference:
+  - title: Estimates for continuous outcomes
+    contents:
+    - starts_with("estimate_m")
+
+  - title: Estimates for categorical outcomes
+    contents:
+    - starts_with("estimate_p")
+
+  - title: Estimates for Pearson's r
+    contents:
+    - starts_with("estimate_correlation")
+    - starts_with("estimate_r")
+
+  - title: Meta-analysis
+    contents:
+    - starts_with("meta_")
+
+  - title: Visualization
+    contents:
+    - starts_with("plot_")
+
+  - title: Hypothesis testing
+    contents:
+    - starts_with("test_")
+
+  - title: Sample data sets
+    contents:
+    - starts_with("data_")
+
+  - title: Summarizing data
+    contents:
+    - starts_with("overview")
+
+  - title: Confidence intervals in place of psychstat
+    contents:
+    - starts_with("CI_")
+
+  - title: Functions for jamovi
+    contents:
+    - starts_with("jamovi")
+
+  - title: Visualization helpers
+    contents:
+    - starts_with("geom_")
+    - starts_with("esci_")
+
+  - title: Class esci-estimate
+    contents:
+    - starts_with("print")
