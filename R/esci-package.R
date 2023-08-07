@@ -42,6 +42,7 @@
 #' @importFrom stats sd
 #' @importFrom utils head
 #' @importFrom utils tail
+#' @importFrom grid grobName
 #' @import ggplot2
 #' @import ggdist
 NULL

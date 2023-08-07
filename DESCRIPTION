@@ -1,13 +1,13 @@
 Package: esci
 Type: Package
 Title: Estimation Statistics with Confidence Intervals
-Version: 1.01
+Version: 0.01
 Author: Robert J Calin-Jageman
 Maintainer: Robert J Calin-Jageman <rcalinjageman@dom.edu>
 Description: An r package and jamovi module for the estimation approach 
     to inferential statistics, the approach which emphasizes effect sizes, 
     interval estimates, and meta-analysis. Nearly all functions
-    are based on statpsych.  This package is still under active
+    are based on statpsych or metafor.  This package is still under active
     development, and breaking changes are likely, especially with the
     plot and hypothesis test functions.  If you need a stable and
     production-ready approach for confidence intervals, use
@@ -30,12 +30,10 @@ Imports:
   ggdist,
   ggh4x,
   ggtext,
-  distributional, 
   ggbeeswarm, 
   glue,
   Rdpack,
   mathjaxr,
-  vctrs,
   stringr
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)

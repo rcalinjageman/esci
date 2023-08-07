@@ -739,13 +739,13 @@ rback <- function(x) {
 }
 
 
-dist_P <- function(mu = 0, sigma = 1, f, n){
-  mu <- vctrs::vec_cast(mu, double())
-  sigma <- vec_cast::vec_cast(sigma, double())
-  if(any(sigma[!is.na(sigma)] < 0)){
-    abort("Standard deviation of a normal distribution must be non-negative")
-  }
-  distributional::new_dist(mu = mu, sigma = sigma, f = f, n = n, class = "dist_normal")
-}
+# dist_P <- function(mu = 0, sigma = 1, f, n){
+#   mu <- vctrs::vec_cast(mu, double())
+#   sigma <- vec_cast::vec_cast(sigma, double())
+#   if(any(sigma[!is.na(sigma)] < 0)){
+#     abort("Standard deviation of a normal distribution must be non-negative")
+#   }
+#   distributional::new_dist(mu = mu, sigma = sigma, f = f, n = n, class = "dist_normal")
+# }
 
 

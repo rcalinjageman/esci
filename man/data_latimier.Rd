@@ -19,8 +19,9 @@ Latimier et al (2019).}
 \url{https://osf.io/23yad}
 
 Latimier, A., Riegert, A., Peyre, H., Ly, S. T., Casati, R., & Ramus,
-F. (2019). Does pre-testing promote better retention than post-testing? \emph{Npj
-Science of Learning}, 4(1), 1–7. https://doi.org/10.1038/s41539-019-0053-1
+F. (2019). Does pre-testing promote better retention than post-testing?
+\emph{Npj Science of Learning}, 4(1), 1–7.
+https://doi.org/10.1038/s41539-019-0053-1
 }
 \usage{
 data_latimier

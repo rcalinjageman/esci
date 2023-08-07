@@ -6,3 +6,6 @@
 ^data-raw$
 esci_logo.svg
 ^.*\.csv
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

@@ -40,7 +40,81 @@
 #'
 #'
 #' @return Returns an object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **es_mean**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_median**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
 #'
+#'
+#' @examples
+#' # From raw data
+#' data("data_penlaptop1")
+#'
+#' estimate <- esci::estimate_magnitude(
+#'   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
+#'     outcome_variable = transcription
+#' )
+#' estimate
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_magnitude(estimate)
+#' }
+#'
+#' # From summary data
+#' mymean <- 24.5
+#' mysd <- 3.65
+#' myn <- 40
+#'
+#' estimate <- esci::estimate_magnitude(
+#'   mean = mymean,
+#'   sd = mysd,
+#'   n = myn
+#' )
+#' estimate
+#'
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_mdiff(estimate)
+#' }
 #'
 #' @export
 estimate_magnitude <- function(

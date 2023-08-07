@@ -55,16 +55,29 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
   #   I suspect the ggname gives it a friendly name for that layer
   #   And perhaps grobTree organizes the various polygons into an accessible
   #    structure... not sure
-  ggplot2:::ggname(
-    "geom_meta_diamond_h",
-    grid::grobTree(
-      GeomPolygon$draw_panel(
-        diamond.df,
-        panel_params,
-        coord
-      )
+  grob <- grid::grobTree(
+    GeomPolygon$draw_panel(
+      diamond.df,
+      panel_params,
+      coord
     )
   )
+
+  grob$name <- grid::grobName(grob, "geom_meta_diamond_h")
+
+  #
+  # ggplot2:::ggname(
+  #   "geom_meta_diamond_h",
+  #   grid::grobTree(
+  #     GeomPolygon$draw_panel(
+  #       diamond.df,
+  #       panel_params,
+  #       coord
+  #     )
+  #   )
+  # )
+
+  return(grob)
 
 }
 
@@ -78,11 +91,20 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
 #' of assymetric confidence intervals with this geom.
 #'
 #'
-#' @param x The vertical center of the diamond
-#' @param xmin The left-side start of the diamond
-#' @param xmax The right-side start of the diamond
-#' @param y The vertical center of the diamond
-#' @param height The vertical span of the diamond
+#' @inheritParams ggplot2::geom_line
+#' @param ...  Other arguments passed to the geom. These are often aesthetics,
+#' used to set an aesthetic to a fixed value, like `colour = "red"` or
+#' `linewidth = 3` (see **Aesthetics**, below).
+#'
+#'
+#' ##Aesthetics ##
+#' `geom_meta_diamond_h` understands the following aesthetics (required are
+#' in bold):
+#' - **`x`** - The vertical center of the diamond
+#' - **`y`** - The vertical center of the diamond
+#' - **`xmin`** - The left-side start of the diamond
+#' - **`xmax`** - The right-side start of the diamond
+#' - **`height`** - The vertical span of the diamond
 #'
 #'
 #' @export
@@ -108,17 +130,6 @@ geom_meta_diamond_h <- function(mapping = NULL, data = NULL,
 }
 
 
-#' Create a new ggproto object
-#'
-#' @param _class Class name to assign to the object. This is stored as the class
-#'   attribute of the object. This is optional: if `NULL` (the default),
-#'   no class name will be added to the object.
-#' @param _inherit ggproto object to inherit from. If `NULL`, don't
-#'   inherit from any object.
-#' @param ... A list of members in the ggproto object.
-#'
-#'
-#' @export
 Geom_meta_diamond_h <- ggproto("Geom_meta_diamond_h", Geom,
                                default_aes = aes(
                                  colour = "black",
@@ -173,10 +184,10 @@ test_geom_meta_diamond_h <- function() {
     somevalue = c(-1, -2, -1.5)
   )
 
-  myplot <- ggplot()
+  myplot <- ggplot2::ggplot()
   myplot <- myplot + geom_meta_diamond_h(
     data = summary,
-    aes(
+    ggplot2::aes(
       x = effect_size,
       xmax = UL,
       xmin = LL,

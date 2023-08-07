@@ -32,3 +32,5 @@ $RECYCLE.BIN/
 .Rproj.user
 .RData
 inst/doc
+debug.log
+docs

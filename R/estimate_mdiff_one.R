@@ -41,7 +41,125 @@
 #'
 #'
 #' @return Returns object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **es_mean**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_median**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
+#' - **es_mean_difference**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *type* -
+#' - **es_median_difference**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *type* -
+#' - **es_smd**
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *d_biased* -
 #'
+#'
+#' @examples
+#' # From raw data
+#' data("data_penlaptop1")
+#' estimate <- esci::estimate_mdiff_one(
+#'   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
+#'   outcome_variable = transcription,
+#'   reference_mean = 10
+#' )
+#' estimate
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_mdiff(estimate)
+#' }
+#'
+#' \dontrun{
+#' # To conduct a hypothesis test
+#' test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
+#' }
+#'
+#'
+#' # From summary data
+#' mymean <- 12.09
+#' mysd <- 5.52
+#' myn <- 103
+#'
+#' estimate <- esci::estimate_mdiff_one(
+#'   comparison_mean = mymean,
+#'   comparison_sd = mysd,
+#'   comparison_n = myn,
+#'   reference_mean = 12
+#' )
+#' estimate
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_mdiff(estimate)
+#' }
+#'
+#' \dontrun{
+#' # To conduct a hypothesis test
+#' test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
+#' }
 #'
 #' @export
 estimate_mdiff_one <- function(
