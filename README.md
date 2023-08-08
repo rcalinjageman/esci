@@ -8,6 +8,16 @@ esci provides student-friendly tools for estimation statistics:
 - strong hypothesis testing with interval nulls
 
 
+esci is both an R package and a module in [jamovi](https://www.jamovi.org/).  If
+you're looking for the R package, stay here.  If you want esci in jamovi,
+download and install jamovi and 
+[then use the module library to add esci](https://thenewstatistics.com/itns/esci/jesci/).
+
+
+Leave comments, bug reports, suggestions, and questions about esci 
+[here](https://github.com/rcalinjageman/esci/discussions)
+
+
 **esci is still under development; expect breaking changes in the future
 especially for the visualization functions**.  If you need production-ready
 estimation, turn to [statpsych](https://dgbonett.github.io/statpsych/)
