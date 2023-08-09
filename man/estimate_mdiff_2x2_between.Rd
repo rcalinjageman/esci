@@ -69,6 +69,84 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returns object of class esci_estimate
+\itemize{
+\item \strong{es_mean_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{effect_type} -
+\item \emph{effects_complex} -
+}
+\item \strong{es_median_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{effect_type} -
+\item \emph{effects_complex} -
+}
+\item \strong{es_smd}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{numerator} -
+\item \emph{denominator} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{d_biased} -
+\item \emph{effect_type} -
+\item \emph{effects_complex} -
+}
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{grouping_variable} -
+\item \emph{outcome_variable} -
+\item \emph{grouping_variable_A} -
+\item \emph{grouping_variable_B} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -92,4 +170,31 @@ The estimated mean differences are from \code{\link[statpsych:ci.2x2.mean.bs]{st
 The estimated SMDs are from \code{\link[statpsych:ci.2x2.stdmean.bs]{statpsych::ci.2x2.stdmean.bs()}}.
 
 The estimated median differences are from \code{\link[statpsych:ci.2x2.median.bs]{statpsych::ci.2x2.median.bs()}}
+}
+\examples{
+# From summary data
+means <- c(1.5, 1.14, 1.38, 2.22)
+sds <- c(1.38, .96,1.5, 1.68)
+ns <- c(26, 26, 25, 26)
+grouping_variable_A_levels <- c("Evening", "Morning")
+grouping_variable_B_levels <- c("Sleep", "No Sleep")
+
+estimates <- estimate_mdiff_2x2_between(
+  means = means,
+  sds = sds,
+  ns = ns,
+  grouping_variable_A_levels = grouping_variable_A_levels,
+  grouping_variable_B_levels = grouping_variable_B_levels,
+  grouping_variable_A_name = "Testing Time",
+  grouping_variable_B_name = "Rest",
+  outcome_variable_name = "False Memory Score",
+  assume_equal_variance = TRUE
+)
+
+\dontrun{
+# To visualize the estimated mean difference
+plot_mdiff(estimate, effect_size = "mean")
+}
+
+
 }

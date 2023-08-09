@@ -57,6 +57,98 @@
 #'
 #'
 #' @return Returns object of class esci_estimate
+#' - **es_mean_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *effect_type* -
+#'     - *effects_complex* -
+#' - **es_median_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *effect_type* -
+#'     - *effects_complex* -
+#' - **es_smd**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *d_biased* -
+#'     - *effect_type* -
+#'     - *effects_complex* -
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
+#'     - *grouping_variable_A* -
+#'     - *grouping_variable_B* -
+#'
+#'
+#' @examples
+#' # From summary data
+#' means <- c(1.5, 1.14, 1.38, 2.22)
+#' sds <- c(1.38, .96,1.5, 1.68)
+#' ns <- c(26, 26, 25, 26)
+#' grouping_variable_A_levels <- c("Evening", "Morning")
+#' grouping_variable_B_levels <- c("Sleep", "No Sleep")
+#'
+#' estimates <- estimate_mdiff_2x2_between(
+#'   means = means,
+#'   sds = sds,
+#'   ns = ns,
+#'   grouping_variable_A_levels = grouping_variable_A_levels,
+#'   grouping_variable_B_levels = grouping_variable_B_levels,
+#'   grouping_variable_A_name = "Testing Time",
+#'   grouping_variable_B_name = "Rest",
+#'   outcome_variable_name = "False Memory Score",
+#'   assume_equal_variance = TRUE
+#' )
+#'
+#' \dontrun{
+#' # To visualize the estimated mean difference
+#' plot_mdiff(estimate, effect_size = "mean")
+#' }
 #'
 #'
 #' @export
@@ -546,7 +638,7 @@ estimate_mdiff_2x2_between.base <- function(
       contrast = weights,
       conf_level = conf_level,
       assume_equal_variance = assume_equal_variance,
-      correct_bias = (assume_equal_variance | length(means) == 2)
+      correct_bias = TRUE
     )
 
     estimate$es_smd_properties <- smd_result$properties
