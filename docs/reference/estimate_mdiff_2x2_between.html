@@ -165,8 +165,73 @@ memory by not returning raw data in estimate object</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns object of class esci_estimate</p>
-    </div>
+<p>Returns object of class esci_estimate</p><ul><li><p><strong>es_mean_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+<li><p><em>effect_type</em> -</p></li>
+<li><p><em>effects_complex</em> -</p></li>
+</ul></li>
+<li><p><strong>es_median_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+<li><p><em>effect_type</em> -</p></li>
+<li><p><em>effects_complex</em> -</p></li>
+</ul></li>
+<li><p><strong>es_smd</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>numerator</em> -</p></li>
+<li><p><em>denominator</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>d_biased</em> -</p></li>
+<li><p><em>effect_type</em> -</p></li>
+<li><p><em>effects_complex</em> -</p></li>
+</ul></li>
+<li><p><strong>overview</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_level</em> -</p></li>
+<li><p><em>mean</em> -</p></li>
+<li><p><em>mean_LL</em> -</p></li>
+<li><p><em>mean_UL</em> -</p></li>
+<li><p><em>median</em> -</p></li>
+<li><p><em>median_LL</em> -</p></li>
+<li><p><em>median_UL</em> -</p></li>
+<li><p><em>sd</em> -</p></li>
+<li><p><em>min</em> -</p></li>
+<li><p><em>max</em> -</p></li>
+<li><p><em>q1</em> -</p></li>
+<li><p><em>q3</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>missing</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>mean_SE</em> -</p></li>
+<li><p><em>median_SE</em> -</p></li>
+</ul></li>
+<li><p><strong>raw_data</strong></p><ul><li><p><em>grouping_variable</em> -</p></li>
+<li><p><em>outcome_variable</em> -</p></li>
+<li><p><em>grouping_variable_A</em> -</p></li>
+<li><p><em>grouping_variable_B</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Reach for this function in place of a 2x2 between-subjects ANOVA.</p>
@@ -179,6 +244,35 @@ with <code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
 <p>The estimated median differences are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.2x2.median.bs.html" class="external-link">statpsych::ci.2x2.median.bs()</a></code></p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From summary data</span></span></span>
+<span class="r-in"><span><span class="va">means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">1.14</span>, <span class="fl">1.38</span>, <span class="fl">2.22</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.38</span>, <span class="fl">.96</span>,<span class="fl">1.5</span>, <span class="fl">1.68</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span>, <span class="fl">26</span>, <span class="fl">25</span>, <span class="fl">26</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">grouping_variable_A_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Evening"</span>, <span class="st">"Morning"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">grouping_variable_B_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sleep"</span>, <span class="st">"No Sleep"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimates</span> <span class="op">&lt;-</span> <span class="fu">estimate_mdiff_2x2_between</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  means <span class="op">=</span> <span class="va">means</span>,</span></span>
+<span class="r-in"><span>  sds <span class="op">=</span> <span class="va">sds</span>,</span></span>
+<span class="r-in"><span>  ns <span class="op">=</span> <span class="va">ns</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_A_levels <span class="op">=</span> <span class="va">grouping_variable_A_levels</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_B_levels <span class="op">=</span> <span class="va">grouping_variable_B_levels</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_A_name <span class="op">=</span> <span class="st">"Testing Time"</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_B_name <span class="op">=</span> <span class="st">"Rest"</span>,</span></span>
+<span class="r-in"><span>  outcome_variable_name <span class="op">=</span> <span class="st">"False Memory Score"</span>,</span></span>
+<span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimated mean difference for the interaction</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">$</span><span class="va">interaction</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
