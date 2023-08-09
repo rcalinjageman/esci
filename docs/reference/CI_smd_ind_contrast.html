@@ -102,9 +102,9 @@ decimal form.  Defaults to 0.95.</p></dd>
 
 <dt>correct_bias</dt>
 <dd><p>Defaults to TRUE; attempts to correct the slight upward
-bias in d derived from a sample.  Correction is <em>not</em> possible for 3 or
-more groups when equal variance is not assumed, though in such cases,
-correction should usually be trivial.</p></dd>
+bias in d derived from a sample.  As of 8/9/2023 - Bias correction
+has been added for more than 2 groups when equal variance is not
+assumed, based on recent updates to statpscyh</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -156,9 +156,8 @@ this slight bias becomes fairly neglible (kind of like the small upward
 bias in a sample standard deviation).</p>
 <p>This bias can be corrected when equal variance is assumed or when the
 design of the study is simple (2 groups).  For complex designs (&gt;2 groups)
-without the assumption of equal variance, bias cannot be corrected, but in
-these cases, sample sizes should typically be large enough for this not to
-matter much.</p>
+without the assumption of equal variance, there is now also an
+approximate approach to correcting bias from Bonett.</p>
 <p>Corrections for bias produce a long-run reduction in average bias.
 Corrections for bias are approximate.</p>
 </div>
@@ -207,8 +206,7 @@ using df and se from Huynh, 1989 -- see especially Delacre et al., 2021</p></li>
 <h5 id="if-more-than-groups">If more than 2 groups<a class="anchor" aria-label="anchor" href="#if-more-than-groups"></a></h5>
 
 <ul><li><p>CI is approximated using the approach from Bonett, 2008</p></li>
-<li><p>No correction is applied</p></li>
-<li><p>If correct_bias is TRUE, a warning is raised</p></li>
+<li><p>An approximate correction developed by Bonett is used</p></li>
 </ul></div>
 
 
@@ -221,8 +219,10 @@ using df and se from Huynh, 1989 -- see especially Delacre et al., 2021</p></li>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     
-<ul><li><p>Bonett, D. G. (2018).  R code posted to personal website.
-<a href="https://people.ucsc.edu/~dgbonett/psyc204.html" class="external-link">https://people.ucsc.edu/~dgbonett/psyc204.html</a></p></li>
+<ul><li><p>Bonett D. G. (2023). statpsych: Statistical Methods for Psychologists. R package version 1.4.0.
+<a href="https://dgbonett.github.io/statpsych" class="external-link">https://dgbonett.github.io/statpsych</a></p></li>
+<li><p>Bonett, D. G. (2018).  R code posted to personal website (now removed).
+Formally at https://people.ucsc.edu/~dgbonett/psyc204.html</p></li>
 <li><p>Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 Contrasts of Means. <em>Psychological Methods</em>, 13(2), 99–109.
 <a href="https://doi.org/10.1037/1082-989X.13.2.99" class="external-link">https://doi.org/10.1037/1082-989X.13.2.99</a></p></li>
@@ -334,24 +334,24 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example from Bonett, 2018, ci.lc.stdmean.bs,</span></span></span>
-<span class="r-in"><span><span class="co">#  https://people.ucsc.edu/~dgbonett/psyc204.html</span></span></span>
-<span class="r-in"><span><span class="co"># Without correction, should give:</span></span></span>
-<span class="r-in"><span><span class="co">#                               Estimate        SE        LL         UL</span></span></span>
-<span class="r-in"><span><span class="co"># Equal Variances Not Assumed: -1.301263 0.3692800 -2.025039 -0.5774878</span></span></span>
-<span class="r-in"><span><span class="co"># Equal Variances Assumed:     -1.301263 0.3514511 -1.990095 -0.6124317</span></span></span>
+<span class="r-in"><span><span class="co"># Example from [statpsych::ci.lc.stdmean.bs()] should give:</span></span></span>
+<span class="r-in"><span><span class="co"># Estimate        SE        LL         UL</span></span></span>
+<span class="r-in"><span><span class="co"># Unweighted standardizer: -1.273964 0.3692800 -2.025039 -0.5774878</span></span></span>
+<span class="r-in"><span><span class="co"># Weighted standardizer:   -1.273964 0.3514511 -1.990095 -0.6124317</span></span></span>
+<span class="r-in"><span><span class="co"># Group 1 standardizer:    -1.273810 0.4849842 -2.343781 -0.4426775</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">CI_smd_ind_contrast</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  means <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">33.5</span>, <span class="fl">37.9</span>, <span class="fl">38.0</span>, <span class="fl">44.1</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  sds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.84</span>, <span class="fl">3.84</span>, <span class="fl">3.65</span>, <span class="fl">4.98</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  ns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  contrast <span class="op">=</span> <span class="va">contrast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span>, <span class="op">-</span><span class="fl">.5</span>, <span class="op">-</span><span class="fl">.5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span>, <span class="op">-</span><span class="fl">.5</span>, <span class="op">-</span><span class="fl">.5</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  conf_level <span class="op">=</span> <span class="fl">0.95</span>,</span></span>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>  correct_bias <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>  correct_bias <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.301263</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.273964</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $LL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2.025039</span>
@@ -379,7 +379,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d_avg"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg.biased&lt;/sub&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s_avg"</span>
@@ -388,7 +388,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;s&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$bias_corrected</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_category</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "difference"</span>
@@ -406,14 +406,14 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "t_dist"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_avg because the standardizer used was s_avg. d_avg has *not* been corrected for bias. Correction for bias can be important when df &lt; 50.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_avg because the standardizer used was s_avg. d_avg has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg.biased&lt;/sub&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> because the standardizer used was &lt;i&gt;s&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg.biased&lt;/sub&gt; has *not*</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt; has</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> been corrected for bias.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correction for bias can be important when &lt;i&gt;df&lt;/i&gt; &lt; 50.  &lt;br&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Correction for bias can be important when &lt;i&gt;df&lt;/i&gt; &lt; 50.  See the rightmost column for the biased value.&lt;br&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>

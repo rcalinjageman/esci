@@ -152,8 +152,65 @@ memory by not returning raw data in estimate object</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returnsobject of class esci_estimate</p>
-    </div>
+<p>Returnsobject of class esci_estimate</p><ul><li><p><strong>es_mean_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_median_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_smd</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>numerator</em> -</p></li>
+<li><p><em>denominator</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>d_biased</em> -</p></li>
+</ul></li>
+<li><p><strong>overview</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_level</em> -</p></li>
+<li><p><em>mean</em> -</p></li>
+<li><p><em>mean_LL</em> -</p></li>
+<li><p><em>mean_UL</em> -</p></li>
+<li><p><em>median</em> -</p></li>
+<li><p><em>median_LL</em> -</p></li>
+<li><p><em>median_UL</em> -</p></li>
+<li><p><em>sd</em> -</p></li>
+<li><p><em>min</em> -</p></li>
+<li><p><em>max</em> -</p></li>
+<li><p><em>q1</em> -</p></li>
+<li><p><em>q3</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>missing</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>mean_SE</em> -</p></li>
+<li><p><em>median_SE</em> -</p></li>
+</ul></li>
+<li><p><strong>raw_data</strong></p><ul><li><p><em>grouping_variable</em> -</p></li>
+<li><p><em>outcome_variable</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Reach for this function in place of a one-way ANOVA.</p>
@@ -166,6 +223,85 @@ on <code><a href="https://rdrr.io/pkg/statpsych/man/ci.lc.stdmean.bs.html" class
 <p>The estimated median differences are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.lc.median.bs.html" class="external-link">statpsych::ci.lc.median.bs()</a></code></p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From summary data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_halagappa_et_al_2007"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">estimate_mdiff_ind_contrast</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  means <span class="op">=</span> <span class="va">data_halagappa_et_al_2007</span><span class="op">$</span><span class="va">m</span>,</span></span>
+<span class="r-in"><span>  sds <span class="op">=</span> <span class="va">data_halagappa_et_al_2007</span><span class="op">$</span><span class="va">s</span>,</span></span>
+<span class="r-in"><span>  ns <span class="op">=</span> <span class="va">data_halagappa_et_al_2007</span><span class="op">$</span><span class="va">n</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">data_halagappa_et_al_2007</span><span class="op">$</span><span class="va">condition</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"NFree10"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"AFree10"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"ADiet10"</span> <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"NFree17"</span> <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"AFree17"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"ADiet17"</span> <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_name <span class="op">=</span> <span class="st">"Diet"</span>,</span></span>
+<span class="r-in"><span>  outcome_variable_name <span class="op">=</span> <span class="st">"% time near target"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Outcome variable(s) = % time near target</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Grouping variable(s) = Diet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name grouping_variable_name grouping_variable_level mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    % time near target                   Diet                 NFree10 37.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    % time near target                   Diet                 AFree10 31.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    % time near target                   Diet                 ADiet10 41.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    % time near target                   Diet                 NFree17 33.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    % time near target                   Diet                 AFree17 29.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    % time near target                   Diet                 ADiet17 38.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    mean_LL  mean_UL   sd  n  df  mean_SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 32.32519 42.67481 10.0 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 26.72519 37.07481 13.5 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 36.02519 46.37481 14.8 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 28.22519 38.57481 10.0 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 24.72519 35.07481  8.7 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 33.12519 43.47481 10.0 19 108 2.610673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean_difference --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         type outcome_variable_name grouping_variable_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Comparison    % time near target                   Diet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Reference    % time near target                   Diet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Difference    % time near target                   Diet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                  effect</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                     (NFree10 and AFree10 and AFree17)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                     (ADiet10 and NFree17 and ADiet17)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 (NFree10 and AFree10 and AFree17) - (ADiet10 and NFree17 and ADiet17)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   effect_size        LL         UL       SE  df     ta_LL      ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   33.100000 30.112324 36.0876762 1.507273 108 30.599306 35.6006939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   37.633333 34.645657 40.6210095 1.507273 108 35.132639 40.1340273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -4.533333 -8.758546 -0.3081211 2.131606 108 -8.069849 -0.9968181</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_smd --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name grouping_variable_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    % time near target                   Diet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                  effect</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 (NFree10 and AFree10 and AFree17) - (ADiet10 and NFree17 and ADiet17)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   effect_size         LL          UL numerator denominator        SE  df</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -0.3955976 -0.7655978 -0.02380328 -4.533333    11.37966 0.1892368 108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     d_biased</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.3983716</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_s because the standardizer used was s_p. d_s has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimated mean difference</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

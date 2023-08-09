@@ -149,8 +149,93 @@ memory by not returning raw data in estimate object</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns object of class esci_estimate</p>
-    </div>
+<p>Returns object of class esci_estimate</p><ul><li><p><strong>overview</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>mean</em> -</p></li>
+<li><p><em>mean_LL</em> -</p></li>
+<li><p><em>mean_UL</em> -</p></li>
+<li><p><em>median</em> -</p></li>
+<li><p><em>median_LL</em> -</p></li>
+<li><p><em>median_UL</em> -</p></li>
+<li><p><em>sd</em> -</p></li>
+<li><p><em>min</em> -</p></li>
+<li><p><em>max</em> -</p></li>
+<li><p><em>q1</em> -</p></li>
+<li><p><em>q3</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>missing</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>mean_SE</em> -</p></li>
+<li><p><em>median_SE</em> -</p></li>
+</ul></li>
+<li><p><strong>es_mean_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>comparison_measure_name</em> -</p></li>
+<li><p><em>reference_measure_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_smd</strong></p><ul><li><p><em>comparison_measure_name</em> -</p></li>
+<li><p><em>reference_measure_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>numerator</em> -</p></li>
+<li><p><em>denominator</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>d_biased</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+</ul></li>
+<li><p><strong>es_r</strong></p><ul><li><p><em>x_variable_name</em> -</p></li>
+<li><p><em>y_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>df</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_median_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>comparison_measure_name</em> -</p></li>
+<li><p><em>reference_measure_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_mean_ratio</strong></p><ul><li><p><em>comparison_measure_name</em> -</p></li>
+<li><p><em>reference_measure_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>comparison_mean</em> -</p></li>
+<li><p><em>reference_mean</em> -</p></li>
+</ul></li>
+<li><p><strong>es_median_ratio</strong></p><ul><li><p><em>comparison_measure_name</em> -</p></li>
+<li><p><em>reference_measure_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>comparison_median</em> -</p></li>
+<li><p><em>reference_median</em> -</p></li>
+</ul></li>
+<li><p><strong>raw_data</strong></p><ul><li><p><em>comparison_measure</em> -</p></li>
+<li><p><em>reference_measure</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Reach for this function in place of a paired-samples <em>t</em>-test.</p>
@@ -162,6 +247,147 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <p>The estimated median differences are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.median.ps.html" class="external-link">statpsych::ci.median.ps()</a></code>.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From raw data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_thomason1"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_mdiff_paired</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">data_thomason1</span>,</span></span>
+<span class="r-in"><span>  comparison_measure <span class="op">=</span> <span class="va">posttest</span>,</span></span>
+<span class="r-in"><span>  reference_measure <span class="op">=</span> <span class="va">pretest</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data frame = structure(list(pretest = c(13, 12, 12, 9, 14, 17, 14, 9, 6, 7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of raw data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data frame = 11, 15), posttest = c(14, 13, 16, 12, 15, 18, 13, 10, 10, 8, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of raw data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data frame = 14, 16)), row.names = c(NA, 12L), class = "data.frame")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name     mean   mean_LL  mean_UL median median_LL median_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1               pretest 11.58333  9.476776 13.68989   12.0         9        14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2              posttest 13.25000 11.410019 15.08998   13.5        10        16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         sd min max   q1    q3  n missing df   mean_SE median_SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.315483   6  17  9.0 14.00 12       0 11 0.9570974  1.208488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2.895922   8  18 11.5 15.25 12       0 11 0.8359806  1.450186</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean_difference --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          type comparison_measure_name reference_measure_name             effect</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Comparison                posttest                pretest           posttest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Reference                posttest                pretest            pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                posttest                pretest posttest - pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    effect_size        LL        UL        SE df     ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    13.250000 11.410019 15.089981 0.8359806 11 11.748675 14.751325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    11.583333  9.476776 13.689890 0.9570974 11  9.864497 13.302170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    1.666667  0.715218  2.618115 0.4322831 11  0.890336  2.442997</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_smd --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name             effect effect_size</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                posttest                pretest posttest - pretest   0.5105098</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          LL        UL numerator denominator        SE  d_biased df</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.1806393 0.8902152  1.666667    3.112779 0.1810176 0.5354272 11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df &lt; 50.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x_variable_name y_variable_name               effect effect_size      LL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         pretest        posttest pretest and posttest   0.8923908 0.62894</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         UL         SE  n df     ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.967157 0.06139936 12 10 0.6882891 0.9596343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_median_difference --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         type comparison_measure_name reference_measure_name             effect</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Comparison                posttest                pretest           posttest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Reference                posttest                pretest            pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Difference                posttest                pretest posttest - pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   effect_size        LL        UL       SE     ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        13.5 10.000000 16.000000 1.450186 10.000000 16.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        12.0  9.000000 14.000000 1.208488  9.000000 14.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         1.5 -1.589665  4.589665 1.576389 -1.589665  4.589665</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean_ratio --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name             effect effect_size</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                posttest                pretest posttest / pretest    1.143885</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        LL       UL comparison_mean reference_mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.05031 1.245797           13.25       11.58333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "\n          For more information on this effect size, see Bonett &amp; Price (2020) doi: 10.3102/1076998620934125."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_median_ratio --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name             effect effect_size</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                posttest                pretest posttest / pretest       1.125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          LL       UL comparison_median reference_median</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.8723319 1.450853              13.5               12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "\n          For more information on this effect size, see Bonett &amp; Price (2020) doi: 10.3102/1076998620934125."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimated median difference (raw data only)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span>, effect_size <span class="op">=</span> <span class="st">"median"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sd1</span> <span class="op">&lt;-</span> <span class="fl">4.28</span></span></span>
+<span class="r-in"><span><span class="va">sd2</span> <span class="op">&lt;-</span> <span class="fl">3.4</span></span></span>
+<span class="r-in"><span><span class="va">sdiff</span> <span class="op">&lt;-</span> <span class="fl">2.13</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">cor</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sd1</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">sd2</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="va">sdiff</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">sd1</span><span class="op">*</span><span class="va">sd2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">estimate_mdiff_paired</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  comparison_mean <span class="op">=</span> <span class="fl">14.25</span>,</span></span>
+<span class="r-in"><span>  comparison_sd <span class="op">=</span> <span class="fl">4.28</span>,</span></span>
+<span class="r-in"><span>  reference_mean <span class="op">=</span> <span class="fl">12.88</span>,</span></span>
+<span class="r-in"><span>  reference_sd <span class="op">=</span> <span class="fl">3.4</span>,</span></span>
+<span class="r-in"><span>  n <span class="op">=</span> <span class="fl">16</span>,</span></span>
+<span class="r-in"><span>  correlation <span class="op">=</span> <span class="fl">0.87072223749</span>,</span></span>
+<span class="r-in"><span>  comparison_measure_name <span class="op">=</span> <span class="st">"After"</span>,</span></span>
+<span class="r-in"><span>  reference_measure_name <span class="op">=</span> <span class="st">"Before"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name  mean  mean_LL  mean_UL   sd  n df mean_SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Before 12.88 11.06827 14.69173 3.40 16 15    0.85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 After 14.25 11.96935 16.53065 4.28 16 15    1.07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean_difference --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          type comparison_measure_name reference_measure_name         effect</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Comparison                   After                 Before          After</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Reference                   After                 Before         Before</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                   After                 Before After - Before</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    effect_size         LL        UL     SE df      ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        14.25 11.9693490 16.530651 1.0700 15 12.3742361 16.125764</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        12.88 11.0682679 14.691732 0.8500 15 11.3899072 14.370093</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11        1.37  0.2350031  2.504997 0.5325 15  0.4365007  2.303499</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_smd --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name         effect effect_size</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   After                 Before After - Before   0.3424327</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           LL        UL numerator denominator       SE  d_biased df</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.05110995 0.6577932      1.37    3.865126 0.154769 0.3544516 15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df &lt; 50.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x_variable_name y_variable_name           effect effect_size        LL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          Before           After Before and After   0.8707222 0.6430976</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          UL         SE  n df     ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.9518053 0.06244354 16 14 0.6915049 0.9428632</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimated mean difference</span></span></span>
+<span class="r-in"><span><span class="co"># plot_mdiff(estimate, effect_size = "mean")</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
