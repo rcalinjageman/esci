@@ -192,7 +192,7 @@
 #'   means = c(33.5, 37.9, 38.0, 44.1),
 #'   sds = c(3.84, 3.84, 3.65, 4.98),
 #'   ns = c(10,10,10,10),
-#'   contrast = contrast = c(.5, .5, -.5, -.5),
+#'   contrast = c(.5, .5, -.5, -.5),
 #'   conf_level = 0.95,
 #'   assume_equal_variance = FALSE,
 #'   correct_bias = TRUE

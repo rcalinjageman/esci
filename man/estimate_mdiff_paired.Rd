@@ -195,7 +195,7 @@ estimate <- esci::estimate_mdiff_paired(
 )
 estimate
 
-#' \dontrun{
+\dontrun{
 # To visualize the estimated median difference (raw data only)
 plot_mdiff(estimate, effect_size = "median")
 }
@@ -222,7 +222,7 @@ estimate
 
 \dontrun{
 # To visualize the estimated mean difference
-plot_mdiff(estimate, effect_size = "mean")
+# plot_mdiff(estimate, effect_size = "mean")
 }
 
 
