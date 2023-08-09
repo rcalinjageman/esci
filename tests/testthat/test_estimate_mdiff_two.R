@@ -1,4 +1,4 @@
-test_that("Compare estimate_mdiff one to ESCI_Data_two, penlaptop1", {
+test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   # At 95% CI
 
   # Check - from summary data, esci in excel summary two example
@@ -54,7 +54,7 @@ test_that("Compare estimate_mdiff one to ESCI_Data_two, penlaptop1", {
 
 
 
-test_that("Compare estimate_mdiff one to ESCI_Data_two, penlaptop1", {
+test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   # At 95% CI
 
   data("data_penlaptop1")

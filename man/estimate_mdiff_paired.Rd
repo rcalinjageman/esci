@@ -57,6 +57,110 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returns object of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{es_mean_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{comparison_measure_name} -
+\item \emph{reference_measure_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_smd}
+\itemize{
+\item \emph{comparison_measure_name} -
+\item \emph{reference_measure_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{numerator} -
+\item \emph{denominator} -
+\item \emph{SE} -
+\item \emph{d_biased} -
+\item \emph{df} -
+}
+\item \strong{es_r}
+\itemize{
+\item \emph{x_variable_name} -
+\item \emph{y_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{n} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_median_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{comparison_measure_name} -
+\item \emph{reference_measure_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_mean_ratio}
+\itemize{
+\item \emph{comparison_measure_name} -
+\item \emph{reference_measure_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{comparison_mean} -
+\item \emph{reference_mean} -
+}
+\item \strong{es_median_ratio}
+\itemize{
+\item \emph{comparison_measure_name} -
+\item \emph{reference_measure_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{comparison_median} -
+\item \emph{reference_median} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{comparison_measure} -
+\item \emph{reference_measure} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -79,4 +183,47 @@ The estimated mean differences are from \code{\link[statpsych:ci.mean.ps]{statps
 The estimated SMDs are from \code{\link[=CI_smd_ind_contrast]{CI_smd_ind_contrast()}}.
 
 The estimated median differences are from \code{\link[statpsych:ci.median.ps]{statpsych::ci.median.ps()}}.
+}
+\examples{
+# From raw data
+data("data_thomason1")
+
+estimate <- esci::estimate_mdiff_paired(
+  data = data_thomason1,
+  comparison_measure = posttest,
+  reference_measure = pretest
+)
+estimate
+
+#' \dontrun{
+# To visualize the estimated median difference (raw data only)
+plot_mdiff(estimate, effect_size = "median")
+}
+
+
+sd1 <- 4.28
+sd2 <- 3.4
+sdiff <- 2.13
+
+cor <- (sd1^2 + sd2^2 - sdiff^2) / (2*sd1*sd2)
+
+estimate <- estimate_mdiff_paired(
+  comparison_mean = 14.25,
+  comparison_sd = 4.28,
+  reference_mean = 12.88,
+  reference_sd = 3.4,
+  n = 16,
+  correlation = 0.87072223749,
+  comparison_measure_name = "After",
+  reference_measure_name = "Before"
+)
+estimate
+
+
+\dontrun{
+# To visualize the estimated mean difference
+plot_mdiff(estimate, effect_size = "mean")
+}
+
+
 }
