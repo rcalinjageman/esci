@@ -146,6 +146,12 @@
 #'   assume_equal_variance = TRUE
 #' )
 #'
+#' \dontrun{
+#' # To visualize the estimated median difference (raw data only)
+#' plot_mdiff(estimate, effect_size = "median")
+#' }
+
+#'
 #' # From raw data
 #'   data("data_penlaptop1")
 #'
@@ -158,7 +164,7 @@
 #'   )
 #'
 #' \dontrun{
-#' # To visualize the estimate
+#' # To visualize the estimated mean difference
 #' plot_mdiff(estimate, effect_size = "mean")
 #' }
 #'

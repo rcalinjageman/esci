@@ -49,6 +49,135 @@
 #'
 #'
 #' @return Returns object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **es_mean_difference**
+#'     - *type* -
+#'     - *comparison_measure_name* -
+#'     - *reference_measure_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_smd**
+#'     - *comparison_measure_name* -
+#'     - *reference_measure_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *d_biased* -
+#'     - *df* -
+#' - **es_r**
+#'     - *x_variable_name* -
+#'     - *y_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *n* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_median_difference**
+#'     - *type* -
+#'     - *comparison_measure_name* -
+#'     - *reference_measure_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_mean_ratio**
+#'     - *comparison_measure_name* -
+#'     - *reference_measure_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *comparison_mean* -
+#'     - *reference_mean* -
+#' - **es_median_ratio**
+#'     - *comparison_measure_name* -
+#'     - *reference_measure_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *comparison_median* -
+#'     - *reference_median* -
+#' - **raw_data**
+#'     - *comparison_measure* -
+#'     - *reference_measure* -
+#'
+#'
+#' @examples
+#' # From raw data
+#' data("data_thomason1")
+#'
+#' estimate <- esci::estimate_mdiff_paired(
+#'   data = data_thomason1,
+#'   comparison_measure = posttest,
+#'   reference_measure = pretest
+#' )
+#' estimate
+#'
+#' #' \dontrun{
+#' # To visualize the estimated median difference (raw data only)
+#' plot_mdiff(estimate, effect_size = "median")
+#' }
+#'
+#'
+# # From summary data, ESCI in excel Summary Two example
+#' sd1 <- 4.28
+#' sd2 <- 3.4
+#' sdiff <- 2.13
+#'
+#' cor <- (sd1^2 + sd2^2 - sdiff^2) / (2*sd1*sd2)
+#'
+#' estimate <- estimate_mdiff_paired(
+#'   comparison_mean = 14.25,
+#'   comparison_sd = 4.28,
+#'   reference_mean = 12.88,
+#'   reference_sd = 3.4,
+#'   n = 16,
+#'   correlation = 0.87072223749,
+#'   comparison_measure_name = "After",
+#'   reference_measure_name = "Before"
+#' )
+#' estimate
+#'
+#'
+#' \dontrun{
+#' # To visualize the estimated mean difference
+#' plot_mdiff(estimate, effect_size = "mean")
+#' }
 #'
 #'
 #' @export
