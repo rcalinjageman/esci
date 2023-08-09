@@ -22,7 +22,6 @@
 #' The estimated mean differences are from [statpsych::ci.2x2.mean.mixed()].
 #'
 #'
-#'
 #' @param data For raw data - a dataframe or tibble
 #' @param outcome_variable_level1 The column name of the outcome
 #'   variable for level 1 of the repeated-measures factor
@@ -42,6 +41,94 @@
 #'
 #'
 #' @return Returnsobject of class esci_estimate
+#' - **es_mean_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *effect_type* -
+#'     - *effects_complex* -
+#'     - *t* -
+#'     - *p* -
+#' - **es_smd**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *d_biased* -
+#'     - *effect_type* -
+#'     - *effects_complex* -
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
+#'     - *grouping_variable_A* -
+#'     - *grouping_variable_B* -
+#'     - *paired* -
+#'
+#'
+#' @examples
+#' # From raw data (summary data mode not available for this function)
+# example_data <- data.frame(
+#   pretest = c(
+#     19, 18, 19, 20, 17, 16, 16, 10, 12,  9, 13, 15
+#   ),
+#   posttest = c(
+#     18, 19, 20, 17, 20, 16, 19, 16, 16, 14, 16, 18
+#   ),
+#   condition = as.factor(
+#     c(
+#       rep("Control", times = 6),
+#       rep("Treated", times = 6)
+#     )
+#   )
+# )
+#
+# estimates <- esci::estimate_mdiff_2x2_mixed(
+#   data = example_data,
+#   outcome_variable_level1 = pretest,
+#   outcome_variable_level2 = posttest,
+#   grouping_variable = condition,
+#   repeated_measures_name = "Time"
+# )
+#
+#' \dontrun{
+#' # To visualize the estimated mean difference for the interaction
+#' plot_mdiff(estimate$interaction, effect_size = "mean")
+#' }
+#'
 #'
 #'
 #' @export
