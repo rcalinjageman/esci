@@ -287,7 +287,6 @@ items:
         - name: d_biased
           title: "<i>d</i><sub>biased</sub>"
           type: number
-          visible: (assume_equal_variance)
 
     - name:  point_null
       title: Hypothesis Evaluation

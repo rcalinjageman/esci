@@ -30,9 +30,9 @@ decimal form.  Defaults to 0.95.}
 \item{assume_equal_variance}{Defaults to FALSE}
 
 \item{correct_bias}{Defaults to TRUE; attempts to correct the slight upward
-bias in d derived from a sample.  Correction is \emph{not} possible for 3 or
-more groups when equal variance is not assumed, though in such cases,
-correction should usually be trivial.}
+bias in d derived from a sample.  As of 8/9/2023 - Bias correction
+has been added for more than 2 groups when equal variance is not
+assumed, based on recent updates to statpscyh}
 }
 \value{
 Returns a list with these named elements:
@@ -101,9 +101,8 @@ bias in a sample standard deviation).
 
 This bias can be corrected when equal variance is assumed or when the
 design of the study is simple (2 groups).  For complex designs (>2 groups)
-without the assumption of equal variance, bias cannot be corrected, but in
-these cases, sample sizes should typically be large enough for this not to
-matter much.
+without the assumption of equal variance, there is now also an
+approximate approach to correcting bias from Bonett.
 
 Corrections for bias produce a long-run reduction in average bias.
 Corrections for bias are approximate.
@@ -157,8 +156,7 @@ using df and se from Huynh, 1989 -- see especially Delacre et al., 2021
 \subsection{If more than 2 groups}{
 \itemize{
 \item CI is approximated using the approach from Bonett, 2008
-\item No correction is applied
-\item If correct_bias is TRUE, a warning is raised
+\item An approximate correction developed by Bonett is used
 }
 }
 
@@ -185,29 +183,31 @@ CI_smd_ind_contrast(
   correct_bias = FALSE
 )
 
-# Example from Bonett, 2018, ci.lc.stdmean.bs,
-#  https://people.ucsc.edu/~dgbonett/psyc204.html
-# Without correction, should give:
-#                               Estimate        SE        LL         UL
-# Equal Variances Not Assumed: -1.301263 0.3692800 -2.025039 -0.5774878
-# Equal Variances Assumed:     -1.301263 0.3514511 -1.990095 -0.6124317
+# Example from [statpsych::ci.lc.stdmean.bs()] should give:
+# Estimate        SE        LL         UL
+# Unweighted standardizer: -1.273964 0.3692800 -2.025039 -0.5774878
+# Weighted standardizer:   -1.273964 0.3514511 -1.990095 -0.6124317
+# Group 1 standardizer:    -1.273810 0.4849842 -2.343781 -0.4426775
+
 
 CI_smd_ind_contrast(
   means = c(33.5, 37.9, 38.0, 44.1),
   sds = c(3.84, 3.84, 3.65, 4.98),
   ns = c(10,10,10,10),
-  contrast = contrast <- c(.5, .5, -.5, -.5),
+  contrast = contrast = c(.5, .5, -.5, -.5),
   conf_level = 0.95,
   assume_equal_variance = FALSE,
-  correct_bias = FALSE
+  correct_bias = TRUE
 )
 
 
 }
 \references{
 \itemize{
-\item Bonett, D. G. (2018).  R code posted to personal website.
-\url{https://people.ucsc.edu/~dgbonett/psyc204.html}
+\item Bonett D. G. (2023). statpsych: Statistical Methods for Psychologists. R package version 1.4.0.
+\url{https://dgbonett.github.io/statpsych}
+\item Bonett, D. G. (2018).  R code posted to personal website (now removed).
+Formally at https://people.ucsc.edu/~dgbonett/psyc204.html
 \item Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 Contrasts of Means. \emph{Psychological Methods}, 13(2), 99–109.
 \url{https://doi.org/10.1037/1082-989X.13.2.99}

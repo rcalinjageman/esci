@@ -2372,8 +2372,7 @@ jamovimdiffindcontrastResults <- if (requireNamespace("jmvcore", quietly=TRUE)) 
                     list(
                         `name`="d_biased", 
                         `title`="<i>d</i><sub>biased</sub>", 
-                        `type`="number", 
-                        `visible`="(assume_equal_variance)"))))
+                        `type`="number"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="point_null",

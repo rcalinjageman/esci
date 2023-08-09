@@ -60,6 +60,76 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returnsobject of class esci_estimate
+\itemize{
+\item \strong{es_mean_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_median_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_smd}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{numerator} -
+\item \emph{denominator} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{d_biased} -
+}
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{grouping_variable} -
+\item \emph{outcome_variable} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -83,4 +153,34 @@ The estimated SMDs are from \code{\link[=CI_smd_ind_contrast]{CI_smd_ind_contras
 on \code{\link[statpsych:ci.lc.stdmean.bs]{statpsych::ci.lc.stdmean.bs()}} unless there are only 2 groups.
 
 The estimated median differences are from \code{\link[statpsych:ci.lc.median.bs]{statpsych::ci.lc.median.bs()}}
+}
+\examples{
+# From summary data
+data("data_halagappa_et_al_2007")
+
+estimate <- estimate_mdiff_ind_contrast(
+  means = data_halagappa_et_al_2007$m,
+  sds = data_halagappa_et_al_2007$s,
+  ns = data_halagappa_et_al_2007$n,
+  grouping_variable_levels = as.character(data_halagappa_et_al_2007$condition),
+  assume_equal_variance = TRUE,
+  contrast = c(
+    "NFree10" = 1/3,
+    "AFree10" = 1/3,
+    "ADiet10" = -1/3,
+    "NFree17" = -1/3,
+    "AFree17" = 1/3,
+    "ADiet17" = -1/3
+  ),
+  grouping_variable_name = "Diet",
+  outcome_variable_name = "\% time near target"
+)
+estimate
+
+\dontrun{
+# To visualize the estimated mean difference
+plot_mdiff(estimate, effect_size = "mean")
+}
+
+
 }
