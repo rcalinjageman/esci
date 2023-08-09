@@ -18,9 +18,9 @@
 #'   decimal form.  Defaults to 0.95.
 #' @param assume_equal_variance Defaults to FALSE
 #' @param correct_bias Defaults to TRUE; attempts to correct the slight upward
-#'   bias in d derived from a sample.  Correction is *not* possible for 3 or
-#'   more groups when equal variance is not assumed, though in such cases,
-#'   correction should usually be trivial.
+#'   bias in d derived from a sample.  As of 8/9/2023 - Bias correction
+#'   has been added for more than 2 groups when equal variance is not
+#'   assumed, based on recent updates to statpscyh
 #'
 #'
 #' @return Returns a list with these named elements:
@@ -75,9 +75,8 @@
 #'
 #' This bias can be corrected when equal variance is assumed or when the
 #' design of the study is simple (2 groups).  For complex designs (>2 groups)
-#' without the assumption of equal variance, bias cannot be corrected, but in
-#' these cases, sample sizes should typically be large enough for this not to
-#' matter much.
+#' without the assumption of equal variance, there is now also an
+#' approximate approach to correcting bias from Bonett.
 #'
 #' Corrections for bias produce a long-run reduction in average bias.
 #' Corrections for bias are approximate.
@@ -132,13 +131,14 @@
 #'
 #' #### If more than 2 groups ####
 #' * CI is approximated using the approach from Bonett, 2008
-#' * No correction is applied
-#' * If correct_bias is TRUE, a warning is raised
+#' * An approximate correction developed by Bonett is used
 #'
 #'
 #' @references
-#' * Bonett, D. G. (2018).  R code posted to personal website.
-#' [https://people.ucsc.edu/~dgbonett/psyc204.html](https://people.ucsc.edu/~dgbonett/psyc204.html)
+#' * Bonett D. G. (2023). statpsych: Statistical Methods for Psychologists. R package version 1.4.0.
+#' [https://dgbonett.github.io/statpsych](https://dgbonett.github.io/statpsych)
+#' * Bonett, D. G. (2018).  R code posted to personal website (now removed).
+#' Formally at https://people.ucsc.edu/~dgbonett/psyc204.html
 #' * Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 #' Contrasts of Means. *Psychological Methods*, 13(2), 99–109.
 #' [https://doi.org/10.1037/1082-989X.13.2.99](https://doi.org/10.1037/1082-989X.13.2.99)
@@ -181,21 +181,21 @@
 #'   correct_bias = FALSE
 #' )
 #'
-#' # Example from Bonett, 2018, ci.lc.stdmean.bs,
-#' #  https://people.ucsc.edu/~dgbonett/psyc204.html
-#' # Without correction, should give:
-#' #                               Estimate        SE        LL         UL
-#' # Equal Variances Not Assumed: -1.301263 0.3692800 -2.025039 -0.5774878
-#' # Equal Variances Assumed:     -1.301263 0.3514511 -1.990095 -0.6124317
+#' # Example from [statpsych::ci.lc.stdmean.bs()] should give:
+#' # Estimate        SE        LL         UL
+#' # Unweighted standardizer: -1.273964 0.3692800 -2.025039 -0.5774878
+#' # Weighted standardizer:   -1.273964 0.3514511 -1.990095 -0.6124317
+#' # Group 1 standardizer:    -1.273810 0.4849842 -2.343781 -0.4426775
+#'
 #'
 #' CI_smd_ind_contrast(
 #'   means = c(33.5, 37.9, 38.0, 44.1),
 #'   sds = c(3.84, 3.84, 3.65, 4.98),
 #'   ns = c(10,10,10,10),
-#'   contrast = contrast <- c(.5, .5, -.5, -.5),
+#'   contrast = contrast = c(.5, .5, -.5, -.5),
 #'   conf_level = 0.95,
 #'   assume_equal_variance = FALSE,
-#'   correct_bias = FALSE
+#'   correct_bias = TRUE
 #' )
 #'
 #'
@@ -216,15 +216,7 @@ CI_smd_ind_contrast <- function(
   # At moment, can only correct d if equal variance or simple comparison
   #  (no correction apparent for unequal variance with 3 or more groups)
   simple_comparison <- (n_groups == 2)
-  do_correct <- correct_bias & (assume_equal_variance | simple_comparison)
-
-  if (correct_bias & !do_correct) {
-    warning(
-"Returning biased d;
-Can't correct bias when length(means) >2 and assume_equal_variance = FALSE
-In practice, this shouldn't matter much if total sample size > 30"
-    )
-  }
+  do_correct <- correct_bias
 
   # degrees of freedom for each mean
   dfs <- ns-1
@@ -245,10 +237,15 @@ In practice, this shouldn't matter much if total sample size > 30"
 
   # Correction factor
   # Cousineau & Goulet-Pelletier, 2020 from Hedges
-  J <- if(do_correct)
-    exp ( lgamma(df/2) - (log(sqrt(df/2)) + lgamma((df-1)/2) ) )
-  else
-    1
+  J <- 1
+  if (do_correct) {
+    if (simple_comparison | assume_equal_variance) {
+      J <-  exp ( lgamma(df/2) - (log(sqrt(df/2)) + lgamma((df-1)/2) ) )
+    } else {
+      J <- 1 - 3/(4*df - 1)
+    }
+  }
+
 
   # Calculate d -----------------------------------------------------------
   numerator <- sum(means*contrast)
@@ -307,8 +304,8 @@ In practice, this shouldn't matter much if total sample size > 30"
 
   } else {
     # Bonett, 2008, equation 7
-    # Code adapted directly from his posted code
-    a1 <- effect_size^2/(n_groups^2*sd_avg^4)
+    # Code adapted first from his posted code, then from statpsych
+    a1 <- d_biased^2/(n_groups^2*sd_avg^4)
     a2 <- sum((variances^2/(2*(dfs))))
     a3 <- sum((contrast^2*variances/(dfs)))/sd_avg^2
     se <- sqrt(a1*a2 + a3)
@@ -318,8 +315,8 @@ In practice, this shouldn't matter much if total sample size > 30"
 
     # MoE and confidence interval
     moe <- se * multiplier
-    lower <- effect_size - moe
-    upper <- effect_size + moe
+    lower <- d_biased - moe
+    upper <- d_biased + moe
   }
 
   if(assume_equal_variance) {

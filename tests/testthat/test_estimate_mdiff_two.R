@@ -15,6 +15,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     assume_equal_variance = TRUE
   )
 
+  testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.2100000)
   testthat::expect_equal(estimate$es_mean_difference$LL[3], 3.433079059)
   testthat::expect_equal(estimate$es_mean_difference$UL[3], 6.986920941)
@@ -36,6 +37,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     assume_equal_variance = TRUE
   )
 
+  testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.2100000)
   testthat::expect_equal(estimate$es_mean_difference$LL[3], 2.863663568)
   testthat::expect_equal(estimate$es_mean_difference$UL[3], 7.556336432)
@@ -67,6 +69,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     assume_equal_variance = TRUE
   )
 
+  testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.707590133)
   testthat::expect_equal(estimate$es_mean_difference$LL[3], 2.685265324)
   testthat::expect_equal(estimate$es_mean_difference$UL[3], 8.729914942)
@@ -90,6 +93,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     conf_level = 0.99
   )
 
+  testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.707590133)
   testthat::expect_equal(estimate$es_mean_difference$LL[3], 1.690390444)
   testthat::expect_equal(estimate$es_mean_difference$UL[3], 9.724789822)
@@ -144,9 +148,8 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.mean2 example", {
         )[row_select, ]
       )
 
+
       testthat::expect_s3_class(estimate, "esci_estimate")
-
-
       testthat::expect_equal(estimate$es_mean_difference$effect_size[3], mysp$Estimate)
       testthat::expect_equal(estimate$es_mean_difference$LL[3], mysp$LL)
       testthat::expect_equal(estimate$es_mean_difference$UL[3], mysp$UL)
@@ -209,7 +212,6 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.median2 example", {
     )
 
     testthat::expect_s3_class(estimate, "esci_estimate")
-
     testthat::expect_equal(estimate$es_median_difference$effect_size[3], mysp$`Median1-Median2`)
     testthat::expect_equal(estimate$es_median_difference$LL[3], mysp$LL)
     testthat::expect_equal(estimate$es_median_difference$UL[3], mysp$UL)

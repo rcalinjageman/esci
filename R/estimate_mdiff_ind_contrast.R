@@ -52,6 +52,93 @@
 #'
 #'
 #' @return Returnsobject of class esci_estimate
+#' - **es_mean_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_median_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_smd**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *d_biased* -
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
+#'
+#'
+#' @examples
+#' # From summary data
+#' data("data_halagappa_et_al_2007")
+#'
+#' estimate <- estimate_mdiff_ind_contrast(
+#'   means = data_halagappa_et_al_2007$m,
+#'   sds = data_halagappa_et_al_2007$s,
+#'   ns = data_halagappa_et_al_2007$n,
+#'   grouping_variable_levels = as.character(data_halagappa_et_al_2007$condition),
+#'   assume_equal_variance = TRUE,
+#'   contrast = c(
+#'     "NFree10" = 1/3,
+#'     "AFree10" = 1/3,
+#'     "ADiet10" = -1/3,
+#'     "NFree17" = -1/3,
+#'     "AFree17" = 1/3,
+#'     "ADiet17" = -1/3
+#'   ),
+#'   grouping_variable_name = "Diet",
+#'   outcome_variable_name = "% time near target"
+#' )
+#' estimate
+#'
+#' \dontrun{
+#' # To visualize the estimated mean difference
+#' plot_mdiff(estimate, effect_size = "mean")
+#' }
 #'
 #'
 #' @export
@@ -464,7 +551,7 @@ The contrast passed was: {passed_contrast}.
     contrast = weights,
     conf_level = conf_level,
     assume_equal_variance = assume_equal_variance,
-    correct_bias = (assume_equal_variance | length(means) == 2)
+    correct_bias = TRUE
   )
 
   estimate$es_smd_properties <- smd_result$properties
