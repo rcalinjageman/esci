@@ -53,7 +53,114 @@
 #'
 #'
 #' @return Returnsobject of class esci_estimate
+#' - **es_mean_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_median_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_smd**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *numerator* -
+#'     - *denominator* -
+#'     - *SE* -
+#'     - *df* -
+#'     - *d_biased* -
+#' - **es_mean_ratio**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *comparison_mean* -
+#'     - *reference_mean* -
+#' - **es_median_ratio**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *comparison_median* -
+#'     - *reference_median* -
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **raw_data**
+#'     - *grouping_variable* -
+#'     - *outcome_variable* -
 #'
+#'
+#' @examples
+#' # From summary data
+#' estimate <- estimate_mdiff_two(
+#'   comparison_mean = 12.09,
+#'   comparison_sd = 5.52,
+#'   comparison_n = 103,
+#'   reference_mean = 6.88,
+#'   reference_sd = 4.22,
+#'   reference_n = 48,
+#'   grouping_variable_levels = c("Ref-Laptop", "Comp-Pen"),
+#'   outcome_variable_name = "% Transcription",
+#'   grouping_variable_name = "Note-taking type",
+#'   assume_equal_variance = TRUE
+#' )
+#'
+#' # From raw data
+#'   data("data_penlaptop1")
+#'
+#'   estimate <- esci::estimate_mdiff_two(
+#'     data = data_penlaptop1,
+#'     outcome_variable = transcription,
+#'     grouping_variable = condition,
+#'     switch_comparison_order = TRUE,
+#'     assume_equal_variance = TRUE
+#'   )
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_mdiff(estimate, effect_size = "mean")
+#' }
 #'
 #'
 #' @export

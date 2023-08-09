@@ -9,3 +9,4 @@ esci_logo.svg
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^jamovi$
