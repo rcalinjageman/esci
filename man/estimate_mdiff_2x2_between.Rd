@@ -192,8 +192,8 @@ estimates <- estimate_mdiff_2x2_between(
 )
 
 \dontrun{
-# To visualize the estimated mean difference
-plot_mdiff(estimate, effect_size = "mean")
+# To visualize the estimated mean difference for the interaction
+plot_mdiff(estimate$interaction, effect_size = "mean")
 }
 
 

@@ -43,6 +43,72 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returnsobject of class esci_estimate
+\itemize{
+\item \strong{es_mean_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{effect_type} -
+\item \emph{effects_complex} -
+\item \emph{t} -
+\item \emph{p} -
+}
+\item \strong{es_smd}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{numerator} -
+\item \emph{denominator} -
+\item \emph{SE} -
+\item \emph{df} -
+\item \emph{d_biased} -
+\item \emph{effect_type} -
+\item \emph{effects_complex} -
+}
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{grouping_variable} -
+\item \emph{outcome_variable} -
+\item \emph{grouping_variable_A} -
+\item \emph{grouping_variable_B} -
+\item \emph{paired} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -62,4 +128,14 @@ specifically with \code{\link[=plot_interaction]{plot_interaction()}}.  You can 
 with \code{\link[=test_mdiff]{test_mdiff()}}.
 
 The estimated mean differences are from \code{\link[statpsych:ci.2x2.mean.mixed]{statpsych::ci.2x2.mean.mixed()}}.
+}
+\examples{
+# From raw data (summary data mode not available for this function)
+\dontrun{
+# To visualize the estimated mean difference for the interaction
+plot_mdiff(estimate$interaction, effect_size = "mean")
+}
+
+
+
 }
