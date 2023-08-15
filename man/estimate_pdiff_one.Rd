@@ -43,6 +43,38 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returns an object of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{outcome_variable_level} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{P} -
+\item \emph{P_LL} -
+\item \emph{P_UL} -
+\item \emph{P_SE} -
+\item \emph{P_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_proportion_difference}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{effect_size_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{type} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -59,4 +91,17 @@ it with \code{\link[=plot_pdiff]{plot_pdiff()}} and you can test hypotheses with
 \code{\link[=test_pdiff]{test_pdiff()}}.
 
 The estimated proportion differences are from \code{\link[statpsych:ci.prop1]{statpsych::ci.prop1()}}.
+}
+\examples{
+estimate <- estimate_pdiff_one(
+  comparison_cases = 8,
+  comparison_n = 22,
+  reference_p = 0.5
+)
+
+\dontrun{
+# To visualize the estimate
+plot_proportion(estimate)
+}
+
 }

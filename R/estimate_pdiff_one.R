@@ -36,6 +36,45 @@
 #'
 #'
 #' @return Returns an object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *outcome_variable_level* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *P* -
+#'     - *P_LL* -
+#'     - *P_UL* -
+#'     - *P_SE* -
+#'     - *P_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_proportion_difference**
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *effect_size_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *type* -
+#'
+#'
+#' @examples
+#' estimate <- estimate_pdiff_one(
+#'   comparison_cases = 8,
+#'   comparison_n = 22,
+#'   reference_p = 0.5
+#' )
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_proportion(estimate)
+#' }
 #'
 #' @export
 estimate_pdiff_one <- function(
