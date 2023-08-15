@@ -48,6 +48,68 @@
 #'
 #'
 #' @return Returnsobject of class esci_estimate
+#' - **es_proportion_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *effect_size_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_odds_ratio**
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *SE* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **overview**
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *outcome_variable_name* -
+#'     - *outcome_variable_level* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *P* -
+#'     - *P_LL* -
+#'     - *P_UL* -
+#'     - *P_SE* -
+#'     - *P_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_phi**
+#'     - *grouping_variable_name* -
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *SE* -
+#'     - *LL* -
+#'     - *UL* -
+#'
+#'
+#' @examples
+#' estimate <- estimate_pdiff_two(
+#'   comparison_cases = 10,
+#'   comparison_n = 20,
+#'   reference_cases = 78,
+#'   reference_n = 252,
+#'   grouping_variable_levels = c("Original", "Replication"),
+#'   conf_level = 0.95
+#' )
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_proportion(estimate)
+#' }
 #'
 #' @export
 estimate_pdiff_two <- function(

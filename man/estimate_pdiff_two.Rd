@@ -62,6 +62,62 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returnsobject of class esci_estimate
+\itemize{
+\item \strong{es_proportion_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{effect_size_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_odds_ratio}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{SE} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{overview}
+\itemize{
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{outcome_variable_name} -
+\item \emph{outcome_variable_level} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{P} -
+\item \emph{P_LL} -
+\item \emph{P_UL} -
+\item \emph{P_SE} -
+\item \emph{P_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_phi}
+\itemize{
+\item \emph{grouping_variable_name} -
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{SE} -
+\item \emph{LL} -
+\item \emph{UL} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -80,4 +136,20 @@ The estimated mean differences are from \code{\link[statpsych:ci.prop2]{statpsyc
 The estimated odds ratio is from \code{\link[statpsych:ci.oddsratio]{statpsych::ci.oddsratio()}}.
 
 The estimated correlation (phi) is from \code{\link[statpsych:ci.phi]{statpsych::ci.phi()}}.
+}
+\examples{
+estimate <- estimate_pdiff_two(
+  comparison_cases = 10,
+  comparison_n = 20,
+  reference_cases = 78,
+  reference_n = 252,
+  grouping_variable_levels = c("Original", "Replication"),
+  conf_level = 0.95
+)
+
+\dontrun{
+# To visualize the estimate
+plot_proportion(estimate)
+}
+
 }
