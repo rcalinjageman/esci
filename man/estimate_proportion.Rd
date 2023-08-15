@@ -41,6 +41,37 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returns an object of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{outcome_variable_level} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{P} -
+\item \emph{P_LL} -
+\item \emph{P_UL} -
+\item \emph{P_SE} -
+\item \emph{P_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_proportion}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{effect_size_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{cases} -
+\item \emph{n} -
+}
+}
 }
 \description{
 \code{estimate_proportion} is suitable for a single group design with a
@@ -56,4 +87,16 @@ If you want to compare your estimate to a known value or reference, then
 use \code{\link[=estimate_pdiff_one]{estimate_pdiff_one()}}.
 
 The estimated proportions are from \code{\link[statpsych:ci.prop1]{statpsych::ci.prop1()}}.
+}
+\examples{
+estimate <- esci::estimate_proportion(
+  cases = c(8, 22-8),
+  outcome_variable_levels = c("Affected", "Not Affected")
+)
+
+\dontrun{
+# To visualize the estimate
+plot_proportion(estimate)
+}
+
 }

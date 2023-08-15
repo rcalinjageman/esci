@@ -35,8 +35,43 @@
 #'
 #'
 #' @return Returns an object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *outcome_variable_level* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *P* -
+#'     - *P_LL* -
+#'     - *P_UL* -
+#'     - *P_SE* -
+#'     - *P_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_proportion**
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *effect_size_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *cases* -
+#'     - *n* -
 #'
 #'
+#' @examples
+#' estimate <- esci::estimate_proportion(
+#'   cases = c(8, 22-8),
+#'   outcome_variable_levels = c("Affected", "Not Affected")
+#' )
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_proportion(estimate)
+#' }
 #'
 #' @export
 estimate_proportion <- function(
