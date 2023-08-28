@@ -26,6 +26,7 @@ description: >-
   Please submit feedback, bug reports, and feature requests via the links
   provided <a href = "https://github.com/rcalinjageman/esci" target="_blank">
   here</a>.
+
 analyses:
   - title: Describe
     name: jamovidescribe
@@ -122,6 +123,27 @@ analyses:
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Difference in Proportions
+
+datasets:
+  - name: Bem & Honorton (1994)
+    path: data_bem_and_honorton_1994.rda
+    description: Does telepathy work (Ch. 13)?
+  - name: Bushman (2005)
+    path: data_bushman_2005.rda
+    description: Is people's memory for ads affected by violent or sexual content (ch. 13)? 
+  - name: Halagappa et al. (2007)
+    path: data_halagappa_et_al_2007.rda
+    description: Could eating less delay Alzheimer's (Ch. 14)? 
+  - name:
+    path: data_latimier.rda
+    description:
+  - name: Mueller & Oppenheimer (2014)
+    path: data_penlaptop1.rda
+    description: Does students learn more if they take notes by hand (Ch. 2, 3, 5, and 7)?
+  - name: Thomason et al. (2014)
+    path: data_thomason1.rda
+    description: Evaluate a promising approach to critical thinking (Ch. 8, 10, 11, 12, 14, and 15)
+
 usesNative: true
 minApp: 1.0.8
 
