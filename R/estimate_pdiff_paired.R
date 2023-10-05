@@ -283,15 +283,36 @@ estimate_pdiff_paired.summary <- function(
   )
 
   # Replace estimated difference based on paired design
-  pdiff_row <- as.data.frame(
-    statpsych::ci.prop.ps(
-      alpha = 1 - conf_level,
-      f00 = not_cases_consistent,
-      f01 = not_cases_inconsistent,
-      f10 = cases_inconsistent,
-      f11 = cases_consistent
+
+  statpsych_version <- as.numeric(gsub("\\.", "", packageVersion("statpsych")))
+
+  if (statpsych_version > 130) {
+    pdiff_row <- as.data.frame(
+      statpsych::ci.prop.ps(
+        alpha = 1 - conf_level,
+        f00 = cases_consistent,
+        f01 = cases_inconsistent,
+        f10 = not_cases_inconsistent,
+        f11 = not_cases_consistent
+      )
     )
-  )
+
+  } else {
+
+    pdiff_row <- as.data.frame(
+      statpsych::ci.prop.ps(
+        alpha = 1 - conf_level,
+        f00 = not_cases_consistent,
+        f01 = not_cases_inconsistent,
+        f10 = cases_inconsistent,
+        f11 = cases_consistent
+      )
+    )
+
+  }
+
+
+
 
   estimate$es_proportion_difference[3, c("LL", "UL", "SE", "effect_size_adjusted")] <-
     pdiff_row[ , c("LL", "UL", "SE", "Estimate")]
