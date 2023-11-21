@@ -21,7 +21,7 @@
 #' The estimated correlation (phi) is from [statpsych::ci.phi()].
 #'
 #'
-#' @param data For raw data - a datavframe or tibble
+#' @param data For raw data - a data frame or tibble
 #' @param outcome_variable For raw data - The column name of the outcome
 #'   variable which is a factor, or a vector that is a factor
 #' @param grouping_variable For raw data - The column name of the grouping

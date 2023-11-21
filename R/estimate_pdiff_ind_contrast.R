@@ -1,4 +1,4 @@
-#' Estimates for a multi-group design with a categorical outcome
+#' Estimates for a multi-group study with a categorical outcome
 #' variable
 #'
 #' @description
@@ -12,8 +12,9 @@
 #'
 #'
 #' @details
-#' Reach for this function in place of a Chi-Square test.
-#'
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_mdiff()] and you can test hypotheses with
+#' [esci::test_mdiff()].
 #'
 #' The estimated proportion differences are from [statpsych::ci.lc.prop.bs()].
 #'
@@ -22,19 +23,19 @@
 #'
 #' @param data For raw data - a data frame or tibble
 #' @param outcome_variable For raw data - The column name of the outcome
-#'   variable, or a vector of categorical data; must be a factor
+#'   variable which is a factor, or a vector that is a factor
 #' @param grouping_variable For raw data - The column name of the grouping
-#'   variable, or a vector of group names; must be a factor
-#' @param cases For summary data - A vector of 2 or more event counts,
+#'   variable which is a factor, or a vector that is a factor
+#' @param cases For summary data - A numeric vector of 2 or more event counts,
 #'   each an integer >= 0
-#' @param ns For summary data - A vector of sample sizes, same length as counts,
-#'   each an integer >= correspond event count
-#' @param contrast A vector of group weights
+#' @param ns For summary data - A numeric vector of sample sizes, same length
+#'   as counts, each an integer >= corresponding event count
+#' @param contrast A vector of group weights, same length as number of groups.
 #' @param case_label An optional numeric or character label
 #'   For summary data, used as the label and defaults to 'Affected'.  For raw
 #'   data, used to specify the level used for the proportion.
 #' @param grouping_variable_levels For summary data - An optional vector of
-#'   group labels, same length as means
+#'   group labels, same length as cases
 #' @param outcome_variable_name Optional friendly name for the outcome variable.
 #'   Defaults to 'My outcome variable' or the outcome variable column name if a
 #'   data frame is passed.
@@ -47,7 +48,68 @@
 #'
 #'
 #' @return Returns object of class esci_estimate
+#' - **es_proportion_difference**
+#'     - *type* -
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *effect_size_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_odds_ratio**
+#'     - *outcome_variable_name* -
+#'     - *case_label* -
+#'     - *grouping_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *SE* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **overview**
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *outcome_variable_name* -
+#'     - *outcome_variable_level* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *P* -
+#'     - *P_LL* -
+#'     - *P_UL* -
+#'     - *P_SE* -
+#'     - *P_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **es_phi**
+#'     - *grouping_variable_name* -
+#'     - *outcome_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *SE* -
+#'     - *LL* -
+#'     - *UL* -
 #'
+#'
+#' @examples
+#' estimate <- estimate_pdiff_ind_contrast(
+#'   cases = c(78, 10),
+#'   ns = c(252, 20),
+#'   case_label = "egocentric",
+#'   grouping_variable_levels = c("Original", "Replication"),
+#'   contrast = c(-1, 1),
+#'   conf_level = 0.95
+#' )
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_proportion(estimate)
+#' }
 #'
 #'
 #' @export

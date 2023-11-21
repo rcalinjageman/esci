@@ -358,6 +358,23 @@ Instead, {self$options$comparison_measure} has {length(clevels)}
     # Do analysis, then post any notes that have emerged
     estimate <- try(do.call(what = call, args = args))
 
+    estimate2 <- estimate_pdiff_paired(
+      cases_consistent = 60,
+      cases_inconsistent = 50,
+      not_cases_inconsistent = 22,
+      not_cases_consistent = 68,
+      case_label = "Answered True",
+      not_case_label = "Answered False",
+      reference_measure_name = "9th grade",
+      comparison_measure_name = "12th grade",
+      conf_level = 0.95
+    )
+
+    # self$results$debug$setContent(c(args, estimate, estimate2))
+    # self$results$debug$setVisible(TRUE)
+
+
+
     if (!is(estimate, "try-error")) {
 
       estimate <- jamovi_add_htest_pdiff(
