@@ -81,8 +81,7 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
     testthat::expect_equal(estimate$es_mean_difference$df[3], mysp$df)
     testthat::expect_equal(estimate$es_mean_difference$SE[3], mysp$SE)
 
-
-    mytest <- test_mdiff(estimate)
+    mytest <- esci::test_mdiff(estimate)
     testthat::expect_equal(mytest$point_null$t, mysp$t)
     testthat::expect_equal(mytest$point_null$p, mysp$p)
 
@@ -110,7 +109,7 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
     testthat::expect_equal(estimate$es_mean_difference$SE[3], mysp$SE)
 
 
-    mytest <- test_mdiff(estimate)
+    mytest <- esci::test_mdiff(estimate)
     testthat::expect_equal(mytest$point_null$t, mysp$t)
     testthat::expect_equal(mytest$point_null$p, mysp$p)
 
@@ -139,7 +138,7 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
     testthat::expect_equal(estimate$es_mean_difference$SE[3], mysp$SE)
 
 
-    mytest <- test_mdiff(estimate)
+    mytest <- esci::test_mdiff(estimate)
     testthat::expect_equal(mytest$point_null$t, mysp$t)
     testthat::expect_equal(mytest$point_null$p, mysp$p)
 

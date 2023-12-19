@@ -134,6 +134,26 @@ apply_ci_stdmean_two <- function(
       )
     )
 
+    if (!is.null(res$`adj Estimate`)) {
+      if (correct_bias) {
+        res$Estimate <- res$`adj Estimate`
+      } else {
+        res <- as.data.frame(
+          statpsych::ci.stdmean.ps(
+            alpha = 1 - conf_level,
+            m1 = myrow[["comparison_mean"]],
+            m2 = myrow[["reference_mean"]],
+            sd1 = myrow[["comparison_sd"]],
+            sd2 = myrow[["reference_sd"]],
+            cor= myrow[["r"]],
+            n = myrow[["reference_n"]]
+          )
+        )
+      }
+      res$`adj Estimate` <- NULL
+
+    }
+
     res$df <- df
 
     res_raw <- as.data.frame(
