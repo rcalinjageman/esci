@@ -65,6 +65,73 @@ memory by not returning raw data in estimate object}
 }
 \value{
 Returnsobject of class esci_estimate
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+\item \strong{es_r_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{x_variable_name} -
+\item \emph{y_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{n} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+\item \emph{rz} -
+\item \emph{sem} -
+\item \emph{z} -
+\item \emph{p} -
+}
+\item \strong{es_r}
+\itemize{
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{x_variable_name} -
+\item \emph{y_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{n} -
+\item \emph{df} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{raw_data}
+\itemize{
+\item \emph{x} -
+\item \emph{y} -
+\item \emph{grouping_variable} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -82,9 +149,33 @@ between two quantitative variables
 Once you generate an estimate with this function, you can visualize
 it with \code{\link[=plot_rdiff]{plot_rdiff()}} and you can test hypotheses with
 \code{\link[=test_rdiff]{test_rdiff()}}.  In addition, you can use \code{\link[=plot_scatter]{plot_scatter()}}
-to visualize the raw data
+to visualize the raw data.
 
 The estimated single-group r values are from \code{\link[statpsych:ci.cor]{statpsych::ci.cor()}}.
 
 The difference in r values is from \code{\link[statpsych:ci.cor2]{statpsych::ci.cor2()}}.
+}
+\examples{
+# From summary data
+estimate <- esci::estimate_rdiff_two(
+  comparison_r = .53,
+  comparison_n = 45,
+  reference_r = .41,
+  reference_n = 59,
+  grouping_variable_levels = c("Females", "Males"),
+  x_variable_name = "Satisfaction with life",
+  y_variable_name = "Body satisfaction",
+  grouping_variable_name = "Gender",
+  conf_level = .95
+)
+estimate
+
+# To evaluate a hypothesis (interval null from -0.1 to 0.1):
+esci::test_rdiff(estimate)
+
+\dontrun{
+# To visualize the values of r and their difference
+esci::plot_rdiff(estimate)
+}
+
 }

@@ -29,7 +29,6 @@ reference:
 
   - title: Estimates for Pearson's r
     contents:
-    - starts_with("estimate_correlation")
     - starts_with("estimate_r")
 
   - title: Meta-analysis

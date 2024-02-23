@@ -277,7 +277,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>          type comparison_measure_name reference_measure_name             effect</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  Comparison                posttest                pretest           posttest</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   Reference                posttest                pretest            pretest</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                posttest                pretest posttest - pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                posttest                pretest posttest ‒ pretest</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    effect_size        LL        UL        SE df     ta_LL     ta_UL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    13.250000 11.410019 15.089981 0.8359806 11 11.748675 14.751325</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2    11.583333  9.476776 13.689890 0.9570974 11  9.864497 13.302170</span>
@@ -287,7 +287,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name             effect effect_size</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                posttest                pretest posttest - pretest   0.5105098</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          LL        UL numerator denominator        SE  d_biased df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.1806393 0.8902152  1.666667    3.112779 0.1810176 0.5354272 11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.1806393 0.8902152  1.666667    3.112779 0.1810176 0.5105098 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df &lt; 50.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
@@ -298,13 +298,13 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_median_difference --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         type comparison_measure_name reference_measure_name             effect</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Comparison                posttest                pretest           posttest</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Reference                posttest                pretest            pretest</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Difference                posttest                pretest posttest - pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Comparison                posttest                pretest           posttest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Reference                posttest                pretest            pretest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Difference                posttest                pretest posttest ‒ pretest</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   effect_size        LL        UL       SE     ta_LL     ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        13.5 10.000000 16.000000 1.450186 10.000000 16.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        12.0  9.000000 14.000000 1.208488  9.000000 14.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         1.5 -1.589665  4.589665 1.576389 -1.589665  4.589665</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          13.5 10.000000 16.000000 1.450186 10.000000 16.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        12.0  9.000000 14.000000 1.208488  9.000000 14.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         1.5 -1.589665  4.589665 1.576389 -1.589665  4.589665</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean_ratio --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name             effect effect_size</span>
@@ -357,7 +357,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>          type comparison_measure_name reference_measure_name         effect</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  Comparison                   After                 Before          After</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   Reference                   After                 Before         Before</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                   After                 Before After - Before</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Difference                   After                 Before After ‒ Before</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    effect_size         LL        UL     SE df      ta_LL     ta_UL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1        14.25 11.9693490 16.530651 1.0700 15 12.3742361 16.125764</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2        12.88 11.0682679 14.691732 0.8500 15 11.3899072 14.370093</span>
@@ -367,7 +367,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>   comparison_measure_name reference_measure_name         effect effect_size</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                   After                 Before After - Before   0.3424327</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           LL        UL numerator denominator       SE  d_biased df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.05110995 0.6577932      1.37    3.865126 0.154769 0.3544516 15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.05110995 0.6577932      1.37    3.865126 0.154769 0.3424327 15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df &lt; 50.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
