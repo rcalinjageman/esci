@@ -92,7 +92,7 @@ jamovi_table_filler <- function(jmv_table = NULL, result_table, expand = FALSE) 
 
     # Save this data to the jamovi table
     if_set <- try(jmv_table$setRow(rowNo = x, values = row_list), silent = TRUE)
-    if (class(if_set) == "try-error" & expand) {
+    if (is(if_set, "try-error") & expand) {
       jmv_table$addRow(rowKey = x, values = row_list)
     }
 

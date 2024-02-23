@@ -247,12 +247,12 @@ estimate_mdiff_paired <- function(
     # Check reference_measure -- if it is an unquoted column name
     #  turn it into a string and store back to grouping_variable
     is_column_name <- try(reference_measure, silent = TRUE)
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       reference_measure_enquo <- rlang::enquo(reference_measure)
       reference_measure_enquo_name <- try(
         eval(rlang::as_name(reference_measure_enquo)), silent = TRUE
       )
-      if (class(reference_measure_enquo_name) != "try-error") {
+      if (!is(reference_measure_enquo_name, "try-error")) {
         # This only succeeds if the columns were passed unquoted
         # So now replace grouping_variable with a quoted version
         reference_measure <- reference_measure_enquo_name
@@ -263,26 +263,26 @@ estimate_mdiff_paired <- function(
     #   could be tidy column names, string column names, or vectors
     # We check to see if we have a tidy column name by trying to evaluate it
     is_column_name <- try(comparison_measure, silent = TRUE)
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       # Column names have been passed, check if need to be quoted up
 
       comparison_measure_enquo <- rlang::enquo(comparison_measure)
       comparison_measure_quoname <- try(
         eval(rlang::as_name(comparison_measure_enquo)), silent = TRUE
       )
-      if (class(comparison_measure_quoname) != "try-error") {
+      if (!is(comparison_measure_quoname, "try-error")) {
         # This only succeeds if outcome_variable was passed unquoted
         # Reset outcome_variable to be fully quoted
         comparison_measure <- comparison_measure_quoname
       }
       analysis_type <- "data.frame"
 
-    } else if (class(comparison_measure) == "numeric") {
+    } else if (is(comparison_measure, "numeric")) {
       # At this stage, we know that y was not a tidy column name,
       #  so it should be either a vector of raw data (class = numeric)
       #  or a vector of column names passed as strings
       analysis_type <- "vector"
-    } else if (class(comparison_measure) == "character") {
+    } else if (is(comparison_measure, "character")) {
       # Ok, must have been string column names
       if (length(comparison_measure) == 1) {
         analysis_type <- "data.frame"

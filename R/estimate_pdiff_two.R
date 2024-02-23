@@ -186,13 +186,13 @@ estimate_pdiff_two <- function(
       is_char <- try(
         is.character(grouping_variable), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         grouping_variable_enquo <- rlang::enquo(grouping_variable)
         grouping_variable_quoname <- try(
           eval(rlang::as_name(grouping_variable_enquo)), silent = TRUE
         )
-        if (class(grouping_variable_quoname) != "try-error") {
+        if (!is(grouping_variable_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           grouping_variable <- grouping_variable_quoname
@@ -207,13 +207,13 @@ estimate_pdiff_two <- function(
       is_char <- try(
         is.character(outcome_variable), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         outcome_variable_enquo <- rlang::enquo(outcome_variable)
         outcome_variable_quoname <- try(
           eval(rlang::as_name(outcome_variable_enquo)), silent = TRUE
         )
-        if (class(outcome_variable_quoname) != "try-error") {
+        if (!is(outcome_variable_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           outcome_variable <- outcome_variable_quoname

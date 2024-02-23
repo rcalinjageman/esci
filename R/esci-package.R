@@ -42,6 +42,7 @@
 #' @importFrom stats sd
 #' @importFrom utils head
 #' @importFrom utils tail
+#' @importFrom utils packageVersion
 #' @importFrom grid grobName
 #' @import ggplot2
 #' @import ggdist
@@ -54,4 +55,5 @@ esci_solve_imports <- function() {
   Rdpack::get_usage
   mathjaxr::preview_rd
   R6::is.R6
+  utils::packageVersion
 }

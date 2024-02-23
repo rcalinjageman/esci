@@ -5,15 +5,19 @@
 #' @description
 #' `estimate_correlation` is suitable for a design with two continuous
 #' variables.  It estimates the linear correlation between two variables
-#' (Pearson's r).  You can pass raw data or summary data.
+#' (Pearson's r) with a confidence interval.  You can pass raw data or
+#' summary data.
 #'
 #'
 #' @details
+#' Reach for this function to conduct simple linear correlation or simple
+#' linear regression.
+#'
 #' Once you generate an estimate with this function, you can visualize
 #' it with [esci::plot_correlation()] and you can test hypotheses with
 #' [esci::test_correlation()].  In addition, you can use [esci::plot_scatter()]
-#' to visualize the raw data and to conduct a
-#' regression analysis that returns predicted Y' values from a given X value.
+#' to visualize the raw data and to conduct a regression analysis that r
+#' returns predicted Y' values from a given X value.
 #'
 #'
 #' The estimated correlation is from [statpsych::ci.cor()], which uses the
@@ -94,13 +98,13 @@ estimate_correlation <- function(
       is_char <- try(
         is.character(x), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         x_enquo <- rlang::enquo(x)
         x_quoname <- try(
           eval(rlang::as_name(x_enquo)), silent = TRUE
         )
-        if (class(x_quoname) != "try-error") {
+        if (!is(x_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           x <- x_quoname
@@ -114,13 +118,13 @@ estimate_correlation <- function(
       is_char <- try(
         is.character(y), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         y_enquo <- rlang::enquo(y)
         y_quoname <- try(
           eval(rlang::as_name(y_enquo)), silent = TRUE
         )
-        if (class(y_quoname) != "try-error") {
+        if (!is(y_quoname, "try-error")) {
           # This only succeeds if y was passed unquoted
           # Reset y to be fully quoted
           y <- y_quoname

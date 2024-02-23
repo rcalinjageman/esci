@@ -1,7 +1,7 @@
 esci_document_object <- function(estimate) {
   tdoc <- NULL
   for (x in 1:length(estimate)) {
-    if (class(estimate[[x]]) == "data.frame") {
+    if (is(estimate[[x]], "data.frame")) {
       tdoc <- paste(
         tdoc,
         "#' - **",

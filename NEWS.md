@@ -1,7 +1,7 @@
-# esci (0.01)
+esci version 0.99 (Release data: March 2024)
+===========
 
-## Information
+Changes:
 
-- Alpha release; expect breaking changes still to come, especially with
+* Alpha release; expect breaking changes still to come, especially with
 graphing functions.
-- Released to jamovi is 1.01

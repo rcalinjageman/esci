@@ -149,7 +149,7 @@ estimate_mdiff_2x2_mixed <- function(
   outcome_variable_level1_enquo_name <- try(
     eval(rlang::as_name(outcome_variable_level1_enquo)), silent = TRUE
   )
-  if (class(outcome_variable_level1_enquo_name) != "try-error") {
+  if (!is(outcome_variable_level1_enquo_name, "try-error")) {
     # This only succeeds if the columns were passed unquoted
     # So now replace outcome_variable_level1 with a quoted version
     outcome_variable_level1 <- outcome_variable_level1_enquo_name
@@ -160,7 +160,7 @@ estimate_mdiff_2x2_mixed <- function(
   outcome_variable_level2_enquo_name <- try(
     eval(rlang::as_name(outcome_variable_level2_enquo)), silent = TRUE
   )
-  if (class(outcome_variable_level2_enquo_name) != "try-error") {
+  if (!is(outcome_variable_level2_enquo_name, "try-error")) {
     # This only succeeds if the columns were passed unquoted
     # So now replace outcome_variable_level2 with a quoted version
     outcome_variable_level2 <- outcome_variable_level2_enquo_name
@@ -170,7 +170,7 @@ estimate_mdiff_2x2_mixed <- function(
   grouping_variable_enquo_name <- try(
     eval(rlang::as_name(grouping_variable_enquo)), silent = TRUE
   )
-  if (class(grouping_variable_enquo_name) != "try-error") {
+  if (!is(grouping_variable_enquo_name, "try-error")) {
     # This only succeeds if the columns were passed unquoted
     # So now replace grouping_variable with a quoted version
     grouping_variable <- grouping_variable_enquo_name
@@ -428,7 +428,7 @@ estimate_mdiff_2x2_mixed <- function(
   overview$outcome_variable_name <- outcome_variable_name
 
   for (x in 1:length(estimate)) {
-    if (class(estimate[[x]]) == "esci_estimate") {
+    if (is(estimate[[x]], "esci_estimate")) {
       estimate[[x]]$overview <- overview
       estimate[[x]]$raw_data <- if (save_raw_data) raw_data else NULL
       estimate[[x]]$properties$data_type <- "data.frame"
