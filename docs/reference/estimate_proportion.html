@@ -111,8 +111,32 @@ decimal form.  Defaults to 0.95.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns an object of class esci_estimate</p>
-    </div>
+<p>Returns an object of class esci_estimate</p><ul><li><p><strong>overview</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_level</em> -</p></li>
+<li><p><em>cases</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>P</em> -</p></li>
+<li><p><em>P_LL</em> -</p></li>
+<li><p><em>P_UL</em> -</p></li>
+<li><p><em>P_SE</em> -</p></li>
+<li><p><em>P_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_proportion</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>case_label</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>effect_size_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+<li><p><em>cases</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Once you generate an estimate with this function, you can visualize
@@ -122,6 +146,20 @@ use <code><a href="estimate_pdiff_one.html">estimate_pdiff_one()</a></code>.</p>
 <p>The estimated proportions are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.prop1.html" class="external-link">statpsych::ci.prop1()</a></code>.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_proportion</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  cases <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">22</span><span class="op">-</span><span class="fl">8</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  outcome_variable_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Affected"</span>, <span class="st">"Not Affected"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_proportion.html">plot_proportion</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

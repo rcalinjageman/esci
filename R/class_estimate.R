@@ -106,7 +106,7 @@ esci_estimate_consolidate <- function(estimate_list) {
   # Cycle through the list
   for (estimate in estimate_list) {
     # Check if the current list item is an estimate
-    if (class(estimate) == "esci_estimate") {
+    if (is(estimate, "esci_estimate")) {
 
       # Handle warnings, consolidating with outcome variable name
       if(length(estimate$warnings) > 0 ) {

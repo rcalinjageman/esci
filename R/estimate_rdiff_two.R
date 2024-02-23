@@ -16,7 +16,7 @@
 #' Once you generate an estimate with this function, you can visualize
 #' it with [esci::plot_rdiff()] and you can test hypotheses with
 #' [esci::test_rdiff()].  In addition, you can use [esci::plot_scatter()]
-#' to visualize the raw data
+#' to visualize the raw data.
 #'
 #' The estimated single-group r values are from [statpsych::ci.cor()].
 #'
@@ -56,8 +56,87 @@
 #'
 #'
 #' @return Returnsobject of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **es_r_difference**
+#'     - *type* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *x_variable_name* -
+#'     - *y_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *n* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#'     - *rz* -
+#'     - *sem* -
+#'     - *z* -
+#'     - *p* -
+#' - **es_r**
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *x_variable_name* -
+#'     - *y_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *n* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **raw_data**
+#'     - *x* -
+#'     - *y* -
+#'     - *grouping_variable* -
 #'
 #'
+#' @examples
+#' # From summary data
+#' estimate <- esci::estimate_rdiff_two(
+#'   comparison_r = .53,
+#'   comparison_n = 45,
+#'   reference_r = .41,
+#'   reference_n = 59,
+#'   grouping_variable_levels = c("Females", "Males"),
+#'   x_variable_name = "Satisfaction with life",
+#'   y_variable_name = "Body satisfaction",
+#'   grouping_variable_name = "Gender",
+#'   conf_level = .95
+#' )
+#' estimate
+#'
+#' # To evaluate a hypothesis (interval null from -0.1 to 0.1):
+#' esci::test_rdiff(estimate)
+#'
+#' \dontrun{
+#' # To visualize the values of r and their difference
+#' esci::plot_rdiff(estimate)
+#' }
 #'
 #' @export
 estimate_rdiff_two <- function(
@@ -124,13 +203,13 @@ estimate_rdiff_two <- function(
       is_char <- try(
         is.character(x), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         x_enquo <- rlang::enquo(x)
         x_quoname <- try(
           eval(rlang::as_name(x_enquo)), silent = TRUE
         )
-        if (class(x_quoname) != "try-error") {
+        if (!is(x_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           x <- x_quoname
@@ -146,13 +225,13 @@ estimate_rdiff_two <- function(
       is_char <- try(
         is.character(y), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         y_enquo <- rlang::enquo(y)
         y_quoname <- try(
           eval(rlang::as_name(y_enquo)), silent = TRUE
         )
-        if (class(y_quoname) != "try-error") {
+        if (!is(y_quoname, "try-error")) {
           # This only succeeds if y was passed unquoted
           # Reset y to be fully quoted
           y <- y_quoname
@@ -167,13 +246,13 @@ estimate_rdiff_two <- function(
       is_char <- try(
         is.character(grouping_variable), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         grouping_variable_enquo <- rlang::enquo(grouping_variable)
         grouping_variable_quoname <- try(
           eval(rlang::as_name(grouping_variable_enquo)), silent = TRUE
         )
-        if (class(grouping_variable_quoname) != "try-error") {
+        if (!is(grouping_variable_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           grouping_variable <- grouping_variable_quoname
@@ -356,14 +435,14 @@ estimate_rdiff_two.summary <- function(
   class(estimate) <- "esci_estimate"
 
   es_r <- rbind(
-    estimate_correlation.summary(
+    estimate_r.summary(
       r = reference_r,
       n = reference_n,
       x_variable_name = x_variable_name,
       y_variable_name = y_variable_name,
       conf_level = conf_level
     )$es_r,
-    estimate_correlation.summary(
+    estimate_r.summary(
       r = comparison_r,
       n = comparison_n,
       x_variable_name = x_variable_name,
@@ -644,7 +723,7 @@ estimate_rdiff_two.data.frame <- function(
   for (mylevel in unique(data[[grouping_variable]])) {
     es_r <- rbind(
       es_r,
-      estimate_correlation.data.frame(
+      estimate_r.data.frame(
         data = data[data[[grouping_variable]] == mylevel, ],
         x = x_variable_name,
         y = y_variable_name,

@@ -111,13 +111,13 @@ estimate_pdiff_paired <- function(
       is_char <- try(
         is.character(comparison_measure), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         comparison_measure_enquo <- rlang::enquo(comparison_measure)
         comparison_measure_quoname <- try(
           eval(rlang::as_name(comparison_measure_enquo)), silent = TRUE
         )
-        if (class(comparison_measure_quoname) != "try-error") {
+        if (!is(comparison_measure_quoname, "try-error")) {
           # This only succeeds if comparison_measure was passed unquoted
           # Reset comparison_measure to be fully quoted
           comparison_measure <- comparison_measure_quoname
@@ -132,13 +132,13 @@ estimate_pdiff_paired <- function(
       is_char <- try(
         is.character(reference_measure), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         reference_measure_enquo <- rlang::enquo(reference_measure)
         reference_measure_quoname <- try(
           eval(rlang::as_name(reference_measure_enquo)), silent = TRUE
         )
-        if (class(reference_measure_quoname) != "try-error") {
+        if (!is(reference_measure_quoname, "try-error")) {
           # This only succeeds if reference_measure was passed unquoted
           # Reset reference_measure to be fully quoted
           reference_measure <- reference_measure_quoname
@@ -284,7 +284,7 @@ estimate_pdiff_paired.summary <- function(
 
   # Replace estimated difference based on paired design
 
-  statpsych_version <- as.numeric(gsub("\\.", "", packageVersion("statpsych")))
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   if (statpsych_version > 130) {
     pdiff_row <- as.data.frame(

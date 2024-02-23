@@ -2,7 +2,7 @@
 % Please edit documentation in R/estimate_pdiff_ind_contrast.R
 \name{estimate_pdiff_ind_contrast}
 \alias{estimate_pdiff_ind_contrast}
-\title{Estimates for a multi-group design with a categorical outcome
+\title{Estimates for a multi-group study with a categorical outcome
 variable}
 \usage{
 estimate_pdiff_ind_contrast(
@@ -24,25 +24,25 @@ estimate_pdiff_ind_contrast(
 \item{data}{For raw data - a data frame or tibble}
 
 \item{outcome_variable}{For raw data - The column name of the outcome
-variable, or a vector of categorical data; must be a factor}
+variable which is a factor, or a vector that is a factor}
 
 \item{grouping_variable}{For raw data - The column name of the grouping
-variable, or a vector of group names; must be a factor}
+variable which is a factor, or a vector that is a factor}
 
-\item{cases}{For summary data - A vector of 2 or more event counts,
+\item{cases}{For summary data - A numeric vector of 2 or more event counts,
 each an integer >= 0}
 
-\item{ns}{For summary data - A vector of sample sizes, same length as counts,
-each an integer >= correspond event count}
+\item{ns}{For summary data - A numeric vector of sample sizes, same length
+as counts, each an integer >= corresponding event count}
 
-\item{contrast}{A vector of group weights}
+\item{contrast}{A vector of group weights, same length as number of groups.}
 
 \item{case_label}{An optional numeric or character label
 For summary data, used as the label and defaults to 'Affected'.  For raw
 data, used to specify the level used for the proportion.}
 
 \item{grouping_variable_levels}{For summary data - An optional vector of
-group labels, same length as means}
+group labels, same length as cases}
 
 \item{outcome_variable_name}{Optional friendly name for the outcome variable.
 Defaults to 'My outcome variable' or the outcome variable column name if a
@@ -59,6 +59,62 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returns object of class esci_estimate
+\itemize{
+\item \strong{es_proportion_difference}
+\itemize{
+\item \emph{type} -
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{SE} -
+\item \emph{effect_size_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_odds_ratio}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{case_label} -
+\item \emph{grouping_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{SE} -
+\item \emph{LL} -
+\item \emph{UL} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{overview}
+\itemize{
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{outcome_variable_name} -
+\item \emph{outcome_variable_level} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{P} -
+\item \emph{P_LL} -
+\item \emph{P_UL} -
+\item \emph{P_SE} -
+\item \emph{P_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+\item \strong{es_phi}
+\itemize{
+\item \emph{grouping_variable_name} -
+\item \emph{outcome_variable_name} -
+\item \emph{effect} -
+\item \emph{effect_size} -
+\item \emph{SE} -
+\item \emph{LL} -
+\item \emph{UL} -
+}
+}
 }
 \description{
 \loadmathjax
@@ -70,9 +126,28 @@ and as an odds ratio (2-group designs only).  You can pass raw data or
 summary data.
 }
 \details{
-Reach for this function in place of a Chi-Square test.
+Once you generate an estimate with this function, you can visualize
+it with \code{\link[=plot_mdiff]{plot_mdiff()}} and you can test hypotheses with
+\code{\link[=test_mdiff]{test_mdiff()}}.
 
 The estimated proportion differences are from \code{\link[statpsych:ci.lc.prop.bs]{statpsych::ci.lc.prop.bs()}}.
 
 The estimated odds ratios (if returned) are from \code{\link[statpsych:ci.oddsratio]{statpsych::ci.oddsratio()}}.
+}
+\examples{
+estimate <- estimate_pdiff_ind_contrast(
+  cases = c(78, 10),
+  ns = c(252, 20),
+  case_label = "egocentric",
+  grouping_variable_levels = c("Original", "Replication"),
+  contrast = c(-1, 1),
+  conf_level = 0.95
+)
+
+\dontrun{
+# To visualize the estimate
+plot_proportion(estimate)
+}
+
+
 }

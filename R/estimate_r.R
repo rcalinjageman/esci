@@ -3,17 +3,21 @@
 #'
 #'
 #' @description
-#' `estimate_correlation` is suitable for a design with two continuous
+#' `estimate_r` is suitable for a design with two continuous
 #' variables.  It estimates the linear correlation between two variables
-#' (Pearson's r).  You can pass raw data or summary data.
+#' (Pearson's r) with a confidence interval.  You can pass raw data or
+#' summary data.
 #'
 #'
 #' @details
+#' Reach for this function to conduct simple linear correlation or simple
+#' linear regression.
+#'
 #' Once you generate an estimate with this function, you can visualize
 #' it with [esci::plot_correlation()] and you can test hypotheses with
 #' [esci::test_correlation()].  In addition, you can use [esci::plot_scatter()]
-#' to visualize the raw data and to conduct a
-#' regression analysis that returns predicted Y' values from a given X value.
+#' to visualize the raw data and to conduct a regression analysis that r
+#' returns predicted Y' values from a given X value.
 #'
 #'
 #' The estimated correlation is from [statpsych::ci.cor()], which uses the
@@ -40,10 +44,120 @@
 #'
 #'
 #' @return Returns object of class esci_estimate
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
+#' - **es_r**
+#'     - *x_variable_name* -
+#'     - *y_variable_name* -
+#'     - *effect* -
+#'     - *effect_size* -
+#'     - *LL* -
+#'     - *UL* -
+#'     - *SE* -
+#'     - *n* -
+#'     - *df* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
+#' - **regression**
+#'     - *component* -
+#'     - *values* -
+#'     - *LL* -
+#'     - *UL* -
+#' - **raw_data**
+#'     - *x* -
+#'     - *y* -
+#'     - *fit* -
+#'     - *lwr* -
+#'     - *upr* -
+#'
+#'
+#'
+#'
+#' @examples
+#' # From raw data
+#'
+#' thomason1 <- data.frame(
+#'   ls_pre = c(
+#'     13,
+#'     12,
+#'     12,
+#'     9,
+#'     14,
+#'     17,
+#'     14,
+#'     9,
+#'     6,
+#'     7,
+#'     11,
+#'     15
+#'   ),
+#'   ls_post = c(
+#'     14,
+#'     13,
+#'     16,
+#'     12,
+#'     15,
+#'     18,
+#'     13,
+#'     10,
+#'     10,
+#'     8,
+#'     14,
+#'     16
+#'   )
+#' )
+#'
+#' estimate <- esci::estimate_r(
+#'   thomason1,
+#'   ls_pre,
+#'   ls_post
+#' )
+#' estimate
+#'
+#' # To evaluate a hypothesis (interval null from -0.1 to 0.1):
+#' test_correlation(estimate, rope = c(-0.1, 0.1))
+#'
+#' \dontrun{
+#' # To visualize the value of r
+#' plot_correlation(estimate)
+#'
+#' # To visualize the data (scatterplot)
+#' plot_scatter(estimate)
+#'
+#' # To visualize the data (scatterplot) and use regression to obtain Y' from X
+#' plot_scatter(estimate, predict_from_x = 10)
+#'
+#' }
+#'
+#' # From summary data
+#' estimate <- esci::estimate_r(r = 0.536, n = 50)
+#' estimate
+#'
+#'
+#' \dontrun{
+#' # To visualize the estimate
+#' plot_correlation(estimate)
+#' }
 #'
 #'
 #' @export
-estimate_correlation <- function(
+estimate_r <- function(
   data = NULL,
   x = NULL,
   y = NULL,
@@ -94,13 +208,13 @@ estimate_correlation <- function(
       is_char <- try(
         is.character(x), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         x_enquo <- rlang::enquo(x)
         x_quoname <- try(
           eval(rlang::as_name(x_enquo)), silent = TRUE
         )
-        if (class(x_quoname) != "try-error") {
+        if (!is(x_quoname, "try-error")) {
           # This only succeeds if outcome_variable was passed unquoted
           # Reset outcome_variable to be fully quoted
           x <- x_quoname
@@ -114,13 +228,13 @@ estimate_correlation <- function(
       is_char <- try(
         is.character(y), silent = TRUE
       )
-      if (class(is_char) == "try-error") {
+      if (is(is_char, "try-error")) {
         # If not a character, must have been quoted
         y_enquo <- rlang::enquo(y)
         y_quoname <- try(
           eval(rlang::as_name(y_enquo)), silent = TRUE
         )
-        if (class(y_quoname) != "try-error") {
+        if (!is(y_quoname, "try-error")) {
           # This only succeeds if y was passed unquoted
           # Reset y to be fully quoted
           y <- y_quoname
@@ -148,7 +262,7 @@ estimate_correlation <- function(
 
   if(analysis_type == "jamovi") {
     return(
-      estimate_correlation.jamovi(
+      estimate_r.jamovi(
         data = data,
         vars = c(x, y),
         conf_level = conf_level,
@@ -157,7 +271,7 @@ estimate_correlation <- function(
     )
   } else if (analysis_type == "summary") {
     return(
-      estimate_correlation.summary(
+      estimate_r.summary(
         r = r,
         n = n,
         x_variable_name = x_variable_name,
@@ -173,7 +287,7 @@ estimate_correlation <- function(
       y_variable_name <- deparse(substitute(y))
     }
     return(
-      estimate_correlation.vector(
+      estimate_r.vector(
         x = x,
         y = y,
         x_variable_name = x_variable_name,
@@ -184,7 +298,7 @@ estimate_correlation <- function(
     )
   } else if (analysis_type == "data.frame") {
     return(
-      estimate_correlation.data.frame(
+      estimate_r.data.frame(
         data = data,
         x = x,
         y = y,
@@ -200,7 +314,7 @@ estimate_correlation <- function(
 
 
 
-estimate_correlation.summary <- function(
+estimate_r.summary <- function(
   r,
   n,
   x_variable_name = "My x variable",
@@ -271,7 +385,7 @@ estimate_correlation.summary <- function(
 }
 
 
-estimate_correlation.vector <- function(
+estimate_r.vector <- function(
   x,
   y,
   x_variable_name = "My x variable",
@@ -316,7 +430,7 @@ estimate_correlation.vector <- function(
     y_variable_name
   )
 
-  estimate <- estimate_correlation.data.frame(
+  estimate <- estimate_r.data.frame(
     data = mydata,
     x = x_variable_name,
     y = y_variable_name,
@@ -332,7 +446,7 @@ estimate_correlation.vector <- function(
 }
 
 
-estimate_correlation.data.frame <- function(
+estimate_r.data.frame <- function(
     data,
     x,
     y,
@@ -397,7 +511,7 @@ estimate_correlation.data.frame <- function(
   n <- nrow(data_valid)
   r <- cor(data_valid$x, data_valid$y)
 
-  estimate$es_r <- estimate_correlation.summary(
+  estimate$es_r <- estimate_r.summary(
     r = r,
     n = n,
     x_variable_name = x,
@@ -488,7 +602,7 @@ estimate_correlation.data.frame <- function(
 }
 
 
-estimate_correlation.jamovi <- function(
+estimate_r.jamovi <- function(
   data,
   vars,
   conf_level = 0.95,
@@ -548,7 +662,7 @@ estimate_correlation.jamovi <- function(
   for (x in vars) {
     for (y in vars) {
       if (x != y) {
-        this_r <- estimate_correlation.summary(
+        this_r <- estimate_r.summary(
           r = cor_matrix[x, y],
           n = n_matrix[x, y],
           x_variable_name = x,

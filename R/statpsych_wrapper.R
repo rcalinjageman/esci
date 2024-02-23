@@ -18,6 +18,13 @@ wrapper_ci.stdmean1 <- function(
     )
   )
 
+  # Update for statpsych > 1.5
+  biased <- res$Estimate
+  if (!is.null(res$`adj Estimate`)) {
+    biased <- res$`adj Estimate`
+    res$Estimate <- res$`adj Estimate`
+  }
+
   # Wrangling ----------------------------------------
   # Change order and names
   res <- res[ , c("Estimate", "LL", "UL", "SE")]
@@ -28,7 +35,7 @@ wrapper_ci.stdmean1 <- function(
   res$denominator <- comparison_sd
   res$SE <- res$SE_temp
   res$SE_temp <- NULL
-  res$d_biased <- res$effect_size
+  res$d_biased <- biased
 
   # Add effect label
   res <- cbind(
@@ -43,7 +50,7 @@ wrapper_ci.stdmean1 <- function(
     effect_size_name_html = "<i>d</i><sub>1.biased</sub>",
     denominator_name = "s_comparison",
     denominator_name_html = "<i>s</i><sub>comparison</sub>",
-    bias_corrected = FALSE
+    bias_corrected = TRUE
   )
 
   properties$effect_size_category = "difference"
@@ -111,6 +118,13 @@ wrapper_ci.stdmean.ps <- function(
     )
   )[1, ]
 
+  # Update for statpsych > 1.5
+  biased <- es_smd$Estimate
+  if (!is.null(es_smd$`adj Estimate`)) {
+    biased <- es_smd$`adj Estimate`
+    es_smd$Estimate <- es_smd$`adj Estimate`
+  }
+
   rownames(es_smd) <- NULL
   es_smd <- es_smd[ , c("Estimate", "LL", "UL", "SE")]
   colnames(es_smd) <- c("effect_size", "LL", "UL", "SE_temp")
@@ -122,7 +136,7 @@ wrapper_ci.stdmean.ps <- function(
   es_smd$denominator <- sqrt((comparison_sd^2 + reference_sd^2)/2)
   es_smd$SE <- es_smd$SE_temp
   es_smd$SE_temp <- NULL
-  es_smd$d_biased <- es_smd$effect_size / bias
+  es_smd$d_biased <- biased
   es_smd$df <- n-1
 
   # Add effect label

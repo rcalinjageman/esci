@@ -214,12 +214,12 @@ estimate_mdiff_2x2_between <- function(
     # Check grouping_variable -- if it is an unquoted column name
     #  turn it into a string and store back to grouping_variable
     is_column_name <- try(grouping_variable_A, silent = TRUE)
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       grouping_variable_A_enquo <- rlang::enquo(grouping_variable_A)
       grouping_variable_A_enquo_name <- try(
         eval(rlang::as_name(grouping_variable_A_enquo)), silent = TRUE
       )
-      if (class(grouping_variable_A_enquo_name) != "try-error") {
+      if (!is(grouping_variable_A_enquo_name, "try-error")) {
         # This only succeeds if the columns were passed unquoted
         # So now replace grouping_variable with a quoted version
         grouping_variable_A <- grouping_variable_A_enquo_name
@@ -228,12 +228,12 @@ estimate_mdiff_2x2_between <- function(
 
 
     is_column_name <- try(grouping_variable_B, silent = TRUE)
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       grouping_variable_B_enquo <- rlang::enquo(grouping_variable_B)
       grouping_variable_B_enquo_name <- try(
         eval(rlang::as_name(grouping_variable_B_enquo)), silent = TRUE
       )
-      if (class(grouping_variable_B_enquo_name) != "try-error") {
+      if (!is(grouping_variable_B_enquo_name, "try-error")) {
         # This only succeeds if the columns were passed unquoted
         # So now replace grouping_variable with a quoted version
         grouping_variable_B <- grouping_variable_B_enquo_name
@@ -244,13 +244,13 @@ estimate_mdiff_2x2_between <- function(
     #   could be tidy column names, string column names, or vectors
     # We check to see if we have a tidy column name by trying to evaluate it
     is_column_name <- try(outcome_variable, silent = TRUE)
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       # Column names have been passed, check if need to be quoted up
       outcome_variable_enquo <- rlang::enquo(outcome_variable)
       outcome_variable_quoname <- try(
         eval(rlang::as_name(outcome_variable_enquo)), silent = TRUE
       )
-      if (class(outcome_variable_quoname) != "try-error") {
+      if (!is(outcome_variable_quoname, "try-error")) {
         # This only succeeds if outcome_variable was passed unquoted
         # Reset outcome_variable to be fully quoted
         outcome_variable <- outcome_variable_quoname
@@ -259,12 +259,12 @@ estimate_mdiff_2x2_between <- function(
       # Ready to be analyzed as a list of string column names
       analysis_type <- "data.frame"
 
-    } else if (class(outcome_variable) == "numeric") {
+    } else if (is(outcome_variable, "numeric")) {
       # At this stage, we know that y was not a tidy column name,
       #  so it should be either a vector of raw data (class = numeric)
       #  or a vector of column names passed as strings
       analysis_type <- "vector"
-    } else if (class(outcome_variable) == "character") {
+    } else if (is(outcome_variable, "character")) {
       # Ok, must have been string column names
       if (length(outcome_variable) == 1) {
         analysis_type <- "data.frame"
@@ -831,7 +831,7 @@ estimate_mdiff_2x2_between.summary <- function(
   )
 
   for (x in 1:length(estimate)) {
-    if (class(estimate[[x]]) == "esci_estimate") {
+    if (is(estimate[[x]], "esci_estimate")) {
       estimate[[x]]$overview <- overview
       estimate[[x]]$properties$data_type <- "summary"
       estimate[[x]]$properties$data_source <- NULL
@@ -1138,7 +1138,7 @@ estimate_mdiff_2x2_between.data.frame <- function(
 
 
   for (x in 1:length(estimate)) {
-    if (class(estimate[[x]]) == "esci_estimate") {
+    if (is(estimate[[x]], "esci_estimate")) {
         estimate[[x]]$overview <- overview
         estimate[[x]]$raw_data <- if (save_raw_data) raw_data else NULL
         estimate[[x]]$properties$data_type <- "data.frame"

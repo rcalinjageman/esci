@@ -246,7 +246,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name                          effect effect_size        LL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription                   transcription    8.811765  7.154642</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         transcription                 Reference value   10.000000        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         transcription transcription - Reference value   -1.188235 -2.845358</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         transcription transcription ‒ Reference value   -1.188235 -2.845358</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           UL        SE df     ta_LL     ta_UL       type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 10.4688874 0.8145049 33  7.746606  9.876923 Comparison</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA        NA NA  7.746606  9.876923  Reference</span>
@@ -256,7 +256,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name                          effect effect_size   LL   UL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription                   transcription         8.6  6.5 11.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         transcription                 Reference value        10.0   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         transcription transcription - Reference value        -1.4 -3.5  1.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         transcription transcription ‒ Reference value        -1.4 -3.5  1.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         SE df ta_LL ta_UL       type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.021201 33   7.1  10.8 Comparison</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2       NA NA    NA    NA  Reference</span>
@@ -264,7 +264,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_smd --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name                          effect effect_size         LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription transcription - Reference value  -0.2444527 -0.5838873</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription transcription ‒ Reference value  -0.2444527 -0.5838873</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           UL numerator denominator        SE df   d_biased</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.09856549 -1.188235    4.749339 0.1740983 33 -0.2501896</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_1 because the standardizer used was s. d_1 has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>
@@ -312,7 +312,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name                                effect effect_size</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   My outcome variable                   My outcome variable       12.09</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   My outcome variable                       Reference value       12.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   My outcome variable My outcome variable - Reference value        0.09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   My outcome variable My outcome variable ‒ Reference value        0.09</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           LL        UL        SE  df      ta_LL      ta_UL       type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 11.0111734 13.168827 0.5439018 102 11.3884176 12.7915824 Comparison</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA        NA        NA  NA 11.3884176 12.7915824  Reference</span>
@@ -320,7 +320,7 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -- es_smd --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name                                effect effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   My outcome variable My outcome variable - Reference value  0.01618412</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   My outcome variable My outcome variable ‒ Reference value  0.01618412</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           LL        UL numerator denominator         SE  df   d_biased</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.1769892 0.2092782      0.09        5.52 0.09853943 102 0.01630435</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_1 because the standardizer used was s. d_1 has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>

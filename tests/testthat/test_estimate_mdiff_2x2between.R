@@ -143,6 +143,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
     )[1, ]
   )
 
+  if (!is.null(mysp$`adj Estimate`)) {
+    mysp$Estimate <- mysp$`adj Estimate`
+  }
+
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
   testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
@@ -163,6 +167,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
       )
     )[1, ]
   )
+
+  if (!is.null(mysp$`adj Estimate`)) {
+    mysp$Estimate <- mysp$`adj Estimate`
+  }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
@@ -186,6 +194,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
     )[1, ]
   )
 
+  if (!is.null(mysp$`adj Estimate`)) {
+    mysp$Estimate <- mysp$`adj Estimate`
+  }
+
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
   testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
@@ -206,6 +218,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
       )
     )[1, ]
   )
+
+  if (!is.null(mysp$`adj Estimate`)) {
+    mysp$Estimate <- mysp$`adj Estimate`
+  }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
@@ -228,6 +244,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
       )
     )[1, ]
   )
+
+  if (!is.null(mysp$`adj Estimate`)) {
+    mysp$Estimate <- mysp$`adj Estimate`
+  }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)

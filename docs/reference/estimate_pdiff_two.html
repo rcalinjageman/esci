@@ -79,7 +79,7 @@ You can pass raw data or summary data.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>data</dt>
-<dd><p>For raw data - a datavframe or tibble</p></dd>
+<dd><p>For raw data - a data frame or tibble</p></dd>
 
 
 <dt>outcome_variable</dt>
@@ -148,8 +148,53 @@ decimal form.  Defaults to 0.95.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returnsobject of class esci_estimate</p>
-    </div>
+<p>Returnsobject of class esci_estimate</p><ul><li><p><strong>es_proportion_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>case_label</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>effect_size_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_odds_ratio</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>case_label</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>overview</strong></p><ul><li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_level</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_level</em> -</p></li>
+<li><p><em>cases</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>P</em> -</p></li>
+<li><p><em>P_LL</em> -</p></li>
+<li><p><em>P_UL</em> -</p></li>
+<li><p><em>P_SE</em> -</p></li>
+<li><p><em>P_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_phi</strong></p><ul><li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Once you generate an estimate with this function, you can visualize
@@ -160,6 +205,24 @@ it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test
 <p>The estimated correlation (phi) is from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.phi.html" class="external-link">statpsych::ci.phi()</a></code>.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">estimate_pdiff_two</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  comparison_cases <span class="op">=</span> <span class="fl">10</span>,</span></span>
+<span class="r-in"><span>  comparison_n <span class="op">=</span> <span class="fl">20</span>,</span></span>
+<span class="r-in"><span>  reference_cases <span class="op">=</span> <span class="fl">78</span>,</span></span>
+<span class="r-in"><span>  reference_n <span class="op">=</span> <span class="fl">252</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Original"</span>, <span class="st">"Replication"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  conf_level <span class="op">=</span> <span class="fl">0.95</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_proportion.html">plot_proportion</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

@@ -173,6 +173,9 @@ test_that("Compare estimate_mdiff_paired to statpsych::ci.mean.ps example and st
       )[1, ]
     )
 
+    if (!is.null(mysp$`adj Estimate`)) {
+      mysp$Estimate <- mysp$`adj Estimate`
+    }
 
     testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
     # testthat::expect_equal(estimate$es_smd$LL, mysp$LL)

@@ -6,8 +6,8 @@ estimate_pdiff_ind_contrast is suitable for a multi-group design
 a user-defined set of contrast weights that allows estimation of any
 1-df contrast.  It can express estimates as a difference in proportions
 and as an odds ratio (2-group designs only).  You can pass raw data or
-summary data."><title>Estimates for a multi-group design with a categorical outcome
-variable — estimate_pdiff_ind_contrast • esci</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estimates for a multi-group design with a categorical outcome
+summary data."><title>Estimates for a multi-group study with a categorical outcome
+variable — estimate_pdiff_ind_contrast • esci</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estimates for a multi-group study with a categorical outcome
 variable — estimate_pdiff_ind_contrast"><meta property="og:description" content="
 
 estimate_pdiff_ind_contrast is suitable for a multi-group design
@@ -50,7 +50,7 @@ summary data."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/li
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Estimates for a multi-group design with a categorical outcome
+      <img src="" class="logo" alt=""><h1>Estimates for a multi-group study with a categorical outcome
 variable</h1>
       
       <div class="d-none name"><code>estimate_pdiff_ind_contrast.Rd</code></div>
@@ -91,26 +91,26 @@ summary data.</p>
 
 <dt>outcome_variable</dt>
 <dd><p>For raw data - The column name of the outcome
-variable, or a vector of categorical data; must be a factor</p></dd>
+variable which is a factor, or a vector that is a factor</p></dd>
 
 
 <dt>grouping_variable</dt>
 <dd><p>For raw data - The column name of the grouping
-variable, or a vector of group names; must be a factor</p></dd>
+variable which is a factor, or a vector that is a factor</p></dd>
 
 
 <dt>cases</dt>
-<dd><p>For summary data - A vector of 2 or more event counts,
+<dd><p>For summary data - A numeric vector of 2 or more event counts,
 each an integer &gt;= 0</p></dd>
 
 
 <dt>ns</dt>
-<dd><p>For summary data - A vector of sample sizes, same length as counts,
-each an integer &gt;= correspond event count</p></dd>
+<dd><p>For summary data - A numeric vector of sample sizes, same length
+as counts, each an integer &gt;= corresponding event count</p></dd>
 
 
 <dt>contrast</dt>
-<dd><p>A vector of group weights</p></dd>
+<dd><p>A vector of group weights, same length as number of groups.</p></dd>
 
 
 <dt>case_label</dt>
@@ -121,7 +121,7 @@ data, used to specify the level used for the proportion.</p></dd>
 
 <dt>grouping_variable_levels</dt>
 <dd><p>For summary data - An optional vector of
-group labels, same length as means</p></dd>
+group labels, same length as cases</p></dd>
 
 
 <dt>outcome_variable_name</dt>
@@ -149,15 +149,81 @@ decimal form.  Defaults to 0.95.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns object of class esci_estimate</p>
-    </div>
+<p>Returns object of class esci_estimate</p><ul><li><p><strong>es_proportion_difference</strong></p><ul><li><p><em>type</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>case_label</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>effect_size_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_odds_ratio</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>case_label</em> -</p></li>
+<li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>overview</strong></p><ul><li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>grouping_variable_level</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_level</em> -</p></li>
+<li><p><em>cases</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>P</em> -</p></li>
+<li><p><em>P_LL</em> -</p></li>
+<li><p><em>P_UL</em> -</p></li>
+<li><p><em>P_SE</em> -</p></li>
+<li><p><em>P_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+<li><p><strong>es_phi</strong></p><ul><li><p><em>grouping_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>effect</em> -</p></li>
+<li><p><em>effect_size</em> -</p></li>
+<li><p><em>SE</em> -</p></li>
+<li><p><em>LL</em> -</p></li>
+<li><p><em>UL</em> -</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Reach for this function in place of a Chi-Square test.</p>
+    <p>Once you generate an estimate with this function, you can visualize
+it with <code><a href="plot_mdiff.html">plot_mdiff()</a></code> and you can test hypotheses with
+<code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
 <p>The estimated proportion differences are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.lc.prop.bs.html" class="external-link">statpsych::ci.lc.prop.bs()</a></code>.</p>
 <p>The estimated odds ratios (if returned) are from <code><a href="https://rdrr.io/pkg/statpsych/man/ci.oddsratio.html" class="external-link">statpsych::ci.oddsratio()</a></code>.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">estimate_pdiff_ind_contrast</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  cases <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">78</span>, <span class="fl">10</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  ns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">252</span>, <span class="fl">20</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  case_label <span class="op">=</span> <span class="st">"egocentric"</span>,</span></span>
+<span class="r-in"><span>  grouping_variable_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Original"</span>, <span class="st">"Replication"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  conf_level <span class="op">=</span> <span class="fl">0.95</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_proportion.html">plot_proportion</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

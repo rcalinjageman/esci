@@ -896,7 +896,7 @@ jamovi_correlation <- function(self) {
 
 
     # Step 2: Get analysis properties-----------------------------
-    call <- esci::estimate_correlation
+    call <- esci::estimate_r
 
     conf_level <- jamovi_sanitize(
       my_value = self$options$conf_level,

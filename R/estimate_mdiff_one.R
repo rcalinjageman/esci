@@ -210,14 +210,14 @@ estimate_mdiff_one <- function(
     # We check to see if we have a tidy column name by trying to evaluate it
     is_column_name <- try(outcome_variable, silent = TRUE)
 
-    if(class(is_column_name) == "try-error") {
+    if(is(is_column_name, "try-error")) {
       # Column names have been passed, check if need to be quoted up
 
       outcome_variable_enquo <- rlang::enquo(outcome_variable)
       outcome_variable_quoname <- try(
         eval(rlang::as_name(outcome_variable_enquo)), silent = TRUE
       )
-      if (class(outcome_variable_quoname) != "try-error") {
+      if (!is(outcome_variable_quoname, "try-error")) {
         # This only succeeds if outcome_variable was passed unquoted
         # Reset outcome_variable to be fully quoted
         outcome_variable <- outcome_variable_quoname
@@ -227,12 +227,12 @@ estimate_mdiff_one <- function(
       # Ready to be analyzed as a list of string column names
       analysis_type <- "data.frame"
 
-    } else if (class(outcome_variable) == "numeric") {
+    } else if (is(outcome_variable, "numeric")) {
       # At this stage, we know that y was not a tidy column name,
       #  so it should be either a vector of raw data (class = numeric)
       #  or a vector of column names passed as strings
       analysis_type <- "vector"
-    } else if (class(outcome_variable) == "character") {
+    } else if (is(outcome_variable, "character")) {
       # Ok, must have been string column names
       if (length(outcome_variable) == 1) {
         if (outcome_variable_name == "My outcome variable") {
