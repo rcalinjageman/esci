@@ -112,53 +112,56 @@ decimal form.  Defaults to 0.95.</p></dd>
     
 
 <p>An esci-estimate object; a list of data frames and properties.
-Returned tables include:</p><ul><li><p>es_meta - A data frame with one overall.  If a moderator was
-defined, there is an additional row for each level of the moderator.</p><ul><li><p>effect_label -  Study label</p></li>
-<li><p>effect_size - Effect size</p></li>
-<li><p>LL - Lower bound of conf_level% confidence interval</p></li>
-<li><p>UL - Upper bound of conf_level% confidence interval</p></li>
-<li><p>SE - Expected standard error</p></li>
-<li><p>k - Number of studies</p></li>
-<li><p>diamond_ratio - ratio of random to fixed effects meta-analtics effect sizes</p></li>
-<li><p>diamond_ratio_LL - lower bound of conf_level% confidence interval for diamond ratio</p></li>
-<li><p>diamond_ratio_UL - upper bound of conf_level% confidence interval for diamond ratio</p></li>
-<li><p>I2 -  I2 measure of heterogeneity</p></li>
-<li><p>I2_LL - Lower bound of conf_level% confidence interval for I2</p></li>
-<li><p>I2_UL - upper bound of conf_level% confidence interval for I2</p></li>
-<li><p>PI_LL - lower bound of conf_level% of prediction interval</p></li>
-<li><p>PI_UL - upper bound of conf_level% of prediction interval</p></li>
-<li><p>p - p value for the meta-analytic effect size, based on null of exactly 0</p></li>
-<li><p>width - width of the effect-size confidence interval</p></li>
-<li><p>FE_effect_size - effect size of the fixed-effects model (regardless of if fixed effects was selected</p></li>
-<li><p>RE_effect_size - effect size of the random-effects model (regardless of if random effects was selected</p></li>
-<li><p>FE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio</p></li>
-<li><p>RE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio</p></li>
+Returned tables include:</p><ul><li><p><strong>es_meta</strong> - A data frame of meta-analytic effect sizes.  If a moderator was
+defined, there is an additional row for each level of the moderator.</p><ul><li><p><em>effect_label</em> -  Study label</p></li>
+<li><p><em>effect_size</em> - Effect size</p></li>
+<li><p><em>LL</em> - Lower bound of conf_level% confidence interval</p></li>
+<li><p><em>UL</em> - Upper bound of conf_level% confidence interval</p></li>
+<li><p><em>SE</em> - Expected standard error</p></li>
+<li><p><em>k</em> - Number of studies</p></li>
+<li><p><em>diamond_ratio</em> - ratio of random to fixed effects meta-analtics effect sizes</p></li>
+<li><p><em>diamond_ratio_LL</em> - lower bound of conf_level% confidence interval for diamond ratio</p></li>
+<li><p><em>diamond_ratio_UL</em> - upper bound of conf_level% confidence interval for diamond ratio</p></li>
+<li><p><em>I2</em> -  I2 measure of heterogeneity</p></li>
+<li><p><em>I2_LL</em> - Lower bound of conf_level% confidence interval for I2</p></li>
+<li><p><em>I2_UL</em> - upper bound of conf_level% confidence interval for I2</p></li>
+<li><p><em>PI_LL</em> - lower bound of conf_level% of prediction interval</p></li>
+<li><p><em>PI_UL</em> - upper bound of conf_level% of prediction interval</p></li>
+<li><p><em>p</em> - p value for the meta-analytic effect size, based on null of exactly 0</p></li>
+<li><p>*width - width of the effect-size confidence interval</p></li>
+<li><p><em>FE_effect_size</em> - effect size of the fixed-effects model (regardless of if fixed effects was selected</p></li>
+<li><p><em>RE_effect_size</em> - effect size of the random-effects model (regardless of if random effects was selected</p></li>
+<li><p><em>FE_CI_width</em> - width of the fixed-effects confidence interval, used to calculate diamond ratio</p></li>
+<li><p><em>RE_CI_width</em> - width of the fixed-effects confidence interval, used to calculate diamond ratio</p></li>
 </ul></li>
-<li><p>es_heterogeneity - A data frame of of heterogeneity values and
+<li><p><strong>es_heterogeneity</strong> - A data frame of of heterogeneity values and
 conf_level% CIs for the meta-analytic effect size.  If a moderator was defined
-also reports heterogeneity estimates for each level of the moderator.</p><ul><li><p>effect_label - study label</p></li>
-<li><p>moderator_variable_name - if moderator passed, gives name of the moderator</p></li>
-<li><p>moderator_variable_name - 'Overall' and each level of moderator, if passed</p></li>
-<li><p>measure - Name of the measure of heterogeneity</p></li>
-<li><p>LL - lower bound of conf_level% confidence interval</p></li>
-<li><p>UL - upper bound of conf_level% confidence interval</p></li>
+also reports heterogeneity estimates for each level of the moderator.</p><ul><li><p><em>effect_label</em> - study label</p></li>
+<li><p><em>moderator_variable_name</em> - if moderator passed, gives name of the moderator</p></li>
+<li><p><em>moderator_level</em> - 'Overall' and each level of moderator, if passed</p></li>
+<li><p><em>measure</em> - Name of the measure of heterogeneity</p></li>
+<li><p><em>estimate</em> - Value of the heterogeneity estimate</p></li>
+<li><p><em>LL</em> - lower bound of conf_level% confidence interval</p></li>
+<li><p><em>UL</em> - upper bound of conf_level% confidence interval</p></li>
 </ul></li>
-<li><p>raw_data - A data from with one row for each study that was passed</p><ul><li><p>label - study label</p></li>
-<li><p>effect_size - effect size</p></li>
-<li><p>weight - study weight in the meta analysis</p></li>
-<li><p>sample_variance - expected level of sampling variation</p></li>
-<li><p>SE - expected standard error</p></li>
-<li><p>LL - lower bound of conf_level% confidence interval</p></li>
-<li><p>UL - upper bound of conf_level% confidence interval</p></li>
-<li><p>mean - used to calculate study p value; this is the d value entered for the study</p></li>
-<li><p>n - study sample size</p></li>
-<li><p>sd - use to calculate study p value; set to 1 for each study</p></li>
-<li><p>p - p value for the study, based on null of exactly 0</p></li>
+<li><p><strong>raw_data</strong> - A data from with one row for each study that was passed</p><ul><li><p><em>label</em> - study label</p></li>
+<li><p><em>effect_size</em> - effect size</p></li>
+<li><p><em>weight</em> - study weight in the meta analysis</p></li>
+<li><p><em>sample_variance</em> - expected level of sampling variation</p></li>
+<li><p><em>SE</em> - expected standard error</p></li>
+<li><p><em>LL</em> - lower bound of conf_level% confidence interval</p></li>
+<li><p><em>UL</em> - upper bound of conf_level% confidence interval</p></li>
+<li><p><em>mean</em> - used to calculate study p value; this is the d value entered for the study</p></li>
+<li><p><em>sd</em> - use to calculate study p value; set to 1 for each study</p></li>
+<li><p><em>n</em> - study sample size</p></li>
+<li><p><em>p</em> - p value for the study, based on null of exactly 0</p></li>
 </ul></li>
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Each study's effect size should be expressed as Cohen's
+    <p>Once you generate an estimate with this function, you can visualize
+it with <code><a href="plot_meta.html">plot_meta()</a></code>.</p>
+<p>Each study's effect size should be expressed as Cohen's
 d1: (mean - reference) / sd.</p>
 <p>And the d1 values should all be corrected for bias.
 The function <code><a href="CI_smd_one.html">CI_smd_one()</a></code> can assist with converting raw data from
@@ -169,6 +172,95 @@ estimates all come from <code><a href="https://wviechtb.github.io/metafor/refere
 <code><a href="CI_diamond_ratio.html">CI_diamond_ratio()</a></code>.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># example code</span></span></span>
+<span class="r-in"><span>  <span class="va">original_7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>study_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"Aden (1993)"</span>  ,</span></span>
+<span class="r-in"><span>  <span class="st">"Buggs (1995)"</span>  ,</span></span>
+<span class="r-in"><span>  <span class="st">"Crazed (1999)"</span>  ,</span></span>
+<span class="r-in"><span>  <span class="st">"Dudley (2003)"</span>  ,</span></span>
+<span class="r-in"><span>  <span class="st">"Evers (2005)"</span>  ,</span></span>
+<span class="r-in"><span>  <span class="st">"Fox (2009)"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Mine (2011)"</span></span></span>
+<span class="r-in"><span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>rt_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fl">454</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">317</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">430</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">525</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">479</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">387</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">531</span></span></span>
+<span class="r-in"><span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>rt_sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fl">142</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">158</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">137</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">260</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">144</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">165</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">233</span></span></span>
+<span class="r-in"><span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>rt_n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fl">24</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">7</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">20</span>  ,</span></span>
+<span class="r-in"><span>  <span class="fl">8</span>  ,</span></span>
+<span class="r-in"><span> <span class="fl">14</span>  ,</span></span>
+<span class="r-in"><span> <span class="fl">13</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">18</span></span></span>
+<span class="r-in"><span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>subset <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"90s"</span>,</span></span>
+<span class="r-in"><span>   <span class="st">"90s"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"90s"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"00s"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"00s"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"00s"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"00s"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>d1_unbiased <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fl">3.091587</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">1.742751</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">3.012857</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">1.793487</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">3.130074</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">2.195209</span>,</span></span>
+<span class="r-in"><span>  <span class="fl">2.17667</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fixed effect, 95% CI</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d1</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">original_7</span>,</span></span>
+<span class="r-in"><span>  <span class="va">d1_unbiased</span>,</span></span>
+<span class="r-in"><span>  <span class="va">rt_n</span>,</span></span>
+<span class="r-in"><span>  <span class="va">study_name</span>,</span></span>
+<span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d1</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">original_7</span>,</span></span>
+<span class="r-in"><span>  ds <span class="op">=</span> <span class="va">d1_unbiased</span>,</span></span>
+<span class="r-in"><span>  ns <span class="op">=</span> <span class="va">rt_n</span>,</span></span>
+<span class="r-in"><span>  moderator <span class="op">=</span> <span class="va">subset</span>,</span></span>
+<span class="r-in"><span>  labels <span class="op">=</span> <span class="va">study_name</span>,</span></span>
+<span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Forest plot</span></span></span>
+<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

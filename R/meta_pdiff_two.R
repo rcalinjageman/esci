@@ -1,24 +1,130 @@
-#' Estimate meta-analytic difference in magnitude between two ind. groups
+#' Estimate meta-analytic difference in proportions over multiple studies
+#' with two independent groups and a categorical outcome variable.
+#'
 #'
 #' @description
-#' `meta_pdiff_two` returns
+#' `meta_pdiff_two` is suitable for synthesizing across multiple two-group
+#' studies with a categorical outcome variable.  It takes as input the
+#' the number of cases/events in the comparison and reference groups as
+#' well as the total number of samples in the comparison and reference groups.
+#'
+#'
+#' @details
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
+#' estimates all come from [metafor::rma()].
+#'
+#' The conversion of events into suitable effect sizes is handled by
+#' [metafor::escalc()]
 #'
 #'
 #' @param data A dataframe or tibble
-#' @param comparison_cases cases
-#' @param comparison_ns comparison
-#' @param reference_cases cases
-#' @param reference_ns comparison
-#' @param labels labels
-#' @param moderator mod
-#' @param contrast contrast
-#' @param effect_label effect_label
-#' @param reported_effect_size res
-#' @param random_effects re
+#' @param comparison_cases A collection of case/event counts for the comparison
+#'   groups, 1 per study, all integers >= 0
+#' @param comparison_ns A collection of sample sizes for the comparison groups,
+#'   1 per study, all integers > 2
+#' @param reference_cases A collection of case/event counts for the reference
+#'   groups, 1 per study, all integers >= 0
+#' @param reference_ns A collection of sample sizes for the reference groups,
+#'   1 per study, all integers > 2
+#' @param labels An optional collection of study labels
+#' @param moderator An optional factor to analyze as a categorical moderator,
+#' must have k > 2 per groups
+#' @param contrast An optional contrast to estimate between moderator levels;
+#' express as a vector of contrast weights with 1 weight per moderator level.
+#' @param effect_label Optional character giving a human-friendly name of
+#' the effect being synthesized
+#' @param reported_effect_size Character specifying effect size to return:
+#'   Must be one of 'RD' (risk difference, default), 'RR' (log risk
+#'   ratio), 'OR' (log odds ratio), 'AS' (arcsine square root transformed
+#'   risk difference), or 'PETO' (log odds ratio estimated using Peto's
+#'   method).  See [metafor::escalc()] for details.
+#' @param random_effects TRUE for random effect model; FALSE for fixed effects
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
-#' @return Returnsobject of class esci_estimate
+#'
+#' @inherit meta_any return
+#'
+#'
+#' @examples
+#' # Data set: Replications of power on egocentric behavior
+#' esci_meta_pdiff_two <- data.frame(
+#'   studies = c(
+#'     "Online",
+#'     "Original",
+#'     "Online Pilot",
+#'     "Exact replication"
+#'   ),
+#'   control_egocentric = c(
+#'     33,
+#'     4,
+#'     4,
+#'     7
+#'   ),
+#'   control_sample_size = c(
+#'    101,
+#'     33,
+#'     10,
+#'     53
+#'   ),
+#'   power_egocentric = c(
+#'     48,
+#'     8,
+#'     4,
+#'     11
+#'   ),
+#'   power_sample_size = c(
+#'     105,
+#'     24,
+#'     12,
+#'     56
+#'   ),
+#'   setting = as.factor(
+#'     c(
+#'       "Online",
+#'      "In-Person",
+#'       "Online",
+#'       "In-Person"
+#'     )
+#'   )
+#' )
+#'
+#' # Meta-analysis, risk difference as effect size
+#' estimate <- esci::meta_pdiff_two(
+#'   esci_meta_pdiff_two,
+#'   power_egocentric,
+#'   power_sample_size,
+#'   control_egocentric,
+#'   control_sample_size,
+#'   studies,
+#'   reported_effect_size = "RD"
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#'
+#' # Meta-analysis, risk difference as effect size, moderator (setting)
+#' estimate <- esci::meta_pdiff_two(
+#'   esci_meta_pdiff_two,
+#'   power_egocentric,
+#'   power_sample_size,
+#'   control_egocentric,
+#'   control_sample_size,
+#'   studies,
+#'   moderator = setting
+#'   reported_effect_size = "RD"
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
 #'
 #'
 #' @export
