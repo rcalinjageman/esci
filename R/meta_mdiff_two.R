@@ -1,28 +1,154 @@
-#' Estimate meta-analytic difference in magnitude between two ind. groups
+#' Estimate meta-analytic difference in means across multiple two-group studies.
+#'
 #'
 #' @description
-#' `meta_mdiff_two` returns
+#' `meta_mdiff_two` is suitable for synthesizing across multiple two-group
+#' studies (paired or independent) with a continuous outcome measure.  It takes
+#' in raw data from each study.  If all studies used the same measurement scale,
+#' a meta-analytic raw-score difference can be returned.  If studies used
+#' different scales, a standardized mean difference can be returned.
+#' Studies can be all paired, all independent, or a mix.  Equal variance can
+#' be assumed, or not.  If standardized mean difference is the output, it is
+#' d_s when equal variance is assumed and d_avg when equal variance is not
+#' assumed.
+#'
+#'
+#' @details
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
+#' estimates all come from [metafor::rma()].
+#'
+#' The diamond ratio and its confidence interval come from
+#' [esci::CI_diamond_ratio()].
+#'
+#' If reported_effect_size is smd_unbiased or smd the conversion to Cohen's d
+#' is handled by [esci::CI_smd_ind_contrast()].
 #'
 #'
 #' @param data A data frame or tibble
-#' @param comparison_means comparison
-#' @param comparison_sds comparison
-#' @param comparison_ns comparison
-#' @param reference_means reference
-#' @param reference_sds reference
-#' @param reference_ns reference
-#' @param r optional correlation between measures for w-s studies, NA otherwise
-#' @param labels labels
-#' @param moderator mod
-#' @param contrast contrast
-#' @param effect_label el
-#' @param reported_effect_size smd
-#' @param random_effects re
-#' @param assume_equal_variance aev
+#' @param comparison_means Set of comparison_group means, 1 per study
+#' @param comparison_sds Set of comparison_group standard deviations, 1
+#'   per study, all > 0
+#' @param comparison_ns Set of comparison_group sample sizes, positive integers,
+#'   1 for each study
+#' @param reference_means Set of reference_group means, 1 per study
+#' @param reference_sds Set of comparison_group standard deviations, 1
+#'   per study, all > 0
+#' @param reference_ns Set of reference_group sample sizes, positive integers,
+#'   1 for each study
+#' @param r Optional correlation between measures for w-s studies, NA otherwise
+#' @param labels An optional collection of study labels
+#' @param moderator An optional factor to analyze as a categorical moderator,
+#' must have k > 2 per groups
+#' @param contrast An optional contrast to estimate between moderator levels;
+#' express as a vector of contrast weights with 1 weight per moderator level.
+#' @param effect_label Optional character giving a human-friendly name of
+#' the effect being synthesized
+#' @param reported_effect_size Character specifying effect size to return:
+#'   Must be one of 'mean_difference', 'smd_unbiased' (to return an unbiased
+#'   Cohen's d_s or d_avg) or 'smd' (to return d_s or d_avg without correction
+#'   for bias).  Defaults to mean_difference.
+#' @param random_effects TRUE for random effect model; FALSE for fixed effects
+#' @param assume_equal_variance Defaults to FALSE
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
-#' @return Returns object of class esci_estimate
+#'
+#' @inherit meta_any return
+#'
+#'
+#' @examples
+#' # Data set -- see Introduction to the New Statistics, 1st edition
+#' brain_scan_persuasion <- data.frame(
+#'   study_name = c("McCabe 1", "McCabe 2", paste("Michael",
+#'      seq(1:10), sep = " ")),
+#'   nbM = c(2.89, 2.69, 2.90, 2.62, 2.96, 2.93, 2.86,
+#'      2.50, 2.41, 2.54, 2.73, 2.66),
+#'   nbS = c(0.79, 0.55, 0.58, 0.54, 0.36, 0.60, 0.59,
+#'      0.84, 0.78, 0.66, 0.67, 0.65),
+#'   nbN = c(28, 26, 98, 42, 24, 184, 274, 58, 34, 99,
+#'      98, 94),
+#'   bM = c(3.12, 3.00, 2.86, 2.85, 3.07, 2.89, 2.91,
+#'      2.60, 2.74, 2.72, 2.68, 2.64),
+#'   bS = c(0.65, 0.54, 0.61, 0.57, 0.55, 0.60, 0.52,
+#'      0.83, 0.51, 0.68, 0.69, 0.71),
+#'   bN = c(26, 28, 99, 33, 21, 184, 255, 55, 34, 95,
+#'      93, 97),
+#'   mod = as.factor(
+#'     c("Simple", "Critique", "Simple","Simple","Simple",
+#'        "Simple","Simple","Critique","Critique","Critique",
+#'        "Critique","Critique")
+#'   ),
+#'   ds = c(0.31217944,  0.56073138, -0.06693802,  0.41136192,
+#'      0.23581389, -0.06652995,  0.08958082,  0.11892778,
+#'      0.49506069,  0.26765910, -0.07326, -0.02925)
+#' )
+#'
+#' # Meta-analysis: random effects, no moderator
+# estimate <- esci::meta_mdiff_two(
+#   data = brain_scan_persuasion,
+#   comparison_means = bM,
+#   comparison_sds = bS,
+#   comparison_ns = bN,
+#   reference_means = nbM,
+#   reference_sds = nbS,
+#   reference_ns = nbN,
+#   labels = study_name,
+#   effect_label = "Brain Photo Rating - No Brain Photo Rating",
+#   assume_equal_variance = TRUE,
+#   random_effects = TRUE
+# )
+#
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#'
+#' # Meta-analysis: random effects, moderator
+# estimate <- esci::meta_mdiff_two(
+#   data = brain_scan_persuasion,
+#   comparison_means = bM,
+#   comparison_sds = bS,
+#   comparison_ns = bN,
+#   reference_means = nbM,
+#   reference_sds = nbS,
+#   reference_ns = nbN,
+#   labels = study_name,
+#   moderator = mod,
+#   effect_label = "Brain Photo Rating - No Brain Photo Rating",
+#   assume_equal_variance = TRUE,
+#   random_effects = TRUE
+# )
+#
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#' # Meta-analysis: random effects, moderator, output d_s
+# estimate <- esci::meta_mdiff_two(
+#   data = brain_scan_persuasion,
+#   comparison_means = bM,
+#   comparison_sds = bS,
+#   comparison_ns = bN,
+#   reference_means = nbM,
+#   reference_sds = nbS,
+#   reference_ns = nbN,
+#   labels = study_name,
+#   moderator = mod,
+#   effect_label = "Brain Photo Rating - No Brain Photo Rating",
+#   reported_effect_size = "smd_unbiased",
+#   assume_equal_variance = TRUE,
+#   random_effects = TRUE
+# )
+#
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
 #'
 #'
 #' @export

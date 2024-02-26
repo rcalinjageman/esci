@@ -54,54 +54,55 @@ decimal form.  Defaults to 0.95.}
 An esci-estimate object; a list of data frames and properties.
 Returned tables include:
 \itemize{
-\item es_meta - A data frame with one overall.  If a moderator was
+\item \strong{es_meta} - A data frame of meta-analytic effect sizes.  If a moderator was
 defined, there is an additional row for each level of the moderator.
 \itemize{
-\item effect_label -  Study label
-\item effect_size - Effect size
-\item LL - Lower bound of conf_level\% confidence interval
-\item UL - Upper bound of conf_level\% confidence interval
-\item SE - Expected standard error
-\item k - Number of studies
-\item diamond_ratio - ratio of random to fixed effects meta-analtics effect sizes
-\item diamond_ratio_LL - lower bound of conf_level\% confidence interval for diamond ratio
-\item diamond_ratio_UL - upper bound of conf_level\% confidence interval for diamond ratio
-\item I2 -  I2 measure of heterogeneity
-\item I2_LL - Lower bound of conf_level\% confidence interval for I2
-\item I2_UL - upper bound of conf_level\% confidence interval for I2
-\item PI_LL - lower bound of conf_level\% of prediction interval
-\item PI_UL - upper bound of conf_level\% of prediction interval
-\item p - p value for the meta-analytic effect size, based on null of exactly 0
-\item width - width of the effect-size confidence interval
-\item FE_effect_size - effect size of the fixed-effects model (regardless of if fixed effects was selected
-\item RE_effect_size - effect size of the random-effects model (regardless of if random effects was selected
-\item FE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio
-\item RE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio
+\item \emph{effect_label} -  Study label
+\item \emph{effect_size} - Effect size
+\item \emph{LL} - Lower bound of conf_level\% confidence interval
+\item \emph{UL} - Upper bound of conf_level\% confidence interval
+\item \emph{SE} - Expected standard error
+\item \emph{k} - Number of studies
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
+\item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
+\item \emph{I2} -  I2 measure of heterogeneity
+\item \emph{I2_LL} - Lower bound of conf_level\% confidence interval for I2
+\item \emph{I2_UL} - upper bound of conf_level\% confidence interval for I2
+\item \emph{PI_LL} - lower bound of conf_level\% of prediction interval
+\item \emph{PI_UL} - upper bound of conf_level\% of prediction interval
+\item \emph{p} - p value for the meta-analytic effect size, based on null of exactly 0
+\item *width - width of the effect-size confidence interval
+\item \emph{FE_effect_size} - effect size of the fixed-effects model (regardless of if fixed effects was selected
+\item \emph{RE_effect_size} - effect size of the random-effects model (regardless of if random effects was selected
+\item \emph{FE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+\item \emph{RE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
 }
-\item es_heterogeneity - A data frame of of heterogeneity values and
+\item \strong{es_heterogeneity} - A data frame of of heterogeneity values and
 conf_level\% CIs for the meta-analytic effect size.  If a moderator was defined
 also reports heterogeneity estimates for each level of the moderator.
 \itemize{
-\item effect_label - study label
-\item moderator_variable_name - if moderator passed, gives name of the moderator
-\item moderator_variable_name - 'Overall' and each level of moderator, if passed
-\item measure - Name of the measure of heterogeneity
-\item LL - lower bound of conf_level\% confidence interval
-\item UL - upper bound of conf_level\% confidence interval
+\item \emph{effect_label} - study label
+\item \emph{moderator_variable_name} - if moderator passed, gives name of the moderator
+\item \emph{moderator_level} - 'Overall' and each level of moderator, if passed
+\item \emph{measure} - Name of the measure of heterogeneity
+\item \emph{estimate} - Value of the heterogeneity estimate
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
 }
-\item raw_data - A data from with one row for each study that was passed
+\item \strong{raw_data} - A data from with one row for each study that was passed
 \itemize{
-\item label - study label
-\item effect_size - effect size
-\item weight - study weight in the meta analysis
-\item sample_variance - expected level of sampling variation
-\item SE - expected standard error
-\item LL - lower bound of conf_level\% confidence interval
-\item UL - upper bound of conf_level\% confidence interval
-\item mean - used to calculate study p value; this is the d value entered for the study
-\item n - study sample size
-\item sd - use to calculate study p value; set to 1 for each study
-\item p - p value for the study, based on null of exactly 0
+\item \emph{label} - study label
+\item \emph{effect_size} - effect size
+\item \emph{weight} - study weight in the meta analysis
+\item \emph{sample_variance} - expected level of sampling variation
+\item \emph{SE} - expected standard error
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+\item \emph{mean} - used to calculate study p value; this is the d value entered for the study
+\item \emph{sd} - use to calculate study p value; set to 1 for each study
+\item \emph{n} - study sample size
+\item \emph{p} - p value for the study, based on null of exactly 0
 }
 }
 }
@@ -119,4 +120,93 @@ The diamond ratio and its confidence interval come from
 
 If reported_effect_size is smd_unbiased or smd the conversion to d1
 is handled by \code{\link[=CI_smd_one]{CI_smd_one()}}.
+}
+\examples{
+# example code
+  original_7 <- data.frame(
+study_name = c(
+  "Aden (1993)"	,
+  "Buggs (1995)"	,
+  "Crazed (1999)"	,
+  "Dudley (2003)"	,
+  "Evers (2005)"	,
+  "Fox (2009)",
+  "Mine (2011)"
+),
+rt_mean = c(
+  454	,
+  317	,
+  430	,
+  525	,
+  479	,
+  387,
+  531
+),
+rt_sd = c(
+  142	,
+  158	,
+  137	,
+  260	,
+  144	,
+  165,
+  233
+),
+rt_n = c(
+  24	,
+  7	,
+  20	,
+  8	,
+ 14	,
+ 13,
+  18
+),
+subset = as.factor(
+  c(
+    "90s",
+   "90s",
+    "90s",
+    "00s",
+    "00s",
+    "00s",
+    "00s"
+  )
+),
+d1_unbiased = c(
+  3.091587,
+  1.742751,
+  3.012857,
+  1.793487,
+  3.130074,
+  2.195209,
+  2.17667
+)
+)
+
+
+# Fixed effect, 95\% CI
+estimate <- esci::meta_mean(
+  original_7,
+  rt_mean,
+  rt_sd,
+  rt_n,
+  study_name,
+  random_effects = FALSE
+)
+
+# Random effects, categorical moderator, report cohen's d1
+  estimate <- esci::meta_mean(
+    original_7,
+    rt_mean,
+    rt_sd,
+    rt_n,
+    study_name,
+    subset,
+    reported_effect_size = "smd_unbiased"
+    )
+
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
 }

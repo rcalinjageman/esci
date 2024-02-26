@@ -1,5 +1,4 @@
-test_estimate_meta_sr <- function() {
-  rvalues <- sample_size <- studies <- subsets <- NULL
+test_that("Some tests for meta_r; needs development ", {
 
   esci_single_r <- data.frame(
     studies = c(
@@ -78,57 +77,29 @@ test_estimate_meta_sr <- function() {
     )
   )
 
-  estimate <- meta_r(
-    esci_single_r,
-    rvalues,
-    sample_size,
-    studies,
-    random_effects = TRUE
-  )
-  estimate$raw_data
-  estimate
-
-  estimate <- meta_r(
-    esci_single_r,
-    rvalues,
-    sample_size,
-    studies,
-    subsets,
-    random_effects = FALSE
-  )
-  estimate$raw_data
-  estimate
-
-  estimate <- meta_r(
-    esci_single_r,
-    rvalues,
-    sample_size,
-    studies,
-    subsets,
-    contrast = c(0, 1, -1),
-    random_effects = FALSE,
-    conf_level = 0.99
-  )
-  estimate$raw_data
-  estimate
+  for (mymodel in c(TRUE, FALSE)) {
+    for (mymod in c("subsets", "NULL")) {
+      estimate <- meta_r(
+        esci_single_r,
+        rvalues,
+        sample_size,
+        studies,
+        moderator = !!mymod,
+        random_effects = mymodel
+      )
+      testthat::expect_s3_class(estimate, "esci_estimate")
+    }
+  }
 
 
-  # Bad calls with good errors ----------------------
-  bad_r <- esci_single_r
-  bad_r[c(1, 10), "rvalues"] <- 1.1
-  bad_r[c(1, 10), "rvalues"] <- NA
-  bad_r[c(1, 10), "sample_size"] <- -1
-  bad_r[c(1, 10), "sample_size"] <- NA
-  estimate <- meta_r(
-    bad_r,
-    rvalues,
-    sample_size,
-    studies,
-    subsets,
-    contrast = c(0, 1, -1),
-    random_effects = FALSE,
-    conf_level = 0.99
-  )
+  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.42754504)
+  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.37518079)
+  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.47718919)
 
-}
+  # Plot
+  suppressWarnings(myplot <- esci::plot_meta(estimate))
+  testthat::expect_s3_class(myplot, "ggplot")
+
+
+})
 

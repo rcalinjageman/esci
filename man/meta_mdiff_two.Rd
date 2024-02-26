@@ -2,7 +2,7 @@
 % Please edit documentation in R/meta_mdiff_two.R
 \name{meta_mdiff_two}
 \alias{meta_mdiff_two}
-\title{Estimate meta-analytic difference in magnitude between two ind. groups}
+\title{Estimate meta-analytic difference in means across multiple two-group studies.}
 \usage{
 meta_mdiff_two(
   data,
@@ -26,40 +26,172 @@ meta_mdiff_two(
 \arguments{
 \item{data}{A data frame or tibble}
 
-\item{comparison_means}{comparison}
+\item{comparison_means}{Set of comparison_group means, 1 per study}
 
-\item{comparison_sds}{comparison}
+\item{comparison_sds}{Set of comparison_group standard deviations, 1
+per study, all > 0}
 
-\item{comparison_ns}{comparison}
+\item{comparison_ns}{Set of comparison_group sample sizes, positive integers,
+1 for each study}
 
-\item{reference_means}{reference}
+\item{reference_means}{Set of reference_group means, 1 per study}
 
-\item{reference_sds}{reference}
+\item{reference_sds}{Set of comparison_group standard deviations, 1
+per study, all > 0}
 
-\item{reference_ns}{reference}
+\item{reference_ns}{Set of reference_group sample sizes, positive integers,
+1 for each study}
 
-\item{r}{optional correlation between measures for w-s studies, NA otherwise}
+\item{r}{Optional correlation between measures for w-s studies, NA otherwise}
 
-\item{labels}{labels}
+\item{labels}{An optional collection of study labels}
 
-\item{moderator}{mod}
+\item{moderator}{An optional factor to analyze as a categorical moderator,
+must have k > 2 per groups}
 
-\item{contrast}{contrast}
+\item{contrast}{An optional contrast to estimate between moderator levels;
+express as a vector of contrast weights with 1 weight per moderator level.}
 
-\item{effect_label}{el}
+\item{effect_label}{Optional character giving a human-friendly name of
+the effect being synthesized}
 
-\item{reported_effect_size}{smd}
+\item{reported_effect_size}{Character specifying effect size to return:
+Must be one of 'mean_difference', 'smd_unbiased' (to return an unbiased
+Cohen's d_s or d_avg) or 'smd' (to return d_s or d_avg without correction
+for bias).  Defaults to mean_difference.}
 
-\item{assume_equal_variance}{aev}
+\item{assume_equal_variance}{Defaults to FALSE}
 
-\item{random_effects}{re}
+\item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}
 }
 \value{
-Returns object of class esci_estimate
+An esci-estimate object; a list of data frames and properties.
+Returned tables include:
+\itemize{
+\item \strong{es_meta} - A data frame of meta-analytic effect sizes.  If a moderator was
+defined, there is an additional row for each level of the moderator.
+\itemize{
+\item \emph{effect_label} -  Study label
+\item \emph{effect_size} - Effect size
+\item \emph{LL} - Lower bound of conf_level\% confidence interval
+\item \emph{UL} - Upper bound of conf_level\% confidence interval
+\item \emph{SE} - Expected standard error
+\item \emph{k} - Number of studies
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
+\item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
+\item \emph{I2} -  I2 measure of heterogeneity
+\item \emph{I2_LL} - Lower bound of conf_level\% confidence interval for I2
+\item \emph{I2_UL} - upper bound of conf_level\% confidence interval for I2
+\item \emph{PI_LL} - lower bound of conf_level\% of prediction interval
+\item \emph{PI_UL} - upper bound of conf_level\% of prediction interval
+\item \emph{p} - p value for the meta-analytic effect size, based on null of exactly 0
+\item *width - width of the effect-size confidence interval
+\item \emph{FE_effect_size} - effect size of the fixed-effects model (regardless of if fixed effects was selected
+\item \emph{RE_effect_size} - effect size of the random-effects model (regardless of if random effects was selected
+\item \emph{FE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+\item \emph{RE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+}
+\item \strong{es_heterogeneity} - A data frame of of heterogeneity values and
+conf_level\% CIs for the meta-analytic effect size.  If a moderator was defined
+also reports heterogeneity estimates for each level of the moderator.
+\itemize{
+\item \emph{effect_label} - study label
+\item \emph{moderator_variable_name} - if moderator passed, gives name of the moderator
+\item \emph{moderator_level} - 'Overall' and each level of moderator, if passed
+\item \emph{measure} - Name of the measure of heterogeneity
+\item \emph{estimate} - Value of the heterogeneity estimate
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+}
+\item \strong{raw_data} - A data from with one row for each study that was passed
+\itemize{
+\item \emph{label} - study label
+\item \emph{effect_size} - effect size
+\item \emph{weight} - study weight in the meta analysis
+\item \emph{sample_variance} - expected level of sampling variation
+\item \emph{SE} - expected standard error
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+\item \emph{mean} - used to calculate study p value; this is the d value entered for the study
+\item \emph{sd} - use to calculate study p value; set to 1 for each study
+\item \emph{n} - study sample size
+\item \emph{p} - p value for the study, based on null of exactly 0
+}
+}
 }
 \description{
-\code{meta_mdiff_two} returns
+\code{meta_mdiff_two} is suitable for synthesizing across multiple two-group
+studies (paired or independent) with a continuous outcome measure.  It takes
+in raw data from each study.  If all studies used the same measurement scale,
+a meta-analytic raw-score difference can be returned.  If studies used
+different scales, a standardized mean difference can be returned.
+Studies can be all paired, all independent, or a mix.  Equal variance can
+be assumed, or not.  If standardized mean difference is the output, it is
+d_s when equal variance is assumed and d_avg when equal variance is not
+assumed.
+}
+\details{
+Once you generate an estimate with this function, you can visualize
+it with \code{\link[=plot_meta]{plot_meta()}}.
+
+The meta-analytic effect size, confidence interval and heterogeneity
+estimates all come from \code{\link[metafor:rma.uni]{metafor::rma()}}.
+
+The diamond ratio and its confidence interval come from
+\code{\link[=CI_diamond_ratio]{CI_diamond_ratio()}}.
+
+If reported_effect_size is smd_unbiased or smd the conversion to Cohen's d
+is handled by \code{\link[=CI_smd_ind_contrast]{CI_smd_ind_contrast()}}.
+}
+\examples{
+# Data set -- see Introduction to the New Statistics, 1st edition
+brain_scan_persuasion <- data.frame(
+  study_name = c("McCabe 1", "McCabe 2", paste("Michael",
+     seq(1:10), sep = " ")),
+  nbM = c(2.89, 2.69, 2.90, 2.62, 2.96, 2.93, 2.86,
+     2.50, 2.41, 2.54, 2.73, 2.66),
+  nbS = c(0.79, 0.55, 0.58, 0.54, 0.36, 0.60, 0.59,
+     0.84, 0.78, 0.66, 0.67, 0.65),
+  nbN = c(28, 26, 98, 42, 24, 184, 274, 58, 34, 99,
+     98, 94),
+  bM = c(3.12, 3.00, 2.86, 2.85, 3.07, 2.89, 2.91,
+     2.60, 2.74, 2.72, 2.68, 2.64),
+  bS = c(0.65, 0.54, 0.61, 0.57, 0.55, 0.60, 0.52,
+     0.83, 0.51, 0.68, 0.69, 0.71),
+  bN = c(26, 28, 99, 33, 21, 184, 255, 55, 34, 95,
+     93, 97),
+  mod = as.factor(
+    c("Simple", "Critique", "Simple","Simple","Simple",
+       "Simple","Simple","Critique","Critique","Critique",
+       "Critique","Critique")
+  ),
+  ds = c(0.31217944,  0.56073138, -0.06693802,  0.41136192,
+     0.23581389, -0.06652995,  0.08958082,  0.11892778,
+     0.49506069,  0.26765910, -0.07326, -0.02925)
+)
+
+# Meta-analysis: random effects, no moderator
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
+# Meta-analysis: random effects, moderator
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+# Meta-analysis: random effects, moderator, output d_s
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
 }

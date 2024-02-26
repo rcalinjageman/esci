@@ -5,7 +5,11 @@
 #' predicted sampling variance for each study.
 #'
 #'
-#' @details The meta-analytic effect size, confidence interval and heterogeneity
+#' @details
+#' #' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
 #' estimates all come from [metafor::rma()].
 #'
 #' The diamond ratio and its confidence interval come from
@@ -37,49 +41,50 @@
 #'
 #' @returns An esci-estimate object; a list of data frames and properties.
 #' Returned tables include:
-#' * es_meta - A data frame with one overall.  If a moderator was
+#' * **es_meta** - A data frame of meta-analytic effect sizes.  If a moderator was
 #' defined, there is an additional row for each level of the moderator.
-#'   * effect_label -  Study label
-#'   * effect_size - Effect size
-#'   * LL - Lower bound of conf_level% confidence interval
-#'   * UL - Upper bound of conf_level% confidence interval
-#'   * SE - Expected standard error
-#'   * k - Number of studies
-#'   * diamond_ratio - ratio of random to fixed effects meta-analtics effect sizes
-#'   * diamond_ratio_LL - lower bound of conf_level% confidence interval for diamond ratio
-#'   * diamond_ratio_UL - upper bound of conf_level% confidence interval for diamond ratio
-#'   * I2 -  I2 measure of heterogeneity
-#'   * I2_LL - Lower bound of conf_level% confidence interval for I2
-#'   * I2_UL - upper bound of conf_level% confidence interval for I2
-#'   * PI_LL - lower bound of conf_level% of prediction interval
-#'   * PI_UL - upper bound of conf_level% of prediction interval
-#'   * p - p value for the meta-analytic effect size, based on null of exactly 0
-#'   * width - width of the effect-size confidence interval
-#'   * FE_effect_size - effect size of the fixed-effects model (regardless of if fixed effects was selected
-#'   * RE_effect_size - effect size of the random-effects model (regardless of if random effects was selected
-#'   * FE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio
-#'   * RE_CI_width - width of the fixed-effects confidence interval, used to calculate diamond ratio
-#' * es_heterogeneity - A data frame of of heterogeneity values and
+#'   * *effect_label* -  Study label
+#'   * *effect_size* - Effect size
+#'   * *LL* - Lower bound of conf_level% confidence interval
+#'   * *UL* - Upper bound of conf_level% confidence interval
+#'   * *SE* - Expected standard error
+#'   * *k* - Number of studies
+#'   * *diamond_ratio* - ratio of random to fixed effects meta-analtics effect sizes
+#'   * *diamond_ratio_LL* - lower bound of conf_level% confidence interval for diamond ratio
+#'   * *diamond_ratio_UL* - upper bound of conf_level% confidence interval for diamond ratio
+#'   * *I2* -  I2 measure of heterogeneity
+#'   * *I2_LL* - Lower bound of conf_level% confidence interval for I2
+#'   * *I2_UL* - upper bound of conf_level% confidence interval for I2
+#'   * *PI_LL* - lower bound of conf_level% of prediction interval
+#'   * *PI_UL* - upper bound of conf_level% of prediction interval
+#'   * *p* - p value for the meta-analytic effect size, based on null of exactly 0
+#'   * *width - width of the effect-size confidence interval
+#'   * *FE_effect_size* - effect size of the fixed-effects model (regardless of if fixed effects was selected
+#'   * *RE_effect_size* - effect size of the random-effects model (regardless of if random effects was selected
+#'   * *FE_CI_width* - width of the fixed-effects confidence interval, used to calculate diamond ratio
+#'   * *RE_CI_width* - width of the fixed-effects confidence interval, used to calculate diamond ratio
+#' * **es_heterogeneity** - A data frame of of heterogeneity values and
 #' conf_level% CIs for the meta-analytic effect size.  If a moderator was defined
 #' also reports heterogeneity estimates for each level of the moderator.
-#'   * effect_label - study label
-#'   * moderator_variable_name - if moderator passed, gives name of the moderator
-#'   * moderator_variable_name - 'Overall' and each level of moderator, if passed
-#'   * measure - Name of the measure of heterogeneity
-#'   * LL - lower bound of conf_level% confidence interval
-#'   * UL - upper bound of conf_level% confidence interval
-#' * raw_data - A data from with one row for each study that was passed
-#'   * label - study label
-#'   * effect_size - effect size
-#'   * weight - study weight in the meta analysis
-#'   * sample_variance - expected level of sampling variation
-#'   * SE - expected standard error
-#'   * LL - lower bound of conf_level% confidence interval
-#'   * UL - upper bound of conf_level% confidence interval
-#'   * mean - used to calculate study p value; this is the d value entered for the study
-#'   * n - study sample size
-#'   * sd - use to calculate study p value; set to 1 for each study
-#'   * p - p value for the study, based on null of exactly 0
+#'   * *effect_label* - study label
+#'   * *moderator_variable_name* - if moderator passed, gives name of the moderator
+#'   * *moderator_level* - 'Overall' and each level of moderator, if passed
+#'   * *measure* - Name of the measure of heterogeneity
+#'   * *estimate* - Value of the heterogeneity estimate
+#'   * *LL* - lower bound of conf_level% confidence interval
+#'   * *UL* - upper bound of conf_level% confidence interval
+#' * **raw_data** - A data from with one row for each study that was passed
+#'   * *label* - study label
+#'   * *effect_size* - effect size
+#'   * *weight* - study weight in the meta analysis
+#'   * *sample_variance* - expected level of sampling variation
+#'   * *SE* - expected standard error
+#'   * *LL* - lower bound of conf_level% confidence interval
+#'   * *UL* - upper bound of conf_level% confidence interval
+#'   * *mean* - used to calculate study p value; this is the d value entered for the study
+#'   * *sd* - use to calculate study p value; set to 1 for each study
+#'   * *n* - study sample size
+#'   * *p* - p value for the study, based on null of exactly 0
 #'
 #' @export
 meta_any <- function(

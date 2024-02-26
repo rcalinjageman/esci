@@ -1,21 +1,146 @@
-#' Estimate meta-analytic difference in magnitude between two ind. groups
+#' Estimate meta-analytic Pearson's r across multiple studies with two
+#' continuous outcome variables.
+#'
 #'
 #' @description
-#' `meta_r` returns
+#' `meta_r` is suitable for synthesizing across multiple studies that have
+#' measured a linear correlation (Pearson's r) from two continuyous variables.
+#'
+#'
+#' @details
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
+#' estimates all come from [metafor::rma()].
 #'
 #'
 #' @param data A dataframe or tibble
-#' @param rs smd
-#' @param ns comparison
+#' @param rs A collection of Pearson's r values, 1 per study, all between
+#'   -1 and 1, inclusive
+#' @param ns A collection of study sample sizes, all integers > 2
 #' @param labels labels
-#' @param moderator mod
-#' @param contrast contrast
-#' @param effect_label effect_label
-#' @param random_effects re
-#' @param conf_level The confidence level for the confidence interval.  Given in
-#'   decimal form.  Defaults to 0.95.
+#' @param labels An optional collection of study labels
+#' @param moderator An optional factor to analyze as a categorical moderator,
+#' must have k > 2 per groups
+#' @param contrast An optional contrast to estimate between moderator levels;
+#' express as a vector of contrast weights with 1 weight per moderator level.
+#' @param effect_label Optional character giving a human-friendly name of
+#' the effect being synthesized
+#' @param random_effects TRUE for random effect model; FALSE for fixed effects
 #'
-#' @return Returnsobject of class esci_estimate
+#'
+#' @inherit meta_any return
+#'
+#'
+#' @examples
+#' # Data: See Introduction to the New Statistics, first edition
+#' esci_single_r <- data.frame(
+#'   studies = c(
+#'     'Violin, viola'	,
+#'     'Strings'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'All'	,
+#'     'Piano'	,
+#'     'Piano'	,
+#'     'Band'	,
+#'     'Music majors'	,
+#'     'Music majors'	,
+#'     'All'
+#'   ),
+#'   rvalues = c(
+#'     .67,
+#'     .51,
+#'     .4,
+#'     .46,
+#'     .47,
+#'     .228,
+#'     -.224,
+#'     .104,
+#'     .322,
+#'     .231,
+#'     .67,
+#'     .41,
+#'     .34,
+#'     .31,
+#'     .54,
+#'     .583
+#'   ),
+#'   sample_size = c(
+#'     109,
+#'     55,
+#'     19,
+#'     30,
+#'     19,
+#'     52,
+#'     24,
+#'     52,
+#'     16,
+#'     97,
+#'     57,
+#'     107,
+#'     178,
+#'     64,
+#'     19,
+#'     135
+#'   ),
+#'   subsets = as.factor(
+#'     c(
+#'       'Strings'	,
+#'       'Strings'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Piano'	,
+#'       'Strings'	,
+#'       'Strings'	,
+#'       'Strings'	,
+#'       'Strings'
+#'     )
+#'  )
+#' )
+#'
+#' # Meta-analysis, random effects, no moderator
+#' estimate <- esci::meta_r(
+#'   esci_single_r,
+#'   rvalues,
+#'   sample_size,
+#'   studies,
+#'   random_effects = TRUE
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#'
+#' # Meta-analysis, random effects, moderator (subsets)
+#' estimate <- esci::meta_r(
+#'   esci_single_r,
+#'   rvalues,
+#'   sample_size,
+#'   studies,
+#'   subsets,
+#'   random_effects = TRUE
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
 #'
 #'
 #' @export

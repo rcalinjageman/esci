@@ -2,7 +2,8 @@
 % Please edit documentation in R/meta_r.R
 \name{meta_r}
 \alias{meta_r}
-\title{Estimate meta-analytic difference in magnitude between two ind. groups}
+\title{Estimate meta-analytic Pearson's r across multiple studies with two
+continuous outcome variables.}
 \usage{
 meta_r(
   data,
@@ -19,26 +20,199 @@ meta_r(
 \arguments{
 \item{data}{A dataframe or tibble}
 
-\item{rs}{smd}
+\item{rs}{A collection of Pearson's r values, 1 per study, all between
+-1 and 1, inclusive}
 
-\item{ns}{comparison}
+\item{ns}{A collection of study sample sizes, all integers > 2}
 
-\item{labels}{labels}
+\item{labels}{An optional collection of study labels}
 
-\item{moderator}{mod}
+\item{moderator}{An optional factor to analyze as a categorical moderator,
+must have k > 2 per groups}
 
-\item{contrast}{contrast}
+\item{contrast}{An optional contrast to estimate between moderator levels;
+express as a vector of contrast weights with 1 weight per moderator level.}
 
-\item{effect_label}{effect_label}
+\item{effect_label}{Optional character giving a human-friendly name of
+the effect being synthesized}
 
-\item{random_effects}{re}
-
-\item{conf_level}{The confidence level for the confidence interval.  Given in
-decimal form.  Defaults to 0.95.}
+\item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
 }
 \value{
-Returnsobject of class esci_estimate
+An esci-estimate object; a list of data frames and properties.
+Returned tables include:
+\itemize{
+\item \strong{es_meta} - A data frame of meta-analytic effect sizes.  If a moderator was
+defined, there is an additional row for each level of the moderator.
+\itemize{
+\item \emph{effect_label} -  Study label
+\item \emph{effect_size} - Effect size
+\item \emph{LL} - Lower bound of conf_level\% confidence interval
+\item \emph{UL} - Upper bound of conf_level\% confidence interval
+\item \emph{SE} - Expected standard error
+\item \emph{k} - Number of studies
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
+\item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
+\item \emph{I2} -  I2 measure of heterogeneity
+\item \emph{I2_LL} - Lower bound of conf_level\% confidence interval for I2
+\item \emph{I2_UL} - upper bound of conf_level\% confidence interval for I2
+\item \emph{PI_LL} - lower bound of conf_level\% of prediction interval
+\item \emph{PI_UL} - upper bound of conf_level\% of prediction interval
+\item \emph{p} - p value for the meta-analytic effect size, based on null of exactly 0
+\item *width - width of the effect-size confidence interval
+\item \emph{FE_effect_size} - effect size of the fixed-effects model (regardless of if fixed effects was selected
+\item \emph{RE_effect_size} - effect size of the random-effects model (regardless of if random effects was selected
+\item \emph{FE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+\item \emph{RE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+}
+\item \strong{es_heterogeneity} - A data frame of of heterogeneity values and
+conf_level\% CIs for the meta-analytic effect size.  If a moderator was defined
+also reports heterogeneity estimates for each level of the moderator.
+\itemize{
+\item \emph{effect_label} - study label
+\item \emph{moderator_variable_name} - if moderator passed, gives name of the moderator
+\item \emph{moderator_level} - 'Overall' and each level of moderator, if passed
+\item \emph{measure} - Name of the measure of heterogeneity
+\item \emph{estimate} - Value of the heterogeneity estimate
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+}
+\item \strong{raw_data} - A data from with one row for each study that was passed
+\itemize{
+\item \emph{label} - study label
+\item \emph{effect_size} - effect size
+\item \emph{weight} - study weight in the meta analysis
+\item \emph{sample_variance} - expected level of sampling variation
+\item \emph{SE} - expected standard error
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+\item \emph{mean} - used to calculate study p value; this is the d value entered for the study
+\item \emph{sd} - use to calculate study p value; set to 1 for each study
+\item \emph{n} - study sample size
+\item \emph{p} - p value for the study, based on null of exactly 0
+}
+}
 }
 \description{
-\code{meta_r} returns
+\code{meta_r} is suitable for synthesizing across multiple studies that have
+measured a linear correlation (Pearson's r) from two continuyous variables.
+}
+\details{
+Once you generate an estimate with this function, you can visualize
+it with \code{\link[=plot_meta]{plot_meta()}}.
+
+The meta-analytic effect size, confidence interval and heterogeneity
+estimates all come from \code{\link[metafor:rma.uni]{metafor::rma()}}.
+}
+\examples{
+# Data: See Introduction to the New Statistics, first edition
+esci_single_r <- data.frame(
+  studies = c(
+    'Violin, viola'	,
+    'Strings'	,
+    'Piano'	,
+    'Piano'	,
+    'Piano'	,
+    'Piano'	,
+    'Piano'	,
+    'Piano'	,
+    'Piano'	,
+    'All'	,
+    'Piano'	,
+    'Piano'	,
+    'Band'	,
+    'Music majors'	,
+    'Music majors'	,
+    'All'
+  ),
+  rvalues = c(
+    .67,
+    .51,
+    .4,
+    .46,
+    .47,
+    .228,
+    -.224,
+    .104,
+    .322,
+    .231,
+    .67,
+    .41,
+    .34,
+    .31,
+    .54,
+    .583
+  ),
+  sample_size = c(
+    109,
+    55,
+    19,
+    30,
+    19,
+    52,
+    24,
+    52,
+    16,
+    97,
+    57,
+    107,
+    178,
+    64,
+    19,
+    135
+  ),
+  subsets = as.factor(
+    c(
+      'Strings'	,
+      'Strings'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Piano'	,
+      'Strings'	,
+      'Strings'	,
+      'Strings'	,
+      'Strings'
+    )
+ )
+)
+
+# Meta-analysis, random effects, no moderator
+estimate <- esci::meta_r(
+  esci_single_r,
+  rvalues,
+  sample_size,
+  studies,
+  random_effects = TRUE
+)
+
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
+# Meta-analysis, random effects, moderator (subsets)
+estimate <- esci::meta_r(
+  esci_single_r,
+  rvalues,
+  sample_size,
+  studies,
+  subsets,
+  random_effects = TRUE
+)
+
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
 }

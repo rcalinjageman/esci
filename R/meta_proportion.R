@@ -1,21 +1,112 @@
-#' Estimate meta-analytic difference in magnitude between two ind. groups
+#' Estimate a meta-analytic proportion of outcomes over multiple studies with
+#' a categorical outcome variable.
+#'
 #'
 #' @description
-#' `meta_proportion` returns
+#' `meta_proportion` is suitable for synthesizing across multiple studies with
+#' a categorical outcome variable.  It takes as input the number of cases/events
+#' and the number of samples in each study.
+#'
+#'
+#' @details
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
+#' estimates all come from [metafor::rma()].
+#'
 #'
 #'
 #' @param data A dataframe or tibble
-#' @param cases cases
-#' @param ns comparison
-#' @param labels labels
-#' @param moderator mod
-#' @param contrast contrast
-#' @param effect_label effect_label
-#' @param random_effects re
+#' @param cases A collection of cases/event counts, 1 per study, all integers,
+#'   all > 0
+#' @param ns A collection of sample sizes, 1 per study, all integers > 2
+#' @param labels An optional collection of study labels
+#' @param moderator An optional factor to analyze as a categorical moderator,
+#' must have k > 2 per groups
+#' @param contrast An optional contrast to estimate between moderator levels;
+#' express as a vector of contrast weights with 1 weight per moderator level.
+#' @param effect_label Optional character giving a human-friendly name of
+#' the effect being synthesized
+#' @param random_effects TRUE for random effect model; FALSE for fixed effects
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
-#' @return Returnsobject of class esci_estimate
+#'
+#' @inherit meta_any return
+#'
+#'
+#' @examples
+#' # Data set: Replications of power on egocentric behavior
+#' esci_meta_pdiff_two <- data.frame(
+#'   studies = c(
+#'     "Online",
+#'     "Original",
+#'     "Online Pilot",
+#'     "Exact replication"
+#'   ),
+#'   control_egocentric = c(
+#'     33,
+#'     4,
+#'     4,
+#'     7
+#'   ),
+#'   control_sample_size = c(
+#'    101,
+#'     33,
+#'     10,
+#'     53
+#'   ),
+#'   power_egocentric = c(
+#'     48,
+#'     8,
+#'     4,
+#'     11
+#'   ),
+#'   power_sample_size = c(
+#'     105,
+#'     24,
+#'     12,
+#'     56
+#'   ),
+#'   setting = as.factor(
+#'     c(
+#'       "Online",
+#'      "In-Person",
+#'       "Online",
+#'       "In-Person"
+#'     )
+#'   )
+#' )
+#'
+#' # Meta-analysis, risk difference as effect size
+#' estimate <- esci::meta_proportion(
+#'   esci_meta_pdiff_two,
+#'   power_egocentric,
+#'   power_sample_size,
+#'   studies
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#'
+#' # Meta-analysis, risk difference as effect size, moderator (setting)
+#' estimate <- esci::meta_proportion(
+#'   esci_meta_pdiff_two,
+#'   power_egocentric,
+#'   power_sample_size,
+#'   studies,
+#'   moderator = setting
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
 #'
 #'
 #' @export

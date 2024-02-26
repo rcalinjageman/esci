@@ -1,25 +1,107 @@
-#' Estimate meta-analytic difference in magnitude between two ind. groups
+#' Estimate meta-analytic standardized mean difference across multiple
+#' two group studies (all paired, all independent, or a mix).
 #'
 #' @description
-#' `meta_d2` returns
+#' `meta_d2` is suitable for synthesizing across multiple two-group studies
+#' (paired or independent) with a continuous outcome measure but where not
+#' all studies are measured on the same scale, and instead the magnitude of
+#' difference for each study is expressed as d_s or d_avg.
+#'
+#'
+#' @details
+#' @details
+#' Once you generate an estimate with this function, you can visualize
+#' it with [esci::plot_meta()].
+#'
+#'
+#' Each study's effect size should be expressed as:
+#'   Cohen's d_s: (comparison_mean - reference_mean) / sd_pooled
+#' or
+#'   Cohen_'s d_avg: (comparison_mean - reference_mean) / sd_avg
+#'
+#' To enter d_s, set assume_equal_variance to TRUE
+#' To enter d_avg, set assume_equal_variance to FALSE
+#'
+#' And the d values should all be corrected for bias.
+#' The function [esci::CI_smd_ind_contrast()] can assist with converting
+#' raw data from each study to d_s or d_avg with bias correction.  It als
+#' has more details on calculation of these forms of d and their CIs.
+#'
+#'
+#' The meta-analytic effect size, confidence interval and heterogeneity
+#' estimates all come from [metafor::rma()].
+#'
+#' The diamond ratio and its confidence interval come from
+#' [esci::CI_diamond_ratio()].
 #'
 #'
 #' @param data A data frame or tibble
-#' @param ds comparison
-#' @param comparison_ns comparison
-#' @param reference_ns reference
+#' @param ds Set of bias-adjusted cohen's d_s or d_avg values, 1 for each study
+#' @param comparison_ns Set of comparison_group sample sizes, positive integers,
+#'   1 for each study
+#' @param reference_ns Set of reference_groups sample sizes, positive integers,
+#'   1 for each study
 #' @param r optional correlation between measures for w-s studies, NA otherwise
-#' @param labels labels
-#' @param moderator mod
-#' @param contrast contrast
-#' @param effect_label el
-#' @param random_effects re
-#' @param assume_equal_variance aev
+#' @param labels Optional set of labels, 1 for each study
+#' @param moderator Optional factor as a categorical moderator; should have k >
+#'   2 per group
+#' @param contrast Optional vector specifying a contrast between moderator
+#'   levels
+#' @param effect_label Optional character providing a human-friendly label for
+#'   the effect
+#' @param random_effects Boolean; TRUE for a random effects model; otherwise
+#'   fixed effects
+#' @param assume_equal_variance Defaults to FALSE
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
-#' @return Returnsobject of class esci_estimate
 #'
+#' @inherit meta_any return
+#'
+#'
+#' @examples
+#' # Data set -- see Introduction to the New Statistics, 1st edition
+#' lucky_golf <- data.frame(
+#'   study = c(paste("Damisch", seq(1:6)), "Calin 1", "Calin 2"),
+#'   my_smd = c(0.83, 0.986, 0.66, 0.78, 0.979, 0.86, 0.05, 0.047),
+#'   smd_corrected = c(0.806, 0.963, 0.647, 0.758, 0.950, 0.835, 0.050, 0.047),
+#'   n1 = c(14, 17, 20, 15, 14, 14, 58, 54),
+#'   n2 = c(14, 17, 21, 14, 14, 14, 66, 57),
+#'   subset = as.factor(c(rep("Germany", times = 6), rep("USA", times = 2)))
+#' )
+#'
+#' # Meta-analysis, random effects, assuming equal variance, no moderator
+#' estimate <- esci::meta_d2(
+#'   data = lucky_golf,
+#'   ds = smd_corrected,
+#'   comparison_ns = n1,
+#'   reference_ns = n2,
+#'   labels = study,
+#'   assume_equal_variance = TRUE,
+#'   random_effects = TRUE
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
+#'
+#' # Meta-analysis, random effects, assuming equal variance
+#' estimate <- esci::meta_d2(
+#'   data = lucky_golf,
+#'   ds = smd_corrected,
+#'   comparison_ns = n1,
+#'   reference_ns = n2,
+#'   moderator = subset,
+#'   labels = study,
+#'   assume_equal_variance = TRUE,
+#'   random_effects = TRUE
+#' )
+#'
+#' \dontrun{
+#' # Forest plot
+#' esci::plot_meta(estimate)
+#' }
 #'
 #' @export
 meta_d2 <- function(
@@ -32,7 +114,7 @@ meta_d2 <- function(
   moderator = NULL,
   contrast = NULL,
   effect_label = "My effect",
-  assume_equal_variance = TRUE,
+  assume_equal_variance = FALSE,
   random_effects = TRUE,
   conf_level = .95
 )  {

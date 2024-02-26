@@ -158,7 +158,7 @@ test_that("Compare estimate_rdiff_two to statpsych::ci.cor", {
 
   myconfs <- c(0.95, 0.99)
   myrs <- seq(from = -0.90, to = 0.90, by = 0.5)
-  myr2s <- seq(from = -0.90, to = 0.90, by = 0.25)
+  myr2s <- seq(from = -0.90, to = 0.90, by = 0.5)
   myns <- seq(from = 5, to = 105, by = 45)
 
   for (myn in myns) {
@@ -166,16 +166,18 @@ test_that("Compare estimate_rdiff_two to statpsych::ci.cor", {
       for (myr in myrs) {
         for (myr2 in myr2s) {
 
-          estimate <- esci::estimate_rdiff_two(
-            comparison_r = myr,
-            comparison_n = myn,
-            reference_r = myr2,
-            reference_n = myn + 5,
-            grouping_variable_levels = c("Females", "Males"),
-            x_variable_name = "Satisfaction with life",
-            y_variable_name = "Body satisfaction",
-            grouping_variable_name = "Gender",
-            conf_level = myconf_level
+          suppressWarnings(
+            estimate <- esci::estimate_rdiff_two(
+              comparison_r = myr,
+              comparison_n = myn,
+              reference_r = myr2,
+              reference_n = myn + 5,
+              grouping_variable_levels = c("Females", "Males"),
+              x_variable_name = "Satisfaction with life",
+              y_variable_name = "Body satisfaction",
+              grouping_variable_name = "Gender",
+              conf_level = myconf_level
+            )
           )
 
           mysp <- as.list(

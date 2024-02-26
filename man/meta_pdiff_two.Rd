@@ -2,7 +2,8 @@
 % Please edit documentation in R/meta_pdiff_two.R
 \name{meta_pdiff_two}
 \alias{meta_pdiff_two}
-\title{Estimate meta-analytic difference in magnitude between two ind. groups}
+\title{Estimate meta-analytic difference in proportions over multiple studies
+with two independent groups and a categorical outcome variable.}
 \usage{
 meta_pdiff_two(
   data,
@@ -22,32 +23,188 @@ meta_pdiff_two(
 \arguments{
 \item{data}{A dataframe or tibble}
 
-\item{comparison_cases}{cases}
+\item{comparison_cases}{A collection of case/event counts for the comparison
+groups, 1 per study, all integers >= 0}
 
-\item{comparison_ns}{comparison}
+\item{comparison_ns}{A collection of sample sizes for the comparison groups,
+1 per study, all integers > 2}
 
-\item{reference_cases}{cases}
+\item{reference_cases}{A collection of case/event counts for the reference
+groups, 1 per study, all integers >= 0}
 
-\item{reference_ns}{comparison}
+\item{reference_ns}{A collection of sample sizes for the reference groups,
+1 per study, all integers > 2}
 
-\item{labels}{labels}
+\item{labels}{An optional collection of study labels}
 
-\item{moderator}{mod}
+\item{moderator}{An optional factor to analyze as a categorical moderator,
+must have k > 2 per groups}
 
-\item{contrast}{contrast}
+\item{contrast}{An optional contrast to estimate between moderator levels;
+express as a vector of contrast weights with 1 weight per moderator level.}
 
-\item{effect_label}{effect_label}
+\item{effect_label}{Optional character giving a human-friendly name of
+the effect being synthesized}
 
-\item{reported_effect_size}{res}
+\item{reported_effect_size}{Character specifying effect size to return:
+Must be one of 'RD' (risk difference, default), 'RR' (log risk
+ratio), 'OR' (log odds ratio), 'AS' (arcsine square root transformed
+risk difference), or 'PETO' (log odds ratio estimated using Peto's
+method).  See \code{\link[metafor:escalc]{metafor::escalc()}} for details.}
 
-\item{random_effects}{re}
+\item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}
 }
 \value{
-Returnsobject of class esci_estimate
+An esci-estimate object; a list of data frames and properties.
+Returned tables include:
+\itemize{
+\item \strong{es_meta} - A data frame of meta-analytic effect sizes.  If a moderator was
+defined, there is an additional row for each level of the moderator.
+\itemize{
+\item \emph{effect_label} -  Study label
+\item \emph{effect_size} - Effect size
+\item \emph{LL} - Lower bound of conf_level\% confidence interval
+\item \emph{UL} - Upper bound of conf_level\% confidence interval
+\item \emph{SE} - Expected standard error
+\item \emph{k} - Number of studies
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
+\item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
+\item \emph{I2} -  I2 measure of heterogeneity
+\item \emph{I2_LL} - Lower bound of conf_level\% confidence interval for I2
+\item \emph{I2_UL} - upper bound of conf_level\% confidence interval for I2
+\item \emph{PI_LL} - lower bound of conf_level\% of prediction interval
+\item \emph{PI_UL} - upper bound of conf_level\% of prediction interval
+\item \emph{p} - p value for the meta-analytic effect size, based on null of exactly 0
+\item *width - width of the effect-size confidence interval
+\item \emph{FE_effect_size} - effect size of the fixed-effects model (regardless of if fixed effects was selected
+\item \emph{RE_effect_size} - effect size of the random-effects model (regardless of if random effects was selected
+\item \emph{FE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+\item \emph{RE_CI_width} - width of the fixed-effects confidence interval, used to calculate diamond ratio
+}
+\item \strong{es_heterogeneity} - A data frame of of heterogeneity values and
+conf_level\% CIs for the meta-analytic effect size.  If a moderator was defined
+also reports heterogeneity estimates for each level of the moderator.
+\itemize{
+\item \emph{effect_label} - study label
+\item \emph{moderator_variable_name} - if moderator passed, gives name of the moderator
+\item \emph{moderator_level} - 'Overall' and each level of moderator, if passed
+\item \emph{measure} - Name of the measure of heterogeneity
+\item \emph{estimate} - Value of the heterogeneity estimate
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+}
+\item \strong{raw_data} - A data from with one row for each study that was passed
+\itemize{
+\item \emph{label} - study label
+\item \emph{effect_size} - effect size
+\item \emph{weight} - study weight in the meta analysis
+\item \emph{sample_variance} - expected level of sampling variation
+\item \emph{SE} - expected standard error
+\item \emph{LL} - lower bound of conf_level\% confidence interval
+\item \emph{UL} - upper bound of conf_level\% confidence interval
+\item \emph{mean} - used to calculate study p value; this is the d value entered for the study
+\item \emph{sd} - use to calculate study p value; set to 1 for each study
+\item \emph{n} - study sample size
+\item \emph{p} - p value for the study, based on null of exactly 0
+}
+}
 }
 \description{
-\code{meta_pdiff_two} returns
+\code{meta_pdiff_two} is suitable for synthesizing across multiple two-group
+studies with a categorical outcome variable.  It takes as input the
+the number of cases/events in the comparison and reference groups as
+well as the total number of samples in the comparison and reference groups.
+}
+\details{
+Once you generate an estimate with this function, you can visualize
+it with \code{\link[=plot_meta]{plot_meta()}}.
+
+The meta-analytic effect size, confidence interval and heterogeneity
+estimates all come from \code{\link[metafor:rma.uni]{metafor::rma()}}.
+
+The conversion of events into suitable effect sizes is handled by
+\code{\link[metafor:escalc]{metafor::escalc()}}
+}
+\examples{
+# Data set: Replications of power on egocentric behavior
+esci_meta_pdiff_two <- data.frame(
+  studies = c(
+    "Online",
+    "Original",
+    "Online Pilot",
+    "Exact replication"
+  ),
+  control_egocentric = c(
+    33,
+    4,
+    4,
+    7
+  ),
+  control_sample_size = c(
+   101,
+    33,
+    10,
+    53
+  ),
+  power_egocentric = c(
+    48,
+    8,
+    4,
+    11
+  ),
+  power_sample_size = c(
+    105,
+    24,
+    12,
+    56
+  ),
+  setting = as.factor(
+    c(
+      "Online",
+     "In-Person",
+      "Online",
+      "In-Person"
+    )
+  )
+)
+
+# Meta-analysis, risk difference as effect size
+estimate <- esci::meta_pdiff_two(
+  esci_meta_pdiff_two,
+  power_egocentric,
+  power_sample_size,
+  control_egocentric,
+  control_sample_size,
+  studies,
+  reported_effect_size = "RD"
+)
+
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
+# Meta-analysis, risk difference as effect size, moderator (setting)
+estimate <- esci::meta_pdiff_two(
+  esci_meta_pdiff_two,
+  power_egocentric,
+  power_sample_size,
+  control_egocentric,
+  control_sample_size,
+  studies,
+  moderator = setting
+  reported_effect_size = "RD"
+)
+
+\dontrun{
+# Forest plot
+esci::plot_meta(estimate)
+}
+
+
 }
