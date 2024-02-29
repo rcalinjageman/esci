@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_kardas_expt_4}
 \alias{data_kardas_expt_4}
-\title{Kardas Expt 4 - Ch07 - from Kardas and O’Brien (2018), Experiment 4}
+\title{Kardas Expt 4 - Ch07 - from Kardas and O'Brien (2018), Experiment 4}
 \format{
 \subsection{\code{data_kardas_expt_4}}{
 
@@ -20,6 +20,6 @@ A data frame with 270 rows and 4 columns:
 data_kardas_expt_4
 }
 \description{
-Kardas Expt 4 - Ch07 - from Kardas and O’Brien (2018), Experiment 4
+Kardas Expt 4 - Ch07 - from Kardas and O'Brien (2018), Experiment 4
 }
 \keyword{datasets}

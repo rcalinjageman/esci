@@ -28,11 +28,11 @@ A data frame with 30 rows and 9 columns:
 data_anchor_estimate_ma
 }
 \description{
-To what extent does the wording of a question influence one’s judgment? In
+To what extent does the wording of a question influence one's judgment? In
 their classic study, Jacowitz and Kahneman (1995) asked participants to
 estimate how many babies are born each day in the United States. Participants
-were given either a low anchor (“more than 100 babies/day”) or a high anchor
-(“less than 50,000 babies/day”). Those who saw the low anchor estimated many
+were given either a low anchor (more than 100 babies/day) or a high anchor
+(less than 50,000 babies/day). Those who saw the low anchor estimated many
 fewer births/day than those who saw the high anchor, which suggests that the
 wording can have a profound influence. The correct answer, as it happens, is
 ~11,000 births/day in 2014. To investigate the extent that these results are

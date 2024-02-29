@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_meditationbrain}
 \alias{data_meditationbrain}
-\title{MeditationBrain - Ch15 - from Hölzel et al. (2011)}
+\title{MeditationBrain - Ch15 - from Holzel et al. (2011)}
 \format{
 \subsection{\code{data_meditationbrain}}{
 
@@ -23,6 +23,6 @@ A data frame with 33 rows and 7 columns:
 data_meditationbrain
 }
 \description{
-MeditationBrain - Ch15 - from Hölzel et al. (2011)
+MeditationBrain - Ch15 - from Holzel et al. (2011)
 }
 \keyword{datasets}

@@ -5,15 +5,15 @@
 \title{also promote kind, altruistic behavior. Brethel-Haurwitz and Marsh (2014)
 examined this idea by collecting data on U.S. states. A Gallup poll in 2010
 was used to measure each state's well-being index, a measure of mean
-happiness for the state’s residents on a scale from 0 to 100. Next, a kidney
-donation database for 1999-2010 was used to figure out each state’s rate
+happiness for the state's residents on a scale from 0 to 100. Next, a kidney
+donation database for 1999-2010 was used to figure out each state's rate
 (number of donations per 1 million people) of non-directed kidney
-donations—that’s giving one kidney to a stranger, an extremely generous and
+donations-that's giving one kidney to a stranger, an extremely generous and
 altruistic thing to do!
 their classic study, Jacowitz and Kahneman (1995) asked participants to
 estimate how many babies are born each day in the United States. Participants
-were given either a low anchor (“more than 100 babies/day”) or a high anchor
-(“less than 50,000 babies/day”). Those who saw the low anchor estimated many
+were given either a low anchor (more than 100 babies/day) or a high anchor
+(less than 50,000 babies/day). Those who saw the low anchor estimated many
 fewer births/day than those who saw the high anchor, which suggests that the
 wording can have a profound influence. The correct answer, as it happens, is
 ~11,000 births/day in 2014. To investigate the extent that these results are
@@ -22,20 +22,20 @@ different labs around the world. You can find the summary data for 30 of
 these labs in the Anchor Estimate ma data file
 numerous other issues can be highly damaging, but are thriving in this social
 media age. Trying to debunk a conspiracy theory by presenting facts and
-evidence often doesn’t work, alas. Psychological inoculation, also similar to
+evidence often doesn't work, alas. Psychological inoculation, also similar to
 prebunking, presents a mild form of misinformation, preferably with
-explanation, in the hope of building resistance to real-life fake news—a sort
+explanation, in the hope of building resistance to real-life fake news-a sort
 of vaccine for fake news. The Bad News game is a spin-off from research on
 psychological inoculation. Basol et al. (2020) assessed the possible
 effectiveness of this game as a fake news vaccine. At getbadnews.com you can
-click “About” for information, or just start playing the game— it’s easy and
+click 'About' for information, or just start playing the game- it's easy and
 maybe even fun. You encounter mock Twitter (now X) fake news messages that
 illustrate common strategies for making fake news memorable or believable.
-You make choices between messages and decide which ones to “forward” as you
+You make choices between messages and decide which ones to 'forward' as you
 try to spread fake news while building your credibility score and number of
-“followers”—rather like real life for a conspiracy theorist wanting to spread
+'followers'-rather like real life for a conspiracy theorist wanting to spread
 the word. Compete with your friends for credibility and number of followers.
-Basol’s online participants first saw 18 fictitious fake news tweets and
+Basol's online participants first saw 18 fictitious fake news tweets and
 rated each for reliability (accuracy, believability), and also rated their
 confidence in that reliability rating. Both ratings were on a 1 to 7 scale.
 Those in the BadNews group then played the game for 15 minutes, whereas those
@@ -70,15 +70,15 @@ jesci_document_data(save_files = FALSE)
 also promote kind, altruistic behavior. Brethel-Haurwitz and Marsh (2014)
 examined this idea by collecting data on U.S. states. A Gallup poll in 2010
 was used to measure each state's well-being index, a measure of mean
-happiness for the state’s residents on a scale from 0 to 100. Next, a kidney
-donation database for 1999-2010 was used to figure out each state’s rate
+happiness for the state's residents on a scale from 0 to 100. Next, a kidney
+donation database for 1999-2010 was used to figure out each state's rate
 (number of donations per 1 million people) of non-directed kidney
-donations—that’s giving one kidney to a stranger, an extremely generous and
+donations-that's giving one kidney to a stranger, an extremely generous and
 altruistic thing to do!
 their classic study, Jacowitz and Kahneman (1995) asked participants to
 estimate how many babies are born each day in the United States. Participants
-were given either a low anchor (“more than 100 babies/day”) or a high anchor
-(“less than 50,000 babies/day”). Those who saw the low anchor estimated many
+were given either a low anchor (more than 100 babies/day) or a high anchor
+(less than 50,000 babies/day). Those who saw the low anchor estimated many
 fewer births/day than those who saw the high anchor, which suggests that the
 wording can have a profound influence. The correct answer, as it happens, is
 ~11,000 births/day in 2014. To investigate the extent that these results are
@@ -87,20 +87,20 @@ different labs around the world. You can find the summary data for 30 of
 these labs in the Anchor Estimate ma data file
 numerous other issues can be highly damaging, but are thriving in this social
 media age. Trying to debunk a conspiracy theory by presenting facts and
-evidence often doesn’t work, alas. Psychological inoculation, also similar to
+evidence often doesn't work, alas. Psychological inoculation, also similar to
 prebunking, presents a mild form of misinformation, preferably with
-explanation, in the hope of building resistance to real-life fake news—a sort
+explanation, in the hope of building resistance to real-life fake news-a sort
 of vaccine for fake news. The Bad News game is a spin-off from research on
 psychological inoculation. Basol et al. (2020) assessed the possible
 effectiveness of this game as a fake news vaccine. At getbadnews.com you can
-click “About” for information, or just start playing the game— it’s easy and
+click 'About' for information, or just start playing the game- it's easy and
 maybe even fun. You encounter mock Twitter (now X) fake news messages that
 illustrate common strategies for making fake news memorable or believable.
-You make choices between messages and decide which ones to “forward” as you
+You make choices between messages and decide which ones to 'forward' as you
 try to spread fake news while building your credibility score and number of
-“followers”—rather like real life for a conspiracy theorist wanting to spread
+'followers'-rather like real life for a conspiracy theorist wanting to spread
 the word. Compete with your friends for credibility and number of followers.
-Basol’s online participants first saw 18 fictitious fake news tweets and
+Basol's online participants first saw 18 fictitious fake news tweets and
 rated each for reliability (accuracy, believability), and also rated their
 confidence in that reliability rating. Both ratings were on a 1 to 7 scale.
 Those in the BadNews group then played the game for 15 minutes, whereas those

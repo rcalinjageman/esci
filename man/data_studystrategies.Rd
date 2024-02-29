@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_studystrategies}
 \alias{data_studystrategies}
-\title{StudyStrategies - Ch14 - from O’Reilly et al. (1998)}
+\title{StudyStrategies - Ch14 - from O'Reilly et al. (1998)}
 \format{
 \subsection{\code{data_studystrategies}}{
 
@@ -26,6 +26,6 @@ A data frame with 3 rows and 10 columns:
 data_studystrategies
 }
 \description{
-StudyStrategies - Ch14 - from O’Reilly et al. (1998)
+StudyStrategies - Ch14 - from O'Reilly et al. (1998)
 }
 \keyword{datasets}

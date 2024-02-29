@@ -28,11 +28,11 @@ data_altruism_happiness
 Happiness may not be important just for the person feeling it; happiness may
 also promote kind, altruistic behavior. Brethel-Haurwitz and Marsh (2014)
 examined this idea by collecting data on U.S. states. A Gallup poll in 2010
-was used to measure each state’s well-being index, a measure of mean
-happiness for the state’s residents on a scale from 0 to 100. Next, a kidney
-donation database for 1999–2010 was used to figure out each state’s rate
+was used to measure each state's well-being index, a measure of mean
+happiness for the state's residents on a scale from 0 to 100. Next, a kidney
+donation database for 1999-2010 was used to figure out each state's rate
 (number of donations per 1 million people) of non-directed kidney
-donations—that’s giving one kidney to a stranger, an extremely generous and
+donations-that's giving one kidney to a stranger, an extremely generous and
 altruistic thing to do!
 }
 \keyword{datasets}
