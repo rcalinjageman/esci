@@ -101,28 +101,28 @@
 #'
 #' @examples
 #' # From raw data (summary data mode not available for this function)
-# example_data <- data.frame(
-#   pretest = c(
-#     19, 18, 19, 20, 17, 16, 16, 10, 12,  9, 13, 15
-#   ),
-#   posttest = c(
-#     18, 19, 20, 17, 20, 16, 19, 16, 16, 14, 16, 18
-#   ),
-#   condition = as.factor(
-#     c(
-#       rep("Control", times = 6),
-#       rep("Treated", times = 6)
-#     )
-#   )
-# )
-#
-# estimates <- esci::estimate_mdiff_2x2_mixed(
-#   data = example_data,
-#   outcome_variable_level1 = pretest,
-#   outcome_variable_level2 = posttest,
-#   grouping_variable = condition,
-#   repeated_measures_name = "Time"
-# )
+#' example_data <- data.frame(
+#'   pretest = c(
+#'     19, 18, 19, 20, 17, 16, 16, 10, 12,  9, 13, 15
+#'   ),
+#'   posttest = c(
+#'     18, 19, 20, 17, 20, 16, 19, 16, 16, 14, 16, 18
+#'   ),
+#'   condition = as.factor(
+#'     c(
+#'       rep("Control", times = 6),
+#'       rep("Treated", times = 6)
+#'     )
+#'   )
+#' )
+#'
+#' estimates <- esci::estimate_mdiff_2x2_mixed(
+#'   data = example_data,
+#'   outcome_variable_level1 = pretest,
+#'   outcome_variable_level2 = posttest,
+#'   grouping_variable = condition,
+#'   repeated_measures_name = "Time"
+#' )
 #
 #' \dontrun{
 #' # To visualize the estimated mean difference for the interaction

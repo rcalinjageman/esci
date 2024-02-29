@@ -139,12 +139,12 @@
 #'
 #' @examples
 #' # From raw data
-#' data("data_thomason1")
+#' data("data_thomason_1")
 #'
 #' estimate <- esci::estimate_mdiff_paired(
-#'   data = data_thomason1,
-#'   comparison_measure = posttest,
-#'   reference_measure = pretest
+#'   data = data_thomason_1,
+#'   comparison_measure = Posttest,
+#'   reference_measure = Pretest
 #' )
 #' estimate
 #'

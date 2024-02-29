@@ -114,13 +114,13 @@
 #'
 #' @examples
 #' # From summary data
-#' data("data_halagappa_et_al_2007")
+#' data("data_halagappa")
 #'
 #' estimate <- estimate_mdiff_ind_contrast(
-#'   means = data_halagappa_et_al_2007$m,
-#'   sds = data_halagappa_et_al_2007$s,
-#'   ns = data_halagappa_et_al_2007$n,
-#'   grouping_variable_levels = as.character(data_halagappa_et_al_2007$condition),
+#'   means = data_halagappa$Mean,
+#'   sds = data_halagappa$SD,
+#'   ns = data_halagappa$n,
+#'   grouping_variable_levels = as.character(data_halagappa$Groups),
 #'   assume_equal_variance = TRUE,
 #'   contrast = c(
 #'     "NFree10" = 1/3,

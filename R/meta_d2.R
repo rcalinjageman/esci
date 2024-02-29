@@ -9,7 +9,6 @@
 #'
 #'
 #' @details
-#' @details
 #' Once you generate an estimate with this function, you can visualize
 #' it with [esci::plot_meta()].
 #'

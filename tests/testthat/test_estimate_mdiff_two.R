@@ -1,6 +1,7 @@
 test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   # At 95% CI
 
+
   # Check - from summary data, esci in excel summary two example
   estimate <- estimate_mdiff_two(
     comparison_mean = 12.09,
@@ -65,7 +66,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     data = data_penlaptop1,
     outcome_variable = transcription,
     grouping_variable = condition,
-    switch_comparison_order = TRUE,
+    switch_comparison_order = FALSE,
     assume_equal_variance = TRUE
   )
 
@@ -88,7 +89,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
     data = data_penlaptop1,
     outcome_variable = transcription,
     grouping_variable = condition,
-    switch_comparison_order = TRUE,
+    switch_comparison_order = FALSE,
     assume_equal_variance = TRUE,
     conf_level = 0.99
   )

@@ -1,5 +1,5 @@
 ---
-title: Estimation Statistics with Confidence Intervals
+title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
 version: 1.0.1
 jms: '1.0'
@@ -122,6 +122,152 @@ analyses:
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Difference in Proportions
+datasets:
+  - name: Ch03 - Latimier Quiz
+    path: Latimier Quiz.omv
+    description: Quiz group in Latimier et al. (2019)
+  - name: Ch03 - Latimier Reread
+    path: Latimier Reread.omv
+    description: Reread group in Latimier et al. (2019)
+  - name: Ch03 - Latimier Prequiz
+    path: Latimier Prequiz.omv
+    description: Prequiz group in Latimier et al. (2019)
+  - name: Ch03 - College survey 1
+    path: College survey 1.omv
+    description: for End-of-Chapter Exercise 3.3
+  - name: Ch03 - Religious belief
+    path: Religious belief.omv
+    description: for End-of-Chapter Exercise 3.5
+  - name: Ch05 - College survey 2
+    path: College survey 2.omv
+    description: for End-of-Chapter Exercise 5.4
+  - name: Ch06 - Stickgold
+    path: Stickgold.omv
+    description: from Stickgold et al. (2000)
+  - name: Ch07 - Latimier Reread Quiz
+    path: Latimier Reread Quiz.omv
+    description: Reread and Quiz groups in Latimier et al. (2019)
+  - name: Ch07 - Latimier Quiz Prequiz
+    path: Latimier Quiz Prequiz.omv
+    description: Quiz and Prequiz groups in Latimier et al. (2019)
+  - name: Ch07 - Latimier Reread Prequiz
+    path: Latimier Reread Prequiz.omv
+    description: Reread and Prequiz groups in Latimier et al. (2019)
+  - name: Ch07 - Kardas Expt 3
+    path: Kardas Expt 3.omv
+    description: 'from Kardas and O’Brien (2018), Experiment 3'
+  - name: Ch07 - Kardas Expt 4
+    path: Kardas Expt 4.omv
+    description: 'from Kardas and O’Brien (2018), Experiment 4'
+  - name: Ch07 - Clean moral
+    path: Clean moral.omv
+    description: 'from Schnall et al. (2008), Study 1, and Johnson et al. (2014)'
+  - name: Ch07 - Gender math IAT
+    path: Gender math IAT.omv
+    description: Ithaca and SDSU replications of Nosek et al. (2002)
+  - name: Ch07 - Basol badnews
+    path: Basol badnews.omv
+    description: from Basol et al. (2020)
+  - name: Ch8 - EffronRaj fakenews
+    path: EffronRaj fakenews.omv
+    description: from Effron and Raj (2020)
+  - name: Ch8 - Emotion heartrate
+    path: Emotion heartrate.omv
+    description: from Lakens (2013)
+  - name: Ch8 - Labels flavor
+    path: Labels flavor.omv
+    description: from Floretta-Schiller et al. (2015)
+  - name: Ch9 - McCabeMichael brain
+    path: McCabeMichael brain.omv
+    description: from Michael et al. (2013)
+  - name: Ch9 - McCabeMichael brain2
+    path: McCabeMichael brain2.omv
+    description: from Michael et al. (2013)
+  - name: Ch9 - DamischRCJ
+    path: DamischRCJ.omv
+    description: 'from 6 Damisch studies, and Calin-Jageman and Caldwell (2014)'
+  - name: Ch9 - Anchor Estimate ma
+    path: Anchor Estimate ma.omv
+    description: Many Labs replications of Jacowitz and Kahneman (1995)
+  - name: Ch9 - Flag Priming ma
+    path: Flag Priming ma.omv
+    description: Many Labs replications of Carter et al. (2011)
+  - name: Ch9 - Gender math IAT ma
+    path: Gender math IAT ma.omv
+    description: Many Labs replications of Nosek et al. (2002)
+  - name: Ch9 - PowerPerformance ma
+    path: PowerPerformance ma.omv
+    description: 'from Burgmer and Englich (2012), and Cusack et al. (2015)'
+  - name: Ch11 - Thomason 1
+    path: Thomason 1.omv
+    description: from Thomason 1
+  - name: Ch11 - Macnamara r ma
+    path: Macnamara r ma.omv
+    description: from Macnamara et al. (2014)
+  - name: Ch11 - Exam Scores
+    path: Exam Scores.omv
+    description: for End-of-Chapter Exercise 11.2
+  - name: Ch11 - Campus Involvement
+    path: Campus Involvement.omv
+    description: for End-of-Chapter Exercise 11.7
+  - name: Ch11 - Sleep Beauty
+    path: Sleep Beauty.omv
+    description: for End-of-Chapter Exercise 11.6
+  - name: Ch12 - BodyWellFM
+    path: BodyWellFM.omv
+    description: Body Satisfaction and Well-being data from Figure 11.1
+  - name: Ch12 - BodyWellM
+    path: BodyWellM.omv
+    description: >-
+      Body Satisfaction and Well-being data for males from Figure 11.24 left
+      panel
+  - name: Ch12 - BodyWellF
+    path: BodyWellF.omv
+    description: >-
+      Body Satisfaction and Well-being data for females from Figure 11.24 right
+      panel
+  - name: Ch12 - Home Prices
+    path: Home Prices.omv
+    description: for End-of-Chapter Exercise 12.2
+  - name: Ch12 - Altruism Happiness
+    path: Altruism Happiness.omv
+    description: from Brethel-Haurwitz and Marsh (2014)
+  - name: Ch13 - Bem Psychic
+    path: Bem Psychic.omv
+    description: from Bem and Honorton (1994)
+  - name: Ch14 - SimmonsCredibility
+    path: SimmonsCredibility.omv
+    description: from Simmons and Nelson (2020)
+  - name: Ch14 - RattanMotivation
+    path: RattanMotivation.omv
+    description: from Rattan et al. (2012)
+  - name: Ch14 - Latimier 3Groups
+    path: Latimier 3Groups.omv
+    description: 3 groups in Latimier et al. (2019)
+  - name: Ch14 - Halagappa
+    path: Halagappa.omv
+    description: from Halagappa et al. (2007)
+  - name: Ch14 - StudyStrategies
+    path: StudyStrategies.omv
+    description: from O’Reilly et al. (1998)
+  - name: Ch14 - ReligionSharing
+    path: ReligionSharing.omv
+    description: for End-of-Chapter Exercise 14.3
+  - name: Ch14 - OrganicMoral
+    path: OrganicMoral.omv
+    description: from Eskine (2013)
+  - name: Ch15 - SmithRecall
+    path: SmithRecall.omv
+    description: from Smith et al. (2016)
+  - name: Ch15 - MeditationBrain
+    path: MeditationBrain.omv
+    description: from Hölzel et al. (2011)
+  - name: Ch15 - SelfExplain
+    path: SelfExplain.omv
+    description: from McEldoon et al. (2013)
+  - name: Ch15 - VideogameAggression
+    path: VideogameAggression.omv
+    description: from Hilgard (2015)
 usesNative: true
 minApp: 1.0.8
 

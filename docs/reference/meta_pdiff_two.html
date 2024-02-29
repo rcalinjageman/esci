@@ -18,7 +18,7 @@ well as the total number of samples in the comparison and reference groups."><!-
     
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.01</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -197,7 +197,84 @@ estimates all come from <code><a href="https://wviechtb.github.io/metafor/refere
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Data set: Replications of power on egocentric behavior</span></span></span>
+<span class="r-in"><span><span class="va">esci_meta_pdiff_two</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  studies <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"Online"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Original"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Online Pilot"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Exact replication"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  control_egocentric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">33</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">4</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">4</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">7</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  control_sample_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>   <span class="fl">101</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">33</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">10</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">53</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  power_egocentric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">48</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">8</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">4</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">11</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  power_sample_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">105</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">24</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">12</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">56</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  setting <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="st">"Online"</span>,</span></span>
+<span class="r-in"><span>     <span class="st">"In-Person"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"Online"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"In-Person"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Meta-analysis, risk difference as effect size</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_pdiff_two</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">esci_meta_pdiff_two</span>,</span></span>
+<span class="r-in"><span>  <span class="va">power_egocentric</span>,</span></span>
+<span class="r-in"><span>  <span class="va">power_sample_size</span>,</span></span>
+<span class="r-in"><span>  <span class="va">control_egocentric</span>,</span></span>
+<span class="r-in"><span>  <span class="va">control_sample_size</span>,</span></span>
+<span class="r-in"><span>  <span class="va">studies</span>,</span></span>
+<span class="r-in"><span>  reported_effect_size <span class="op">=</span> <span class="st">"RD"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Forest plot</span></span></span>
+<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Meta-analysis, risk difference as effect size, moderator (setting)</span></span></span>
+<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_pdiff_two</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">esci_meta_pdiff_two</span>,</span></span>
+<span class="r-in"><span>  <span class="va">power_egocentric</span>,</span></span>
+<span class="r-in"><span>  <span class="va">power_sample_size</span>,</span></span>
+<span class="r-in"><span>  <span class="va">control_egocentric</span>,</span></span>
+<span class="r-in"><span>  <span class="va">control_sample_size</span>,</span></span>
+<span class="r-in"><span>  <span class="va">studies</span>,</span></span>
+<span class="r-in"><span>  moderator <span class="op">=</span> <span class="va">setting</span>,</span></span>
+<span class="r-in"><span>  reported_effect_size <span class="op">=</span> <span class="st">"RD"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Forest plot</span></span></span>
+<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

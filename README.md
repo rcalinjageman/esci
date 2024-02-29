@@ -39,6 +39,10 @@ effect sizes and uncertainty
 - To integrate with GUIs for students; esci integrates into [jamovi](https://www.jamovi.org/)
 and integration into [JASP](https://jasp-stats.org/) is planned.
 
+The visualiations produced by esci are exquisite in a large part because of
+the lovely [ggdist](https://cran.r-project.org/web/packages/ggdist/index.html) 
+package by Matthew Kay.
+
 
 ## Installation
 
@@ -52,11 +56,16 @@ devtools::install_github('rcalinjageman/esci')
 
 ## Roadmap
 - Finish writing documentation and tests
-- Review all functions for consistency of parameter names and retured object
+- Review all functions for consistency of parameter names and returned object
 names
 - Rewrite visualization functions completely to remove clunky approaches
 to the difference axis and other issues
+- Complete JASP integration
 - Rewrite jamovi integration
+- Add prediction intervals for basic designs
+- Repeated measures with 1 IV and multiple groups
+- Fully within-subjects 2x2 design
+- Arbitrarily complex designs
 
 
 ## Example

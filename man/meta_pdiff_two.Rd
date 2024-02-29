@@ -197,7 +197,7 @@ estimate <- esci::meta_pdiff_two(
   control_egocentric,
   control_sample_size,
   studies,
-  moderator = setting
+  moderator = setting,
   reported_effect_size = "RD"
 )
 
