@@ -149,8 +149,8 @@ plot_scatter <- function(
     rdata[rdata$grouping_variable == estimate$es_r_difference$effect[[1]], ]$type <- "Comparison"
     rdata[rdata$grouping_variable == estimate$es_r_difference$effect[[2]], ]$type <- "Reference"
     my_labels <- c(
-      paste(estimate$es_r_difference$effect[[2]], ": *r* = ", format( estimate$es_r_difference$effect_size[[2]], digits = 2), sep = ""),
       paste(estimate$es_r_difference$effect[[1]], ": *r* = ", format( estimate$es_r_difference$effect_size[[1]], digits = 2), sep = ""),
+      paste(estimate$es_r_difference$effect[[2]], ": *r* = ", format( estimate$es_r_difference$effect_size[[2]], digits = 2), sep = ""),
       if (nrow(estimate$es_r) > 2) "All others" else NULL
     )
 
