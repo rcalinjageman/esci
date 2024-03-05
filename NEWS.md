@@ -1,4 +1,4 @@
-esci version 0.99 (Release data: March 2024)
+esci version 0.9.1 (Release data: March 2024)
 ===========
 
 Changes:

@@ -1,7 +1,7 @@
 Package: esci
 Type: Package
 Title: Estimation Statistics with Confidence Intervals
-Version: 0.01
+Version: 0.9.1
 Author: Robert J Calin-Jageman
 Maintainer: Robert J Calin-Jageman <rcalinjageman@dom.edu>
 Description: An r package and jamovi module for the estimation approach 
@@ -35,7 +35,7 @@ Imports:
   Rdpack,
   mathjaxr,
   stringr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
 Suggests: 

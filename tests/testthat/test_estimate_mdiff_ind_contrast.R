@@ -1,13 +1,16 @@
 test_that("Compare estimate_mdiff_ind_contrast to ESCI_Ind_groups_contrasts, Halagappa", {
   # At 95% CI
 
-  data("data_halagappa_et_al_2007")
+  data("data_halagappa")
+
+  data_h <- as.data.frame(data_halagappa)
+  data_h$m <- data_h$Mean
 
   estimate <- estimate_mdiff_ind_contrast(
-    means = data_halagappa_et_al_2007$m,
-    sds = data_halagappa_et_al_2007$s,
-    ns = data_halagappa_et_al_2007$n,
-    grouping_variable_levels = as.character(data_halagappa_et_al_2007$condition),
+    means = data_h$m,
+    sds = data_h$SD,
+    ns = data_h$n,
+    grouping_variable_levels = as.character(data_h$Groups),
     assume_equal_variance = TRUE,
     contrast = c(
       "NFree10" = 1/3,
@@ -47,10 +50,10 @@ test_that("Compare estimate_mdiff_ind_contrast to ESCI_Ind_groups_contrasts, Hal
 
   # At 99% CI
   estimate <- estimate_mdiff_ind_contrast(
-    means = data_halagappa_et_al_2007$m,
-    sds = data_halagappa_et_al_2007$s,
-    ns = data_halagappa_et_al_2007$n,
-    grouping_variable_levels = as.character(data_halagappa_et_al_2007$condition),
+    means = data_h$Mean,
+    sds = data_h$SD,
+    ns = data_h$n,
+    grouping_variable_levels = as.character(data_h$Groups),
     assume_equal_variance = TRUE,
     contrast = c(
       "NFree10" = 1/3,

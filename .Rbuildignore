@@ -10,3 +10,4 @@ esci_logo.svg
 ^docs$
 ^pkgdown$
 ^jamovi$
+^.*\.omv

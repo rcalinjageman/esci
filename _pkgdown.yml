@@ -14,6 +14,14 @@ home:
     href: https://thenewstatistics.com
   - text: Interactive Stats Demos
     href: https://esci.thenewstatistics.com
+  - text: jamovi
+    href: https://www.jamovi.org/
+  - text: JASP
+    href: https://jasp-stats.org
+  - text: ggdist
+    href: https://cran.r-project.org/web/packages/ggdist/index.html
+  - text: metafor
+    href: https://www.metafor-project.org/doku.php/metafor
   - text: statpsych
     href: https://github.com/dgbonett/statpsych/
 
@@ -63,6 +71,7 @@ reference:
     contents:
     - starts_with("geom_")
     - starts_with("esci_")
+    - starts_with("jesci_document_data")
 
   - title: Class esci-estimate
     contents:

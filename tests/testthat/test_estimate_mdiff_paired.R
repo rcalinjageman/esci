@@ -1,12 +1,12 @@
 test_that("Compare estimate_mdiff_paired to ESCI_Data_paired, Thomasaon1", {
   # At 95% CI
 
-  data("data_thomason1")
+  data("data_thomason_1")
 
   estimate <- esci::estimate_mdiff_paired(
-    data = data_thomason1,
-    comparison_measure = posttest,
-    reference_measure = pretest
+    data = data_thomason_1,
+    comparison_measure = Posttest,
+    reference_measure = Pretest
   )
 
 
@@ -24,9 +24,9 @@ test_that("Compare estimate_mdiff_paired to ESCI_Data_paired, Thomasaon1", {
 
   # At 99% CI
   estimate <- esci::estimate_mdiff_paired(
-    data = data_thomason1,
-    comparison_measure = posttest,
-    reference_measure = pretest,
+    data = data_thomason_1,
+    comparison_measure = Posttest,
+    reference_measure = Pretest,
     conf_level = 0.99
   )
 

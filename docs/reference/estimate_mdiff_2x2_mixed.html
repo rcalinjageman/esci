@@ -26,7 +26,7 @@ This function accepts raw data only.  Standardized mean differences are not
     
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.01</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -195,6 +195,28 @@ with <code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From raw data (summary data mode not available for this function)</span></span></span>
+<span class="r-in"><span><span class="va">example_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  pretest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">19</span>, <span class="fl">18</span>, <span class="fl">19</span>, <span class="fl">20</span>, <span class="fl">17</span>, <span class="fl">16</span>, <span class="fl">16</span>, <span class="fl">10</span>, <span class="fl">12</span>,  <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">15</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  posttest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">18</span>, <span class="fl">19</span>, <span class="fl">20</span>, <span class="fl">17</span>, <span class="fl">20</span>, <span class="fl">16</span>, <span class="fl">19</span>, <span class="fl">16</span>, <span class="fl">16</span>, <span class="fl">14</span>, <span class="fl">16</span>, <span class="fl">18</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Control"</span>, times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Treated"</span>, times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimates</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_mdiff_2x2_mixed</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">example_data</span>,</span></span>
+<span class="r-in"><span>  outcome_variable_level1 <span class="op">=</span> <span class="va">pretest</span>,</span></span>
+<span class="r-in"><span>  outcome_variable_level2 <span class="op">=</span> <span class="va">posttest</span>,</span></span>
+<span class="r-in"><span>  grouping_variable <span class="op">=</span> <span class="va">condition</span>,</span></span>
+<span class="r-in"><span>  repeated_measures_name <span class="op">=</span> <span class="st">"Time"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the estimated mean difference for the interaction</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">$</span><span class="va">interaction</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>

@@ -28,7 +28,8 @@
 #' @param effect_label Optional character giving a human-friendly name of
 #' the effect being synthesized
 #' @param random_effects TRUE for random effect model; FALSE for fixed effects
-#'
+#' @param conf_level The confidence level for the confidence interval.  Given in
+#'   decimal form.  Defaults to 0.95.
 #'
 #' @inherit meta_any return
 #'

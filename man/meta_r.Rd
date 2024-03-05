@@ -37,6 +37,9 @@ express as a vector of contrast weights with 1 weight per moderator level.}
 the effect being synthesized}
 
 \item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
+
+\item{conf_level}{The confidence level for the confidence interval.  Given in
+decimal form.  Defaults to 0.95.}
 }
 \value{
 An esci-estimate object; a list of data frames and properties.
