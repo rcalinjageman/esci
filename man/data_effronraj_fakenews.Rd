@@ -17,10 +17,29 @@ A data frame with 138 rows and 5 columns:
 }
 }
 }
+\source{
+\url{https://journals.sagepub.com/doi/full/10.1177/0956797619887896}
+}
 \usage{
 data_effronraj_fakenews
 }
 \description{
-EffronRaj fakenews - Ch8 - from Effron and Raj (2020)
+\emph{Synthetic data} meant to represent Experiment 1 of Effron & Raj, 2020.
+138 U.S. adults, recruited in August 2018 on Prolific Academic, worked
+online. First, they saw six fake headlines four times, each time being asked
+to rate how interesting/engaging/ funny/well-written the headline was. This
+rating task simply ensured that the participants paid some attention to each
+headline. The stimuli were 12 actual fake-news headlines about American
+politics, with accompanying photographs. Half appealed to Republicans and
+half to Democrats. Later, 12 fake headlines were presented one at a time, a
+random mix of the six Old headlines-those seen before-and six New headlines
+not seen previously. It was stated very clearly that independent,
+non-partisan fact-checking had established that all the headlines were not
+true. Participants first rated, on a 0 (not at all) to 100 (extremely) scale,
+the degree to which to which they judged it unethical to publish that
+headline. That's the Unethicality DV. They also rated how likely they would
+be to share the headline if they saw it posted by an acquaintance on social
+media; there were three further similar ratings. Finally, they rated how
+accurate they believed the headline to be.
 }
 \keyword{datasets}

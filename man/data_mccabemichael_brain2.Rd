@@ -21,10 +21,14 @@ A data frame with 12 rows and 9 columns:
 }
 }
 }
+\source{
+\url{https://link.springer.com/article/10.3758/s13423-013-0391-6}
+}
 \usage{
 data_mccabemichael_brain2
 }
 \description{
-McCabeMichael brain2 - Ch9 - from Michael et al. (2013)
+Same as data_mccabemichael_brain but includes two additional critique studies
+run by the Michael team.
 }
 \keyword{datasets}

@@ -15,10 +15,14 @@ A data frame with 190 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF}
+}
 \usage{
 data_latimier_quiz_prequiz
 }
 \description{
-Latimier Quiz Prequiz - Ch07 - Quiz and Prequiz groups in Latimier et al. (2019)
+Just the Quiz (RQ) an Prequiz (QR) groups from Latimier et al., 2019
+See full details in data_latimier_3_groups
 }
 \keyword{datasets}

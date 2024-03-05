@@ -39,6 +39,7 @@ A data frame with 243 rows and 23 columns:
 data_college_survey_1
 }
 \description{
-College survey 1 - Ch03 - for End-of-Chapter Exercise 3.3
+Data from an additional survey of Dominican University students; reports
+various psychological and behavioral measures.
 }
 \keyword{datasets}

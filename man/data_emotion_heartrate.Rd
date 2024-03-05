@@ -15,10 +15,18 @@ A data frame with 68 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://ieeexplore.ieee.org/abstract/document/6464255}
+}
 \usage{
 data_emotion_heartrate
 }
 \description{
-Emotion heartrate - Ch8 - from Lakens (2013)
+Anger is a powerful emotion. To what extent can feeling angry actually change
+your heart rate? To investigate, Lakens (2013) asked students to record their
+heart rate (in beats per minute) at rest before (baseline) and then while
+recalling a time of intense anger. This is a conceptual replication of a
+classic study by Ekman et al. (1983). Load the Emotion heartrate data set
+from the book website.
 }
 \keyword{datasets}

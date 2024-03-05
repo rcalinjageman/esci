@@ -15,10 +15,14 @@ A data frame with 190 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF}
+}
 \usage{
 data_latimier_reread_quiz
 }
 \description{
-Latimier Reread Quiz - Ch07 - Reread and Quiz groups in Latimier et al. (2019)
+Just the Reread Quiz groups from Latimier et al., 2019
+See full details in data_latimier_3_groups
 }
 \keyword{datasets}

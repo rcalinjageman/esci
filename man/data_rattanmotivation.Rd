@@ -14,10 +14,28 @@ A data frame with 54 rows and 2 columns:
 }
 }
 }
+\source{
+\url{https://www.sciencedirect.com/science/article/pii/S0022103111003027}
+}
 \usage{
 data_rattanmotivation
 }
 \description{
-RattanMotivation - Ch14 - from Rattan et al. (2012)
+How do you think you would react to feedback that gave encouragement and
+reassurance, or, instead, encouragement and challenge? Carol Dweck and her
+colleagues have investigated many such questions about how people respond to
+different types of feedback. My next example comes from Dweck's research
+group and illustrates data analysis that starts with the full data, rather
+than only summary statistics. Rattan et al. (2012) asked their college
+student participants to imagine they were undertaking a mathematics course
+and had just received a low score (65\%) on the first test of the year.
+Participants were assigned randomly into three groups, which received
+different feedback along with the low score. The Comfort group received
+positive encouragement and also reassurance, the Challenge group received
+positive encouragement and also challenge, and the Control group received
+just the positive encouragement. Participants then responded to a range of
+questions about how they felt about the course and their professor. I'll
+discuss data for their ratings of their own motivation toward mathematics,
+made after they had received the feedback.
 }
 \keyword{datasets}

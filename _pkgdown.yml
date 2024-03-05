@@ -71,6 +71,7 @@ reference:
     contents:
     - starts_with("geom_")
     - starts_with("esci_")
+    - starts_with("jesci_document_data")
 
   - title: Class esci-estimate
     contents:

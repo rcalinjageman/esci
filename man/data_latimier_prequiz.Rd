@@ -15,10 +15,14 @@ A data frame with 95 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF}
+}
 \usage{
 data_latimier_prequiz
 }
 \description{
-Latimier Prequiz - Ch03 - Prequiz group in Latimier et al. (2019)
+Just the Prequiz group from Latimier et al., 2019
+See full details in data_latimier_3_groups
 }
 \keyword{datasets}

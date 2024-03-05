@@ -20,6 +20,12 @@ A data frame with 3 rows and 4 columns:
 data_religionsharing
 }
 \description{
-ReligionSharing - Ch14 - for End-of-Chapter Exercise 14.3
+To what extent is a religious upbringing related to prosocial behavior in
+childhood? To investigate, a large international sample of children was asked
+to play a game in which they were given 10 stickers but then asked if they
+would give some of these stickers away to another child who had not been able
+to be tested that day. The number of stickers donated was considered a
+measure of altruistic sharing. In addition, the parents of each child
+reported the family's religion. Summary data provided.
 }
 \keyword{datasets}
