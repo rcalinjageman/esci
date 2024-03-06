@@ -159,7 +159,7 @@
 #'
 #'
 #' @seealso
-#' * \code{\link{estimate_mdiff_ind_contrast}} for friendly version that
+#' * \code{\link{estimate_mdiff_ind_contrast}} for friendly version that also
 #' returns raw score effect sizes for this design
 #'
 #'

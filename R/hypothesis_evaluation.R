@@ -418,9 +418,87 @@ test_diff_base <- function(
 #' @param rope_units - One of 'raw' (default) or 'sd', specifies the units of
 #' the ROPE. If 'sd' is specified, the rope is defined in standard deviation
 #' units (e.g. c(-1, 1) is taken as between -1 and 1 *standard deviations*
-#' from 0).
+#' from 0).  When sd is used, the ROPE is converted to raw scores and then
+#' the test is conducted on raw scores.
 #' @param output_html - TRUE to return results in HTML; FALSE (default) to return
 #' standard output
+#'
+#' @return Returns a list with 1-2 data frames
+#' - **point_null**  - always returned
+#'     - *test_type* - 'Nil hypothesis test', meaning a test against H0 = 0
+#'     - *outcome_variable_name* - Name of the outcome variable
+#'     - *effect* - Label for the effect being tested
+#'     - *null_words* - Express the null in words
+#'     - *confidence* - Confidence level, integer (95 for 95%, etc.)
+#'     - *LL* - Lower boundary of the confidence% CI for the effect
+#'     - *UL* - Upper boundary of the confidence% CI for the effect
+#'     - *CI* - Character representation of the CI for the effect
+#'     - *CI_compare* - Text description of relation between CI and null
+#'     - *t* - If applicable, t value for hypothesis test
+#'     - *df* - If applicable, degrees of freedom for hypothesis test
+#'     - *p* - If applicable, p value for hypothesis test
+#'     - *p_result* - Text representation of p value obtained
+#'     - *null_decision* - Text represention of the decision for the null
+#'     - *conclusion* - Text representation of conclusion to draw
+#'     - *significant* - TRUE/FALSE if significant at alpha = 1-CI
+#' - **interval_null** - returned only if an interval null is specified
+#'     - *test_type* - 'Practical significance test', meaning a test against an
+#'        interval null
+#'     - *outcome_variable_name* -
+#'     - *effect* - Name of the outcome variable
+#'     - *rope* - Test representaiton of null interval
+#'     - *confidence* - Confidence level, integer (95 for 95%, etc.)
+#'     - *CI* - Character representation of the CI for the effect
+#'     - *rope_compare* - Text description of relation between CI and null interval
+#'     - *p_result* - Text representation of p value obtained
+#'     - *conclusion* - Text representation of conclusion to draw
+#'     - *significant* - TRUE/FALSE if significant at alpha = 1-CI
+#'
+#' @examples
+#' # example code
+#' data("data_penlaptop1")
+#'
+#' estimate <- esci::estimate_mdiff_two(
+#'   data = data_penlaptop1,
+#'   outcome_variable = transcription,
+#'   grouping_variable = condition,
+#'   switch_comparison_order = TRUE,
+#'   assume_equal_variance = TRUE
+#' )
+#'
+#' # Test mean difference against point null of 0
+#' esci::test_mdiff(
+#'   estimate,
+#'   effect_size = "mean"
+#' )
+#'
+#' # Test median difference against point null of 0
+#' #  Note that t, df, p return NA because test is completed
+#' #  by interval.
+#' esci::test_mdiff(
+#'   estimate,
+#'   effect_size = "median"
+#' )
+#'
+#' # Test mean difference against interval null of -10 to 10
+#' esci::test_mdiff(
+#'   estimate,
+#'   effect_size = "mean",
+#'   rope = c(-10, 10)
+#' )
+#'
+#' # Test mean difference against interval null of d (-0.20, 0.20) d = 0.2 is often
+#' # thought of as a small effect, so this test examines if the effect is
+#' # negligible (clearly between negligble and small), substantive (clearly more
+#' # than small), or unclear. The d boundaries provided are converted to raw scores
+#' # and then the CI of the observed effect is compared to the raw-score boundaries
+#' esci::test_mdiff(
+#'   estimate,
+#'   effect_size = "mean",
+#'   rope = c(-0.2, 0.2),
+#'   rope_units = "sd"
+#' )
+#'
 #'
 #' @export
 test_mdiff <- function(
@@ -518,13 +596,31 @@ test_mdiff <- function(
 #'   return standard output
 #'
 #'
+#' @inherit test_mdiff return
+#'
+#'
+#' @examples
+#' estimate <- estimate_pdiff_two(
+#'   comparison_cases = 10,
+#'   comparison_n = 20,
+#'   reference_cases = 78,
+#'   reference_n = 252,
+#'   grouping_variable_levels = c("Original", "Replication"),
+#'   conf_level = 0.95
+#' )
+#'
+#' # Test against null of exactly
+#' test_pdiff(estimate)
+#'
+#' # Test against null of (-0.1, 0.1)
+#' test_pdiff(estimate, rope = c(-0.1, 0.1))
+#'
 #' @export
 test_pdiff <- function(
     estimate,
     rope = c(0, 0),
     output_html = FALSE
 )
-
 {
 
 
@@ -590,6 +686,25 @@ test_pdiff <- function(
 #'   correlation is between -.25 and .25).
 #' @param output_html - TRUE to return results in HTML; FALSE (default) to
 #'   return standard output
+#'
+#'
+#' @inherit test_mdiff return
+#'
+#'
+#' @examples
+#' # example code
+#' estimate <- esci::estimate_rdiff_two(
+#'   comparison_r = .53,
+#'   comparison_n = 45,
+#'   reference_r = .41,
+#'   reference_n = 59,
+#'   grouping_variable_levels = c("Females", "Males"),
+#'   x_variable_name = "Satisfaction with life",
+#'   y_variable_name = "Body satisfaction",
+#'   grouping_variable_name = "Gender",
+#'   conf_level = .95
+#' )
+#' test_rdiff(estimate)
 #'
 #'
 #' @export
@@ -665,6 +780,20 @@ test_rdiff <- function(
 #'   population (rho) is between .25 and .45).
 #' @param output_html - TRUE to return results in HTML; FALSE (default) to
 #'   return standard output
+#'
+#'
+#' @inherit test_mdiff return
+#'
+#'
+#' @examples
+#' # example code
+#' estimate <- esci::estimate_r(r = 0.536, n = 50)
+#'
+#' # Test against a point null of exactly 0
+#' test_correlation(estimate)
+#'
+#' # Test against an interval null (-0.1, 0.1)
+#' test_correlation(estimate, rope = c(-0.1, 0.1))
 #'
 #'
 #' @export

@@ -1,7 +1,7 @@
 #' Estimate standardized mean difference (Cohen's d1) for a single group
 #'
 #' @description
-#' `CI_smd_one` STILL NEEDS WORK TO VERIFY APPROACH, SPECIFICALLY FOR SE
+#' `CI_smd_one` STILL NEEDS WORK TO VERIFY APPROACH FOR SE and MoE
 #'
 #'
 #' @param mean Mean for a single group for the outcome measure
@@ -35,6 +35,11 @@
 #' * bias_corrected - TRUE/FALSE if bias correction was applied
 #' * message - a message explaining denominator and correction status
 #' * message_html - html representation of message
+#'
+#'
+#' @examples
+#' # example code
+#' esci::CI_smd_one(24.5, 3.65, 40, 20)
 #'
 #' @export
 CI_smd_one <- function(

@@ -229,7 +229,7 @@ Noncentral T Distribution. Journal of Modern Applied Statistical Methods,
 }
 \seealso{
 \itemize{
-\item \code{\link{estimate_mdiff_ind_contrast}} for friendly version that
+\item \code{\link{estimate_mdiff_ind_contrast}} for friendly version that also
 returns raw score effect sizes for this design
 }
 }

@@ -1,8 +1,8 @@
-#' Calculates descriptive statistics for a numerical variable
+#' Calculates descriptive statistics for a continuous variable
 #'
 #'
 #' @description
-#' This function caluclated basic descriptive statistics for a numerical
+#' This function calculates basic descriptive statistics for a numerical
 #' variable.  It can calculate an overall summary, or broken down by
 #' the levels of a grouping variable.  Inputs can be summary data,
 #' vectors, or a data frame.

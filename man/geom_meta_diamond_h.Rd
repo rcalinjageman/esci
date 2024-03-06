@@ -54,8 +54,8 @@ used to set an aesthetic to a fixed value, like \code{colour = "red"} or
 \code{geom_meta_diamond_h} understands the following aesthetics (required are
 in bold):
 \itemize{
-\item \strong{\code{x}} - The vertical center of the diamond
-\item \strong{\code{y}} - The vertical center of the diamond
+\item \strong{\code{x}} - The horizontal center of the diamond
+\item \strong{\code{y}} - The vertical placement of the diamond
 \item \strong{\code{xmin}} - The left-side start of the diamond
 \item \strong{\code{xmax}} - The right-side start of the diamond
 \item \strong{\code{height}} - The vertical span of the diamond
@@ -79,7 +79,7 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 \code{geom_meta_diamond_h} creates a horizontal meta-analytic diamond
 defined by an \code{x} value (horizontal center of diamond), \code{xmin} and \code{xmax}
 values (for the horizontal ends of the diamond), a \code{y} value (for the
-vertical placement of the diamon) and a \code{height} (for the vertical height
+vertical placement of the diamond) and a \code{height} (for the vertical height
 of the diamond).  Note the use of \code{xmin} and \code{xmax} allows for representation
-of assymetric confidence intervals with this geom.
+of asymmetric confidence intervals with this geom.
 }

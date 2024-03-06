@@ -50,5 +50,10 @@ Properties
 }
 }
 \description{
-\code{CI_smd_one} STILL NEEDS WORK TO VERIFY APPROACH, SPECIFICALLY FOR SE
+\code{CI_smd_one} STILL NEEDS WORK TO VERIFY APPROACH FOR SE and MoE
+}
+\examples{
+# example code
+esci::CI_smd_one(24.5, 3.65, 40, 20)
+
 }
