@@ -15,7 +15,6 @@
 #' Expect breaking changes as this function is improved for general use.  Work
 #' still do be done includes:
 #' - Revise to avoid deprecated ggplot features
-#' - Revise to produce dotplots with meaningful x axis using ggdist
 #' - Revise for consistent ability to control aesthetics and consistent
 #'   layer names
 #'
@@ -39,6 +38,8 @@
 #' @param marker_size Size of markers
 #' @param ggtheme theme to apply, if any
 #'
+#'
+#' @return Returns a ggplot object
 #'
 #' @examples
 #' # example code

@@ -1,7 +1,7 @@
 #' Plot the interaction from a 2x2 design
 #'
 #' @description
-#' `plot_interaction` helps visualize the interaction from a 2x2 desing.
+#' `plot_interaction` helps visualize the interaction from a 2x2 design.
 #' It plots the 2 simple effects for the first factor and can also
 #' help visualize the CIs on those simple effects.  It is the comparison
 #' between those simple effects that represents an interaction (the difference
@@ -10,6 +10,8 @@
 #' [esci::estimate_mdiff_2x2_between()] or [esci::estimate_mdiff_2x2_mixed()].
 #' This function returns a ggplot2 object.
 #'
+#'
+#' @inherit plot_describe details
 #'
 #'
 #' @param estimate A esci_estimate object with raw data an es_mdiff_2x2_
@@ -26,6 +28,12 @@
 #' to visualize the simple-effect confidence intervals; defaults to 100
 #' @param line_alpha Optional numeric between 0 and 1 to specify the
 #' alpha (transparancy) of the confidence interval lines; defaults to 0.02
+#'
+#'
+#' @inherit estimate_magnitude return
+#'
+#'
+#' @inherit estimate_mdiff_2x2_between examples
 #'
 #' @export
 plot_interaction <- function(
