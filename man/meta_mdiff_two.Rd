@@ -175,6 +175,19 @@ brain_scan_persuasion <- data.frame(
 )
 
 # Meta-analysis: random effects, no moderator
+estimate <- esci::meta_mdiff_two(
+  data = brain_scan_persuasion,
+  comparison_means = bM,
+  comparison_sds = bS,
+  comparison_ns = bN,
+  reference_means = nbM,
+  reference_sds = nbS,
+  reference_ns = nbN,
+  labels = study_name,
+  effect_label = "Brain Photo Rating - No Brain Photo Rating",
+  assume_equal_variance = TRUE,
+  random_effects = TRUE
+)
 \dontrun{
 # Forest plot
 esci::plot_meta(estimate)

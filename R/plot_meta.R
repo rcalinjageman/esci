@@ -32,6 +32,9 @@
 #'   defaults to [ggplot2::theme_classic()]
 #'
 #'
+#' @inherit plot_describe return
+#'
+#'
 #' @inherit meta_mdiff_two examples
 #'
 #' @export

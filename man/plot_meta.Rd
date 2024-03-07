@@ -52,6 +52,9 @@ each meta-analytic diamond should be drawn; defaults to 0.35
 defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}
 }}
 }
+\value{
+Returns a ggplot object
+}
 \description{
 `plot_meta' returns a ggplot2 object visualizing the results of
 a meta-analysis, showing each study effect size and CI, the overall effect
@@ -103,6 +106,19 @@ brain_scan_persuasion <- data.frame(
 )
 
 # Meta-analysis: random effects, no moderator
+estimate <- esci::meta_mdiff_two(
+  data = brain_scan_persuasion,
+  comparison_means = bM,
+  comparison_sds = bS,
+  comparison_ns = bN,
+  reference_means = nbM,
+  reference_sds = nbS,
+  reference_ns = nbN,
+  labels = study_name,
+  effect_label = "Brain Photo Rating - No Brain Photo Rating",
+  assume_equal_variance = TRUE,
+  random_effects = TRUE
+)
 \dontrun{
 # Forest plot
 esci::plot_meta(estimate)

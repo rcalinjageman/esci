@@ -34,7 +34,7 @@
 #'   defaults to [ggplot2::theme_classic()]
 #'
 #'
-#' @inherit estimate_magnitude return
+#' @inherit plot_describe return
 #'
 #'
 #' @inherit estimate_r examples

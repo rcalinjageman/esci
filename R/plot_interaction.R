@@ -30,7 +30,7 @@
 #' alpha (transparancy) of the confidence interval lines; defaults to 0.02
 #'
 #'
-#' @inherit estimate_magnitude return
+#' @inherit plot_describe return
 #'
 #'
 #' @inherit estimate_mdiff_2x2_between examples

@@ -61,58 +61,7 @@ which is to not visualize a hypothesis test}
 plot.  Defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}}
 }
 \value{
-Returns an object of class esci_estimate
-\itemize{
-\item \strong{overview}
-\itemize{
-\item \emph{outcome_variable_name} -
-\item \emph{mean} -
-\item \emph{mean_LL} -
-\item \emph{mean_UL} -
-\item \emph{median} -
-\item \emph{median_LL} -
-\item \emph{median_UL} -
-\item \emph{sd} -
-\item \emph{min} -
-\item \emph{max} -
-\item \emph{q1} -
-\item \emph{q3} -
-\item \emph{n} -
-\item \emph{missing} -
-\item \emph{df} -
-\item \emph{mean_SE} -
-\item \emph{median_SE} -
-}
-\item \strong{es_mean}
-\itemize{
-\item \emph{outcome_variable_name} -
-\item \emph{effect} -
-\item \emph{effect_size} -
-\item \emph{LL} -
-\item \emph{UL} -
-\item \emph{SE} -
-\item \emph{df} -
-\item \emph{ta_LL} -
-\item \emph{ta_UL} -
-}
-\item \strong{es_median}
-\itemize{
-\item \emph{outcome_variable_name} -
-\item \emph{effect} -
-\item \emph{effect_size} -
-\item \emph{LL} -
-\item \emph{UL} -
-\item \emph{SE} -
-\item \emph{df} -
-\item \emph{ta_LL} -
-\item \emph{ta_UL} -
-}
-\item \strong{raw_data}
-\itemize{
-\item \emph{grouping_variable} -
-\item \emph{outcome_variable} -
-}
-}
+Returns a ggplot object
 }
 \description{
 \code{plot_pdiff} helps visualize comparisons of a categorical outcome
@@ -149,7 +98,7 @@ estimate <- estimate_pdiff_two(
 
 \dontrun{
 # To visualize the estimate
-plot_proportion(estimate)
+plot_pdiff(estimate)
 }
 
 }

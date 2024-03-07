@@ -66,7 +66,7 @@
 #' plot.  Defaults to [ggplot2::theme_classic()]
 #'
 #'
-#' @inherit estimate_magnitude return
+#' @inherit plot_describe return
 #'
 #'
 #' @inherit estimate_mdiff_two examples
@@ -1128,7 +1128,7 @@ plot_mdiff_base <- function(
 #' plot.  Defaults to [ggplot2::theme_classic()]
 #'
 #'
-#' @inherit estimate_magnitude return
+#' @inherit plot_describe return
 #'
 #'
 #' @inherit estimate_pdiff_two examples
@@ -1332,7 +1332,7 @@ plot_pdiff <- function(
 #' plot.  Defaults to [ggplot2::theme_classic()]
 #'
 #'
-#' @inherit estimate_magnitude return
+#' @inherit plot_describe return
 #'
 #'
 #' @inherit estimate_rdiff_two examples
