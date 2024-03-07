@@ -28,19 +28,60 @@ decimal form.  Defaults to 0.95.}
 Returns a list with 3 properties:
 \itemize{
 \item diamond_ratio
-\item LL - lower limit of the conf_level\% CI
-\item UL - upper limit of the conf_level\% CI
+\item LL - lower limit of the conf_level\% CI, bWT-DL approach
+\item UL - upper limit of the conf_level\% CI, bWT-DL approach
+\item LL_Sub_Q  - lower limit of the conf_level\% CI, Sub-Q approach
+\item UL_Sub_Q  - upper limit of the conf_level\% CI, Sub-Q approach
 }
 }
 \description{
 \code{CI_diamond_ratio} returns the diamond ratio and CI for a
-meta-analtyic effect, the ratio of the random-effects CI width to the
+meta-analytic effect, the ratio of the random-effects CI width to the
 fixed-effects CI width.  The diamond ratio is a measure of effect-size
-heteogeneity.
+heterogeneity.
 }
 \details{
 Calculation of the CI is based on code provided by Maxwell Cairns
 (see Cairns et al., 2022).  Specifically, this function implements what
-Cairns et al (2022) called the bWT-DL approach, which had the best peformance
-for a diamond ratio CI.
+Cairns et al (2022) called the bWT-DL and Sub-Q approaches.  The bwT-DL
+is returned by default; the Sub-Q (which is generally the better approach)
+is also returned.
+}
+\examples{
+mydata <- esci::data_mccabemichael_brain
+
+# Use esci to obtain effect sizes and sample variances, storing only raw_data
+mydata <- esci::meta_mdiff_two(
+  data = mydata,
+  comparison_means = "M Brain",
+  comparison_ns = "n Brain",
+  comparison_sds = "s Brain",
+  reference_means = "M No Brain",
+  reference_ns = "n No Brain",
+  reference_sds = "s No Brain",
+  random_effects = FALSE
+)$raw_data
+
+# Conduct fixed effects meta-analysis
+FE <- metafor::rma(
+  data = mydata,
+  yi = effect_size,
+  vi = sample_variance,
+  method="FE"
+)
+# Conduct random effect meta-analysis
+RE <- metafor::rma(
+  data = mydata,
+  yi = effect_size,
+  vi = sample_variance,
+  method="DL"
+)
+
+# Get the diamond ratio
+esci::CI_diamond_ratio(
+  RE = RE,
+  FE = FE,
+  vi = mydata$sample_variance
+)
+
 }

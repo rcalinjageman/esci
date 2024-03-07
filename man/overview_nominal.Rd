@@ -51,8 +51,29 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returns a table of descriptive statistics
+\itemize{
+\item \strong{overview_nominal}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{outcome_variable_level} -
+\item \emph{cases} -
+\item \emph{n} -
+\item \emph{P} -
+\item \emph{P_LL} -
+\item \emph{P_UL} -
+\item \emph{P_SE} -
+\item \emph{P_adjusted} -
+\item \emph{ta_LL} -
+\item \emph{ta_UL} -
+}
+}
 }
 \description{
 This function calculated basic descriptive statistics for a categorical/
 nominal variable. Inputs can be summary data, vectors, or a data frame.
+}
+\examples{
+# example code
+esci::overview_nominal(esci::data_latimier_3groups, "Group")
+
 }

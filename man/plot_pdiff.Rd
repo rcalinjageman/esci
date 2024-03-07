@@ -60,6 +60,9 @@ which is to not visualize a hypothesis test}
 \item{ggtheme}{Optional ggplot2 theme object to specify the visual style of the
 plot.  Defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}}
 }
+\value{
+Returns a ggplot object
+}
 \description{
 \code{plot_pdiff} helps visualize comparisons of a categorical outcome
 variable between conditions.  It plots proportions of cases for each
@@ -71,6 +74,31 @@ by \code{\link[=estimate_pdiff_one]{estimate_pdiff_one()}}, \code{\link[=estimat
 This function returns a ggplot2 object.
 }
 \details{
-Use this function to visualize any design analyzed with an estimate_pdiff_
-function in esci.
+This function was developed primarily for student use within jamovi when
+learning along with the text book Introduction to the New Statistics, 2nd
+edition (Cumming & Calin-Jageman, 2024).
+
+Expect breaking changes as this function is improved for general use.  Work
+still do be done includes:
+\itemize{
+\item Revise to avoid deprecated ggplot features
+\item Revise for consistent ability to control aesthetics and consistent
+layer names
+}
+}
+\examples{
+estimate <- estimate_pdiff_two(
+  comparison_cases = 10,
+  comparison_n = 20,
+  reference_cases = 78,
+  reference_n = 252,
+  grouping_variable_levels = c("Original", "Replication"),
+  conf_level = 0.95
+)
+
+\dontrun{
+# To visualize the estimate
+plot_pdiff(estimate)
+}
+
 }

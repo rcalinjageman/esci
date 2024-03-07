@@ -56,6 +56,9 @@ which is to not visualize a hypothesis test}
 \item{ggtheme}{Optional ggplot2 theme object to specify the visual style of the
 plot.  Defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}}
 }
+\value{
+Returns a ggplot object
+}
 \description{
 \code{plot_rdiff} helps visualize comparisons of Pearson's r
 estimates between conditions.  It plots the Pearson's r value for each
@@ -65,6 +68,39 @@ with a difference axis.  You can pass esci-estimate objects generated
 by \code{\link[=estimate_rdiff_two]{estimate_rdiff_two()}}.  This function returns a ggplot2 object.
 }
 \details{
-Use this function to visualize any design analyzed with an estimate_rdiff_
-function in esci.
+This function was developed primarily for student use within jamovi when
+learning along with the text book Introduction to the New Statistics, 2nd
+edition (Cumming & Calin-Jageman, 2024).
+
+Expect breaking changes as this function is improved for general use.  Work
+still do be done includes:
+\itemize{
+\item Revise to avoid deprecated ggplot features
+\item Revise for consistent ability to control aesthetics and consistent
+layer names
+}
+}
+\examples{
+# From summary data
+estimate <- esci::estimate_rdiff_two(
+  comparison_r = .53,
+  comparison_n = 45,
+  reference_r = .41,
+  reference_n = 59,
+  grouping_variable_levels = c("Females", "Males"),
+  x_variable_name = "Satisfaction with life",
+  y_variable_name = "Body satisfaction",
+  grouping_variable_name = "Gender",
+  conf_level = .95
+)
+estimate
+
+# To evaluate a hypothesis (interval null from -0.1 to 0.1):
+esci::test_rdiff(estimate)
+
+\dontrun{
+# To visualize the values of r and their difference
+esci::plot_rdiff(estimate)
+}
+
 }

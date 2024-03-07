@@ -148,6 +148,12 @@
 #' \dontrun{
 #' # To visualize the estimated mean difference for the interaction
 #' plot_mdiff(estimate$interaction, effect_size = "mean")
+#'
+#' # To visualize the interaction as a line plot
+#' plot_interaction(estimates)
+#'
+#' # Same but with fan effect representing each simple-effect CI
+#' plot_interaction(estimates, show_CI = TRUE)
 #' }
 #'
 #'

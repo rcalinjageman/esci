@@ -342,6 +342,10 @@ After dropping any NA rows, current data has:
 
   # Calculate diamond ratio and handles for results
   dr_res <- CI_diamond_ratio(RE, FE, data$vi, conf_level = conf_level)
+  if (dr_res$LL == 1 & dr_res$UL == 1) {
+    dr_res$LL <- dr_res$LL_Sub_Q
+    dr_res$UL <- dr_res$UL_Sub_Q
+  }
   diamond_ratio <- dr_res$diamond_ratio
   diamond_ratio_LL <- dr_res$LL
   diamond_ratio_UL <- dr_res$UL
@@ -444,6 +448,10 @@ After dropping any NA rows, current data has:
         data[data$moderator == lev, ]$vi,
         conf_level = conf_level
       )
+      if (dr_res$LL == 1 & dr_res$UL == 1) {
+        dr_res$LL <- dr_res$LL_Sub_Q
+        dr_res$UL <- dr_res$UL_Sub_Q
+      }
 
       REjustltbl <- meta_to_table(
         REjustl,
@@ -778,6 +786,10 @@ meta_to_heterogeneity <- function(
   colnames(RE_het) <- c("measure", "estimate", "LL", "UL")
 
   dr_res <- CI_diamond_ratio(RE, FE, vi, conf_level = conf_level)
+  if (dr_res$LL == 1 & dr_res$UL == 1) {
+    dr_res$LL <- dr_res$LL_Sub_Q
+    dr_res$UL <- dr_res$UL_Sub_Q
+  }
 
   RE_het <- rbind(
     RE_het,

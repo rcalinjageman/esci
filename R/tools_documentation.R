@@ -133,6 +133,17 @@
 #' #' Reported are measures of Subjective Wellbeing abd Body Satisfaction.
 #' "
 #'
+#' descriptions$data_campus_involvement <-
+#' "
+#' #' Clinton conducted a survey of college students to determine the extent to
+#' #' which subjective well-being is related to campus involvement (Campus
+#' #' Involvement data set on the book website). Participants completed a measure
+#' #' of subjective well-being (scale from 1 to 5) and a measure of campus
+#' #' involvement (scale from 1 to 5). Participants also reported gender (male or
+#' #' female) and commuter status (resident or commuter).  Synthetic data simulated
+#' #' to mimic survey data from a class project.
+#' "
+#'
 #' descriptions$data_chap_8_paired_ex_8.18 <- "
 #' #' *Fictituous* data from an unrealistically small HEAT
 #' #' study comparing scores for a single group of students before and after a
@@ -891,7 +902,7 @@
 #'   tdoc <- NULL
 #'
 #'   badfiles <- c(
-#'     "./data/Campus Involvement.omv"
+#'     NULL
 #'   )
 #'
 #'   for (myfile in list.files(path = "./data", pattern="*.omv", full.names = TRUE)) {

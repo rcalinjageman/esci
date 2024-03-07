@@ -149,7 +149,7 @@ estimate <- estimate_pdiff_two(
 
 \dontrun{
 # To visualize the estimate
-plot_proportion(estimate)
+plot_pdiff(estimate)
 }
 
 }

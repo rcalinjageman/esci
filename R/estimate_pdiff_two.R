@@ -108,7 +108,7 @@
 #'
 #' \dontrun{
 #' # To visualize the estimate
-#' plot_proportion(estimate)
+#' plot_pdiff(estimate)
 #' }
 #'
 #' @export

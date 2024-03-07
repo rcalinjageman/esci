@@ -114,9 +114,35 @@ decimal form.  Defaults to 0.95.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns a table of descriptive statistics</p>
-    </div>
+<p>Returns a table of descriptive statistics</p><ul><li><p><strong>overview_nominal</strong></p><ul><li><p><em>outcome_variable_name</em> -</p></li>
+<li><p><em>outcome_variable_level</em> -</p></li>
+<li><p><em>cases</em> -</p></li>
+<li><p><em>n</em> -</p></li>
+<li><p><em>P</em> -</p></li>
+<li><p><em>P_LL</em> -</p></li>
+<li><p><em>P_UL</em> -</p></li>
+<li><p><em>P_SE</em> -</p></li>
+<li><p><em>P_adjusted</em> -</p></li>
+<li><p><em>ta_LL</em> -</p></li>
+<li><p><em>ta_UL</em> -</p></li>
+</ul></li>
+</ul></div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># example code</span></span></span>
+<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu">overview_nominal</span><span class="op">(</span><span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_latimier_3groups.html">data_latimier_3groups</a></span>, <span class="st">"Group"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name outcome_variable_level cases   n         P      P_LL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 Group                 Reread    95 285 0.3333333 0.2811977</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Group                   Quiz    95 285 0.3333333 0.2811977</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 Group                Prequiz    95 285 0.3333333 0.2811977</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        P_UL       P_SE P_adjusted     ta_LL     ta_UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.3900826 0.02777728  0.3356401 0.2899506 0.3813297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.3900826 0.02777728  0.3356401 0.2899506 0.3813297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 0.3900826 0.02777728  0.3356401 0.2899506 0.3813297</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

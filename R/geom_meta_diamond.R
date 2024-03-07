@@ -86,9 +86,9 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
 #' `geom_meta_diamond_h` creates a horizontal meta-analytic diamond
 #' defined by an `x` value (horizontal center of diamond), `xmin` and `xmax`
 #' values (for the horizontal ends of the diamond), a `y` value (for the
-#' vertical placement of the diamon) and a `height` (for the vertical height
+#' vertical placement of the diamond) and a `height` (for the vertical height
 #' of the diamond).  Note the use of `xmin` and `xmax` allows for representation
-#' of assymetric confidence intervals with this geom.
+#' of asymmetric confidence intervals with this geom.
 #'
 #'
 #' @inheritParams ggplot2::geom_line
@@ -100,8 +100,8 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
 #' ##Aesthetics ##
 #' `geom_meta_diamond_h` understands the following aesthetics (required are
 #' in bold):
-#' - **`x`** - The vertical center of the diamond
-#' - **`y`** - The vertical center of the diamond
+#' - **`x`** - The horizontal center of the diamond
+#' - **`y`** - The vertical placement of the diamond
 #' - **`xmin`** - The left-side start of the diamond
 #' - **`xmax`** - The right-side start of the diamond
 #' - **`height`** - The vertical span of the diamond

@@ -33,8 +33,11 @@ to visualize the simple-effect confidence intervals; defaults to 100}
 \item{line_alpha}{Optional numeric between 0 and 1 to specify the
 alpha (transparancy) of the confidence interval lines; defaults to 0.02}
 }
+\value{
+Returns a ggplot object
+}
 \description{
-\code{plot_interaction} helps visualize the interaction from a 2x2 desing.
+\code{plot_interaction} helps visualize the interaction from a 2x2 design.
 It plots the 2 simple effects for the first factor and can also
 help visualize the CIs on those simple effects.  It is the comparison
 between those simple effects that represents an interaction (the difference
@@ -42,4 +45,50 @@ in the difference).
 You can pass esci-estimate objects generated
 \code{\link[=estimate_mdiff_2x2_between]{estimate_mdiff_2x2_between()}} or \code{\link[=estimate_mdiff_2x2_mixed]{estimate_mdiff_2x2_mixed()}}.
 This function returns a ggplot2 object.
+}
+\details{
+This function was developed primarily for student use within jamovi when
+learning along with the text book Introduction to the New Statistics, 2nd
+edition (Cumming & Calin-Jageman, 2024).
+
+Expect breaking changes as this function is improved for general use.  Work
+still do be done includes:
+\itemize{
+\item Revise to avoid deprecated ggplot features
+\item Revise for consistent ability to control aesthetics and consistent
+layer names
+}
+}
+\examples{
+# From summary data
+means <- c(1.5, 1.14, 1.38, 2.22)
+sds <- c(1.38, .96,1.5, 1.68)
+ns <- c(26, 26, 25, 26)
+grouping_variable_A_levels <- c("Evening", "Morning")
+grouping_variable_B_levels <- c("Sleep", "No Sleep")
+
+estimates <- estimate_mdiff_2x2_between(
+  means = means,
+  sds = sds,
+  ns = ns,
+  grouping_variable_A_levels = grouping_variable_A_levels,
+  grouping_variable_B_levels = grouping_variable_B_levels,
+  grouping_variable_A_name = "Testing Time",
+  grouping_variable_B_name = "Rest",
+  outcome_variable_name = "False Memory Score",
+  assume_equal_variance = TRUE
+)
+
+\dontrun{
+# To visualize the estimated mean difference for the interaction
+plot_mdiff(estimate$interaction, effect_size = "mean")
+
+# To visualize the interaction as a line plot
+plot_interaction(estimates)
+
+# Same but with fan effect representing each simple-effect CI
+plot_interaction(estimates, show_CI = TRUE)
+}
+
+
 }

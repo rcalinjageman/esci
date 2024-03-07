@@ -26,8 +26,23 @@
 #'
 #'
 #' @return Returns a table of descriptive statistics
+#' - **overview_nominal**
+#'     - *outcome_variable_name* -
+#'     - *outcome_variable_level* -
+#'     - *cases* -
+#'     - *n* -
+#'     - *P* -
+#'     - *P_LL* -
+#'     - *P_UL* -
+#'     - *P_SE* -
+#'     - *P_adjusted* -
+#'     - *ta_LL* -
+#'     - *ta_UL* -
 #'
 #'
+#' @examples
+#' # example code
+#' esci::overview_nominal(esci::data_latimier_3groups, "Group")
 #'
 #' @export
 overview_nominal <- function(

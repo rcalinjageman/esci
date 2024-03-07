@@ -89,6 +89,9 @@ passed. Defaults to 'raw'}
 \item{ggtheme}{Optional ggplot2 theme object to specify the visual style of the
 plot.  Defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}}
 }
+\value{
+Returns a ggplot object
+}
 \description{
 \code{plot_mdiff} helps visualize comparisons of a continuous outcome
 variable between conditions.  It can plot raw data (if available) for each
@@ -102,6 +105,53 @@ by \code{\link[=estimate_mdiff_one]{estimate_mdiff_one()}}, \code{\link[=estimat
 This function returns a ggplot2 object.
 }
 \details{
-Use this function to visualize any design analyzed with an estimate_mdiff_
-function in esci.
+This function was developed primarily for student use within jamovi when
+learning along with the text book Introduction to the New Statistics, 2nd
+edition (Cumming & Calin-Jageman, 2024).
+
+Expect breaking changes as this function is improved for general use.  Work
+still do be done includes:
+\itemize{
+\item Revise to avoid deprecated ggplot features
+\item Revise for consistent ability to control aesthetics and consistent
+layer names
+}
+}
+\examples{
+# From summary data
+estimate <- estimate_mdiff_two(
+  comparison_mean = 12.09,
+  comparison_sd = 5.52,
+  comparison_n = 103,
+  reference_mean = 6.88,
+  reference_sd = 4.22,
+  reference_n = 48,
+  grouping_variable_levels = c("Ref-Laptop", "Comp-Pen"),
+  outcome_variable_name = "\% Transcription",
+  grouping_variable_name = "Note-taking type",
+  assume_equal_variance = TRUE
+)
+
+\dontrun{
+# To visualize the estimated median difference (raw data only)
+plot_mdiff(estimate, effect_size = "median")
+}
+
+# From raw data
+  data("data_penlaptop1")
+
+  estimate <- esci::estimate_mdiff_two(
+    data = data_penlaptop1,
+    outcome_variable = transcription,
+    grouping_variable = condition,
+    switch_comparison_order = TRUE,
+    assume_equal_variance = TRUE
+  )
+
+\dontrun{
+# To visualize the estimated mean difference
+plot_mdiff(estimate, effect_size = "mean")
+}
+
+
 }
