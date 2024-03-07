@@ -10,8 +10,9 @@
 #'
 #' @details Calculation of the CI is based on code provided by Maxwell Cairns
 #'   (see Cairns et al., 2022).  Specifically, this function implements what
-#'   Cairns et al (2022) called the bWT-DL approach, which had the best
-#'   performance for a diamond ratio CI.
+#'   Cairns et al (2022) called the bWT-DL and Sub-Q approaches.  The bwT-DL
+#'   is returned by default; the Sub-Q (which is generally the better approach)
+#'   is also returned.
 #'
 #'
 #' @param RE metafor object with random effects result
@@ -23,8 +24,10 @@
 #'
 #' @return Returns a list with 3 properties:
 #' * diamond_ratio
-#' * LL - lower limit of the conf_level% CI
-#' * UL - upper limit of the conf_level% CI
+#' * LL - lower limit of the conf_level% CI, bWT-DL approach
+#' * UL - upper limit of the conf_level% CI, bWT-DL approach
+#' * LL_Sub_Q  - lower limit of the conf_level% CI, Sub-Q approach
+#' * UL_Sub_Q  - upper limit of the conf_level% CI, Sub-Q approach
 #'
 #'
 #' @source Cairns, Maxwell, Geoff Cumming, Robert Calin‐Jageman, and Luke A.
@@ -79,6 +82,14 @@ CI_diamond_ratio <- function(RE, FE, vi, conf_level = 0.95) {
 
   diamond_ratio <- abs(RE$ci.ub - RE$ci.lb) / abs(FE$ci.ub - FE$ci.lb)
 
+  #Sub-Q CIs
+  V <- vi
+  w <- 1/V
+  res1 <- confint(RE)
+  Sub_Q.lb <- max(sqrt(sum(w)/sum(1/(V + res1$random[1,2]))), 1)
+  Sub_Q.ub <- max(sqrt(sum(w)/sum(1/(V + res1$random[1,3]))), 1)
+
+
   #CI on the diamond ratio
   log.ratio <- log(diamond_ratio)
   sds <- sqrt(vi)
@@ -96,7 +107,9 @@ CI_diamond_ratio <- function(RE, FE, vi, conf_level = 0.95) {
   res <- list(
     diamond_ratio = diamond_ratio,
     LL = LL,
-    UL = UL
+    UL = UL,
+    LL_Sub_Q = Sub_Q.lb,
+    UL_Sub_Q = Sub_Q.ub
   )
 
   return(res)

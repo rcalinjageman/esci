@@ -1,7 +1,7 @@
 ---
 title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
-version: 1.0.1
+version: 1.0.2
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman

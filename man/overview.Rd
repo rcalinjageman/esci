@@ -2,7 +2,7 @@
 % Please edit documentation in R/overview.R
 \name{overview}
 \alias{overview}
-\title{Calculates descriptive statistics for a numerical variable}
+\title{Calculates descriptive statistics for a continuous variable}
 \usage{
 overview(
   data = NULL,
@@ -59,7 +59,7 @@ decimal form.  Defaults to 0.95.}
 Returns a table of descriptive statistics
 }
 \description{
-This function caluclated basic descriptive statistics for a numerical
+This function calculates basic descriptive statistics for a numerical
 variable.  It can calculate an overall summary, or broken down by
 the levels of a grouping variable.  Inputs can be summary data,
 vectors, or a data frame.
