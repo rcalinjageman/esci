@@ -92,15 +92,18 @@ decimal form.  Defaults to 0.95.</p></dd>
     
 
 <p>Returns a list with 3 properties:</p><ul><li><p>diamond_ratio</p></li>
-<li><p>LL - lower limit of the conf_level% CI</p></li>
-<li><p>UL - upper limit of the conf_level% CI</p></li>
+<li><p>LL - lower limit of the conf_level% CI, bWT-DL approach</p></li>
+<li><p>UL - upper limit of the conf_level% CI, bWT-DL approach</p></li>
+<li><p>LL_Sub_Q  - lower limit of the conf_level% CI, Sub-Q approach</p></li>
+<li><p>UL_Sub_Q  - upper limit of the conf_level% CI, Sub-Q approach</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calculation of the CI is based on code provided by Maxwell Cairns
 (see Cairns et al., 2022).  Specifically, this function implements what
-Cairns et al (2022) called the bWT-DL approach, which had the best
-performance for a diamond ratio CI.</p>
+Cairns et al (2022) called the bWT-DL and Sub-Q approaches.  The bwT-DL
+is returned by default; the Sub-Q (which is generally the better approach)
+is also returned.</p>
     </div>
 
     <div class="section level2">
@@ -148,6 +151,12 @@ performance for a diamond ratio CI.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $UL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.091891</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $LL_Sub_Q</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $UL_Sub_Q</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.667069</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

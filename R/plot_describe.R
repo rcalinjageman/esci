@@ -1,7 +1,23 @@
 #' Plot a histogram or dotplot of an estimated magnitude with raw data
 #'
 #' @description
-#' `esci_plot_describe` returns a ggplot2 object
+#' `plot_describe` Takes an estimate produced from [esci::estimate_magnitude]
+#' and produces a dotplot or histogram.  It can mark various descriptive
+#' statitics on the plot, including mean, median, sd, quartiles, and z lines.
+#' If a percentile is passed, it color-codes data based on if it is above
+#' or below that percentile.
+#'
+#' @details
+#' This function was developed primarily for student use within jamovi when
+#' learning along with the text book Introduction to the New Statistics, 2nd
+#' edition (Cumming & Calin-Jageman, 2024).
+#'
+#' Expect breaking changes as this function is improved for general use.  Work
+#' still do be done includes:
+#' - Revise to avoid deprecated ggplot features
+#' - Revise to produce dotplots with meaningful x axis using ggdist
+#' - Revise for consistent ability to control aesthetics and consistent
+#'   layer names
 #'
 #'
 #' @param estimate A esci_estimate object with raw data an es_mean
@@ -22,6 +38,20 @@
 #' @param color outline color
 #' @param marker_size Size of markers
 #' @param ggtheme theme to apply, if any
+#'
+#'
+#' @examples
+#' # example code
+#' # Generate an estimate on a single continuous variable
+#' estimate <- esci::estimate_magnitude(esci::data_latimier_3groups, `Test%`)
+#'
+#' # Now describe the result, with a histogram
+#' plot_describe(estimate)
+#'
+#' # Same, but as a dotplot and mark the mean
+#' plot_describe(estimate, type = "dotplot", mark_mean = TRUE)
+#'
+#'
 #'
 #' @export
 plot_describe <- function(

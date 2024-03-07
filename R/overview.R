@@ -8,6 +8,15 @@
 #' vectors, or a data frame.
 #'
 #'
+#' @details
+#' If equal variance is not assumed, each group is treated independently.  In
+#' that case, the estimated mean, CI, and SE is from [statpsych::ci.mean1()],
+#' and the estimated median, CI, and SE is from [statpsych::ci.median1()].  If
+#' equal variance is assumed, each group CI is calculated as with respect to all
+#' group data, using [statpsych::ci.lc.mean.bs()] and
+#' [statpsych::ci.lc.median.bs()]
+#'
+#'
 #' @param data - for raw data, a data frame or tibble
 #' @param outcome_variable - for raw data, either a vector containing numerical
 #'   data or the name of a data-frame column containing a factor
@@ -30,8 +39,31 @@
 #'
 #'
 #' @return Returns a table of descriptive statistics
+#' - **overview**
+#'     - *outcome_variable_name* -
+#'     - *grouping_variable_name* -
+#'     - *grouping_variable_level* -
+#'     - *mean* -
+#'     - *mean_LL* -
+#'     - *mean_UL* -
+#'     - *median* -
+#'     - *median_LL* -
+#'     - *median_UL* -
+#'     - *sd* -
+#'     - *min* -
+#'     - *max* -
+#'     - *q1* -
+#'     - *q3* -
+#'     - *n* -
+#'     - *missing* -
+#'     - *df* -
+#'     - *mean_SE* -
+#'     - *median_SE* -
 #'
 #'
+#' @examples
+#' # example code
+#' esci::overview(data_latimier_3groups, "Test%", "Group")
 #'
 #'
 #' @export

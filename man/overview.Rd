@@ -57,10 +57,48 @@ decimal form.  Defaults to 0.95.}
 }
 \value{
 Returns a table of descriptive statistics
+\itemize{
+\item \strong{overview}
+\itemize{
+\item \emph{outcome_variable_name} -
+\item \emph{grouping_variable_name} -
+\item \emph{grouping_variable_level} -
+\item \emph{mean} -
+\item \emph{mean_LL} -
+\item \emph{mean_UL} -
+\item \emph{median} -
+\item \emph{median_LL} -
+\item \emph{median_UL} -
+\item \emph{sd} -
+\item \emph{min} -
+\item \emph{max} -
+\item \emph{q1} -
+\item \emph{q3} -
+\item \emph{n} -
+\item \emph{missing} -
+\item \emph{df} -
+\item \emph{mean_SE} -
+\item \emph{median_SE} -
+}
+}
 }
 \description{
 This function calculates basic descriptive statistics for a numerical
 variable.  It can calculate an overall summary, or broken down by
 the levels of a grouping variable.  Inputs can be summary data,
 vectors, or a data frame.
+}
+\details{
+If equal variance is not assumed, each group is treated independently.  In
+that case, the estimated mean, CI, and SE is from \code{\link[statpsych:ci.mean1]{statpsych::ci.mean1()}},
+and the estimated median, CI, and SE is from \code{\link[statpsych:ci.median1]{statpsych::ci.median1()}}.  If
+equal variance is assumed, each group CI is calculated as with respect to all
+group data, using \code{\link[statpsych:ci.lc.mean.bs]{statpsych::ci.lc.mean.bs()}} and
+\code{\link[statpsych:ci.lc.median.bs]{statpsych::ci.lc.median.bs()}}
+}
+\examples{
+# example code
+esci::overview(data_latimier_3groups, "Test\%", "Group")
+
+
 }
