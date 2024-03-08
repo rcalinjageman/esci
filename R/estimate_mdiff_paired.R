@@ -634,10 +634,25 @@ estimate_mdiff_paired.data.frame <- function(
     conf_level = conf_level
   )
 
+
+  no_negs <- (all(data[[comparison_measure]][!is.na(data[[comparison_measure]])] >= 0) & all(data[[reference_measure]][!is.na(data[[reference_measure]])] >= 0))
+
   estimate$es_mean_ratio_properties <- list(
-    message_html = "
-          For more information on this effect size, see Bonett & Price (2020) doi: 10.3102/1076998620934125."
+    message_html = paste(
+      if (no_negs) "" else "WARNING!  Your data has negative values.  ",
+      "This effect-size measure is appropriate only for true ratio scales where values < 0 are impossible.
+      For more information on this effect size, see Bonett & Price (2020) doi: 10.3102/1076998620934125.",
+      sep = ""
+    )
   )
+
+  if (!no_negs) {
+    estimate$warnings <- c(
+      estimate$warnings,
+      "neg_values" = "The ratio between measures effect size is appropriate only for true ratio scales where values < 0 are impossible.  Your data has negative values and therefore the any ratio between measures is invalid and should not be interpreted."
+    )
+  }
+
 
   estimate$es_median_ratio <- wrapper_ci_ratio.ps(
     mean_or_median = "median",
@@ -647,10 +662,7 @@ estimate_mdiff_paired.data.frame <- function(
     conf_level = conf_level
   )
 
-  estimate$es_median_ratio_properties <- list(
-    message_html = "
-          For more information on this effect size, see Bonett & Price (2020) doi: 10.3102/1076998620934125."
-  )
+  estimate$es_median_ratio_properties <- estimate$es_mean_ratio_properties
 
   estimate$overview <- estimate_magnitude.jamovi(
     data = data,
