@@ -43,7 +43,7 @@ options:
       default: false
 
     - name: mark_z_lines
-      title: z lines
+      title: <i>z</i> lines
       type: Bool
       default: false
 
