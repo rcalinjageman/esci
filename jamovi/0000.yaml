@@ -168,34 +168,34 @@ datasets:
   - name: Ch07 - Basol badnews
     path: Basol badnews.omv
     description: from Basol et al. (2020)
-  - name: Ch8 - EffronRaj fakenews
+  - name: Ch08 - EffronRaj fakenews
     path: EffronRaj fakenews.omv
     description: from Effron and Raj (2020)
-  - name: Ch8 - Emotion heartrate
+  - name: Ch08 - Emotion heartrate
     path: Emotion heartrate.omv
     description: from Lakens (2013)
-  - name: Ch8 - Labels flavor
+  - name: Ch08 - Labels flavor
     path: Labels flavor.omv
     description: from Floretta-Schiller et al. (2015)
-  - name: Ch9 - McCabeMichael brain
+  - name: Ch09 - McCabeMichael brain
     path: McCabeMichael brain.omv
     description: from Michael et al. (2013)
-  - name: Ch9 - McCabeMichael brain2
+  - name: Ch09 - McCabeMichael brain2
     path: McCabeMichael brain2.omv
     description: from Michael et al. (2013)
-  - name: Ch9 - DamischRCJ
+  - name: Ch09 - DamischRCJ
     path: DamischRCJ.omv
     description: 'from 6 Damisch studies, and Calin-Jageman and Caldwell (2014)'
-  - name: Ch9 - Anchor Estimate ma
+  - name: Ch09 - Anchor Estimate ma
     path: Anchor Estimate ma.omv
     description: Many Labs replications of Jacowitz and Kahneman (1995)
-  - name: Ch9 - Flag Priming ma
+  - name: Ch09 - Flag Priming ma
     path: Flag Priming ma.omv
     description: Many Labs replications of Carter et al. (2011)
-  - name: Ch9 - Gender math IAT ma
+  - name: Ch09 - Gender math IAT ma
     path: Gender math IAT ma.omv
     description: Many Labs replications of Nosek et al. (2002)
-  - name: Ch9 - PowerPerformance ma
+  - name: Ch09 - PowerPerformance ma
     path: PowerPerformance ma.omv
     description: 'from Burgmer and Englich (2012), and Cusack et al. (2015)'
   - name: Ch11 - Thomason 1

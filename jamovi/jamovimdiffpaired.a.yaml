@@ -101,7 +101,7 @@ options:
             title: Median difference
 
     - name: show_ratio
-      title: Ratio between groups
+      title: Ratio between groups (appropriate only for true ratio scales)
       type: Bool
       default: false
 
