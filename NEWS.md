@@ -1,7 +1,8 @@
-esci version 0.9.1 (Release data: March 2024)
+esci version 1.0.2 (Release data: March 2024)
 ===========
 
 Changes:
 
-* Alpha release; expect breaking changes still to come, especially with
-graphing functions.
+* First release to CRAN. Module is now complete, documented, and has relatively
+complete test coverage.  This is still a pretty rough attempt, though.  Expect 
+breaking changes still to come, especially with graphing functions.
