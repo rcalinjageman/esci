@@ -60,7 +60,7 @@ children:
           column: 3
           row: 2
       - type: Label
-        label: 'z scores'
+        label: '<i>z</i> scores'
         cell:
           column: 1
           row: 3
