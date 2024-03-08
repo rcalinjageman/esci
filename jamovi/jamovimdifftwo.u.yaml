@@ -730,6 +730,8 @@ children:
         margin: large
         style: inline
         children:
+          - type: Label
+            label: 'Evaluate against <i>H</i><sub>0</sub> of: '
           - type: TextBox
             name: null_value
             format: string
@@ -741,6 +743,9 @@ children:
           - type: ComboBox
             name: rope_units
             label: ' '
+            enable: (evaluate_hypotheses)
+          - type: Label
+            label: '&alpha;'
           - type: TextBox
             name: alpha
             format: number

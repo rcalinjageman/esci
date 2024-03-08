@@ -20,8 +20,8 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             evaluate_hypotheses = FALSE,
             null_value = "0",
             null_boundary = "0",
-            null_color = "#A40122",
             alpha = 0.05,
+            null_color = "#A40122",
             es_plot_width = "300",
             es_plot_height = "400",
             ymin = "0",
@@ -110,6 +110,10 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 "null_boundary",
                 null_boundary,
                 default="0")
+            private$..alpha <- jmvcore::OptionNumber$new(
+                "alpha",
+                alpha,
+                default=0.05)
             private$..null_color <- jmvcore::OptionList$new(
                 "null_color",
                 null_color,
@@ -152,10 +156,6 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                     "gray90",
                     "gray95",
                     "gray100"))
-            private$..alpha <- jmvcore::OptionNumber$new(
-                "alpha",
-                alpha,
-                default=0.05)
             private$..es_plot_width <- jmvcore::OptionString$new(
                 "es_plot_width",
                 es_plot_width,
@@ -349,8 +349,8 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             self$.addOption(private$..evaluate_hypotheses)
             self$.addOption(private$..null_value)
             self$.addOption(private$..null_boundary)
-            self$.addOption(private$..null_color)
             self$.addOption(private$..alpha)
+            self$.addOption(private$..null_color)
             self$.addOption(private$..es_plot_width)
             self$.addOption(private$..es_plot_height)
             self$.addOption(private$..ymin)
@@ -385,8 +385,8 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
         evaluate_hypotheses = function() private$..evaluate_hypotheses$value,
         null_value = function() private$..null_value$value,
         null_boundary = function() private$..null_boundary$value,
-        null_color = function() private$..null_color$value,
         alpha = function() private$..alpha$value,
+        null_color = function() private$..null_color$value,
         es_plot_width = function() private$..es_plot_width$value,
         es_plot_height = function() private$..es_plot_height$value,
         ymin = function() private$..ymin$value,
@@ -420,8 +420,8 @@ jamoviproportionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
         ..evaluate_hypotheses = NA,
         ..null_value = NA,
         ..null_boundary = NA,
-        ..null_color = NA,
         ..alpha = NA,
+        ..null_color = NA,
         ..es_plot_width = NA,
         ..es_plot_height = NA,
         ..ymin = NA,
@@ -674,8 +674,8 @@ jamoviproportionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
 #' @param evaluate_hypotheses .
 #' @param null_value .
 #' @param null_boundary .
-#' @param null_color .
 #' @param alpha .
+#' @param null_color .
 #' @param es_plot_width .
 #' @param es_plot_height .
 #' @param ymin .
@@ -728,8 +728,8 @@ jamoviproportion <- function(
     evaluate_hypotheses = FALSE,
     null_value = "0",
     null_boundary = "0",
-    null_color = "#A40122",
     alpha = 0.05,
+    null_color = "#A40122",
     es_plot_width = "300",
     es_plot_height = "400",
     ymin = "0",
@@ -775,8 +775,8 @@ jamoviproportion <- function(
         evaluate_hypotheses = evaluate_hypotheses,
         null_value = null_value,
         null_boundary = null_boundary,
-        null_color = null_color,
         alpha = alpha,
+        null_color = null_color,
         es_plot_width = es_plot_width,
         es_plot_height = es_plot_height,
         ymin = ymin,

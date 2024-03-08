@@ -783,10 +783,12 @@ children:
             name: null_boundary
             format: string
             enable: (evaluate_hypotheses)
+          - type: Label
+            label: '&alpha;'
           - type: TextBox
             name: alpha
             format: number
-            enable: (switch:never)
+            enable: '(switch:never)'
       - type: LayoutBox
         margin: large
         style: inline
