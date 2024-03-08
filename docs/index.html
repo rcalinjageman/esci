@@ -86,17 +86,24 @@
 <ul>
 <li>To provide a design-based approach; each function in esci is for one type of research design (e.g. two groups with a continuous variable); it provides all the effect sizes relevant to that design in one convenient function (e.g. mean difference, cohen’s d, median difference, ratio of means, ratio of medians).<br>
 </li>
-<li>To make visualzation easier; esci provides visualizations that emphasize effect sizes and uncertainty</li>
+<li>To make visualization easier; esci provides visualizations that emphasize effect sizes and uncertainty</li>
 <li>To integrate with GUIs for students; esci integrates into <a href="https://www.jamovi.org/" class="external-link">jamovi</a> and integration into <a href="https://jasp-stats.org/" class="external-link">JASP</a> is planned.</li>
 </ul>
 <p>The visualiations produced by esci are exquisite in a large part because of the lovely <a href="https://cran.r-project.org/web/packages/ggdist/index.html" class="external-link">ggdist</a> package by Matthew Kay.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>esci is not (yet?) on CRAN so install from github:</p>
+<p>Assuming submission to CRAN goes well, you will be able to install esci with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"esci"</span><span class="op">)</span></span></code></pre></div>
+<p>Or, get the stable branch directly from github</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'rcalinjageman/esci'</span><span class="op">)</span></span></code></pre></div>
+<p>Or, try out the development branch:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'rcalinjageman/esci'</span>,  branch <span class="op">=</span> <span class="st">"development"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="roadmap">Roadmap<a class="anchor" aria-label="anchor" href="#roadmap"></a>
@@ -116,7 +123,7 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">esci</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_penlaptop1"</span><span class="op">)</span></span>

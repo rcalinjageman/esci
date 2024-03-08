@@ -34,7 +34,7 @@ research design (e.g. two groups with a continuous variable); it provides
 all the effect sizes relevant to that design in one convenient function (e.g.
 mean difference, cohen's d, median difference, ratio of means, ratio of
 medians).  
-- To make visualzation easier; esci provides visualizations that emphasize
+- To make visualization easier; esci provides visualizations that emphasize
 effect sizes and uncertainty
 - To integrate with GUIs for students; esci integrates into [jamovi](https://www.jamovi.org/)
 and integration into [JASP](https://jasp-stats.org/) is planned.
@@ -46,11 +46,23 @@ package by Matthew Kay.
 
 ## Installation
 
-esci is not (yet?) on CRAN so install from github:
+Assuming submission to CRAN goes well, you will be able to install esci with:
+
+``` r
+install.packages("esci")
+```
+
+Or, get the stable branch directly from github
 
 ``` r
 # install.packages("devtools")
 devtools::install_github('rcalinjageman/esci')
+```
+
+Or, try out the development branch:
+``` r
+# install.packages("devtools")
+devtools::install_github('rcalinjageman/esci',  branch = "development")
 ```
 
 
