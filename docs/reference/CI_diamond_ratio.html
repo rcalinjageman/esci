@@ -18,7 +18,7 @@ heterogeneity."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
     
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.02</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,18 +92,19 @@ decimal form.  Defaults to 0.95.</p></dd>
     
 
 <p>Returns a list with 3 properties:</p><ul><li><p>diamond_ratio</p></li>
-<li><p>LL - lower limit of the conf_level% CI, bWT-DL approach</p></li>
-<li><p>UL - upper limit of the conf_level% CI, bWT-DL approach</p></li>
-<li><p>LL_Sub_Q  - lower limit of the conf_level% CI, Sub-Q approach</p></li>
-<li><p>UL_Sub_Q  - upper limit of the conf_level% CI, Sub-Q approach</p></li>
+<li><p>LL - lower limit of the conf_level% CI, Sub-Q approach</p></li>
+<li><p>UL - upper limit of the conf_level% CI, Sub-Q approach</p></li>
+<li><p>LL_bWT_DL  - lower limit of the conf_level% CI, bWT-DL approach</p></li>
+<li><p>UL_bWT_DL  - upper limit of the conf_level% CI, bWT-DL approach</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calculation of the CI is based on code provided by Maxwell Cairns
 (see Cairns et al., 2022).  Specifically, this function implements what
-Cairns et al (2022) called the bWT-DL and Sub-Q approaches.  The bwT-DL
-is returned by default; the Sub-Q (which is generally the better approach)
-is also returned.</p>
+Cairns et al (2022) called the Sub-Q approach, which generaly
+provides the best CI coverage in simulations.  For comparison, this
+function also returns the CI produced by the bWT-DL approach (which
+generally has worse performance).</p>
     </div>
 
     <div class="section level2">
@@ -150,13 +151,13 @@ is also returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.091891</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.667069</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $LL_Sub_Q</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $LL_bWT_DL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $UL_Sub_Q</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.667069</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $UL_bWT_DL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.091891</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
