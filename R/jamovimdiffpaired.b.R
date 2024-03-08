@@ -310,6 +310,13 @@ jamovi_mdiff_paired <- function(self, save_raw_data = FALSE) {
 
   if (!is(estimate, "try-error")) {
     if (length(estimate$warnings) > 0) {
+
+      if (!self$options$show_ratio) {
+        if (!is.na(estimate$warnings["neg_values"])) {
+          estimate$warnings <- estimate$warnings[names(estimate$warnings) != "neg_values"]
+        }
+      }
+
       notes <- c(notes, estimate$warnings)
     }
   }

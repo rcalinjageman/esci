@@ -342,10 +342,6 @@ After dropping any NA rows, current data has:
 
   # Calculate diamond ratio and handles for results
   dr_res <- CI_diamond_ratio(RE, FE, data$vi, conf_level = conf_level)
-  if (dr_res$LL == 1 & dr_res$UL == 1) {
-    dr_res$LL <- dr_res$LL_Sub_Q
-    dr_res$UL <- dr_res$UL_Sub_Q
-  }
   diamond_ratio <- dr_res$diamond_ratio
   diamond_ratio_LL <- dr_res$LL
   diamond_ratio_UL <- dr_res$UL
@@ -448,10 +444,6 @@ After dropping any NA rows, current data has:
         data[data$moderator == lev, ]$vi,
         conf_level = conf_level
       )
-      if (dr_res$LL == 1 & dr_res$UL == 1) {
-        dr_res$LL <- dr_res$LL_Sub_Q
-        dr_res$UL <- dr_res$UL_Sub_Q
-      }
 
       REjustltbl <- meta_to_table(
         REjustl,
@@ -646,6 +638,10 @@ After dropping any NA rows, current data has:
     warnings = warnings
   )
 
+  res$es_heterogeneity_properties <- list(
+    message_html = "As of version 1.02 esci has implemented an improved method for calculating the CI for the diamond ratio; these will no longer match those presented in the 2nd edition of <i>Introduction to the New Statistics</i>."
+  )
+
   if (moderator) res$es_meta_difference <- es_meta_difference
 
   class(res) <- "esci_estimate"
@@ -786,10 +782,6 @@ meta_to_heterogeneity <- function(
   colnames(RE_het) <- c("measure", "estimate", "LL", "UL")
 
   dr_res <- CI_diamond_ratio(RE, FE, vi, conf_level = conf_level)
-  if (dr_res$LL == 1 & dr_res$UL == 1) {
-    dr_res$LL <- dr_res$LL_Sub_Q
-    dr_res$UL <- dr_res$UL_Sub_Q
-  }
 
   RE_het <- rbind(
     RE_het,

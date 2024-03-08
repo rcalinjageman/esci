@@ -28,10 +28,10 @@ decimal form.  Defaults to 0.95.}
 Returns a list with 3 properties:
 \itemize{
 \item diamond_ratio
-\item LL - lower limit of the conf_level\% CI, bWT-DL approach
-\item UL - upper limit of the conf_level\% CI, bWT-DL approach
-\item LL_Sub_Q  - lower limit of the conf_level\% CI, Sub-Q approach
-\item UL_Sub_Q  - upper limit of the conf_level\% CI, Sub-Q approach
+\item LL - lower limit of the conf_level\% CI, Sub-Q approach
+\item UL - upper limit of the conf_level\% CI, Sub-Q approach
+\item LL_bWT_DL  - lower limit of the conf_level\% CI, bWT-DL approach
+\item UL_bWT_DL  - upper limit of the conf_level\% CI, bWT-DL approach
 }
 }
 \description{
@@ -43,9 +43,10 @@ heterogeneity.
 \details{
 Calculation of the CI is based on code provided by Maxwell Cairns
 (see Cairns et al., 2022).  Specifically, this function implements what
-Cairns et al (2022) called the bWT-DL and Sub-Q approaches.  The bwT-DL
-is returned by default; the Sub-Q (which is generally the better approach)
-is also returned.
+Cairns et al (2022) called the Sub-Q approach, which generaly
+provides the best CI coverage in simulations.  For comparison, this
+function also returns the CI produced by the bWT-DL approach (which
+generally has worse performance).
 }
 \examples{
 mydata <- esci::data_mccabemichael_brain

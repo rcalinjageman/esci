@@ -39,7 +39,9 @@ test_that("CI_diamond_ratio compare to example from Cairns et al. 2022", {
 
   testthat::expect_equal(res$diamond_ratio, 1.4, tolerance = 1e-2)
   testthat::expect_equal(res$LL, 1, tolerance = 1e-2)
-  testthat::expect_equal(res$UL, 3.09, tolerance = 1e-2)
+  testthat::expect_equal(res$UL, 2.67, tolerance = 1e-2)
+  testthat::expect_equal(res$LL_bWT_DL, 1, tolerance = 1e-2)
+  testthat::expect_equal(res$UL_bWT_DL, 3.09, tolerance = 1e-2)
 
 
   # Data set from Cairns et al., 2022, Figure 2
@@ -71,9 +73,10 @@ test_that("CI_diamond_ratio compare to example from Cairns et al. 2022", {
   )
 
   testthat::expect_equal(res$diamond_ratio, 1.55, tolerance = 1e-2)
-  testthat::expect_equal(res$LL, 1.18, tolerance = 1e-2)
-  testthat::expect_equal(res$UL, 2.34, tolerance = 1e-2)
-
+  testthat::expect_equal(res$LL, 1.14, tolerance = 1e-2)
+  testthat::expect_equal(res$UL, 2.62, tolerance = 1e-2)
+  testthat::expect_equal(res$LL_bWT_DL, 1.18, tolerance = 1e-2)
+  testthat::expect_equal(res$UL_bWT_DL, 2.34, tolerance = 1e-2)
 
   # Data set from Cairns et al., 2022, Figure 4
   library(metafor)
@@ -113,39 +116,10 @@ test_that("CI_diamond_ratio compare to example from Cairns et al. 2022", {
   )
 
   testthat::expect_equal(res$diamond_ratio, 4.21, tolerance = 1e-2)
-  testthat::expect_equal(res$LL, 2.81, tolerance = 1e-2)
-  testthat::expect_equal(res$UL, 8.99, tolerance = 1e-2)
-
-
-
-  # # Data set from anchor_estimate_ma
-  # mydata <- esci::data_anchor_estimate_ma
-  # myless <- mydata
-  # mymult <- 10
-  # myscale <- 1
-  #
-  # for (x in 1:8) {
-  #
-  #
-  #   estimate_less <- esci::meta_mdiff_two(
-  #     data = myless,
-  #     comparison_means = "M High",
-  #     comparison_ns = "n High",
-  #     comparison_sds = "s High",
-  #     reference_means = "M Low",
-  #     reference_ns = "n Low",
-  #     reference_sds = "s Low",
-  #     random_effects = FALSE
-  #   )
-  #   print(paste("Multiplier: ", myscale))
-  #   print(estimate_less$es_heterogeneity)
-  #
-  #   myless$`M Low` <- myless$`M Low` / mymult
-  #   myless$`s Low` <- myless$`s Low` / mymult
-  #   myless$`M High` <- myless$`M High` / mymult
-  #   myless$`s High` <- myless$`s High` / mymult
-  #   myscale <- myscale / mymult
-  # }
+  testthat::expect_equal(res$LL, 3.37, tolerance = 1e-2)
+  testthat::expect_equal(res$UL, 9.64, tolerance = 1e-2)
+  testthat::expect_equal(res$LL_bWT_DL, 2.81, tolerance = 1e-2)
+  testthat::expect_equal(res$UL_bWT_DL, 8.99, tolerance = 1e-2)
 
 
 })
