@@ -20,8 +20,8 @@ jamoviproportion(
   evaluate_hypotheses = FALSE,
   null_value = "0",
   null_boundary = "0",
-  null_color = "#A40122",
   alpha = 0.05,
+  null_color = "#A40122",
   es_plot_width = "300",
   es_plot_height = "400",
   ymin = "0",
@@ -73,9 +73,9 @@ jamoviproportion(
 
 \item{null_boundary}{.}
 
-\item{null_color}{.}
-
 \item{alpha}{.}
+
+\item{null_color}{.}
 
 \item{es_plot_width}{.}
 

@@ -89,6 +89,11 @@ options:
       type: String
       default: '0'
 
+    - name: alpha
+      title: ''
+      type: Number
+      default: 0.05
+
     - name: null_color
       type: List
       title: 'Color for null hypothesis'
@@ -168,11 +173,6 @@ options:
            title: 'Gray95'
          - name: 'gray100'
            title: 'Gray100'
-
-    - name: alpha
-      title: '&alpha;'
-      type: Number
-      default: 0.05
 
     - name: es_plot_width
       title: Width

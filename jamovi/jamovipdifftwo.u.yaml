@@ -451,18 +451,22 @@ children:
         margin: large
         style: inline
         children:
+          - type: Label
+            label: 'Evaluate against <i>H</i><sub>0</sub> of: '
           - type: TextBox
             name: null_value
             format: string
-            enable: '(switch:nope)'
+            enable: '(effect_size:never)'
           - type: TextBox
             name: null_boundary
             format: string
             enable: (evaluate_hypotheses)
+          - type: Label
+            label: '&alpha;'
           - type: TextBox
             name: alpha
             format: number
-            enable: '(switch:nope)'
+            enable: '(effect_size:never)'
       - type: LayoutBox
         margin: large
         style: inline

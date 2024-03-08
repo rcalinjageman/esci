@@ -86,7 +86,7 @@ options:
       default: false
 
     - name: null_value
-      title: 'Evaluate against null of: '
+      title: ''
       type: String
       default: '0'
 
@@ -96,7 +96,7 @@ options:
       default: '0'
 
     - name: alpha
-      title: '&alpha;'
+      title: ''
       type: Number
       default: 0.05
 
