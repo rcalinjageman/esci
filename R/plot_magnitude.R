@@ -26,7 +26,7 @@
 #'   for how expected sampling error of the measure of central tendency should
 #'   be displayed.  Currently, only applies if 'mean' is selected as measure of
 #'   central tendency
-#' @param error_scale - Optional real number > 0 speciyin width of the expected
+#' @param error_scale - Optional real number > 0 specifying width of the expected
 #'   sampling error visualization; default is 0.3
 #' @param error_nudge - Optional amount by which error distribution should be
 #'   offset; default is 0.35
@@ -36,7 +36,7 @@
 #' @param rope - Optional two-item vector specifying a region of practical
 #'   equivalence (ROPE) to be highlighted on the plot.  For a point null
 #'   hypothesis, pass the same value (e.g. c(0, 0) to test a point null of
-#'   exaclty 0); for an interval null pass ascending values (e.g. c(-1, 1))
+#'   exactly 0); for an interval null pass ascending values (e.g. c(-1, 1))
 #' @param ggtheme - Optional ggplot2 theme object to control overall styling;
 #'   defaults to [ggplot2::theme_classic()]
 #'
@@ -311,7 +311,7 @@ plot_magnitude <- function(
 #'   for how expected sampling error of the measure of central tendency should
 #'   be displayed.  **Caution - the displayed error distributions do not seem
 #'   correct yet**
-#' @param error_scale - Optional real number > 0 speciyin width of the expected
+#' @param error_scale - Optional real number > 0 specifying width of the expected
 #'   sampling error visualization; default is 0.3
 #' @param error_normalize - Optional; One of 'groups' (default), 'all', or
 #'   'panels' specifying how width of expected sampling error distributions
@@ -319,7 +319,7 @@ plot_magnitude <- function(
 #' @param rope - Optional two-item vector specifying a region of practical
 #'   equivalence (ROPE) to be highlighted on the plot.  For a point null
 #'   hypothesis, pass the same value (e.g. c(0, 0) to test a point null of
-#'   exaclty 0); for an interval null pass ascending values (e.g. c(-1, 1))
+#'   exactly 0); for an interval null pass ascending values (e.g. c(-1, 1))
 #' @param ggtheme - Optional ggplot2 theme object to control overall styling;
 #'   defaults to [ggplot2::theme_classic()]
 #'
@@ -535,7 +535,7 @@ plot_correlation <- function(
 #'   for how expected sampling error of the measure of central tendency should
 #'   be displayed.  **Caution - the displayed error distributions do not seem
 #'   correct yet**
-#' @param error_scale - Optional real number > 0 speciyin width of the expected
+#' @param error_scale - Optional real number > 0 specifying width of the expected
 #'   sampling error visualization; default is 0.3
 #' @param error_normalize - Optional; One of 'groups' (default), 'all', or
 #'   'panels' specifying how width of expected sampling error distributions
@@ -543,7 +543,7 @@ plot_correlation <- function(
 #' @param rope - Optional two-item vector specifying a region of practical
 #'   equivalence (ROPE) to be highlighted on the plot.  For a point null
 #'   hypothesis, pass the same value (e.g. c(0, 0) to test a point null of
-#'   exaclty 0); for an interval null pass ascending values (e.g. c(-1, 1))
+#'   exactly 0); for an interval null pass ascending values (e.g. c(-1, 1))
 #' @param plot_possible - Boolean; defaults to FALSE; TRUE to plot lines at each
 #'   discrete proportion possible given the sample size (e.g for a proportion
 #'   with 10 total cases, would draw lines at 0, .1, .2, etc.)

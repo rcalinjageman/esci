@@ -30,7 +30,7 @@ function}
 
 \item{effect_size}{Optional; one of 'mean' or 'median' to determine the
 measure of central tendency plotted.  Note that median is only available if
-the estimate was generated from raw data.  Defauls to 'mean'}
+the estimate was generated from raw data.  Defaults to 'mean'}
 
 \item{data_layout}{Optional; one of 'random', 'swarm', or 'none' to determine
 how raw data (if available) will be displayed.  Defaults to 'random'}

@@ -89,7 +89,7 @@
 #' "
 #'
 #' sources$data_basol_badnews <-
-#'   "https://doi.org/10.5334%2Fjoc.91"
+#'   "https://journalofcognition.org/articles/10.5334/joc.91"
 #'
 #' descriptions$data_bem_psychic <-
 #' "#' Daryl Bem was an experienced mentalist and research psychologist, who, a
@@ -120,7 +120,7 @@
 #'
 #' descriptions$data_bodywellf <-
 #' "#' A subset of data_bodywell_fm, reports only for those participants
-#' #' who identified as female.  Data is Subjective Wellbeing abd Body Satisfaction.
+#' #' who identified as female.  Data is Subjective Wellbeing and Body Satisfaction.
 #' "
 #'
 #' descriptions$data_bodywellm <-
@@ -145,7 +145,7 @@
 #' "
 #'
 #' descriptions$data_chap_8_paired_ex_8.18 <- "
-#' #' *Fictituous* data from an unrealistically small HEAT
+#' #' *Fictitious* data from an unrealistically small HEAT
 #' #' study comparing scores for a single group of students before and after a
 #' #' workshop on climate change.
 #' "
@@ -407,7 +407,7 @@
 #' #' work through each module and quiz. Seven days later, participants completed a
 #' #' final test.
 #' #' data_latimier_3groups is the full data set.
-#' #' To facilitate different student exercises, there are also seperate data
+#' #' To facilitate different student exercises, there are also separate data
 #' #' entities for each group (data_latimier_prequiz, data_latimier_reread, etc.),
 #' #' and for every *pair* of groups (data_latimier_quiz_prequiz, etc.).
 #' "
@@ -764,7 +764,7 @@
 #' "
 #'
 #' sources$data_studystrategies <-
-#'   "https://doi.org/10.1006/ceps.1997.0977"
+#'   "https://www.sciencedirect.com/science/article/abs/pii/S0361476X97909772"
 #'
 #'
 #' descriptions$data_thomason_1 <-

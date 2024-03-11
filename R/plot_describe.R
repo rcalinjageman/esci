@@ -3,7 +3,7 @@
 #' @description
 #' `plot_describe` Takes an estimate produced from [esci::estimate_magnitude]
 #' and produces a dotplot or histogram.  It can mark various descriptive
-#' statitics on the plot, including mean, median, sd, quartiles, and z lines.
+#' statistics on the plot, including mean, median, sd, quartiles, and z lines.
 #' If a percentile is passed, it color-codes data based on if it is above
 #' or below that percentile.
 #'

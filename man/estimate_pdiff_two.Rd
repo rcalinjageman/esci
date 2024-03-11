@@ -61,7 +61,7 @@ decimal form.  Defaults to 0.95.}
 \item{count_NA}{Logical to count NAs (TRUE) in total N or not (FALSE)}
 }
 \value{
-Returnsobject of class esci_estimate
+Returns object of class esci_estimate
 \itemize{
 \item \strong{es_proportion_difference}
 \itemize{

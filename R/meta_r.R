@@ -4,7 +4,7 @@
 #'
 #' @description
 #' `meta_r` is suitable for synthesizing across multiple studies that have
-#' measured a linear correlation (Pearson's r) from two continuyous variables.
+#' measured a linear correlation (Pearson's r) from two continuous variables.
 #'
 #'
 #' @details

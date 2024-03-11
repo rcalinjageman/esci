@@ -55,7 +55,7 @@
 #'   memory by not returning raw data in estimate object
 #'
 #'
-#' @return Returnsobject of class esci_estimate
+#' @return Returns object of class esci_estimate
 #' - **overview**
 #'     - *outcome_variable_name* -
 #'     - *grouping_variable_name* -

@@ -1,4 +1,4 @@
-#' Estimate ameta-analytic Cohen's d1 across multiple studies
+#' Estimate a meta-analytic Cohen's d1 across multiple studies
 #'
 #' @description `meta_d1` is suitable for synthesizing across multiple
 #' single-group studies with a continuous outcome variable, but where the

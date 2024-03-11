@@ -19,6 +19,6 @@ data_bodywellf
 }
 \description{
 A subset of data_bodywell_fm, reports only for those participants
-who identified as female.  Data is Subjective Wellbeing abd Body Satisfaction.
+who identified as female.  Data is Subjective Wellbeing and Body Satisfaction.
 }
 \keyword{datasets}

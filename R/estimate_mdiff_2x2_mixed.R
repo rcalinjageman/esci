@@ -40,7 +40,7 @@
 #'   memory by not returning raw data in estimate object
 #'
 #'
-#' @return Returnsobject of class esci_estimate
+#' @return Returns object of class esci_estimate
 #' - **es_mean_difference**
 #'     - *type* -
 #'     - *outcome_variable_name* -
