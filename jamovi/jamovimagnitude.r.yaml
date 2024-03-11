@@ -278,4 +278,5 @@ items:
       width:  400
       height: 300
       renderFun: .magnitude_plot
+      refs: ggdist
 ...

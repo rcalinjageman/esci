@@ -1806,6 +1806,7 @@ jamovimetameanResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 name="es_meta",
                 title="Meta-Analytic Effect Sizes",
                 rows=1,
+                refs="metafor",
                 clearWith=list(
                     "means",
                     "sds",

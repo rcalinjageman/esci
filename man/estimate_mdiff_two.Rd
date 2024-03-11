@@ -198,8 +198,8 @@ estimate <- estimate_mdiff_two(
 )
 
 \dontrun{
-# To visualize the estimated median difference (raw data only)
-plot_mdiff(estimate, effect_size = "median")
+# To visualize the estimated mean difference
+plot_mdiff(estimate, effect_size = "mean")
 }
 
 # From raw data
@@ -214,8 +214,8 @@ plot_mdiff(estimate, effect_size = "median")
   )
 
 \dontrun{
-# To visualize the estimated mean difference
-plot_mdiff(estimate, effect_size = "mean")
+# To visualize the estimated median difference (raw data only)
+plot_mdiff(estimate, effect_size = "median")
 }
 
 

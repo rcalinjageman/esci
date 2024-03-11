@@ -315,6 +315,10 @@ jamovi_mdiff_paired <- function(self, save_raw_data = FALSE) {
         if (!is.na(estimate$warnings["neg_values"])) {
           estimate$warnings <- estimate$warnings[names(estimate$warnings) != "neg_values"]
         }
+      } else {
+        to_show <- is.na(estimate$warnings["neg_values"])
+        self$results$es_mean_ratio$setVisible(to_show & self$options$effect_size == "mean_difference")
+        self$results$es_median_ratio$setVisible(to_show & self$options$effect_size == "median_difference")
       }
 
       notes <- c(notes, estimate$warnings)

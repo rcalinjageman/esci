@@ -1869,6 +1869,7 @@ jamovimdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 name="es_smd",
                 title="Standardized Mean Difference",
                 rows=1,
+                refs="lc_stdmean_bs",
                 visible="(effect_size == 'mean_difference')",
                 clearWith=list(
                     "switch",
@@ -1953,6 +1954,7 @@ jamovimdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 title="Ratio of Means",
                 visible="(show_ratio & effect_size == 'mean_difference')",
                 rows="(outcome_variable)",
+                refs="ratio_ps",
                 clearWith=list(
                     "switch",
                     "outcome_variable",
@@ -2015,6 +2017,7 @@ jamovimdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 title="Median Difference",
                 visible="(effect_size == 'median_difference')",
                 rows=3,
+                refs="lc_median_bs",
                 clearWith=list(
                     "switch",
                     "outcome_variable",
@@ -2074,6 +2077,7 @@ jamovimdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 title="Ratio of Medians",
                 visible="(show_ratio & effect_size == 'median_difference')",
                 rows="(outcome_variable)",
+                refs="ratio_ps",
                 clearWith=list(
                     "switch",
                     "outcome_variable",
@@ -2286,6 +2290,7 @@ jamovimdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 options=options,
                 name="estimation_plots",
                 title="Estimation Figure",
+                refs="ggdist",
                 template=jmvcore::Image$new(
                     options=options,
                     title="$key",

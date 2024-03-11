@@ -2389,6 +2389,7 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 name="es_median_difference",
                 title="Median Difference",
                 visible="(effect_size == 'median_difference' & design == 'fully_between')",
+                refs="lc_median_bs",
                 rows="15 - switch - outcome_variable - grouping_variable_A - grouping_variable_B - outcome_variable_level1 - outcome_variable_level2 - outcome_variable_name_bs - grouping_variable - repeated_measures_name - outcome_variable_name - conf_level - effect_size - assume_equal_variance - show_details",
                 columns=list(
                     list(
@@ -2540,6 +2541,7 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 name="es_smd",
                 title="Standardized Mean Difference",
                 rows=5,
+                refs="lc_stdmean_bs",
                 visible="(effect_size == 'mean_difference' & design == 'fully_between')",
                 clearWith=list(
                     "switch",
@@ -2810,6 +2812,7 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 requiresData=TRUE,
                 width=700,
                 height=400,
+                refs="ggdist",
                 renderFun=".estimation_plot"))
             self$add(jmvcore::Image$new(
                 options=options,

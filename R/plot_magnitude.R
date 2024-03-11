@@ -276,6 +276,13 @@ plot_magnitude <- function(
   myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
 
 
+  myplot <- myplot + ggplot2::theme(
+    axis.text.y = ggtext::element_markdown(),
+    axis.title.y = ggtext::element_markdown(),
+    axis.text.x = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown()
+  )
+
   # Attach warnings and return    -------------------
   myplot$warnings <- c(myplot$warnings, warnings)
 
@@ -750,6 +757,13 @@ plot_proportion <- function(
 
   xlab <- gdata$outcome_variable_name[[1]]
   myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
+
+  myplot <- myplot + ggplot2::theme(
+    axis.text.y = ggtext::element_markdown(),
+    axis.title.y = ggtext::element_markdown(),
+    axis.text.x = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown()
+  )
 
   # Limits
   ylow <- min(0, rope[[1]], na.rm = TRUE)

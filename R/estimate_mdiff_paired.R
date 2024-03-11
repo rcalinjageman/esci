@@ -639,9 +639,8 @@ estimate_mdiff_paired.data.frame <- function(
 
   estimate$es_mean_ratio_properties <- list(
     message_html = paste(
-      if (no_negs) "" else "WARNING!  Your data has negative values.  ",
-      "This effect-size measure is appropriate only for true ratio scales where values < 0 are impossible.
-      For more information on this effect size, see Bonett & Price (2020) doi: 10.3102/1076998620934125.",
+      if (no_negs) "" else "WARNING!  Your dataset includes negative values.  ",
+      "This effect-size measure is appropriate only for true ratio scales.",
       sep = ""
     )
   )
@@ -649,7 +648,7 @@ estimate_mdiff_paired.data.frame <- function(
   if (!no_negs) {
     estimate$warnings <- c(
       estimate$warnings,
-      "neg_values" = "The ratio between measures effect size is appropriate only for true ratio scales where values < 0 are impossible.  Your data has negative values and therefore the any ratio between measures is invalid and should not be interpreted."
+      "neg_values" = "The ratio between group effect size is appropriate only for true ratio scales where values < 0 are impossible.  Your data include at least one negative value, so the requested ratio effect size is not reported."
     )
   }
 

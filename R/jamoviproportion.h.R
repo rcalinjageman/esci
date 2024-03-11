@@ -473,6 +473,7 @@ jamoviproportionResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 name="overview",
                 title="Overview",
                 rows=1,
+                refs="prop1",
                 clearWith=list(
                     "outcome_variable",
                     "cases",
@@ -627,6 +628,7 @@ jamoviproportionResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 options=options,
                 name="estimation_plots",
                 title="Estimation Figure",
+                refs="ggdist",
                 template=jmvcore::Image$new(
                     options=options,
                     title="$key",

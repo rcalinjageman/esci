@@ -118,6 +118,7 @@ items:
       title: Meta-Analytic Effect Sizes
       type: Table
       rows:  1
+      refs: metafor
       clearWith:
         - switch
         - comparison_means

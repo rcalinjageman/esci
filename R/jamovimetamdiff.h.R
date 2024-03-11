@@ -1909,6 +1909,7 @@ jamovimetamdiffResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                 name="es_meta",
                 title="Meta-Analytic Effect Sizes",
                 rows=1,
+                refs="metafor",
                 clearWith=list(
                     "switch",
                     "comparison_means",

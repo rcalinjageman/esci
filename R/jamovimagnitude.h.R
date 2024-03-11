@@ -1098,7 +1098,8 @@ jamovimagnitudeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                 requiresData=TRUE,
                 width=400,
                 height=300,
-                renderFun=".magnitude_plot"))}))
+                renderFun=".magnitude_plot",
+                refs="ggdist"))}))
 
 jamovimagnitudeBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "jamovimagnitudeBase",

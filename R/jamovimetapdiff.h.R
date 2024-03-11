@@ -1750,6 +1750,7 @@ jamovimetapdiffResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                 options=options,
                 name="es_meta",
                 title="Meta-Analytic Effect Sizes",
+                refs="metafor",
                 rows=1,
                 clearWith=list(
                     "reference_cases",

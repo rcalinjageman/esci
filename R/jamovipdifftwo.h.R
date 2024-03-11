@@ -949,6 +949,7 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 name="es_proportion_difference",
                 title="Proportion Difference",
                 rows=3,
+                refs="prop1",
                 clearWith=list(
                     "outcome_variable",
                     "grouping_variable",
@@ -1262,6 +1263,7 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 options=options,
                 name="estimation_plots",
                 title="Estimation Figure",
+                refs="ggdist",
                 template=jmvcore::Image$new(
                     options=options,
                     title="$key",

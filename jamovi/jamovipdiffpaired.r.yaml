@@ -66,6 +66,7 @@ items:
       title: Proportion Difference
       type: Table
       rows:  3
+      refs: prop_paired
       clearWith:
         - reference_measure
         - comparison_measure
@@ -200,5 +201,6 @@ items:
       width:  300
       height: 450
       requiresData: true
+      refs: ggdist
       renderFun: .estimation_plots
 ...

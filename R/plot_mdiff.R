@@ -313,6 +313,12 @@ plot_mdiff <- function(
 
   myplot <- myplot + ggplot2::xlab(xlab) + ggplot2::ylab(ylab)
 
+  myplot <- myplot + ggplot2::theme(
+    axis.text.y = ggtext::element_markdown(),
+    axis.title.y = ggtext::element_markdown(),
+    axis.text.x = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown()
+  )
 
   # Attach warnings and return    -------------------
   myplot$warnings <- c(myplot$warnings, warnings)
@@ -1273,8 +1279,10 @@ plot_pdiff <- function(
 
 
   myplot <- myplot + ggplot2::theme(
+    axis.text.y = ggtext::element_markdown(),
     axis.title.y = ggtext::element_markdown(),
-    axis.title.x = ggtext::element_markdown(),
+    axis.text.x = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown()
   )
 
 
@@ -1451,9 +1459,10 @@ plot_rdiff <- function(
 
 
   myplot <- myplot + ggplot2::theme(
-    axis.title.x = ggtext::element_markdown(),
+    axis.text.y = ggtext::element_markdown(),
     axis.title.y = ggtext::element_markdown(),
-    axis.text.x = ggtext::element_markdown()
+    axis.text.x = ggtext::element_markdown(),
+    axis.title.x = ggtext::element_markdown()
   )
 
   # Attach warnings and return    -------------------
