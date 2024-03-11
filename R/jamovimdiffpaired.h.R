@@ -2037,6 +2037,7 @@ jamovimdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 name="es_smd",
                 title="Standardized Mean Difference",
                 rows=1,
+                refs="lc_stdmean_bs",
                 visible="(effect_size == 'mean_difference')",
                 clearWith=list(
                     "switch",
@@ -2115,6 +2116,7 @@ jamovimdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 title="Ratio of Means",
                 visible="(show_ratio & effect_size == 'mean_difference')",
                 rows=1,
+                refs="ratio_ps",
                 clearWith=list(
                     "switch",
                     "reference_measure",
@@ -2175,6 +2177,7 @@ jamovimdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 name="es_median_difference",
                 title="Median Difference",
                 visible="(effect_size == 'median_difference')",
+                refs="median_ps",
                 rows=3,
                 clearWith=list(
                     "switch",
@@ -2234,6 +2237,7 @@ jamovimdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 title="Ratio of Medians",
                 visible="(show_ratio & effect_size == 'median_difference')",
                 rows=1,
+                refs="ratio_ps",
                 clearWith=list(
                     "switch",
                     "reference_measure",
@@ -2439,6 +2443,7 @@ jamovimdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 width=300,
                 height=450,
                 requiresData=TRUE,
+                refs="ggdist",
                 renderFun=".estimation_plots"))}))
 
 jamovimdiffpairedBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(

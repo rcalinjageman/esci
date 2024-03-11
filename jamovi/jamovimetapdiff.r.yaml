@@ -82,6 +82,7 @@ items:
     - name:  es_meta
       title: Meta-Analytic Effect Sizes
       type: Table
+      refs: metafor
       rows:  1
       clearWith:
         - reference_cases

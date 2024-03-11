@@ -873,6 +873,7 @@ jamovipdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 name="es_proportion_difference",
                 title="Proportion Difference",
                 rows=3,
+                refs="prop_paired",
                 clearWith=list(
                     "reference_measure",
                     "comparison_measure",
@@ -1027,6 +1028,7 @@ jamovipdiffpairedResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R
                 width=300,
                 height=450,
                 requiresData=TRUE,
+                refs="ggdist",
                 renderFun=".estimation_plots"))}))
 
 jamovipdiffpairedBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(

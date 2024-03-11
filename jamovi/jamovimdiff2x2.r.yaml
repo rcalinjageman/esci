@@ -159,6 +159,7 @@ items:
       title: Median Difference
       type: Table
       visible: (effect_size == 'median_difference' & design == 'fully_between')
+      refs: lc_median_bs
       rows:  15
         - switch
         - outcome_variable
@@ -302,6 +303,7 @@ items:
       title: Standardized Mean Difference
       type: Table
       rows:  5
+      refs: lc_stdmean_bs
       visible: (effect_size == 'mean_difference' & design == 'fully_between')
       clearWith:
         - switch
@@ -535,6 +537,7 @@ items:
       requiresData: true
       width:  700
       height: 400
+      refs: ggdist
       renderFun: .estimation_plot
 
     - name: main_effect_B

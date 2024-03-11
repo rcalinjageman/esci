@@ -1714,6 +1714,7 @@ jamovimetarResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 name="es_meta",
                 title="Meta-Analytic Effect Sizes",
                 rows=1,
+                refs="metafor",
                 clearWith=list(
                     "rs",
                     "ns",

@@ -16,6 +16,7 @@ items:
       title: Overview
       type: Table
       rows:  1
+      refs: prop1
       clearWith:
         - outcome_variable
         - cases
@@ -147,6 +148,7 @@ items:
     - name: estimation_plots
       title: Estimation Figure
       type: Array
+      refs: ggdist
       template:
           title: $key
           type: Image

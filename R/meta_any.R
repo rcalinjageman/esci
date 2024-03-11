@@ -639,7 +639,7 @@ After dropping any NA rows, current data has:
   )
 
   res$es_heterogeneity_properties <- list(
-    message_html = "As of version 1.02 esci has implemented an improved method for calculating the CI for the diamond ratio; these will no longer match those presented in the 2nd edition of <i>Introduction to the New Statistics</i>."
+    message_html = "As of version 1.0.2 esci has implemented an improved method for calculating the CI for the diamond ratio; these will no longer match those presented in the 2nd edition of <i>Introduction to the New Statistics</i>."
   )
 
   if (moderator) res$es_meta_difference <- es_meta_difference

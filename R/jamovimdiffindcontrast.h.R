@@ -2191,6 +2191,7 @@ jamovimdiffindcontrastResults <- if (requireNamespace("jmvcore", quietly=TRUE)) 
                     "effect_size",
                     "assume_equal_variance",
                     "show_details"),
+                refs="lc_median_bs",
                 columns=list(
                     list(
                         `name`="outcome_variable_name", 
@@ -2300,6 +2301,7 @@ jamovimdiffindcontrastResults <- if (requireNamespace("jmvcore", quietly=TRUE)) 
                 title="Standardized Mean Difference",
                 rows=1,
                 visible="(effect_size == 'mean_difference')",
+                refs="lc_stdmean_bs",
                 clearWith=list(
                     "switch",
                     "outcome_variable",
@@ -2521,6 +2523,7 @@ jamovimdiffindcontrastResults <- if (requireNamespace("jmvcore", quietly=TRUE)) 
                 options=options,
                 name="estimation_plots",
                 title="Estimation Figure",
+                refs="ggdist",
                 template=jmvcore::Image$new(
                     options=options,
                     title="$key",

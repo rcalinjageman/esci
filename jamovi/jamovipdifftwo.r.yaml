@@ -77,6 +77,7 @@ items:
       title: Proportion Difference
       type: Table
       rows:  3
+      refs: prop1
       clearWith:
         - outcome_variable
         - grouping_variable
@@ -349,6 +350,7 @@ items:
     - name: estimation_plots
       title: Estimation Figure
       type: Array
+      refs: ggdist
       template:
           title: $key
           type: Image

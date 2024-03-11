@@ -1699,6 +1699,7 @@ jamovimetaproportionResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6
                 name="es_meta",
                 title="Meta-Analytic Effect Sizes",
                 rows=1,
+                refs="metafor",
                 clearWith=list(
                     "cases",
                     "ns",

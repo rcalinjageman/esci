@@ -279,10 +279,10 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
 
 
           myplot <- myplot + ggplot2::theme(
-            axis.text.y = element_text(size = axis.text.y),
-            axis.title.y = element_text(size = axis.title.y),
-            axis.text.x = element_text(size = axis.text.x),
-            axis.title.x = element_text(size = axis.title.x)
+            axis.text.y = ggtext::element_markdown(size = axis.text.y),
+            axis.title.y = ggtext::element_markdown(size = axis.title.y),
+            axis.text.x = ggtext::element_markdown(size = axis.text.x),
+            axis.title.x = ggtext::element_markdown(size = axis.title.x)
           )
 
 

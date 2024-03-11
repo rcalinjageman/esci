@@ -147,8 +147,8 @@
 #' )
 #'
 #' \dontrun{
-#' # To visualize the estimated median difference (raw data only)
-#' plot_mdiff(estimate, effect_size = "median")
+#' # To visualize the estimated mean difference
+#' plot_mdiff(estimate, effect_size = "mean")
 #' }
 
 #'
@@ -164,8 +164,8 @@
 #'   )
 #'
 #' \dontrun{
-#' # To visualize the estimated mean difference
-#' plot_mdiff(estimate, effect_size = "mean")
+#' # To visualize the estimated median difference (raw data only)
+#' plot_mdiff(estimate, effect_size = "median")
 #' }
 #'
 #'
