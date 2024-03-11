@@ -32,7 +32,7 @@ answering each question in a quiz, and could take as long as they wished to
 work through each module and quiz. Seven days later, participants completed a
 final test.
 data_latimier_3groups is the full data set.
-To facilitate different student exercises, there are also seperate data
+To facilitate different student exercises, there are also separate data
 entities for each group (data_latimier_prequiz, data_latimier_reread, etc.),
 and for every \emph{pair} of groups (data_latimier_quiz_prequiz, etc.).
 }

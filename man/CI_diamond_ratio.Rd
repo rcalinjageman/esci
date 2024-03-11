@@ -2,7 +2,7 @@
 % Please edit documentation in R/CI_diamond_ratio.R
 \name{CI_diamond_ratio}
 \alias{CI_diamond_ratio}
-\title{Estimate the diamond ratio for a meta-analtyic effect, a measure of
+\title{Estimate the diamond ratio for a meta-analytic effect, a measure of
 heterogeneity}
 \source{
 Cairns, Maxwell, Geoff Cumming, Robert Calin‐Jageman, and Luke A.
@@ -43,7 +43,7 @@ heterogeneity.
 \details{
 Calculation of the CI is based on code provided by Maxwell Cairns
 (see Cairns et al., 2022).  Specifically, this function implements what
-Cairns et al (2022) called the Sub-Q approach, which generaly
+Cairns et al (2022) called the Sub-Q approach, which
 provides the best CI coverage in simulations.  For comparison, this
 function also returns the CI produced by the bWT-DL approach (which
 generally has worse performance).

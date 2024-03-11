@@ -2,7 +2,7 @@
 % Please edit documentation in R/meta_d1.R
 \name{meta_d1}
 \alias{meta_d1}
-\title{Estimate ameta-analytic Cohen's d1 across multiple studies}
+\title{Estimate a meta-analytic Cohen's d1 across multiple studies}
 \usage{
 meta_d1(
   data,
@@ -53,7 +53,7 @@ defined, there is an additional row for each level of the moderator.
 \item \emph{UL} - Upper bound of conf_level\% confidence interval
 \item \emph{SE} - Expected standard error
 \item \emph{k} - Number of studies
-\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analytic effect sizes
 \item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
 \item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
 \item \emph{I2} -  I2 measure of heterogeneity

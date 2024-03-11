@@ -22,7 +22,7 @@ estimate_pdiff_paired(
 )
 }
 \arguments{
-\item{data}{For raw data - a datavframe or tibble}
+\item{data}{For raw data - a data.frame or tibble}
 
 \item{comparison_measure}{For raw data - The comparison measure, a factor.  Can
 be the column name of a data frame of a vector.}

@@ -65,7 +65,7 @@ defined, there is an additional row for each level of the moderator.
 \item \emph{UL} - Upper bound of conf_level\% confidence interval
 \item \emph{SE} - Expected standard error
 \item \emph{k} - Number of studies
-\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analytic effect sizes
 \item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
 \item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
 \item \emph{I2} -  I2 measure of heterogeneity
@@ -128,7 +128,7 @@ To enter d_avg, set assume_equal_variance to FALSE
 
 And the d values should all be corrected for bias.
 The function \code{\link[=CI_smd_ind_contrast]{CI_smd_ind_contrast()}} can assist with converting
-raw data from each study to d_s or d_avg with bias correction.  It als
+raw data from each study to d_s or d_avg with bias correction.  It also
 has more details on calculation of these forms of d and their CIs.
 
 The meta-analytic effect size, confidence interval and heterogeneity

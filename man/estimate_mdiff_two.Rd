@@ -24,7 +24,7 @@ estimate_mdiff_two(
 )
 }
 \arguments{
-\item{data}{For raw data - a datavframe or tibble}
+\item{data}{For raw data - a data.frame or tibble}
 
 \item{outcome_variable}{For raw data - The column name of the outcome
 variable, or a vector of numeric data}
@@ -66,7 +66,7 @@ memory by not returning raw data in estimate object}
 \item{switch_comparison_order}{Defaults to FALSE}
 }
 \value{
-Returnsobject of class esci_estimate
+Returns object of class esci_estimate
 \itemize{
 \item \strong{es_mean_difference}
 \itemize{

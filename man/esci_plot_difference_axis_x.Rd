@@ -19,7 +19,7 @@ function}
 \item{difference_table}{required data frame from an esci-estimate that
 has a difference-based effect size}
 
-\item{dlim}{Optional 2-item vector to provide the lower and uppper
+\item{dlim}{Optional 2-item vector to provide the lower and upper
 boundaries of the difference axis.  Defaults to c(NA, NA) which is to
 auto-set both boundaries.}
 

@@ -37,7 +37,7 @@ hand of the figure
 }}
 
 \item{explain_DR}{\itemize{
-\item Boolean; dedaults to FALSE; set to TRUE if no moderator
+\item Boolean; defaults to FALSE; set to TRUE if no moderator
 is defined to show both the RE and FE effect sizes to represent how the
 diamond ration measure of effect-size heterogeneity is calculated
 }}

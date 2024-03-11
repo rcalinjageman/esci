@@ -23,7 +23,7 @@
 #' @param report_CIs - Boolean; defaults to FALSE; set to TRUE to include
 #'   printed representation of each study effect size and CI along the right-
 #'   hand of the figure
-#' @param explain_DR - Boolean; dedaults to FALSE; set to TRUE if no moderator
+#' @param explain_DR - Boolean; defaults to FALSE; set to TRUE if no moderator
 #'   is defined to show both the RE and FE effect sizes to represent how the
 #'   diamond ration measure of effect-size heterogeneity is calculated
 #' @param meta_diamond_height - Optional real number > 0 to indicate height that
@@ -497,7 +497,7 @@ plot_meta <- function(
 #' function
 #' @param difference_table required data frame from an esci-estimate that
 #' has a difference-based effect size
-#' @param dlim Optional 2-item vector to provide the lower and uppper
+#' @param dlim Optional 2-item vector to provide the lower and upper
 #' boundaries of the difference axis.  Defaults to c(NA, NA) which is to
 #' auto-set both boundaries.
 #' @param d_n.breaks Optional numeric > 2 to suggest number of breaks for the

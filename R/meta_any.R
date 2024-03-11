@@ -34,8 +34,8 @@
 #' @param moderator_variable_name Optional human-friendly name of the moderator,
 #'   if defined; If not passed but a moderator is defined, will be set to the
 #'   quoted name of the moderator column or 'My moderator'
-#' @param random_effects Use TRUE to obtain a random effect meta-anlaysis
-#'   (usually reccomended); FALSE for fixed effect.
+#' @param random_effects Use TRUE to obtain a random effect meta-analysis
+#'   (usually recommended); FALSE for fixed effect.
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -49,7 +49,7 @@
 #'   * *UL* - Upper bound of conf_level% confidence interval
 #'   * *SE* - Expected standard error
 #'   * *k* - Number of studies
-#'   * *diamond_ratio* - ratio of random to fixed effects meta-analtics effect sizes
+#'   * *diamond_ratio* - ratio of random to fixed effects meta-analytic effect sizes
 #'   * *diamond_ratio_LL* - lower bound of conf_level% confidence interval for diamond ratio
 #'   * *diamond_ratio_UL* - upper bound of conf_level% confidence interval for diamond ratio
 #'   * *I2* -  I2 measure of heterogeneity

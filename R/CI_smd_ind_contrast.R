@@ -20,7 +20,7 @@
 #' @param correct_bias Defaults to TRUE; attempts to correct the slight upward
 #'   bias in d derived from a sample.  As of 8/9/2023 - Bias correction
 #'   has been added for more than 2 groups when equal variance is not
-#'   assumed, based on recent updates to statpscyh
+#'   assumed, based on recent updates to statpsych
 #'
 #'
 #' @return Returns a list with these named elements:
@@ -70,7 +70,7 @@
 #'
 #' A third complication is the issue of bias: d estimated from a sample has a
 #' slight upward bias at smaller sample sizes.  With total sample size > 30,
-#' this slight bias becomes fairly neglible (kind of like the small upward
+#' this slight bias becomes fairly negligible (kind of like the small upward
 #' bias in a sample standard deviation).
 #'
 #' This bias can be corrected when equal variance is assumed or when the
@@ -141,21 +141,20 @@
 #' Formally at https://people.ucsc.edu/~dgbonett/psyc204.html
 #' * Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 #' Contrasts of Means. *Psychological Methods*, 13(2), 99–109.
-#' [https://doi.org/10.1037/1082-989X.13.2.99](https://doi.org/10.1037/1082-989X.13.2.99)
+#' \doi{doi:10.1037/1082-989X.13.2.99}
 #' * Cousineau & Goulet-Pelletier (2020)
-#' [https://psyarxiv.com/s2597/](https://psyarxiv.com/s2597/)
+#' [https://osf.io/preprints/psyarxiv/s2597](https://osf.io/preprints/psyarxiv/s2597)
 #' * Delacre et al., 2021,
-#' [https://psyarxiv.com/tu6mp/](https://psyarxiv.com/tu6mp/)
+#' [https://osf.io/preprints/psyarxiv/tu6mp/](https://osf.io/preprints/psyarxiv/tu6mp/)
 #' * Huynh, C.-L. (1989). A unified approach to the estimation of effect size
 #' in meta-analysis. NBER Working Paper Series, 58(58), 99–104.
 #' * Kelley, K. (2007). Confidence intervals for standardized effect sizes:
 #' Theory, application, and implementation.
 #' *Journal of Statistical Software, 20(8)*, 1–24.
-#' [https://doi.org/10.18637/jss.v020.i08](https://doi.org/10.18637/jss.v020.i08)
+#' \doi{doi:10.18637/jss.v020.i08}
 #' * Lecoutre, B. (2007). Another Look at the Confidence Intervals for the
 #' Noncentral T Distribution. Journal of Modern Applied Statistical Methods,
-#' 6(1), 107–116.
-#' [https://doi.org/10.22237/jmasm/1177992600](https://doi.org/10.22237/jmasm/1177992600)
+#' 6(1), 107–116. \doi{doi:10.22237/jmasm/1177992600}
 #'
 #'
 #' @seealso

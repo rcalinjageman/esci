@@ -19,7 +19,7 @@ function}
 
 \item{effect_size}{Optional; one of 'mean' or 'median' to determine the
 measure of central tendency plotted.  Note that median is only available if
-the estimate was generated from raw data.  Defauls to 'mean'}
+the estimate was generated from raw data.  Defaults to 'mean'}
 
 \item{show_CI}{Optional logical; set to TRUE to visualize the confidence
 intervals on each simple effect; defaults to FALSE}
@@ -31,7 +31,7 @@ plot.  Defaults to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}}
 to visualize the simple-effect confidence intervals; defaults to 100}
 
 \item{line_alpha}{Optional numeric between 0 and 1 to specify the
-alpha (transparancy) of the confidence interval lines; defaults to 0.02}
+alpha (transparency) of the confidence interval lines; defaults to 0.02}
 }
 \value{
 Returns a ggplot object

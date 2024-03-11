@@ -27,7 +27,7 @@ correct yet}
 }}
 
 \item{error_scale}{\itemize{
-\item Optional real number > 0 speciyin width of the expected
+\item Optional real number > 0 specifying width of the expected
 sampling error visualization; default is 0.3
 }}
 
@@ -41,7 +41,7 @@ should be calculated.
 \item Optional two-item vector specifying a region of practical
 equivalence (ROPE) to be highlighted on the plot.  For a point null
 hypothesis, pass the same value (e.g. c(0, 0) to test a point null of
-exaclty 0); for an interval null pass ascending values (e.g. c(-1, 1))
+exactly 0); for an interval null pass ascending values (e.g. c(-1, 1))
 }}
 
 \item{ggtheme}{\itemize{

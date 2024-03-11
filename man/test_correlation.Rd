@@ -53,7 +53,7 @@ Returns a list with 1-2 data frames
 interval null
 \item \emph{outcome_variable_name} -
 \item \emph{effect} - Name of the outcome variable
-\item \emph{rope} - Test representaiton of null interval
+\item \emph{rope} - Test representation of null interval
 \item \emph{confidence} - Confidence level, integer (95 for 95\%, etc.)
 \item \emph{CI} - Character representation of the CI for the effect
 \item \emph{rope_compare} - Text description of relation between CI and null interval

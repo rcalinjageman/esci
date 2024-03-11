@@ -17,7 +17,7 @@
 #' The estimated proportion differences are from [statpsych::ci.prop.ps()].
 #'
 #'
-#' @param data For raw data - a datavframe or tibble
+#' @param data For raw data - a data.frame or tibble
 #' @param comparison_measure For raw data - The comparison measure, a factor.  Can
 #'  be the column name of a data frame of a vector.
 #' @param reference_measure For raw data - The reference measure, a factor.  Can

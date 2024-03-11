@@ -25,7 +25,7 @@
 #' The estimated median differences are from [statpsych::ci.median2()].
 #'
 #'
-#' @param data For raw data - a datavframe or tibble
+#' @param data For raw data - a data.frame or tibble
 #' @param outcome_variable For raw data - The column name of the outcome
 #'   variable, or a vector of numeric data
 #' @param grouping_variable For raw data - The column name of the grouping
@@ -52,7 +52,7 @@
 #' @param switch_comparison_order Defaults to FALSE
 #'
 #'
-#' @return Returnsobject of class esci_estimate
+#' @return Returns object of class esci_estimate
 #' - **es_mean_difference**
 #'     - *type* -
 #'     - *outcome_variable_name* -

@@ -59,7 +59,7 @@ decimal form.  Defaults to 0.95.}
 memory by not returning raw data in estimate object}
 }
 \value{
-Returnsobject of class esci_estimate
+Returns object of class esci_estimate
 \itemize{
 \item \strong{es_mean_difference}
 \itemize{

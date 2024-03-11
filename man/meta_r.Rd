@@ -54,7 +54,7 @@ defined, there is an additional row for each level of the moderator.
 \item \emph{UL} - Upper bound of conf_level\% confidence interval
 \item \emph{SE} - Expected standard error
 \item \emph{k} - Number of studies
-\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analytic effect sizes
 \item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
 \item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
 \item \emph{I2} -  I2 measure of heterogeneity
@@ -99,7 +99,7 @@ also reports heterogeneity estimates for each level of the moderator.
 }
 \description{
 \code{meta_r} is suitable for synthesizing across multiple studies that have
-measured a linear correlation (Pearson's r) from two continuyous variables.
+measured a linear correlation (Pearson's r) from two continuous variables.
 }
 \details{
 Once you generate an estimate with this function, you can visualize

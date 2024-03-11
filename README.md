@@ -20,10 +20,10 @@ Leave comments, bug reports, suggestions, and questions about esci
 
 **esci is still under development; expect breaking changes in the future
 especially for the visualization functions**.  If you need production-ready
-estimation, turn to [statpsych](https://dgbonett.github.io/statpsych/)
+estimation, turn to [statpsych](https://cran.r-project.org/package=statpsych)
 
 
-esci is built on top of [statpsych](https://dgbonett.github.io/statpsych/) and
+esci is built on top of [statpsych](https://cran.r-project.org/package=statpsych) and
 [metafor](https://www.metafor-project.org/doku.php/metafor).  That is, almost 
 all of the statistical calculations are passed off to these packages.  The 
 only exception is for confidence intervals for Cohen's d (see documentation).
@@ -39,8 +39,8 @@ effect sizes and uncertainty
 - To integrate with GUIs for students; esci integrates into [jamovi](https://www.jamovi.org/)
 and integration into [JASP](https://jasp-stats.org/) is planned.
 
-The visualiations produced by esci are exquisite in a large part because of
-the lovely [ggdist](https://cran.r-project.org/web/packages/ggdist/index.html) 
+The visualizations produced by esci are exquisite in a large part because of
+the lovely [ggdist](https://CRAN.R-project.org/package=ggdist) 
 package by Matthew Kay.
 
 

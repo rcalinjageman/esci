@@ -18,7 +18,7 @@ difference for each study is expressed as d_s or d_avg."><!-- mathjax --><script
     
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.02</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,7 +142,7 @@ defined, there is an additional row for each level of the moderator.</p><ul><li>
 <li><p><em>UL</em> - Upper bound of conf_level% confidence interval</p></li>
 <li><p><em>SE</em> - Expected standard error</p></li>
 <li><p><em>k</em> - Number of studies</p></li>
-<li><p><em>diamond_ratio</em> - ratio of random to fixed effects meta-analtics effect sizes</p></li>
+<li><p><em>diamond_ratio</em> - ratio of random to fixed effects meta-analytic effect sizes</p></li>
 <li><p><em>diamond_ratio_LL</em> - lower bound of conf_level% confidence interval for diamond ratio</p></li>
 <li><p><em>diamond_ratio_UL</em> - upper bound of conf_level% confidence interval for diamond ratio</p></li>
 <li><p><em>I2</em> -  I2 measure of heterogeneity</p></li>
@@ -192,7 +192,7 @@ Cohen_'s d_avg: (comparison_mean - reference_mean) / sd_avg</p>
 To enter d_avg, set assume_equal_variance to FALSE</p>
 <p>And the d values should all be corrected for bias.
 The function <code><a href="CI_smd_ind_contrast.html">CI_smd_ind_contrast()</a></code> can assist with converting
-raw data from each study to d_s or d_avg with bias correction.  It als
+raw data from each study to d_s or d_avg with bias correction.  It also
 has more details on calculation of these forms of d and their CIs.</p>
 <p>The meta-analytic effect size, confidence interval and heterogeneity
 estimates all come from <code><a href="https://wviechtb.github.io/metafor/reference/rma.uni.html" class="external-link">metafor::rma()</a></code>.</p>

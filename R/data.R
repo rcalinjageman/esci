@@ -1,5 +1,5 @@
 #' Altruism Happiness - Ch12 - from Brethel-Haurwitz and Marsh (2014)
-#' 
+#'
 #' Happiness may not be important just for the person feeling it; happiness may
 #' also promote kind, altruistic behavior. Brethel-Haurwitz and Marsh (2014)
 #' examined this idea by collecting data on U.S. states. A Gallup poll in 2010
@@ -24,7 +24,7 @@
 "data_altruism_happiness"
 
 #' Anchor Estimate ma - Ch9 - Many Labs replications of Jacowitz and Kahneman (1995)
-#' 
+#'
 #' To what extent does the wording of a question influence one's judgment? In
 #' their classic study, Jacowitz and Kahneman (1995) asked participants to
 #' estimate how many babies are born each day in the United States. Participants
@@ -54,7 +54,7 @@
 "data_anchor_estimate_ma"
 
 #' Basol badnews - Ch07 - from Basol et al. (2020)
-#' 
+#'
 #' Climate change? Vaccines? Fake news and conspiracy theories on these and
 #' numerous other issues can be highly damaging, but are thriving in this social
 #' media age. Trying to debunk a conspiracy theory by presenting facts and
@@ -85,11 +85,11 @@
 #'   \item{Diff confidence}{numeric}
 #'   \item{Condition}{factor}
 #' }
-#' @source <https://doi.org/10.5334%2Fjoc.91>
+#' @source <https://journalofcognition.org/articles/10.5334/joc.91>
 "data_basol_badnews"
 
 #' Bem Psychic - Ch13 - from Bem and Honorton (1994)
-#' 
+#'
 #' Daryl Bem was an experienced mentalist and research psychologist, who, a
 #' decade earlier, had been one of several outside experts invited to scrutinize
 #' the laboratory and experimental procedures of parapsychology researcher
@@ -124,9 +124,9 @@
 "data_bem_psychic"
 
 #' BodyWellF - Ch12 - Body Satisfaction and Well-being data for females from Figure 11.24 right panel
-#' 
+#'
 #' A subset of data_bodywell_fm, reports only for those participants
-#' who identified as female.  Data is Subjective Wellbeing abd Body Satisfaction.
+#' who identified as female.  Data is Subjective Wellbeing and Body Satisfaction.
 #'
 #' @format ## `data_bodywellf`
 #' A data frame with 59 rows and 2 columns:
@@ -137,7 +137,7 @@
 "data_bodywellf"
 
 #' BodyWellFM - Ch12 - Body Satisfaction and Well-being data from Figure 11.1
-#' 
+#'
 #' Survey data from a convenience sample Dominican University students.
 #' Reported are measures of Subjective Wellbeing abd Body Satisfaction.
 #'
@@ -150,7 +150,7 @@
 "data_bodywellfm"
 
 #' BodyWellM - Ch12 - Body Satisfaction and Well-being data for males from Figure 11.24 left panel
-#' 
+#'
 #' A subset of data_bodywell_fm, reports only for those participants
 #' who identified as male.  Data is Subjective Wellbeing abd Body Satisfaction.
 #'
@@ -163,7 +163,7 @@
 "data_bodywellm"
 
 #' Campus Involvement - Ch11 - for End-of-Chapter Exercise 11.7
-#' 
+#'
 
 #' Clinton conducted a survey of college students to determine the extent to
 #' which subjective well-being is related to campus involvement (Campus
@@ -185,10 +185,10 @@
 #' }
 "data_campus_involvement"
 
-#' 
-#' 
+#'
+#'
 
-#' *Fictituous* data from an unrealistically small HEAT
+#' *Fictitious* data from an unrealistically small HEAT
 #' study comparing scores for a single group of students before and after a
 #' workshop on climate change.
 #'
@@ -201,7 +201,7 @@
 "data_chap_8_paired_ex_8.18"
 
 #' Clean moral - Ch07 - from Schnall et al. (2008), Study 1, and Johnson et al. (2014)
-#' 
+#'
 
 #' Some researchers claim that moral judgments are based not only on rational
 #' considerations but also on one's current emotional state. To what extent can
@@ -229,7 +229,7 @@
 "data_clean_moral"
 
 #' College survey 1 - Ch03 - for End-of-Chapter Exercise 3.3
-#' 
+#'
 #' Data from an additional survey of Dominican University students; reports
 #' various psychological and behavioral measures.
 #'
@@ -263,7 +263,7 @@
 "data_college_survey_1"
 
 #' College survey 2 - Ch05 - for End-of-Chapter Exercise 5.4
-#' 
+#'
 #' @format ## `data_college_survey_2`
 #' A data frame with 138 rows and 17 columns:
 #' \describe{
@@ -288,7 +288,7 @@
 "data_college_survey_2"
 
 #' DamischRCJ - Ch9 - from 6 Damisch studies, and Calin-Jageman and Caldwell (2014)
-#' 
+#'
 #' @format ## `data_damischrcj`
 #' A data frame with 8 rows and 5 columns:
 #' \describe{
@@ -301,7 +301,7 @@
 "data_damischrcj"
 
 #' EffronRaj fakenews - Ch8 - from Effron and Raj (2020)
-#' 
+#'
 #' *Synthetic data* meant to represent Experiment 1 of Effron & Raj, 2020.
 #' 138 U.S. adults, recruited in August 2018 on Prolific Academic, worked
 #' online. First, they saw six fake headlines four times, each time being asked
@@ -333,7 +333,7 @@
 "data_effronraj_fakenews"
 
 #' Emotion heartrate - Ch8 - from Lakens (2013)
-#' 
+#'
 #' Anger is a powerful emotion. To what extent can feeling angry actually change
 #' your heart rate? To investigate, Lakens (2013) asked students to record their
 #' heart rate (in beats per minute) at rest before (baseline) and then while
@@ -352,7 +352,7 @@
 "data_emotion_heartrate"
 
 #' Exam Scores - Ch11 - for End-of-Chapter Exercise 11.2
-#' 
+#'
 
 #' To what extent does initial performance in a class relate to performance on a
 #' final exam? First exam and final exam scores for nine students enrolled in an
@@ -371,7 +371,7 @@
 "data_exam_scores"
 
 #' Flag Priming ma - Ch9 - Many Labs replications of Carter et al. (2011)
-#' 
+#'
 
 #' To what extent does being exposed to the American flag influence political
 #' attitudes? One seminal study (Carter et al., 2011) explored this issue by
@@ -397,7 +397,7 @@
 "data_flag_priming_ma"
 
 #' Gender math IAT ma - Ch9 - Many Labs replications of Nosek et al. (2002)
-#' 
+#'
 #' In EOC Exercise 4 in Chapter 7 we encountered the classic study of Nosek et
 #' al. (2002), in which male and female participants completed an Implicit
 #' Association Test (IAT) that measured the extent of negative attitudes towards
@@ -426,7 +426,7 @@
 "data_gender_math_iat_ma"
 
 #' Gender math IAT - Ch07 - Ithaca and SDSU replications of Nosek et al. (2002)
-#' 
+#'
 #' To what extent do men and women differ in their attitudes towards
 #' mathematics? To investigate, Nosek et al. (2002) asked male and female
 #' students to complete an Implicit Association Test (IAT)-this is a task
@@ -452,7 +452,7 @@
 "data_gender_math_iat"
 
 #' Halagappa - Ch14 - from Halagappa et al. (2007)
-#' 
+#'
 
 #' Could eating much less delay Alzheimer's? If so, that would be great news.
 #' Halagappa et al. (2007) investigated the possibility by using a mouse model,
@@ -481,7 +481,7 @@
 "data_halagappa"
 
 #' Home Prices - Ch12 - for End-of-Chapter Exercise 12.2
-#' 
+#'
 
 #' Maybe you're thinking about buying a house after college? Regression can help
 #' you hunt for a bargain. Download the Home Prices data set. This file contains
@@ -504,7 +504,7 @@
 "data_home_prices"
 
 #' Kardas Expt 3 - Ch07 - from Kardas and O'Brien (2018), Experiment 3
-#' 
+#'
 
 #' Suppose you want to change the battery in your phone, cook the perfect
 #' souffle, or perform a three-ball juggle. Just as numerous people do every
@@ -535,7 +535,7 @@
 "data_kardas_expt_3"
 
 #' Kardas Expt 4 - Ch07 - from Kardas and O'Brien (2018), Experiment 4
-#' 
+#'
 #' Suppose you want to change the battery in your phone, cook the perfect
 #' souffle, or perform a three-ball juggle. Just as numerous people do every
 #' day, you might search online to find a video that shows what to do. Suppose
@@ -569,7 +569,7 @@
 "data_kardas_expt_4"
 
 #' Labels flavor - Ch8 - from Floretta-Schiller et al. (2015)
-#' 
+#'
 #' To what extent do brand labels influence perceptions of a product? To
 #' investigate, participants were asked to participate in a taste test. All
 #' participants were actually given the same grape juice, but one glass was
@@ -597,7 +597,7 @@
 "data_labels_flavor"
 
 #' Latimier 3Groups - Ch14 - 3 groups in Latimier et al. (2019)
-#' 
+#'
 
 #' The researchers were interested in how different study approaches might
 #' impact learning. Working in France, they created three independent groups,
@@ -612,7 +612,7 @@
 #' work through each module and quiz. Seven days later, participants completed a
 #' final test.
 #' data_latimier_3groups is the full data set.
-#' To facilitate different student exercises, there are also seperate data
+#' To facilitate different student exercises, there are also separate data
 #' entities for each group (data_latimier_prequiz, data_latimier_reread, etc.),
 #' and for every *pair* of groups (data_latimier_quiz_prequiz, etc.).
 #'
@@ -626,7 +626,7 @@
 "data_latimier_3groups"
 
 #' Latimier Prequiz - Ch03 - Prequiz group in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Prequiz group from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -642,7 +642,7 @@
 "data_latimier_prequiz"
 
 #' Latimier Quiz Prequiz - Ch07 - Quiz and Prequiz groups in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Quiz (RQ) an Prequiz (QR) groups from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -658,7 +658,7 @@
 "data_latimier_quiz_prequiz"
 
 #' Latimier Quiz - Ch03 - Quiz group in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Quiz group from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -674,7 +674,7 @@
 "data_latimier_quiz"
 
 #' Latimier Reread Prequiz - Ch07 - Reread and Prequiz groups in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Reread (RR) an Prequiz (QR) groups from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -690,7 +690,7 @@
 "data_latimier_reread_prequiz"
 
 #' Latimier Reread Quiz - Ch07 - Reread and Quiz groups in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Reread Quiz groups from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -706,7 +706,7 @@
 "data_latimier_reread_quiz"
 
 #' Latimier Reread - Ch03 - Reread group in Latimier et al. (2019)
-#' 
+#'
 
 #' Just the Reread group from Latimier et al., 2019
 #' See full details in data_latimier_3_groups
@@ -722,7 +722,7 @@
 "data_latimier_reread"
 
 #' Macnamara r ma - Ch11 - from Macnamara et al. (2014)
-#' 
+#'
 #' Is genius born or made? Could any of us be Michael Jordan or Mozart if we
 #' worked sufficiently hard to develop the requisite skills? Meta-analysis of
 #' correlations can help answer such questions. The issue here is the extent
@@ -752,7 +752,7 @@
 "data_macnamara_r_ma"
 
 #' McCabeMichael brain - Ch9 - from Michael et al. (2013)
-#' 
+#'
 #' You've probably seen cross sections of the brain with
 #' brightly colored areas indicating which brain regions are most active during
 #' a particular type of cognition or emotion. Search online for fMRI (functional
@@ -804,7 +804,7 @@
 "data_mccabemichael_brain"
 
 #' McCabeMichael brain2 - Ch9 - from Michael et al. (2013)
-#' 
+#'
 #' Same as data_mccabemichael_brain but includes two additional critique studies
 #' run by the Michael team.
 #'
@@ -825,7 +825,7 @@
 "data_mccabemichael_brain2"
 
 #' MeditationBrain - Ch15 - from Holzel et al. (2011)
-#' 
+#'
 #' My example is a well-known study of mindfulness meditation by Holzel et al.
 #' (2011). People who wanted to reduce stress, and were not experienced
 #' meditators, were assigned to a Meditation (n = 16) or a Control (n = 17)
@@ -858,7 +858,7 @@
 "data_meditationbrain"
 
 #' OrganicMoral - Ch14 - from Eskine (2013)
-#' 
+#'
 
 #' To what extent might choosing organic foods make us morally smug? To
 #' investigate, Eskine (2013) asked participants to rate images of organic food,
@@ -891,8 +891,8 @@
 #' @source <https://journals.sagepub.com/doi/full/10.1177/1948550616639649>
 "data_organicmoral"
 
-#' 
-#' 
+#'
+#'
 #' % transcription scores from pen and laptop group of Meuller et al., 2014
 #'
 #' @format ## `data_penlaptop1`
@@ -905,7 +905,7 @@
 "data_penlaptop1"
 
 #' PowerPerformance ma - Ch9 - from Burgmer and Englich (2012), and Cusack et al. (2015)
-#' 
+#'
 #' To what extent could feeling powerful affect your performance at motor
 #' skills? To investigate, Burgmer and Englich (2012) assigned German
 #' participants to either power or control conditions and then asked them to
@@ -939,7 +939,7 @@
 "data_powerperformance_ma"
 
 #' RattanMotivation - Ch14 - from Rattan et al. (2012)
-#' 
+#'
 #' How do you think you would react to feedback that gave encouragement and
 #' reassurance, or, instead, encouragement and challenge? Carol Dweck and her
 #' colleagues have investigated many such questions about how people respond to
@@ -967,7 +967,7 @@
 "data_rattanmotivation"
 
 #' ReligionSharing - Ch14 - for End-of-Chapter Exercise 14.3
-#' 
+#'
 #' To what extent is a religious upbringing related to prosocial behavior in
 #' childhood? To investigate, a large international sample of children was asked
 #' to play a game in which they were given 10 stickers but then asked if they
@@ -987,7 +987,7 @@
 "data_religionsharing"
 
 #' Religious belief - Ch03 - for End-of-Chapter Exercise 3.5
-#' 
+#'
 #' Let's look at some data about religious beliefs. The Religious belief file
 #' has data from a large online survey in which participants were asked to
 #' report, on a scale from 0 to 100, their belief in the existence of God.  Age
@@ -1003,7 +1003,7 @@
 "data_religious_belief"
 
 #' SelfExplain - Ch15 - from McEldoon et al. (2013)
-#' 
+#'
 #' Self-explaining is a learning strategy where students write or say their own
 #' explanations of the material they are studying. Self-explaining has generally
 #' been found to be more effective than standard studying, but it may also take
@@ -1029,7 +1029,7 @@
 "data_selfexplain"
 
 #' SimmonsCredibility - Ch14 - from Simmons and Nelson (2020)
-#' 
+#'
 #' You're excited! Your company has developed a wonderful new weight-loss
 #' program, and now it's your job to develop the ad campaign. Should you choose
 #' a BeforeAfter pair of pictures, as in Figure 14.1, top panel? Or might a
@@ -1076,7 +1076,7 @@
 "data_simmonscredibility"
 
 #' Sleep Beauty - Ch11 - for End-of-Chapter Exercise 11.6
-#' 
+#'
 #' Is there really such a thing as beauty sleep? To investigate, researchers
 #' decided to examine the extent to which sleep relates to attractiveness. Each
 #' of 70 college students self-reported the amount of sleep they had the night
@@ -1094,7 +1094,7 @@
 "data_sleep_beauty"
 
 #' SmithRecall - Ch15 - from Smith et al. (2016)
-#' 
+#'
 #' @format ## `data_smithrecall`
 #' A data frame with 120 rows and 6 columns:
 #' \describe{
@@ -1108,7 +1108,7 @@
 "data_smithrecall"
 
 #' Stickgold - Ch06 - from Stickgold et al. (2000)
-#' 
+#'
 
 #' Stickgold et al. (2000) found that, remarkably, performance on a visual
 #' discrimination task actually improved over the 48-96 hours after initial
@@ -1133,7 +1133,7 @@
 "data_stickgold"
 
 #' StudyStrategies - Ch14 - from O'Reilly et al. (1998)
-#' 
+#'
 
 #' To what extent does study strategy influence learning? To investigate,
 #' psychology students were randomly assigned to three groups and asked to learn
@@ -1158,11 +1158,11 @@
 #'   \item{EaseUseSD}{numeric}
 #'   \item{EaseUseN}{integer}
 #' }
-#' @source <https://doi.org/10.1006/ceps.1997.0977>
+#' @source <https://www.sciencedirect.com/science/article/abs/pii/S0361476X97909772>
 "data_studystrategies"
 
 #' Thomason 1 - Ch11 - from Thomason 1
-#' 
+#'
 #' Summary data from an unpublished study by Neil Thomason and colleagues, who
 #' were interested in ways to enhance students' critical thinking. They were
 #' investigating argument mapping, which is a promising way to use diagrams to
@@ -1181,7 +1181,7 @@
 "data_thomason_1"
 
 #' VideogameAggression - Ch15 - from Hilgard (2015)
-#' 
+#'
 #' Video games can be violent and they can also be challenging. To what extent
 #' might these factors cause aggressive behavior? To explore, Hilgard (2015)
 #' asked male participants to play one of four versions of a video game for 15

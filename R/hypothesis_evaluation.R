@@ -446,7 +446,7 @@ test_diff_base <- function(
 #'        interval null
 #'     - *outcome_variable_name* -
 #'     - *effect* - Name of the outcome variable
-#'     - *rope* - Test representaiton of null interval
+#'     - *rope* - Test representation of null interval
 #'     - *confidence* - Confidence level, integer (95 for 95%, etc.)
 #'     - *CI* - Character representation of the CI for the effect
 #'     - *rope_compare* - Text description of relation between CI and null interval

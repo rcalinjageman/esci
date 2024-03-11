@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_chap_8_paired_ex_8.18}
 \alias{data_chap_8_paired_ex_8.18}
-\title{\emph{Fictituous} data from an unrealistically small HEAT
+\title{\emph{Fictitious} data from an unrealistically small HEAT
 study comparing scores for a single group of students before and after a
 workshop on climate change.}
 \format{
@@ -20,7 +20,7 @@ A data frame with 8 rows and 2 columns:
 data_chap_8_paired_ex_8.18
 }
 \description{
-\emph{Fictituous} data from an unrealistically small HEAT
+\emph{Fictitious} data from an unrealistically small HEAT
 study comparing scores for a single group of students before and after a
 workshop on climate change.
 }

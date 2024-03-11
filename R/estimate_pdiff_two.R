@@ -47,7 +47,7 @@
 #' @param count_NA Logical to count NAs (TRUE) in total N or not (FALSE)
 #'
 #'
-#' @return Returnsobject of class esci_estimate
+#' @return Returns object of class esci_estimate
 #' - **es_proportion_difference**
 #'     - *type* -
 #'     - *outcome_variable_name* -

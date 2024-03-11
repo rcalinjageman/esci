@@ -23,7 +23,7 @@
 #'
 #' And the d values should all be corrected for bias.
 #' The function [esci::CI_smd_ind_contrast()] can assist with converting
-#' raw data from each study to d_s or d_avg with bias correction.  It als
+#' raw data from each study to d_s or d_avg with bias correction.  It also
 #' has more details on calculation of these forms of d and their CIs.
 #'
 #'

@@ -45,8 +45,8 @@ synthesized; defaults to 'Effect size'}
 if defined; If not passed but a moderator is defined, will be set to the
 quoted name of the moderator column or 'My moderator'}
 
-\item{random_effects}{Use TRUE to obtain a random effect meta-anlaysis
-(usually reccomended); FALSE for fixed effect.}
+\item{random_effects}{Use TRUE to obtain a random effect meta-analysis
+(usually recommended); FALSE for fixed effect.}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}
@@ -64,7 +64,7 @@ defined, there is an additional row for each level of the moderator.
 \item \emph{UL} - Upper bound of conf_level\% confidence interval
 \item \emph{SE} - Expected standard error
 \item \emph{k} - Number of studies
-\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analtics effect sizes
+\item \emph{diamond_ratio} - ratio of random to fixed effects meta-analytic effect sizes
 \item \emph{diamond_ratio_LL} - lower bound of conf_level\% confidence interval for diamond ratio
 \item \emph{diamond_ratio_UL} - upper bound of conf_level\% confidence interval for diamond ratio
 \item \emph{I2} -  I2 measure of heterogeneity

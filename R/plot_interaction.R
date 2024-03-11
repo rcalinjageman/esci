@@ -19,7 +19,7 @@
 #'
 #' @param effect_size Optional; one of 'mean' or 'median' to determine the
 #' measure of central tendency plotted.  Note that median is only available if
-#' the estimate was generated from raw data.  Defauls to 'mean'
+#' the estimate was generated from raw data.  Defaults to 'mean'
 #' @param show_CI Optional logical; set to TRUE to visualize the confidence
 #' intervals on each simple effect; defaults to FALSE
 #' @param ggtheme Optional ggplot2 theme object to specify the visual style of the
@@ -27,7 +27,7 @@
 #' @param line_count Optional integer > 0 to specify the number of lines used
 #' to visualize the simple-effect confidence intervals; defaults to 100
 #' @param line_alpha Optional numeric between 0 and 1 to specify the
-#' alpha (transparancy) of the confidence interval lines; defaults to 0.02
+#' alpha (transparency) of the confidence interval lines; defaults to 0.02
 #'
 #'
 #' @inherit plot_describe return

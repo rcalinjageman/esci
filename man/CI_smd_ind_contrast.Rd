@@ -32,7 +32,7 @@ decimal form.  Defaults to 0.95.}
 \item{correct_bias}{Defaults to TRUE; attempts to correct the slight upward
 bias in d derived from a sample.  As of 8/9/2023 - Bias correction
 has been added for more than 2 groups when equal variance is not
-assumed, based on recent updates to statpscyh}
+assumed, based on recent updates to statpsych}
 }
 \value{
 Returns a list with these named elements:
@@ -96,7 +96,7 @@ The choice of standardizer is important, so it's noted in the subscript:
 
 A third complication is the issue of bias: d estimated from a sample has a
 slight upward bias at smaller sample sizes.  With total sample size > 30,
-this slight bias becomes fairly neglible (kind of like the small upward
+this slight bias becomes fairly negligible (kind of like the small upward
 bias in a sample standard deviation).
 
 This bias can be corrected when equal variance is assumed or when the
@@ -210,21 +210,20 @@ CI_smd_ind_contrast(
 Formally at https://people.ucsc.edu/~dgbonett/psyc204.html
 \item Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 Contrasts of Means. \emph{Psychological Methods}, 13(2), 99–109.
-\url{https://doi.org/10.1037/1082-989X.13.2.99}
+\doi{doi:10.1037/1082-989X.13.2.99}
 \item Cousineau & Goulet-Pelletier (2020)
-\url{https://psyarxiv.com/s2597/}
+\url{https://osf.io/preprints/psyarxiv/s2597}
 \item Delacre et al., 2021,
-\url{https://psyarxiv.com/tu6mp/}
+\url{https://osf.io/preprints/psyarxiv/tu6mp/}
 \item Huynh, C.-L. (1989). A unified approach to the estimation of effect size
 in meta-analysis. NBER Working Paper Series, 58(58), 99–104.
 \item Kelley, K. (2007). Confidence intervals for standardized effect sizes:
 Theory, application, and implementation.
 \emph{Journal of Statistical Software, 20(8)}, 1–24.
-\url{https://doi.org/10.18637/jss.v020.i08}
+\doi{doi:10.18637/jss.v020.i08}
 \item Lecoutre, B. (2007). Another Look at the Confidence Intervals for the
 Noncentral T Distribution. Journal of Modern Applied Statistical Methods,
-6(1), 107–116.
-\url{https://doi.org/10.22237/jmasm/1177992600}
+6(1), 107–116. \doi{doi:10.22237/jmasm/1177992600}
 }
 }
 \seealso{
