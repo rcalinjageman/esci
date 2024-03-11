@@ -12,3 +12,5 @@ esci_logo.svg
 ^pkgdown$
 ^jamovi$
 ^.*\.omv
+^CRAN-SUBMISSION$
+^cran-comments\.md$
