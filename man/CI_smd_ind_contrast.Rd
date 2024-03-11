@@ -205,7 +205,7 @@ CI_smd_ind_contrast(
 \references{
 \itemize{
 \item Bonett D. G. (2023). statpsych: Statistical Methods for Psychologists. R package version 1.4.0.
-\url{https://dgbonett.github.io/statpsych}
+\href{https://dgbonett.github.io/statpsych/}{https://dgbonett.github.io/statpsych}
 \item Bonett, D. G. (2018).  R code posted to personal website (now removed).
 Formally at https://people.ucsc.edu/~dgbonett/psyc204.html
 \item Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
