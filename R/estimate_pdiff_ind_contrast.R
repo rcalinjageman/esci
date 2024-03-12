@@ -1,8 +1,7 @@
 #' Estimates for a multi-group study with a categorical outcome
 #' variable
 #'
-#' @description
-#' \loadmathjax
+#' @description \loadmathjax
 #' `estimate_pdiff_ind_contrast` is suitable for a multi-group design
 #' (between subjects) with a categorical outcome variable.  It accepts
 #' a user-defined set of contrast weights that allows estimation of any

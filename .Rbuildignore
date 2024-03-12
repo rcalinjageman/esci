@@ -1,7 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^build/js
-^build/R*
 ^.*\.jmo
 ^.*\.pdf
 ^data-raw$

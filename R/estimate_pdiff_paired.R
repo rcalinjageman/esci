@@ -1,8 +1,7 @@
 #' Estimates for a repeated-measures study with two measures of a categorical
 #' variable
 #'
-#' @description
-#' \loadmathjax
+#' @description \loadmathjax
 #' `estimate_pdiff_paired` is suitable for a simple paired design
 #' with a categorical outcome variable.  It provides estimates and CIs for the
 #' population proportion difference between the repeated measures.  You can

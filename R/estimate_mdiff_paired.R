@@ -2,8 +2,7 @@
 #' variable
 #'
 #'
-#' @description
-#' \loadmathjax
+#' @description \loadmathjax
 #' `estimate_mdiff_paired` is suitable for a simple paired design
 #' with a continuous outcome variable.  It provides estimates and CIs for the
 #' population mean difference between the repeated measures, the standardized
