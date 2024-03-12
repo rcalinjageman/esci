@@ -1,8 +1,7 @@
 #' Estimates for a multi-group design with a continuous outcome
 #' variable
 #'
-#' @description
-#' \loadmathjax
+#' @description \loadmathjax
 #' `estimate_mdiff_ind_contrast` is suitable for a multi-group design
 #' (between subjects) with a continuous outcome variable.  It accepts
 #' a user-defined set of contrast weights that allows estimation of any
