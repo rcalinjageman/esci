@@ -161,7 +161,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_mdiff_two} is suitable for a simple two-group design
 with a continuous outcome variable.  It provides estimates and CIs for the
 population mean difference between the repeated measures, the standardized

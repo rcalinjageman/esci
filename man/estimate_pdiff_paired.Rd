@@ -63,7 +63,7 @@ decimal form.  Defaults to 0.95.}
 Returns object of class esci_estimate
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_pdiff_paired} is suitable for a simple paired design
 with a categorical outcome variable.  It provides estimates and CIs for the
 population proportion difference between the repeated measures.  You can

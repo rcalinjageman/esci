@@ -135,7 +135,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_mdiff_one} is suitable for a single-group design
 with a continuous outcome variable that is compared to a reference
 or population value.  It can express estimates as mean differences,

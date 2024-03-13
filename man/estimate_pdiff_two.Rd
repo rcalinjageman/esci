@@ -120,7 +120,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_pdiff_two} is suitable for a simple two-group design
 with a categorical outcome variable.  It provides estimates and CIs for the
 difference in proportions between the two groups, the odds ratio, and phi.

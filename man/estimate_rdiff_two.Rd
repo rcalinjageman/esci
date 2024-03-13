@@ -134,7 +134,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_rdiff_two} is suitable for a simple two-group design
 with two continuous outcome variables where you want to estimate the
 difference in the strength of the relationship between the two groups.

@@ -83,3 +83,31 @@ vertical placement of the diamond) and a \code{height} (for the vertical height
 of the diamond).  Note the use of \code{xmin} and \code{xmax} allows for representation
 of asymmetric confidence intervals with this geom.
 }
+\examples{
+# example code
+library(ggplot2)
+
+my_effects <- data.frame(
+  effect_size = c(1, 2, 1, 0),
+  UL = c(2, 3, 2, 1),
+  LL = c(0, 1, 0, -1),
+  y = c(1, 2, 3, 4)
+)
+
+
+myplot <- ggplot2::ggplot()
+myplot <- myplot + geom_meta_diamond_h(
+  data = my_effects,
+  ggplot2::aes(
+    x = effect_size,
+    xmin = LL,
+    xmax = UL,
+    y = y
+  ),
+  height = 0.25,
+  color = "black",
+  fill = "red",
+)
+myplot
+
+}

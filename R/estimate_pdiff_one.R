@@ -1,7 +1,7 @@
 #' Estimates for a single-group design with a categorical outcome
 #' variable compared to a reference or population value.
 #'
-#' @description \loadmathjax
+#' @description Returns object
 #' `estimate_pdiff_one` is suitable for a single-group design
 #' (between subjects) with a categorical outcome variable.  It calculates
 #' the effect sizes with respect to a reference or population proportion
