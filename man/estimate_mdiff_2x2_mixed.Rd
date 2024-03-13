@@ -111,7 +111,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_mdiff_2x2_mixed} is suitable for a 2x2 mixed-factorial design
 with a continuous outcome variable.  It estimates each main effect, the
 simple effects for the repeated-measures factor, and the interaction.

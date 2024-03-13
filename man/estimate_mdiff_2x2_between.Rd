@@ -149,7 +149,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_mdiff_2x2_between} is suitable for a 2x2 between-subjects design
 with a continuous outcome variable.  It estimates each main effect, the
 simple effects for the first factor, and the interaction.  It can express

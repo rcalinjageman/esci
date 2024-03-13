@@ -77,7 +77,7 @@ Returns an object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_pdiff_one} is suitable for a single-group design
 (between subjects) with a categorical outcome variable.  It calculates
 the effect sizes with respect to a reference or population proportion

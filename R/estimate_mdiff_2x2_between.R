@@ -1,7 +1,7 @@
 #' Estimates for a 2x2 between-subjects design with a continuous outcome
 #' variable
 #'
-#' @description \loadmathjax
+#' @description Returns object
 #' `estimate_mdiff_2x2_between` is suitable for a 2x2 between-subjects design
 #' with a continuous outcome variable.  It estimates each main effect, the
 #' simple effects for the first factor, and the interaction.  It can express

@@ -132,7 +132,7 @@ Returns object of class esci_estimate
 }
 }
 \description{
-\loadmathjax
+Returns object
 \code{estimate_mdiff_ind_contrast} is suitable for a multi-group design
 (between subjects) with a continuous outcome variable.  It accepts
 a user-defined set of contrast weights that allows estimation of any

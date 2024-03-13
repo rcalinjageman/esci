@@ -434,7 +434,7 @@ plot_scatter <- function(
       xlab <- paste(
         xlab,
         "<br>",
-        format(estimate$properties$conf_level*100, digits=0),
+        format(estimate$properties$conf_level*100, digits=1),
         "% CI[", format(ci[1, "lwr"], digits=3),
         ",", format(ci[1, "upr"], digits=3),
         "]",
@@ -451,7 +451,7 @@ plot_scatter <- function(
         pi[1, "lwr"] <- (pi[1, "lwr"] - y_mean) / y_sd
         pi[1, "upr"] <- (pi[1, "upr"] - y_mean) / y_sd
       }
-      xlab <- paste(xlab, "<br>", format(estimate$properties$conf_level*100, digits=0), "% PI[", format(pi[1, "lwr"], digits=3), ",", format(pi[1, "upr"], digits=3), "]", sep = "")
+      xlab <- paste(xlab, "<br>", format(estimate$properties$conf_level*100, digits=1), "% PI[", format(pi[1, "lwr"], digits=3), ",", format(pi[1, "upr"], digits=3), "]", sep = "")
       myplot <- myplot + geom_segment(alpha = 0.1, size = 2, color = "red", aes(x = predict_from_x, xend = predict_from_x, y=pi[1, "lwr"], yend = pi[1, "upr"]))
       myplot <- esci_plot_layers(myplot, "prediction_prediction_interval")
     }

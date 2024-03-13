@@ -1,7 +1,7 @@
 #' Estimates for a single-group design with a continuous outcome
 #' variable compared to a reference or population value
 #'
-#' @description \loadmathjax
+#' @description Returns object
 #' `estimate_mdiff_one` is suitable for a single-group design
 #' with a continuous outcome variable that is compared to a reference
 #' or population value.  It can express estimates as mean differences,

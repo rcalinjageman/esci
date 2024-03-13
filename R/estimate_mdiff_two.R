@@ -1,7 +1,7 @@
 #' Estimates for a two-group study with a continuous outcome variable
 #'
 #'
-#' @description \loadmathjax
+#' @description Returns object
 #' `estimate_mdiff_two` is suitable for a simple two-group design
 #' with a continuous outcome variable.  It provides estimates and CIs for the
 #' population mean difference between the repeated measures, the standardized

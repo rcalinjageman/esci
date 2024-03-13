@@ -106,6 +106,32 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
 #' - **`xmax`** - The right-side start of the diamond
 #' - **`height`** - The vertical span of the diamond
 #'
+#' @examples
+#' # example code
+#' library(ggplot2)
+#'
+#' my_effects <- data.frame(
+#'   effect_size = c(1, 2, 1, 0),
+#'   UL = c(2, 3, 2, 1),
+#'   LL = c(0, 1, 0, -1),
+#'   y = c(1, 2, 3, 4)
+#' )
+#'
+#'
+#' myplot <- ggplot2::ggplot()
+#' myplot <- myplot + geom_meta_diamond_h(
+#'   data = my_effects,
+#'   ggplot2::aes(
+#'     x = effect_size,
+#'     xmin = LL,
+#'     xmax = UL,
+#'     y = y
+#'   ),
+#'   height = 0.25,
+#'   color = "black",
+#'   fill = "red",
+#' )
+#' myplot
 #'
 #' @export
 geom_meta_diamond_h <- function(mapping = NULL, data = NULL,
