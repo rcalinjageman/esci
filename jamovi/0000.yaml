@@ -16,11 +16,8 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  This is a complete rewrite from the prevoius release, breaking previous
-  analyses.  If you need the previous version, you can download and sideload it
-  <a href =
-  "https://thenewstatistics.com/itns/esci/jesci/downloads-of-esci-0-9-4-for-jamovi/"
-  target = "_blank"> here</a>.</br>
+  1.02 adds data files, markdown for figure axis titles, better warnings for
+  ratio effect sizes, references, and a variety of tweak/fixes.
 
 
   Please submit feedback, bug reports, and feature requests via the links
@@ -155,13 +152,13 @@ datasets:
     description: Reread and Prequiz groups in Latimier et al. (2019)
   - name: Ch07 - Kardas Expt 3
     path: Kardas Expt 3.omv
-    description: 'from Kardas and O’Brien (2018), Experiment 3'
+    description: from Kardas and O’Brien (2018), Experiment 3
   - name: Ch07 - Kardas Expt 4
     path: Kardas Expt 4.omv
-    description: 'from Kardas and O’Brien (2018), Experiment 4'
+    description: from Kardas and O’Brien (2018), Experiment 4
   - name: Ch07 - Clean moral
     path: Clean moral.omv
-    description: 'from Schnall et al. (2008), Study 1, and Johnson et al. (2014)'
+    description: from Schnall et al. (2008), Study 1, and Johnson et al. (2014)
   - name: Ch07 - Gender math IAT
     path: Gender math IAT.omv
     description: Ithaca and SDSU replications of Nosek et al. (2002)
@@ -185,7 +182,7 @@ datasets:
     description: from Michael et al. (2013)
   - name: Ch09 - DamischRCJ
     path: DamischRCJ.omv
-    description: 'from 6 Damisch studies, and Calin-Jageman and Caldwell (2014)'
+    description: from 6 Damisch studies, and Calin-Jageman and Caldwell (2014)
   - name: Ch09 - Anchor Estimate ma
     path: Anchor Estimate ma.omv
     description: Many Labs replications of Jacowitz and Kahneman (1995)
@@ -197,7 +194,7 @@ datasets:
     description: Many Labs replications of Nosek et al. (2002)
   - name: Ch09 - PowerPerformance ma
     path: PowerPerformance ma.omv
-    description: 'from Burgmer and Englich (2012), and Cusack et al. (2015)'
+    description: from Burgmer and Englich (2012), and Cusack et al. (2015)
   - name: Ch11 - Thomason 1
     path: Thomason 1.omv
     description: from Thomason 1

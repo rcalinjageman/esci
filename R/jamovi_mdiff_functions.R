@@ -110,8 +110,12 @@ jamovi_mdiff_initialize <- function(self, grouping_variable = TRUE) {
   #  For summary, check group_labels
   if (grouping_variable) {
     if (from_raw) {
-      level_source <- self$options$grouping_variable
-      level_count <- length(levels(as.factor(self$data[, level_source])))
+      if (!is.null(self$options$grouping_variable)) {
+        level_source <- self$options$grouping_variable
+        level_count <- length(levels(as.factor(self$data[, level_source])))
+      } else {
+        level_count = 2
+      }
     } else {
       level_source <- try(level_source <- self$options$grouping_variable_levels, silent = TRUE)
       if (is(level_source, "try-error")) {

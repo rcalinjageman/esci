@@ -4,6 +4,7 @@
 ^.*\.pdf
 build/js
 build/R4.1.3-win64
+build/R4.3.2-x64-win64
 ^data-raw$
 esci_logo.svg
 ^.*\.csv
