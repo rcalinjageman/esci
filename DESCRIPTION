@@ -4,14 +4,7 @@ Title: Estimation Statistics with Confidence Intervals
 Version: 1.0.2
 Authors@R: person("Robert", "Calin-Jageman", email = "rcalinjageman@dom.edu",
   role = c("aut", "cre", "cph"))
-Description: An r package and 'jamovi' module for the estimation approach 
-    to inferential statistics, the approach which emphasizes effect sizes, 
-    interval estimates, and meta-analysis. Nearly all functions
-    are based on 'statpsych' or 'metafor'.  This package is still under active
-    development, and breaking changes are likely, especially with the
-    plot and hypothesis test functions.  If you need a stable and
-    production-ready approach for confidence intervals, use
-    'statpsych'.
+Description: A collection of functions and 'jamovi' module for the estimation approach to inferential statistics, the approach which emphasizes effect sizes, interval estimates, and meta-analysis. Nearly all functions are based on 'statpsych' or 'metafor'.  This package is still under active development, and breaking changes are likely, especially with the plot and hypothesis test functions.  If you need a stable and production-ready approach for confidence intervals, use 'statpsych'.
 BugReports: https://github.com/rcalinjageman/esci
 License: GPL-3
 Encoding: UTF-8
