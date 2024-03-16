@@ -191,16 +191,14 @@ estimates <- estimate_mdiff_2x2_between(
   assume_equal_variance = TRUE
 )
 
-\dontrun{
 # To visualize the estimated mean difference for the interaction
-plot_mdiff(estimate$interaction, effect_size = "mean")
+plot_mdiff_interaction <- plot_mdiff(estimates$interaction)
 
 # To visualize the interaction as a line plot
-plot_interaction(estimates)
+plot_interaction_line <- plot_interaction(estimates)
 
 # Same but with fan effect representing each simple-effect CI
-plot_interaction(estimates, show_CI = TRUE)
-}
+plot_interaction_line_CI <- plot_interaction(estimates, show_CI = TRUE)
 
 
 }

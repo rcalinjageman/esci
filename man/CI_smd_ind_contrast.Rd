@@ -182,7 +182,7 @@ res <- CI_smd_ind_contrast(
   assume_equal_variance = TRUE,
   correct_bias = FALSE
 )
-res
+
 
 # Example from [statpsych::ci.lc.stdmean.bs()] should give:
 # Estimate        SE        LL         UL
@@ -200,7 +200,7 @@ res <- CI_smd_ind_contrast(
   assume_equal_variance = FALSE,
   correct_bias = TRUE
 )
-res
+
 
 
 }

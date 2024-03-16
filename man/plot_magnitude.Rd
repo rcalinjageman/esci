@@ -106,12 +106,11 @@ estimate <- esci::estimate_magnitude(
   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
     outcome_variable = transcription
 )
-estimate
 
-\dontrun{
+
 # To visualize the estimate
-plot_magnitude(estimate)
-}
+myplot <- plot_magnitude(estimate)
+
 
 # From summary data
 mymean <- 24.5
@@ -123,12 +122,10 @@ estimate <- esci::estimate_magnitude(
   sd = mysd,
   n = myn
 )
-estimate
 
 
-\dontrun{
+
 # To visualize the estimate
-plot_mdiff(estimate)
-}
+myplot <- plot_magnitude(estimate)
 
 }
