@@ -103,14 +103,12 @@
 #'   reported_effect_size = "RD"
 #' )
 #'
-#' \dontrun{
 #' # Forest plot
-#' esci::plot_meta(estimate)
-#' }
+#' myplot_forst <- esci::plot_meta(estimate)
 #'
 #'
-#' # Meta-analysis, risk difference as effect size, moderator (setting)
-#' estimate <- esci::meta_pdiff_two(
+#' # Add a categorical moderator (setting)
+#' estimate_moderator <- esci::meta_pdiff_two(
 #'   esci_meta_pdiff_two,
 #'   power_egocentric,
 #'   power_sample_size,
@@ -121,10 +119,8 @@
 #'   reported_effect_size = "RD"
 #' )
 #'
-#' \dontrun{
 #' # Forest plot
-#' esci::plot_meta(estimate)
-#' }
+#' myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
 #'
 #'
 #' @export

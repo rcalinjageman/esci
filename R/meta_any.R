@@ -86,6 +86,34 @@
 #'   * *n* - study sample size
 #'   * *p* - p value for the study, based on null of exactly 0
 #'
+#'
+#' @examples
+#' #' # Data set -- see Introduction to the New Statistics, 2nd edition
+#' data("data_mccabemichael_brain")
+#'
+#' # Fixed effect, 95% CI
+#' esizes <- esci::meta_mean(
+#'   data = esci::data_mccabemichael_brain,
+#'   means = "M Brain",
+#'   sds = "s Brain",
+#'   ns = "n Brain",
+#'   labels = "Study name",
+#'   random_effects = FALSE
+#' )$raw_data
+#'
+#' estimate <- esci::meta_any(
+#'   data = esizes,
+#'   yi = effect_size,
+#'   vi = sample_variance,
+#'   labels = label,
+#'   effect_size_name = "Mean",
+#'   random_effects = FALSE
+#' )
+#'
+#' myplot_forest <- esci::plot_meta(estimate)
+#'
+#'
+#'
 #' @export
 meta_any <- function(
   data,

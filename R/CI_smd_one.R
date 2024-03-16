@@ -39,7 +39,7 @@
 #'
 #' @examples
 #' # example code
-#' esci::CI_smd_one(24.5, 3.65, 40, 20)
+#' res <- esci::CI_smd_one(24.5, 3.65, 40, 20)
 #'
 #' @export
 CI_smd_one <- function(

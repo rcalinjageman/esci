@@ -131,8 +131,33 @@
 #'
 #'
 #' @examples
+#' # From raw data
+#' data("data_penlaptop1")
+#'
+#' estimate_from_raw <- esci::estimate_mdiff_two(
+#'   data = data_penlaptop1,
+#'   outcome_variable = transcription,
+#'   grouping_variable = condition,
+#'   switch_comparison_order = TRUE,
+#'   assume_equal_variance = TRUE
+#' )
+#'
+#' # To visualize the estimated median difference (raw data only)
+#' myplot_from_raw <- esci::plot_mdiff(
+#'   estimate_from_raw,
+#'   effect_size = "median"
+#' )
+#'
+#' # To conduct a hypothesis test
+#' res_htest_from_raw <- esci::test_mdiff(
+#'   estimate_from_raw,
+#'   effect_size = "median",
+#'   rope = c(-2, 2)
+#' )
+#'
+#'
 #' # From summary data
-#' estimate <- estimate_mdiff_two(
+#' estimate_from_summary <- esci::estimate_mdiff_two(
 #'   comparison_mean = 12.09,
 #'   comparison_sd = 5.52,
 #'   comparison_n = 103,
@@ -145,28 +170,18 @@
 #'   assume_equal_variance = TRUE
 #' )
 #'
-#' \dontrun{
 #' # To visualize the estimated mean difference
-#' plot_mdiff(estimate, effect_size = "mean")
-#' }
-
+#' myplot <- esci::plot_mdiff(
+#'   estimate_from_summary,
+#'   effect_size = "mean"
+#' )
 #'
-#' # From raw data
-#'   data("data_penlaptop1")
-#'
-#'   estimate <- esci::estimate_mdiff_two(
-#'     data = data_penlaptop1,
-#'     outcome_variable = transcription,
-#'     grouping_variable = condition,
-#'     switch_comparison_order = TRUE,
-#'     assume_equal_variance = TRUE
-#'   )
-#'
-#' \dontrun{
-#' # To visualize the estimated median difference (raw data only)
-#' plot_mdiff(estimate, effect_size = "median")
-#' }
-#'
+#' # To conduct a hypothesis test
+#' res_htest_from_summary <- esci::test_mdiff(
+#'   estimate_from_summary,
+#'   effect_size = "mean",
+#'   rope = c(-2, 2)
+#' )
 #'
 #' @export
 estimate_mdiff_two <- function(

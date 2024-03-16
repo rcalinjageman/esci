@@ -117,33 +117,34 @@ The estimated median is from \code{\link[statpsych:ci.median1]{statpsych::ci.med
 # From raw data
 data("data_penlaptop1")
 
-estimate <- esci::estimate_magnitude(
+estimate_from_raw <- esci::estimate_magnitude(
   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
     outcome_variable = transcription
 )
-estimate
 
-\dontrun{
 # To visualize the estimate
-plot_magnitude(estimate)
-}
+myplot_from_raw <- esci::plot_magnitude(
+  estimate_from_raw,
+  effect_size = "median"
+)
+
 
 # From summary data
 mymean <- 24.5
 mysd <- 3.65
 myn <- 40
 
-estimate <- esci::estimate_magnitude(
+estimate_from_summary <- esci::estimate_magnitude(
   mean = mymean,
   sd = mysd,
   n = myn
 )
-estimate
 
-
-\dontrun{
 # To visualize the estimate
-plot_mdiff(estimate)
-}
+myplot_from_summary <- esci::plot_magnitude(
+  estimate_from_summary,
+  effect_size = "mean"
+)
+
 
 }

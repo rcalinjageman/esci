@@ -135,7 +135,25 @@ The estimated proportion differences are from \code{\link[statpsych:ci.lc.prop.b
 The estimated odds ratios (if returned) are from \code{\link[statpsych:ci.oddsratio]{statpsych::ci.oddsratio()}}.
 }
 \examples{
-estimate <- estimate_pdiff_ind_contrast(
+# From raw data
+data("data_campus_involvement")
+
+estimate_from_raw <- esci::estimate_pdiff_ind_contrast(
+  esci::data_campus_involvement,
+  CommuterStatus,
+  Gender,
+  contrast = c("Male" = -1, "Female" = 1)
+)
+
+# To visualize the estimate
+myplot_from_raw <- esci::plot_pdiff(estimate_from_raw)
+
+# To conduct a hypothesis test
+res_htest_from_raw <- esci::test_pdiff(estimate_from_raw)
+
+
+# From summary data
+estimate_from_summary <- esci::estimate_pdiff_ind_contrast(
   cases = c(78, 10),
   ns = c(252, 20),
   case_label = "egocentric",
@@ -144,10 +162,11 @@ estimate <- estimate_pdiff_ind_contrast(
   conf_level = 0.95
 )
 
-\dontrun{
 # To visualize the estimate
-plot_proportion(estimate)
-}
+myplot_from_summary <- esci::plot_pdiff(estimate_from_summary)
+
+# To conduct a hypothesis test
+res_htest_from_summary <- esci::test_pdiff(estimate_from_summary)
 
 
 }

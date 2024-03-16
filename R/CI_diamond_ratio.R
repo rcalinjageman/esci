@@ -70,7 +70,7 @@
 #' )
 #'
 #' # Get the diamond ratio
-#' esci::CI_diamond_ratio(
+#' res <- esci::CI_diamond_ratio(
 #'   RE = RE,
 #'   FE = FE,
 #'   vi = mydata$sample_variance

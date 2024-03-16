@@ -131,7 +131,7 @@ draw_panel_meta_diamond_h <- function(self, data, panel_params, coord, height = 
 #'   color = "black",
 #'   fill = "red",
 #' )
-#' myplot
+#'
 #'
 #' @export
 geom_meta_diamond_h <- function(mapping = NULL, data = NULL,

@@ -115,6 +115,28 @@
 #'
 #'
 #' @examples
+#' # From raw data
+#' data("data_campus_involvement")
+#'
+#' estimate_from_raw <- esci::estimate_rdiff_two(
+#'   esci::data_campus_involvement,
+#'   GPA,
+#'   SWB,
+#'   Gender
+#' )
+#'
+#' # To visualize the difference in r
+#' myplot_from_raw <- esci::plot_rdiff(estimate_from_raw)
+#'
+#' # To visualize the data (scatterplot) by group
+#' myplot_scatter <- esci::plot_scatter(estimate_from_raw)
+#'
+#' # To evaluate a hypothesis (by default: point null of exaclty 0):
+#' res_htest_from_raw <- esci::test_rdiff(
+#'   estimate_from_raw
+#' )
+#'
+#'
 #' # From summary data
 #' estimate <- esci::estimate_rdiff_two(
 #'   comparison_r = .53,
@@ -127,15 +149,15 @@
 #'   grouping_variable_name = "Gender",
 #'   conf_level = .95
 #' )
-#' estimate
+#'
+#' myplot_from_summary <- esci::plot_rdiff(estimate)
 #'
 #' # To evaluate a hypothesis (interval null from -0.1 to 0.1):
-#' esci::test_rdiff(estimate)
+#' res_htest_from_summary <- esci::test_rdiff(
+#'   estimate,
+#'   rope = c(-0.1, 0.1)
+#' )
 #'
-#' \dontrun{
-#' # To visualize the values of r and their difference
-#' esci::plot_rdiff(estimate)
-#' }
 #'
 #' @export
 estimate_rdiff_two <- function(

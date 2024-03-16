@@ -76,3 +76,26 @@ it with \code{\link[=plot_pdiff]{plot_pdiff()}} and you can test hypotheses with
 
 The estimated proportion differences are from \code{\link[statpsych:ci.prop.ps]{statpsych::ci.prop.ps()}}.
 }
+\examples{
+# From summary data
+# Example 1 from Bonett & Price, 2012
+estimate_from_summary <- esci::estimate_pdiff_paired(
+  cases_consistent = 60,
+  cases_inconsistent = 50,
+  not_cases_inconsistent = 22,
+  not_cases_consistent = 68,
+  case_label = "Answered True",
+  not_case_label = "Answered False",
+  reference_measure_name = "9th grade",
+  comparison_measure_name = "12th grade",
+  conf_level = 0.95
+)
+
+# To visualize the estimate
+myplot_from_summary <- esci::plot_pdiff(estimate_from_summary)
+
+# To conduct a hypothesis test
+res_htest_from_summary <- esci::test_pdiff(estimate_from_summary)
+
+
+}

@@ -170,7 +170,7 @@
 #' # With equal variance assumed and no correction, should give:
 #' #   d_s = -0.8528028 [-2.121155, 0.4482578]
 #'
-#' CI_smd_ind_contrast(
+#' res <- esci::CI_smd_ind_contrast(
 #'   means = c(13, 11, 15),
 #'   sds = c(2.738613, 2.236068, 2.000000),
 #'   ns = c(5, 5, 5),
@@ -180,6 +180,7 @@
 #'   correct_bias = FALSE
 #' )
 #'
+#'
 #' # Example from [statpsych::ci.lc.stdmean.bs()] should give:
 #' # Estimate        SE        LL         UL
 #' # Unweighted standardizer: -1.273964 0.3692800 -2.025039 -0.5774878
@@ -187,7 +188,7 @@
 #' # Group 1 standardizer:    -1.273810 0.4849842 -2.343781 -0.4426775
 #'
 #'
-#' CI_smd_ind_contrast(
+#' res <- esci::CI_smd_ind_contrast(
 #'   means = c(33.5, 37.9, 38.0, 44.1),
 #'   sds = c(3.84, 3.84, 3.65, 4.98),
 #'   ns = c(10,10,10,10),
@@ -196,6 +197,7 @@
 #'   assume_equal_variance = FALSE,
 #'   correct_bias = TRUE
 #' )
+#'
 #'
 #'
 #' @export

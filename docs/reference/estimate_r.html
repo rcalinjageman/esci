@@ -184,143 +184,38 @@ Fisher r-to-z approach.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From raw data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_thomason_1"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">thomason1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  ls_pre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fl">13</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">12</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">12</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">9</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">14</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">17</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">14</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">9</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">6</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">7</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">11</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">15</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span>,</span></span>
-<span class="r-in"><span>  ls_post <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fl">14</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">13</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">16</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">12</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">15</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">18</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">13</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">10</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">10</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">8</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">14</span>,</span></span>
-<span class="r-in"><span>    <span class="fl">16</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">estimate_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_r</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_thomason_1.html">data_thomason_1</a></span>,</span></span>
+<span class="r-in"><span>  <span class="va">Pretest</span>,</span></span>
+<span class="r-in"><span>  <span class="va">Posttest</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_r</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="va">thomason1</span>,</span></span>
-<span class="r-in"><span>  <span class="va">ls_pre</span>,</span></span>
-<span class="r-in"><span>  <span class="va">ls_post</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data frame = data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name     mean   mean_LL  mean_UL median median_LL median_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                ls_pre 11.58333  9.476776 13.68989   12.0         9        14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               ls_post 13.25000 11.410019 15.08998   13.5        10        16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         sd min max   q1    q3  n missing df   mean_SE median_SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.315483   6  17  9.0 14.00 12       0 11 0.9570974  1.208488</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2.895922   8  18 11.5 15.25 12       0 11 0.8359806  1.450186</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   x_variable_name y_variable_name             effect effect_size      LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          ls_pre         ls_post ls_pre and ls_post   0.8923908 0.62894</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         UL         SE  n df     ta_LL     ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.967157 0.06139936 12 10 0.6882891 0.9596343</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- regression --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       component    values        LL       UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Intercept (a) 4.2212267 0.8856544 7.556799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Slope (b) 0.7794624 0.5017391 1.057186</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Ŷ = 4.221 + 0.7795*X"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># To evaluate a hypothesis (interval null from -0.1 to 0.1):</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="test_correlation.html">test_correlation</a></span><span class="op">(</span><span class="va">estimate</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "r"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$alpha</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$interval_null</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$rope</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.1  0.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$rope_units</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "raw"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $point_null</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             test_type outcome_variable_name             effect null_words</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Nil Hypothesis Test    ls_pre and ls_post ls_pre and ls_post       0.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   confidence      LL       UL                         CI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         95 0.62894 0.967157 95% CI [0.62894, 0.967157]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        CI_compare        t df            p p_result</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 The 95% CI does not contain H_0 4.300635 10 1.703091e-05 p &lt; 0.05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   null_decision                                      conclusion significant</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Reject H_0 At α = 0.05, 0.00 is not a plausible value of Ͱ        TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $interval_null</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     test_type outcome_variable_name             effect</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Practical significance test    ls_pre and ls_post ls_pre and ls_post</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            rope confidence</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 (-0.10, 0.10)         95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                          CI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.62894, 0.967157]\n90% CI [0.6882891, 0.9596343]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               rope_compare p_result                             conclusion</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI fully outside H_0 p &lt; 0.05 At α = 0.05, conclude Ͱ is substantive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   significant</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the value of r</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_correlation.html">plot_correlation</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># To visualize the data (scatterplot)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_scatter.html">plot_scatter</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myplot_correlation</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_correlation.html">plot_correlation</a></span><span class="op">(</span><span class="va">estimate_from_raw</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the data (scatterplot) and use regression to obtain Y' from X</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_scatter.html">plot_scatter</a></span><span class="op">(</span><span class="va">estimate</span>, predict_from_x <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myplot_scatter_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_scatter.html">plot_scatter</a></span><span class="op">(</span><span class="va">estimate_from_raw</span>, predict_from_x <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="co"># To evaluate a hypothesis (interval null from -0.1 to 0.1):</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_correlation.html">test_correlation</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate_from_raw</span>,</span></span>
+<span class="r-in"><span>  rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># From summary data</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_r</span><span class="op">(</span>r <span class="op">=</span> <span class="fl">0.536</span>, n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of summary data:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   x_variable_name y_variable_name                          effect effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   My x variable   My y variable My x variable and My y variable       0.536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          LL        UL        SE  n df     ta_LL     ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.2978573 0.7058914 0.1018149 50 48 0.3391487 0.6820747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
+<span class="r-in"><span><span class="va">estimate_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_r</span><span class="op">(</span>r <span class="op">=</span> <span class="fl">0.536</span>, n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the value of r</span></span></span>
+<span class="r-in"><span><span class="va">myplot_correlation_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_correlation.html">plot_correlation</a></span><span class="op">(</span><span class="va">estimate_from_summary</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_correlation.html">plot_correlation</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="co"># To evaluate a hypothesis (interval null from -0.1 to 0.1):</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_correlation.html">test_correlation</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate_from_summary</span>,</span></span>
+<span class="r-in"><span>  rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

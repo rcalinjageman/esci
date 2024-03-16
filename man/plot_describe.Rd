@@ -91,10 +91,10 @@ layer names
 estimate <- esci::estimate_magnitude(esci::data_latimier_3groups, `Test\%`)
 
 # Now describe the result, with a histogram
-plot_describe(estimate)
+myplot_hist <- plot_describe(estimate)
 
 # Same, but as a dotplot and mark the mean
-plot_describe(estimate, type = "dotplot", mark_mean = TRUE)
+myplot_dots <- plot_describe(estimate, type = "dotplot", mark_mean = TRUE)
 
 
 

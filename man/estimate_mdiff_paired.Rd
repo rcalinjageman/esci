@@ -188,17 +188,21 @@ The estimated median differences are from \code{\link[statpsych:ci.median.ps]{st
 # From raw data
 data("data_thomason_1")
 
-estimate <- esci::estimate_mdiff_paired(
-  data = data_thomason_1,
+estimate_from_raw <- esci::estimate_mdiff_paired(
+  data = esci::data_thomason_1,
   comparison_measure = Posttest,
   reference_measure = Pretest
 )
-estimate
 
-\dontrun{
 # To visualize the estimated median difference (raw data only)
-plot_mdiff(estimate, effect_size = "median")
-}
+myplot_from_raw <- esci::plot_mdiff(estimate_from_raw, effect_size = "median")
+
+# To conduct a hypothesis test
+res_htest_from_raw <- esci::test_mdiff(
+  estimate_from_raw,
+  effect_size = "median",
+  rope = c(-2, 2)
+)
 
 
 sd1 <- 4.28
@@ -207,7 +211,7 @@ sdiff <- 2.13
 
 cor <- (sd1^2 + sd2^2 - sdiff^2) / (2*sd1*sd2)
 
-estimate <- estimate_mdiff_paired(
+estimate_from_summary <- esci::estimate_mdiff_paired(
   comparison_mean = 14.25,
   comparison_sd = 4.28,
   reference_mean = 12.88,
@@ -217,13 +221,19 @@ estimate <- estimate_mdiff_paired(
   comparison_measure_name = "After",
   reference_measure_name = "Before"
 )
-estimate
 
-
-\dontrun{
 # To visualize the estimated mean difference
-# plot_mdiff(estimate, effect_size = "mean")
-}
+myplot_from_summary <- esci::plot_mdiff(
+  estimate_from_summary,
+  effect_size = "mean"
+)
+
+# To conduct a hypothesis test
+res_htest_from_summary <- esci::test_mdiff(
+  estimate_from_summary,
+  effect_size = "mean",
+  rope = c(-2, 2)
+)
 
 
 }

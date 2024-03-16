@@ -125,6 +125,28 @@
 #'
 #'
 #' @examples
+#' data("data_videogameaggression")
+#'
+#' estimates_from_raw <- esci::estimate_mdiff_2x2_between(
+#'   esci::data_videogameaggression,
+#'   Agression,
+#'   Violence,
+#'   Difficulty
+#' )
+#'
+#' # To visualize the estimated mean difference for the interaction
+#' myplot_from_raw <- esci::plot_mdiff(
+#'   estimates_from_raw$interaction,
+#'   effect_size = "median"
+#' )
+#'
+#' # To conduct a hypothesis test on the mean difference
+#' res_htest_from_raw <- esci::test_mdiff(
+#'   estimates_from_raw$interaction,
+#'   effect_size = "median"
+#' )
+#'
+#'
 #' # From summary data
 #' means <- c(1.5, 1.14, 1.38, 2.22)
 #' sds <- c(1.38, .96,1.5, 1.68)
@@ -132,7 +154,7 @@
 #' grouping_variable_A_levels <- c("Evening", "Morning")
 #' grouping_variable_B_levels <- c("Sleep", "No Sleep")
 #'
-#' estimates <- estimate_mdiff_2x2_between(
+#' estimates_from_summary <- esci::estimate_mdiff_2x2_between(
 #'   means = means,
 #'   sds = sds,
 #'   ns = ns,
@@ -144,16 +166,26 @@
 #'   assume_equal_variance = TRUE
 #' )
 #'
-#' \dontrun{
 #' # To visualize the estimated mean difference for the interaction
-#' plot_mdiff(estimate$interaction, effect_size = "mean")
+#' plot_mdiff_interaction <- esci::plot_mdiff(
+#'   estimates_from_summary$interaction,
+#'   effect_size = "mean"
+#' )
 #'
 #' # To visualize the interaction as a line plot
-#' plot_interaction(estimates)
+#' plot_interaction_line <- esci::plot_interaction(estimates_from_summary)
 #'
 #' # Same but with fan effect representing each simple-effect CI
-#' plot_interaction(estimates, show_CI = TRUE)
-#' }
+#' plot_interaction_line_CI <- esci::plot_interaction(
+#'   estimates_from_summary,
+#'   show_CI = TRUE
+#' )
+#'
+#' # To conduct a hypothesis test on the mean difference
+#' res_htest_from_raw <- esci::test_mdiff(
+#'   estimates_from_summary$interaction,
+#'   effect_size = "mean"
+#' )
 #'
 #'
 #' @export

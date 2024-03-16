@@ -222,12 +222,24 @@ with <code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
 <span class="r-in"><span>  grouping_variable <span class="op">=</span> <span class="va">condition</span>,</span></span>
 <span class="r-in"><span>  repeated_measures_name <span class="op">=</span> <span class="st">"Time"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the estimated mean difference for the interaction</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">$</span><span class="va">interaction</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">$</span><span class="va">interaction</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Line-plot of the interaction with fan effect representing each simple-effect CI</span></span></span>
+<span class="r-in"><span><span class="va">plot_interaction_line_CI</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_interaction.html">plot_interaction</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates</span>,</span></span>
+<span class="r-in"><span>  show_CI <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To conduct a hypothesis test</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_mdiff.html">test_mdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates</span><span class="op">$</span><span class="va">interaction</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

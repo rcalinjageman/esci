@@ -42,92 +42,37 @@
 #'
 #'
 #' @examples
-#' # example code
-#'   original_7 <- data.frame(
-#' study_name = c(
-#'   "Aden (1993)"	,
-#'   "Buggs (1995)"	,
-#'   "Crazed (1999)"	,
-#'   "Dudley (2003)"	,
-#'   "Evers (2005)"	,
-#'   "Fox (2009)",
-#'   "Mine (2011)"
-#' ),
-#' rt_mean = c(
-#'   454	,
-#'   317	,
-#'   430	,
-#'   525	,
-#'   479	,
-#'   387,
-#'   531
-#' ),
-#' rt_sd = c(
-#'   142	,
-#'   158	,
-#'   137	,
-#'   260	,
-#'   144	,
-#'   165,
-#'   233
-#' ),
-#' rt_n = c(
-#'   24	,
-#'   7	,
-#'   20	,
-#'   8	,
-#'  14	,
-#'  13,
-#'   18
-#' ),
-#' subset = as.factor(
-#'   c(
-#'     "90s",
-#'    "90s",
-#'     "90s",
-#'     "00s",
-#'     "00s",
-#'     "00s",
-#'     "00s"
-#'   )
-#' ),
-#' d1_unbiased = c(
-#'   3.091587,
-#'   1.742751,
-#'   3.012857,
-#'   1.793487,
-#'   3.130074,
-#'   2.195209,
-#'   2.17667
-#' )
-#' )
-#'
+#' # Data set -- see Introduction to the New Statistics, 2nd edition
+#' data("data_mccabemichael_brain")
 #'
 #' # Fixed effect, 95% CI
 #' estimate <- esci::meta_mean(
-#'   original_7,
-#'   rt_mean,
-#'   rt_sd,
-#'   rt_n,
-#'   study_name,
+#'   data = esci::data_mccabemichael_brain,
+#'   means = "M Brain",
+#'   sds = "s Brain",
+#'   ns = "n Brain",
+#'   labels = "Study name",
 #'   random_effects = FALSE
 #' )
 #'
-#' # Random effects, categorical moderator, report cohen's d1
-#'   estimate <- esci::meta_mean(
-#'     original_7,
-#'     rt_mean,
-#'     rt_sd,
-#'     rt_n,
-#'     study_name,
-#'     subset,
-#'     reported_effect_size = "smd_unbiased"
-#'     )
+#' myplot_forest <- esci::plot_meta(estimate)
 #'
-#' \dontrun{
+#'
+#' # Add a moderator, report cohen's d1
+#' estimate_moderator_d <- esci::meta_mean(
+#'   data = esci::data_mccabemichael_brain,
+#'   means = "M Brain",
+#'   sds = "s Brain",
+#'   ns = "n Brain",
+#'   labels = "Study name",
+#'   moderator = "Research group",
+#'   reported_effect_size = "smd_unbiased",
+#'   random_effects = FALSE
+#' )
+#'
 #' # Forest plot
-#' esci::plot_meta(estimate)
-#' }
+#' myplot_forest_moderator_d <- esci::plot_meta(estimate_moderator_d)
+#'
 #'
 #' @export
 meta_mean <- function(

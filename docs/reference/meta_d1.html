@@ -250,7 +250,12 @@ estimates all come from <code><a href="https://wviechtb.github.io/metafor/refere
 <span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d1</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="co"># Forest plot</span></span></span>
+<span class="r-in"><span><span class="va">myplot_forest</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Add a moderator</span></span></span>
+<span class="r-in"><span><span class="va">estimate_moderator</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d1</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">original_7</span>,</span></span>
 <span class="r-in"><span>  ds <span class="op">=</span> <span class="va">d1_unbiased</span>,</span></span>
 <span class="r-in"><span>  ns <span class="op">=</span> <span class="va">rt_n</span>,</span></span>
@@ -259,10 +264,12 @@ estimates all come from <code><a href="https://wviechtb.github.io/metafor/refere
 <span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># Forest plot</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot_forest_moderator</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate_moderator</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">x</span> is already present.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">x</span>, which will replace the existing scale.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">y</span> is already present.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">y</span>, which will replace the existing scale.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

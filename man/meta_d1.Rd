@@ -189,7 +189,12 @@ estimate <- esci::meta_d1(
   random_effects = FALSE
 )
 
-estimate <- esci::meta_d1(
+# Forest plot
+myplot_forest <- esci::plot_meta(estimate)
+
+
+# Add a moderator
+estimate_moderator <- esci::meta_d1(
   data = original_7,
   ds = d1_unbiased,
   ns = rt_n,
@@ -198,10 +203,8 @@ estimate <- esci::meta_d1(
   random_effects = FALSE
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
 
 
 }

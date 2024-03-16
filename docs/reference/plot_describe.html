@@ -183,17 +183,11 @@ layer names</p></li>
 <span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="estimate_magnitude.html">estimate_magnitude</a></span><span class="op">(</span><span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_latimier_3groups.html">data_latimier_3groups</a></span>, <span class="va">`Test%`</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Now describe the result, with a histogram</span></span></span>
-<span class="r-in"><span><span class="fu">plot_describe</span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot_describe-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="va">myplot_hist</span> <span class="op">&lt;-</span> <span class="fu">plot_describe</span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Same, but as a dotplot and mark the mean</span></span></span>
-<span class="r-in"><span><span class="fu">plot_describe</span><span class="op">(</span><span class="va">estimate</span>, type <span class="op">=</span> <span class="st">"dotplot"</span>, mark_mean <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myplot_dots</span> <span class="op">&lt;-</span> <span class="fu">plot_describe</span><span class="op">(</span><span class="va">estimate</span>, type <span class="op">=</span> <span class="st">"dotplot"</span>, mark_mean <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Ignoring unknown aesthetics: <span style="color: #00BB00;">z</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`stat(z &lt;= mark_percentile)` was deprecated in ggplot2 3.4.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `after_stat(z &lt;= mark_percentile)` instead.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">esci</span> package.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   Please report the issue at <span style="color: #0000BB; font-style: italic;">&lt;https://github.com/rcalinjageman/esci&gt;</span>.</span>
-<span class="r-plt img"><img src="plot_describe-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>

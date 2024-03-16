@@ -160,14 +160,12 @@ estimate <- esci::meta_proportion(
   studies
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest <- esci::plot_meta(estimate)
 
 
 # Meta-analysis, risk difference as effect size, moderator (setting)
-estimate <- esci::meta_proportion(
+estimate_moderator <- esci::meta_proportion(
   esci_meta_pdiff_two,
   power_egocentric,
   power_sample_size,
@@ -175,11 +173,8 @@ estimate <- esci::meta_proportion(
   moderator = setting
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
-
+myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
 
 
 }

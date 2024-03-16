@@ -123,12 +123,20 @@
 #'   repeated_measures_name = "Time"
 #' )
 #
-#' \dontrun{
 #' # To visualize the estimated mean difference for the interaction
-#' plot_mdiff(estimate$interaction, effect_size = "mean")
-#' }
+#' myplot <- esci::plot_mdiff(estimates$interaction, effect_size = "mean")
 #'
+#' # Line-plot of the interaction with fan effect representing each simple-effect CI
+#' plot_interaction_line_CI <- esci::plot_interaction(
+#'   estimates,
+#'   show_CI = TRUE
+#' )
 #'
+#' # To conduct a hypothesis test
+#' res_htest_from_raw <- esci::test_mdiff(
+#'   estimates$interaction,
+#'   effect_size = "mean"
+#'  )
 #'
 #' @export
 estimate_mdiff_2x2_mixed <- function(
