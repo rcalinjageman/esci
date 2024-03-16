@@ -251,14 +251,40 @@ with <code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From summary data</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_videogameaggression"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimates_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_mdiff_2x2_between</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_videogameaggression.html">data_videogameaggression</a></span>,</span></span>
+<span class="r-in"><span>  <span class="va">Agression</span>,</span></span>
+<span class="r-in"><span>  <span class="va">Violence</span>,</span></span>
+<span class="r-in"><span>  <span class="va">Difficulty</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the estimated mean difference for the interaction</span></span></span>
+<span class="r-in"><span><span class="va">myplot_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates_from_raw</span><span class="op">$</span><span class="va">interaction</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"median"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To conduct a hypothesis test on the mean difference</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_mdiff.html">test_mdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates_from_raw</span><span class="op">$</span><span class="va">interaction</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"median"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># From summary data</span></span></span>
 <span class="r-in"><span><span class="va">means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">1.14</span>, <span class="fl">1.38</span>, <span class="fl">2.22</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.38</span>, <span class="fl">.96</span>,<span class="fl">1.5</span>, <span class="fl">1.68</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">ns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span>, <span class="fl">26</span>, <span class="fl">25</span>, <span class="fl">26</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">grouping_variable_A_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Evening"</span>, <span class="st">"Morning"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">grouping_variable_B_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sleep"</span>, <span class="st">"No Sleep"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">estimates</span> <span class="op">&lt;-</span> <span class="fu">estimate_mdiff_2x2_between</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">estimates_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_mdiff_2x2_between</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  means <span class="op">=</span> <span class="va">means</span>,</span></span>
 <span class="r-in"><span>  sds <span class="op">=</span> <span class="va">sds</span>,</span></span>
 <span class="r-in"><span>  ns <span class="op">=</span> <span class="va">ns</span>,</span></span>
@@ -270,16 +296,30 @@ with <code><a href="test_mdiff.html">test_mdiff()</a></code>.</p>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the estimated mean difference for the interaction</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">$</span><span class="va">interaction</span>, effect_size <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">plot_mdiff_interaction</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates_from_summary</span><span class="op">$</span><span class="va">interaction</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the interaction as a line plot</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_interaction.html">plot_interaction</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">plot_interaction_line</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_interaction.html">plot_interaction</a></span><span class="op">(</span><span class="va">estimates_from_summary</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Same but with fan effect representing each simple-effect CI</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_interaction.html">plot_interaction</a></span><span class="op">(</span><span class="va">estimates</span>, show_CI <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">plot_interaction_line_CI</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_interaction.html">plot_interaction</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates_from_summary</span>,</span></span>
+<span class="r-in"><span>  show_CI <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To conduct a hypothesis test on the mean difference</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_mdiff.html">test_mdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimates_from_summary</span><span class="op">$</span><span class="va">interaction</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

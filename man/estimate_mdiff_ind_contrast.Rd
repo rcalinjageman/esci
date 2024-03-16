@@ -155,10 +155,33 @@ on \code{\link[statpsych:ci.lc.stdmean.bs]{statpsych::ci.lc.stdmean.bs()}} unles
 The estimated median differences are from \code{\link[statpsych:ci.lc.median.bs]{statpsych::ci.lc.median.bs()}}
 }
 \examples{
+# From raw data
+data("data_rattanmotivation")
+
+estimate_from_raw <- esci::estimate_mdiff_ind_contrast(
+  esci::data_rattanmotivation,
+  Motivation,
+  Group,
+  contrast = c("Challenge" = 1, "Control" = -1/2, "Comfort" = -1/2)
+)
+
+# To visualize the estimate
+myplot_from_raw <- esci::plot_mdiff(
+  estimate_from_raw,
+  effect_size = "median"
+)
+
+# To conduct a hypothesis test
+res_htest_from_raw <- esci::test_mdiff(
+  estimate_from_raw,
+  effect_size = "median"
+)
+
+
 # From summary data
 data("data_halagappa")
 
-estimate <- estimate_mdiff_ind_contrast(
+estimate_from_summary <- estimate_mdiff_ind_contrast(
   means = data_halagappa$Mean,
   sds = data_halagappa$SD,
   ns = data_halagappa$n,
@@ -175,12 +198,14 @@ estimate <- estimate_mdiff_ind_contrast(
   grouping_variable_name = "Diet",
   outcome_variable_name = "\% time near target"
 )
-estimate
 
-\dontrun{
-# To visualize the estimated mean difference
-plot_mdiff(estimate, effect_size = "mean")
-}
+# To visualize the estimate
+myplot <- esci::plot_mdiff(estimate_from_summary, effect_size = "mean")
 
+# To conduct a hypothesis test
+res_htest_from_raw <- esci::test_mdiff(
+  estimate_from_summary,
+  effect_size = "mean"
+)
 
 }

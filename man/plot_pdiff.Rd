@@ -87,7 +87,23 @@ layer names
 }
 }
 \examples{
-estimate <- estimate_pdiff_two(
+data("data_campus_involvement")
+
+estimate_from_raw <- esci::estimate_pdiff_two(
+  esci::data_campus_involvement,
+  CommuterStatus,
+  Gender
+)
+
+# To visualize the estimate
+myplot_from_raw <- esci::plot_pdiff(estimate_from_raw)
+
+# To conduct a hypothesis test
+res_htest_from_raw <- esci::test_pdiff(estimate_from_raw)
+
+
+# From summary_data
+estimate_from_summary <- esci::estimate_pdiff_two(
   comparison_cases = 10,
   comparison_n = 20,
   reference_cases = 78,
@@ -96,9 +112,11 @@ estimate <- estimate_pdiff_two(
   conf_level = 0.95
 )
 
-\dontrun{
 # To visualize the estimate
-plot_pdiff(estimate)
-}
+myplot_from_summary <- esci::plot_pdiff(estimate_from_summary)
+
+#' # To conduct a hypothesis test
+res_htest_from_summary <- esci::test_pdiff(estimate_from_summary)
+
 
 }

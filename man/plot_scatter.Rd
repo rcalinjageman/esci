@@ -92,69 +92,38 @@ layer names
 }
 \examples{
 # From raw data
+data("data_thomason_1")
 
-thomason1 <- data.frame(
-  ls_pre = c(
-    13,
-    12,
-    12,
-    9,
-    14,
-    17,
-    14,
-    9,
-    6,
-    7,
-    11,
-    15
-  ),
-  ls_post = c(
-    14,
-    13,
-    16,
-    12,
-    15,
-    18,
-    13,
-    10,
-    10,
-    8,
-    14,
-    16
-  )
+estimate_from_raw <- esci::estimate_r(
+  esci::data_thomason_1,
+  Pretest,
+  Posttest
 )
 
-estimate <- esci::estimate_r(
-  thomason1,
-  ls_pre,
-  ls_post
-)
-estimate
-
-# To evaluate a hypothesis (interval null from -0.1 to 0.1):
-test_correlation(estimate, rope = c(-0.1, 0.1))
-
-\dontrun{
 # To visualize the value of r
-plot_correlation(estimate)
-
-# To visualize the data (scatterplot)
-plot_scatter(estimate)
+myplot_correlation <- esci::plot_correlation(estimate_from_raw)
 
 # To visualize the data (scatterplot) and use regression to obtain Y' from X
-plot_scatter(estimate, predict_from_x = 10)
+myplot_scatter_from_raw <- esci::plot_scatter(estimate_from_raw, predict_from_x = 10)
 
-}
+# To evaluate a hypothesis (interval null from -0.1 to 0.1):
+res_htest_from_raw <- esci::test_correlation(
+  estimate_from_raw,
+  rope = c(-0.1, 0.1)
+)
+
 
 # From summary data
-estimate <- esci::estimate_r(r = 0.536, n = 50)
-estimate
+estimate_from_summary <- esci::estimate_r(r = 0.536, n = 50)
 
+# To visualize the value of r
+myplot_correlation_from_summary <- esci::plot_correlation(estimate_from_summary)
 
-\dontrun{
-# To visualize the estimate
-plot_correlation(estimate)
-}
+# To evaluate a hypothesis (interval null from -0.1 to 0.1):
+res_htest_from_summary <- esci::test_correlation(
+  estimate_from_summary,
+  rope = c(-0.1, 0.1)
+)
 
 
 }

@@ -64,16 +64,35 @@
 #'
 #'
 #' @examples
-#' estimate <- estimate_pdiff_one(
+#' # From raw data
+#' data("data_campus_involvement")
+#'
+#' estimate_from_raw <- esci::estimate_pdiff_one(
+#'   esci::data_campus_involvement,
+#'   CommuterStatus,
+#'   reference_p = 0.50
+#' )
+#'
+#' # To visualize the estimate
+#' myplot_from_raw <- esci::plot_pdiff(estimate_from_raw)
+#'
+#' # To conduct a hypothesis test
+#' res_htest_from_raw <- esci::test_pdiff(estimate_from_raw)
+#'
+#'
+#' # From summary data
+#' estimate_from_summary  <- esci::estimate_pdiff_one(
 #'   comparison_cases = 8,
 #'   comparison_n = 22,
 #'   reference_p = 0.5
 #' )
 #'
-#' \dontrun{
 #' # To visualize the estimate
-#' plot_proportion(estimate)
-#' }
+#' myplot_from_summary <- esci::plot_pdiff(estimate_from_summary)
+#'
+#' # To conduct a hypothesis test
+#' res_htest_from_summary <- esci::test_pdiff(estimate_from_summary)
+#'
 #'
 #' @export
 estimate_pdiff_one <- function(

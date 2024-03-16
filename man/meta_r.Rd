@@ -196,14 +196,12 @@ estimate <- esci::meta_r(
   random_effects = TRUE
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest <- esci::plot_meta(estimate)
 
 
 # Meta-analysis, random effects, moderator (subsets)
-estimate <- esci::meta_r(
+estimate_moderator <- esci::meta_r(
   esci_single_r,
   rvalues,
   sample_size,
@@ -212,10 +210,8 @@ estimate <- esci::meta_r(
   random_effects = TRUE
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
 
 
 }

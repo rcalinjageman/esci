@@ -102,14 +102,16 @@ layer names
 # From raw data
 data("data_penlaptop1")
 
-estimate <- esci::estimate_magnitude(
+estimate_from_raw <- esci::estimate_magnitude(
   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
     outcome_variable = transcription
 )
 
-
 # To visualize the estimate
-myplot <- plot_magnitude(estimate)
+myplot_from_raw <- esci::plot_magnitude(
+  estimate_from_raw,
+  effect_size = "median"
+)
 
 
 # From summary data
@@ -117,15 +119,17 @@ mymean <- 24.5
 mysd <- 3.65
 myn <- 40
 
-estimate <- esci::estimate_magnitude(
+estimate_from_summary <- esci::estimate_magnitude(
   mean = mymean,
   sd = mysd,
   n = myn
 )
 
-
-
 # To visualize the estimate
-myplot <- plot_magnitude(estimate)
+myplot_from_summary <- esci::plot_magnitude(
+  estimate_from_summary,
+  effect_size = "mean"
+)
+
 
 }

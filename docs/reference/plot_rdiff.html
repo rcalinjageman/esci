@@ -159,7 +159,33 @@ layer names</p></li>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From summary data</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From raw data</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_campus_involvement"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">estimate_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="estimate_rdiff_two.html">estimate_rdiff_two</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_campus_involvement.html">data_campus_involvement</a></span>,</span></span>
+<span class="r-in"><span>  <span class="va">GPA</span>,</span></span>
+<span class="r-in"><span>  <span class="va">SWB</span>,</span></span>
+<span class="r-in"><span>  <span class="va">Gender</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the difference in r</span></span></span>
+<span class="r-in"><span><span class="va">myplot_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">plot_rdiff</span><span class="op">(</span><span class="va">estimate_from_raw</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To visualize the data (scatterplot) by group</span></span></span>
+<span class="r-in"><span><span class="va">myplot_scatter</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_scatter.html">plot_scatter</a></span><span class="op">(</span><span class="va">estimate_from_raw</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To evaluate a hypothesis (by default: point null of exaclty 0):</span></span></span>
+<span class="r-in"><span><span class="va">res_htest_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_rdiff.html">test_rdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate_from_raw</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># From summary data</span></span></span>
 <span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="estimate_rdiff_two.html">estimate_rdiff_two</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  comparison_r <span class="op">=</span> <span class="fl">.53</span>,</span></span>
 <span class="r-in"><span>  comparison_n <span class="op">=</span> <span class="fl">45</span>,</span></span>
@@ -171,77 +197,19 @@ layer names</p></li>
 <span class="r-in"><span>  grouping_variable_name <span class="op">=</span> <span class="st">"Gender"</span>,</span></span>
 <span class="r-in"><span>  conf_level <span class="op">=</span> <span class="fl">.95</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of summary data:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   grouping_variable_name grouping_variable_level        x_variable_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 Gender                 Females Satisfaction with life</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Gender                   Males Satisfaction with life</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     y_variable_name  effect effect_size        LL        UL        SE  n df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Body satisfaction Females        0.41 0.1685419 0.6005378 0.1092338 59 57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Body satisfaction   Males        0.53 0.2744717 0.7096862 0.1084084 45 43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       ta_LL     ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.2091420 0.5729339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.3188047 0.6847105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_r_difference --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         type grouping_variable_name grouping_variable_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Comparison                 Gender                   Males</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Reference                 Gender                 Females</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Difference                 Gender       Males  -  Females</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          x_variable_name   y_variable_name            effect effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Satisfaction with life Body satisfaction             Males        0.53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Satisfaction with life Body satisfaction           Females        0.41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Satisfaction with life Body satisfaction Males  -  Females        0.12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           LL        UL        SE  n df      ta_LL     ta_UL        rz       sem</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.2744717 0.7096862 0.1084084 45 43  0.3188047 0.6847105 0.5901452 0.1543033</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.1685419 0.6005378 0.1092338 59 57  0.2091420 0.5729339 0.4356112 0.1336306</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.1987466 0.4209803        NA NA NA -0.1467413 0.3735336 0.1545339 0.2041241</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           z            p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.8245778 0.0001309964</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3.2598159 0.0011148455</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 0.7570586 0.4490147644</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myplot_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">plot_rdiff</span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using <span style="color: #00BB00;">size</span> for a discrete variable is not advised.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using alpha for a discrete variable is not advised.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To evaluate a hypothesis (interval null from -0.1 to 0.1):</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_rdiff.html">test_rdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "r"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$alpha</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$interval_null</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$rope</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$rope_units</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "raw"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $point_null</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             test_type                        outcome_variable_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Nil Hypothesis Test Satisfaction with life and Body satisfaction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              effect null_words confidence         LL        UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Males  -  Females       0.00         95 -0.1987466 0.4209803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               CI              CI_compare         t df         p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [-0.1987466, 0.4209803] The 95% CI contains H_0 0.7570586 NA 0.4490148</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   p_result      null_decision</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 p ≥ 0.05 Fail to reject H_0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                              conclusion significant</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 At α = 0.05, 0.00 remains a plausible value of Ͱ_diff       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="va">res_htest_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="test_rdiff.html">test_rdiff</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate</span>,</span></span>
+<span class="r-in"><span>  rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># To visualize the values of r and their difference</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu">plot_rdiff</span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

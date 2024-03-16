@@ -209,47 +209,41 @@ estimates all come from <code><a href="https://wviechtb.github.io/metafor/refere
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Data set -- see Introduction to the New Statistics, 1st edition</span></span></span>
-<span class="r-in"><span><span class="va">lucky_golf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  study <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Damisch"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span>, <span class="st">"Calin 1"</span>, <span class="st">"Calin 2"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  my_smd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.83</span>, <span class="fl">0.986</span>, <span class="fl">0.66</span>, <span class="fl">0.78</span>, <span class="fl">0.979</span>, <span class="fl">0.86</span>, <span class="fl">0.05</span>, <span class="fl">0.047</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  smd_corrected <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.806</span>, <span class="fl">0.963</span>, <span class="fl">0.647</span>, <span class="fl">0.758</span>, <span class="fl">0.950</span>, <span class="fl">0.835</span>, <span class="fl">0.050</span>, <span class="fl">0.047</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  n1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">14</span>, <span class="fl">17</span>, <span class="fl">20</span>, <span class="fl">15</span>, <span class="fl">14</span>, <span class="fl">14</span>, <span class="fl">58</span>, <span class="fl">54</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  n2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">14</span>, <span class="fl">17</span>, <span class="fl">21</span>, <span class="fl">14</span>, <span class="fl">14</span>, <span class="fl">14</span>, <span class="fl">66</span>, <span class="fl">57</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  subset <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Germany"</span>, times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"USA"</span>, times <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_damischrcj"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Meta-analysis, random effects, assuming equal variance, no moderator</span></span></span>
 <span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d2</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data <span class="op">=</span> <span class="va">lucky_golf</span>,</span></span>
-<span class="r-in"><span>  ds <span class="op">=</span> <span class="va">smd_corrected</span>,</span></span>
-<span class="r-in"><span>  comparison_ns <span class="op">=</span> <span class="va">n1</span>,</span></span>
-<span class="r-in"><span>  reference_ns <span class="op">=</span> <span class="va">n2</span>,</span></span>
-<span class="r-in"><span>  labels <span class="op">=</span> <span class="va">study</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_damischrcj.html">data_damischrcj</a></span>,</span></span>
+<span class="r-in"><span>  ds <span class="op">=</span> <span class="st">"Cohen's d unbiased"</span>,</span></span>
+<span class="r-in"><span>  comparison_ns <span class="op">=</span> <span class="st">"n Control"</span>,</span></span>
+<span class="r-in"><span>  reference_ns <span class="op">=</span> <span class="st">"n Lucky"</span>,</span></span>
+<span class="r-in"><span>  labels <span class="op">=</span> <span class="va">Study</span>,</span></span>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># Forest plot</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot_forest</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Meta-analysis, random effects, assuming equal variance</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d2</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data <span class="op">=</span> <span class="va">lucky_golf</span>,</span></span>
-<span class="r-in"><span>  ds <span class="op">=</span> <span class="va">smd_corrected</span>,</span></span>
-<span class="r-in"><span>  comparison_ns <span class="op">=</span> <span class="va">n1</span>,</span></span>
-<span class="r-in"><span>  reference_ns <span class="op">=</span> <span class="va">n2</span>,</span></span>
-<span class="r-in"><span>  moderator <span class="op">=</span> <span class="va">subset</span>,</span></span>
-<span class="r-in"><span>  labels <span class="op">=</span> <span class="va">study</span>,</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Add a categorical moderator</span></span></span>
+<span class="r-in"><span><span class="va">estimate_moderator</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">meta_d2</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="fu">esci</span><span class="fu">::</span><span class="va"><a href="data_damischrcj.html">data_damischrcj</a></span>,</span></span>
+<span class="r-in"><span>  ds <span class="op">=</span> <span class="st">"Cohen's d unbiased"</span>,</span></span>
+<span class="r-in"><span>  comparison_ns <span class="op">=</span> <span class="st">"n Control"</span>,</span></span>
+<span class="r-in"><span>  reference_ns <span class="op">=</span> <span class="st">"n Lucky"</span>,</span></span>
+<span class="r-in"><span>  labels <span class="op">=</span> <span class="st">"Study"</span>,</span></span>
+<span class="r-in"><span>  moderator <span class="op">=</span> <span class="st">"Research Group"</span>,</span></span>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  random_effects <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># Forest plot</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot_forest_moderator</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_meta.html">plot_meta</a></span><span class="op">(</span><span class="va">estimate_moderator</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">x</span> is already present.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">x</span>, which will replace the existing scale.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">y</span> is already present.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">y</span>, which will replace the existing scale.</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

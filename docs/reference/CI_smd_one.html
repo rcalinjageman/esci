@@ -110,67 +110,7 @@ sure about this yet</p></li>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># example code</span></span></span>
-<span class="r-in"><span><span class="fu">esci</span><span class="fu">::</span><span class="fu">CI_smd_one</span><span class="op">(</span><span class="fl">24.5</span>, <span class="fl">3.65</span>, <span class="fl">40</span>, <span class="fl">20</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.208989</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7951381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.613746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $numerator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $denominator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.65</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.2088481</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 39</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $d_biased</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.232877</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d_1"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;d&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;s&lt;/i&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$bias_corrected</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "difference"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_precision</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "magnitude"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$conf_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_1 because the standardizer used was s. d_1 has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> because the standardizer used was &lt;i&gt;s&lt;/i&gt;.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; has</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> been corrected for bias.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correction for bias can be important when &lt;i&gt;df&lt;/i&gt; &lt; 50.  See the rightmost column for the biased value.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">CI_smd_one</span><span class="op">(</span><span class="fl">24.5</span>, <span class="fl">3.65</span>, <span class="fl">40</span>, <span class="fl">20</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -122,3 +122,31 @@ estimates all come from \code{\link[metafor:rma.uni]{metafor::rma()}}.
 The diamond ratio and its confidence interval come from
 \code{\link[=CI_diamond_ratio]{CI_diamond_ratio()}}.
 }
+\examples{
+#' # Data set -- see Introduction to the New Statistics, 2nd edition
+data("data_mccabemichael_brain")
+
+# Fixed effect, 95\% CI
+esizes <- esci::meta_mean(
+  data = esci::data_mccabemichael_brain,
+  means = "M Brain",
+  sds = "s Brain",
+  ns = "n Brain",
+  labels = "Study name",
+  random_effects = FALSE
+)$raw_data
+
+estimate <- esci::meta_any(
+  data = esizes,
+  yi = effect_size,
+  vi = sample_variance,
+  labels = label,
+  effect_size_name = "Mean",
+  random_effects = FALSE
+)
+
+myplot_forest <- esci::plot_meta(estimate)
+
+
+
+}

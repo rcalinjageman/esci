@@ -176,73 +176,35 @@ use <code><a href="estimate_mdiff_one.html">estimate_mdiff_one()</a></code>.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># From raw data</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_penlaptop1"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_magnitude</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">estimate_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_magnitude</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">data_penlaptop1</span><span class="op">[</span><span class="va">data_penlaptop1</span><span class="op">$</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"Pen"</span>, <span class="op">]</span>,</span></span>
 <span class="r-in"><span>    outcome_variable <span class="op">=</span> <span class="va">transcription</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data frame = data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outcome variable(s) = transcription</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name     mean  mean_LL  mean_UL median median_LL median_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription 8.811765 7.154642 10.46889    8.6       6.5      11.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         sd min  max  q1     q3  n missing df   mean_SE median_SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4.749339   1 20.1 5.2 11.275 34       0 33 0.8145049  1.021201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name        effect effect_size       LL       UL        SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription transcription    8.811765 7.154642 10.46889 0.8145049</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   df    ta_LL    ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 33 7.746606 9.876923</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_median --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name        effect effect_size  LL   UL       SE df ta_LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         transcription transcription         8.6 6.5 11.1 1.021201 33   7.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_magnitude.html">plot_magnitude</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot_from_raw</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_magnitude.html">plot_magnitude</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate_from_raw</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"median"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># From summary data</span></span></span>
 <span class="r-in"><span><span class="va">mymean</span> <span class="op">&lt;-</span> <span class="fl">24.5</span></span></span>
 <span class="r-in"><span><span class="va">mysd</span> <span class="op">&lt;-</span> <span class="fl">3.65</span></span></span>
 <span class="r-in"><span><span class="va">myn</span> <span class="op">&lt;-</span> <span class="fl">40</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_magnitude</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">estimate_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">estimate_magnitude</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  mean <span class="op">=</span> <span class="va">mymean</span>,</span></span>
 <span class="r-in"><span>  sd <span class="op">=</span> <span class="va">mysd</span>,</span></span>
 <span class="r-in"><span>  n <span class="op">=</span> <span class="va">myn</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">estimate</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of raw data:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outcome variable(s) = My outcome variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---Overview---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name mean  mean_LL  mean_UL   sd  n df   mean_SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   My outcome variable 24.5 23.33267 25.66733 3.65 40 39 0.5771157</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- es_mean --</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   outcome_variable_name              effect effect_size       LL       UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   My outcome variable My outcome variable        24.5 23.33267 25.66733</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          SE df    ta_LL    ta_UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.5771157 39 23.74765 25.25235</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># To visualize the estimate</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">myplot_from_summary</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu"><a href="plot_magnitude.html">plot_magnitude</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">estimate_from_summary</span>,</span></span>
+<span class="r-in"><span>  effect_size <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -261,7 +261,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-in"><span><span class="co"># With equal variance assumed and no correction, should give:</span></span></span>
 <span class="r-in"><span><span class="co">#   d_s = -0.8528028 [-2.121155, 0.4482578]</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">CI_smd_ind_contrast</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">CI_smd_ind_contrast</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  means <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">13</span>, <span class="fl">11</span>, <span class="fl">15</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  sds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.738613</span>, <span class="fl">2.236068</span>, <span class="fl">2.000000</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  ns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>,</span></span>
@@ -270,72 +270,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  correct_bias <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.8528028</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2.121155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4482578</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $numerator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $denominator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.345208</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6554747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $d_biased</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.8528028</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d_s"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;d&lt;/i&gt;&lt;sub&gt;s.biased&lt;/sub&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s_p"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;s&lt;/i&gt;&lt;sub&gt;p&lt;/sub&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$bias_corrected</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "difference"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_precision</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "magnitude"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$conf_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$assume_equal_variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$error_distribution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "t_dist"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_s because the standardizer used was s_p. d_s has *not* been corrected for bias. Correction for bias can be important when df &lt; 50.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;s.biased&lt;/sub&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> because the standardizer used was &lt;i&gt;s&lt;/i&gt;&lt;sub&gt;p&lt;/sub&gt;.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;s.biased&lt;/sub&gt; has *not*</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> been corrected for bias.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correction for bias can be important when &lt;i&gt;df&lt;/i&gt; &lt; 50.  &lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example from [statpsych::ci.lc.stdmean.bs()] should give:</span></span></span>
 <span class="r-in"><span><span class="co"># Estimate        SE        LL         UL</span></span></span>
@@ -344,7 +279,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-in"><span><span class="co"># Group 1 standardizer:    -1.273810 0.4849842 -2.343781 -0.4426775</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">CI_smd_ind_contrast</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">esci</span><span class="fu">::</span><span class="fu">CI_smd_ind_contrast</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  means <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">33.5</span>, <span class="fl">37.9</span>, <span class="fl">38.0</span>, <span class="fl">44.1</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  sds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.84</span>, <span class="fl">3.84</span>, <span class="fl">3.65</span>, <span class="fl">4.98</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  ns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span>,</span></span>
@@ -353,72 +288,7 @@ returns raw score effect sizes for this design</p></li>
 <span class="r-in"><span>  assume_equal_variance <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>  correct_bias <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $effect_size</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.273964</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $LL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2.025039</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.5774878</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $numerator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -5.35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $denominator</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.11139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.36928</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $d_biased</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.301263</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d_avg"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "s_avg"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$denominator_name_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;i&gt;s&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$bias_corrected</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "difference"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$effect_size_precision</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "magnitude"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$conf_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$assume_equal_variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$error_distribution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "t_dist"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called d_avg because the standardizer used was s_avg. d_avg has been corrected for bias. Correction for bias can be important when df &lt; 50.  See the rightmost column for the biased value.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $properties$message_html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> This standardized mean difference is called &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> because the standardizer used was &lt;i&gt;s&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt;.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;i&gt;d&lt;/i&gt;&lt;sub&gt;avg&lt;/sub&gt; has</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> been corrected for bias.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correction for bias can be important when &lt;i&gt;df&lt;/i&gt; &lt; 50.  See the rightmost column for the biased value.&lt;br&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

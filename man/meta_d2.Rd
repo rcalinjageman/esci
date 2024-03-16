@@ -139,46 +139,36 @@ The diamond ratio and its confidence interval come from
 }
 \examples{
 # Data set -- see Introduction to the New Statistics, 1st edition
-lucky_golf <- data.frame(
-  study = c(paste("Damisch", seq(1:6)), "Calin 1", "Calin 2"),
-  my_smd = c(0.83, 0.986, 0.66, 0.78, 0.979, 0.86, 0.05, 0.047),
-  smd_corrected = c(0.806, 0.963, 0.647, 0.758, 0.950, 0.835, 0.050, 0.047),
-  n1 = c(14, 17, 20, 15, 14, 14, 58, 54),
-  n2 = c(14, 17, 21, 14, 14, 14, 66, 57),
-  subset = as.factor(c(rep("Germany", times = 6), rep("USA", times = 2)))
-)
+data("data_damischrcj")
 
 # Meta-analysis, random effects, assuming equal variance, no moderator
 estimate <- esci::meta_d2(
-  data = lucky_golf,
-  ds = smd_corrected,
-  comparison_ns = n1,
-  reference_ns = n2,
-  labels = study,
+  data = esci::data_damischrcj,
+  ds = "Cohen's d unbiased",
+  comparison_ns = "n Control",
+  reference_ns = "n Lucky",
+  labels = Study,
   assume_equal_variance = TRUE,
   random_effects = TRUE
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest <- esci::plot_meta(estimate)
 
-# Meta-analysis, random effects, assuming equal variance
-estimate <- esci::meta_d2(
-  data = lucky_golf,
-  ds = smd_corrected,
-  comparison_ns = n1,
-  reference_ns = n2,
-  moderator = subset,
-  labels = study,
+
+# Add a categorical moderator
+estimate_moderator <- esci::meta_d2(
+  data = esci::data_damischrcj,
+  ds = "Cohen's d unbiased",
+  comparison_ns = "n Control",
+  reference_ns = "n Lucky",
+  labels = "Study",
+  moderator = "Research Group",
   assume_equal_variance = TRUE,
   random_effects = TRUE
 )
 
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
 
 }

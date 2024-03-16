@@ -89,14 +89,26 @@ use \code{\link[=estimate_pdiff_one]{estimate_pdiff_one()}}.
 The estimated proportions are from \code{\link[statpsych:ci.prop1]{statpsych::ci.prop1()}}.
 }
 \examples{
-estimate <- esci::estimate_proportion(
+# From raw data
+data("data_campus_involvement")
+
+estimate_from_raw <- esci::estimate_proportion(
+  esci::data_campus_involvement,
+  CommuterStatus
+)
+
+
+# To visualize the estimate
+myplot_from_raw <- esci::plot_proportion(estimate_from_raw)
+
+
+# From summary data
+estimate_from_summary <- esci::estimate_proportion(
   cases = c(8, 22-8),
   outcome_variable_levels = c("Affected", "Not Affected")
 )
 
-\dontrun{
 # To visualize the estimate
-plot_proportion(estimate)
-}
+myplot_from_summary<- esci::plot_proportion(estimate_from_summary)
 
 }

@@ -108,6 +108,6 @@ myplot <- myplot + geom_meta_diamond_h(
   color = "black",
   fill = "red",
 )
-myplot
+
 
 }

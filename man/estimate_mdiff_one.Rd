@@ -158,22 +158,21 @@ The estimated median differences are from \code{\link[statpsych:ci.median1]{stat
 \examples{
 # From raw data
 data("data_penlaptop1")
-estimate <- esci::estimate_mdiff_one(
+estimate_from_raw <- esci::estimate_mdiff_one(
   data = data_penlaptop1[data_penlaptop1$condition == "Pen", ],
   outcome_variable = transcription,
   reference_mean = 10
 )
-estimate
 
-\dontrun{
-# To visualize the estimate
-plot_mdiff(estimate)
-}
+# To visualize the mean difference estimate
+myplot_from_raw <- esci::plot_mdiff(estimate_from_raw, effect_size = "mean")
 
-\dontrun{
 # To conduct a hypothesis test
-test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
-}
+res_htest_from_raw <- esci::test_mdiff(
+  estimate_from_raw,
+  effect_size = "mean",
+  rope = c(-2, 2)
+)
 
 
 # From summary data
@@ -181,22 +180,24 @@ mymean <- 12.09
 mysd <- 5.52
 myn <- 103
 
-estimate <- esci::estimate_mdiff_one(
+estimate_from_summary <- esci::estimate_mdiff_one(
   comparison_mean = mymean,
   comparison_sd = mysd,
   comparison_n = myn,
   reference_mean = 12
 )
-estimate
 
-\dontrun{
 # To visualize the estimate
-plot_mdiff(estimate)
-}
+myplot_from_sumary <- esci::plot_mdiff(
+  estimate_from_summary,
+  effect_size = "mean"
+)
 
-\dontrun{
 # To conduct a hypothesis test
-test_mdiff(estimate, effect_size = "mean", rope = c(-2, 2))
-}
+res_htest_from_summary <- esci::test_mdiff(
+  estimate_from_summary,
+  effect_size = "mean",
+  rope = c(-2, 2)
+)
 
 }

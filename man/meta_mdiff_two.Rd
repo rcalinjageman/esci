@@ -148,63 +148,63 @@ If reported_effect_size is smd_unbiased or smd the conversion to Cohen's d
 is handled by \code{\link[=CI_smd_ind_contrast]{CI_smd_ind_contrast()}}.
 }
 \examples{
-# Data set -- see Introduction to the New Statistics, 1st edition
-brain_scan_persuasion <- data.frame(
-  study_name = c("McCabe 1", "McCabe 2", paste("Michael",
-     seq(1:10), sep = " ")),
-  nbM = c(2.89, 2.69, 2.90, 2.62, 2.96, 2.93, 2.86,
-     2.50, 2.41, 2.54, 2.73, 2.66),
-  nbS = c(0.79, 0.55, 0.58, 0.54, 0.36, 0.60, 0.59,
-     0.84, 0.78, 0.66, 0.67, 0.65),
-  nbN = c(28, 26, 98, 42, 24, 184, 274, 58, 34, 99,
-     98, 94),
-  bM = c(3.12, 3.00, 2.86, 2.85, 3.07, 2.89, 2.91,
-     2.60, 2.74, 2.72, 2.68, 2.64),
-  bS = c(0.65, 0.54, 0.61, 0.57, 0.55, 0.60, 0.52,
-     0.83, 0.51, 0.68, 0.69, 0.71),
-  bN = c(26, 28, 99, 33, 21, 184, 255, 55, 34, 95,
-     93, 97),
-  mod = as.factor(
-    c("Simple", "Critique", "Simple","Simple","Simple",
-       "Simple","Simple","Critique","Critique","Critique",
-       "Critique","Critique")
-  ),
-  ds = c(0.31217944,  0.56073138, -0.06693802,  0.41136192,
-     0.23581389, -0.06652995,  0.08958082,  0.11892778,
-     0.49506069,  0.26765910, -0.07326, -0.02925)
-)
+# Data set -- see Introduction to the New Statistics, 2nd edition
+data("data_mccabemichael_brain")
 
 # Meta-analysis: random effects, no moderator
 estimate <- esci::meta_mdiff_two(
-  data = brain_scan_persuasion,
-  comparison_means = bM,
-  comparison_sds = bS,
-  comparison_ns = bN,
-  reference_means = nbM,
-  reference_sds = nbS,
-  reference_ns = nbN,
-  labels = study_name,
+  data = esci::data_mccabemichael_brain,
+  comparison_means = "M Brain",
+  comparison_sds = "s Brain",
+  comparison_ns = "n Brain",
+  reference_means = "M No Brain",
+  reference_sds = "s No Brain",
+  reference_ns = "n No Brain",
+  labels = "Study name",
   effect_label = "Brain Photo Rating - No Brain Photo Rating",
   assume_equal_variance = TRUE,
   random_effects = TRUE
 )
-\dontrun{
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest <- esci::plot_meta(estimate)
 
 
 # Meta-analysis: random effects, moderator
-\dontrun{
+estimate_moderator <- esci::meta_mdiff_two(
+  data = esci::data_mccabemichael_brain,
+  comparison_means = "M Brain",
+  comparison_sds = "s Brain",
+  comparison_ns = "n Brain",
+  reference_means = "M No Brain",
+  reference_sds = "s No Brain",
+  reference_ns = "n No Brain",
+  labels = "Study name",
+  moderator = "Research group",
+  effect_label = "Brain Photo Rating - No Brain Photo Rating",
+  assume_equal_variance = TRUE,
+  random_effects = TRUE
+)
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest_moderator <- esci::plot_meta(estimate_moderator)
+
 
 # Meta-analysis: random effects, moderator, output d_s
-\dontrun{
+estimate_moderator_d <- esci::meta_mdiff_two(
+  data = esci::data_mccabemichael_brain,
+  comparison_means = "M Brain",
+  comparison_sds = "s Brain",
+  comparison_ns = "n Brain",
+  reference_means = "M No Brain",
+  reference_sds = "s No Brain",
+  reference_ns = "n No Brain",
+  labels = "Study name",
+  moderator = "Research group",
+  effect_label = "Brain Photo Rating - No Brain Photo Rating",
+  assume_equal_variance = TRUE,
+  random_effects = TRUE
+)
 # Forest plot
-esci::plot_meta(estimate)
-}
+myplot_forest_moderator_d <- esci::plot_meta(estimate_moderator_d)
 
 
 }
