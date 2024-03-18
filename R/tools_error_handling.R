@@ -453,3 +453,17 @@ esci_abort_invalid_vector_data <- function(vector, lower, row_data, na.rm, lower
                na.rm = na.rm
   )
 }
+
+
+esci_abort_calculation_error <- function(arg, problem) {
+  # Build the error message
+  msg <- glue::glue("`{arg}` {problem}")
+
+  # Raise the error
+  rlang::abort("error_out_of_range",
+               message = msg,
+               arg = arg,
+               problem = problem
+  )
+}
+

@@ -295,7 +295,10 @@ CI_smd_ind_contrast <- function(
       mid_term <- (2 * sum(variances/ns)  / sum(variances))
       se <- sqrt(df/(df-2) * mid_term + effect_size^2 * (df/(df-2)-cf^2))
       if (is.na(se)) {
-        print("uh oh")
+        esci_abort_calculation_error(
+          "Standard error calculation (se) ",
+          "returned a value of NA; a CI cannot be obtained."
+        )
       }
     }
 
