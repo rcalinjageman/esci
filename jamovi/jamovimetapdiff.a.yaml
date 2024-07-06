@@ -75,7 +75,7 @@ options:
           - name: RR
             title: 'Log risk ratio (ln(<i>RR</i>))'
           - name: OR
-            title: 'Log ddds ratio (ln(<i>OR</i>))'
+            title: 'Log odds ratio (ln(<i>OR</i>))'
           - name: AS
             title: "Arcsine-square-root-transformed risk difference (1/2 * Cohen's H)"
           - name: PETO

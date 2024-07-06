@@ -52,7 +52,10 @@ test_that("estimate_magnitude of pen group from ESCI_summary_two: summary data, 
 })
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
+  if (statpsych_version < 160) return()
 
   mymean <- 24.5
   mysd <- 3.65
@@ -66,7 +69,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 
   mysp <- as.list(
     as.data.frame(
-      statpsych::ci.mean1(.05, mymean, mysd, myn)
+      statpsych::ci.mean(.05, mymean, mysd, myn)
     )
   )
 
@@ -87,7 +90,11 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
+  if (statpsych_version < 160) return()
+
 
   mymean <- 24.5
   mysd <- 3.65
@@ -104,7 +111,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 
     mysp <- as.list(
       as.data.frame(
-        statpsych::ci.mean1(1 - myconf_level, mymean, mysd, myn)
+        statpsych::ci.mean(1 - myconf_level, mymean, mysd, myn)
       )
     )
 
@@ -126,7 +133,11 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 })
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.median1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.median example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
+  if (statpsych_version < 160) return()
+
 
   myconfs <- c(0.90, 0.95, 0.99)
 
@@ -141,7 +152,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.median1 example", {
 
     mysp <- as.list(
       as.data.frame(
-        statpsych::ci.median1(1 - myconf_level, y)
+        statpsych::ci.median(1 - myconf_level, y)
       )
     )
 

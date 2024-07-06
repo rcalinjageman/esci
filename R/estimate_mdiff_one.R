@@ -16,11 +16,11 @@
 #' it with [esci::plot_mdiff()] and you can test hypotheses with
 #' [esci::test_mdiff()].
 #'
-#' The estimated mean differences are from [statpsych::ci.mean1()].
+#' The estimated mean differences are from [statpsych::ci.mean()].
 #'
 #' The estimated SMDs are from [esci::CI_smd_one()].
 #'
-#' The estimated median differences are from [statpsych::ci.median1()]
+#' The estimated median differences are from [statpsych::ci.median()]
 #'
 #'
 #' @param data For raw data - a data frame or tibble

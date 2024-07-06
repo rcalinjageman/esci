@@ -9,7 +9,7 @@ wrapper_ci.stdmean1 <- function(
 
   # Result from statpsych -------------------------------
   res <- as.data.frame(
-    statpsych::ci.stdmean1(
+    stolen_ci.stdmean(
       alpha = 1 - conf_level,
       m = comparison_mean,
       sd = comparison_sd,
@@ -405,7 +405,7 @@ wrapper_ci.median.ps <- function(
 ) {
 
   res <- as.data.frame(
-    statpsych::ci.median1(
+    wrapper_ci.median(
       alpha = 1 - conf_level,
       y = comparison_measure
     )
@@ -414,7 +414,7 @@ wrapper_ci.median.ps <- function(
   res <- rbind(
     res,
     as.data.frame(
-      statpsych::ci.median1(
+      wrapper_ci.median(
         alpha = 1 - conf_level,
         y = reference_measure
       )
@@ -628,3 +628,99 @@ wrapper_ci.cor2 <- function(
   return(res)
 
 }
+
+
+wrapper_ci.mean <- function(alpha, m, sd, n) {
+
+  # return(statpsych::ci.mean(alpha, m, sd, n))
+
+  df <- n - 1
+  tcrit <- qt(1 - alpha/2, df)
+  se <- sd/sqrt(n)
+  ll <- m - tcrit*se
+  ul <- m + tcrit*se
+  out <- t(c(m, se, ll, ul))
+  colnames(out) <- c("Estimate", "SE",  "LL", "UL")
+  rownames(out) <- ""
+  return(out)
+
+}
+
+wrapper_ci.median <- function(alpha, y) {
+  #   return(statpsych::ci.median(alpha, y))
+
+  n <- length(y)
+  y <- sort(y)
+  z <- qnorm(1 - alpha/2)
+  median <- median(y)
+  c1 <- round((n - z*sqrt(n))/2)
+  if (c1 < 1) {c1 = 1}
+  ll <- y[c1]
+  ul <- y[n - c1 + 1]
+  a <- round(n/2 - sqrt(n))
+  if (a < 1) {a = 1}
+  ll1 <- y[a]
+  ul1 <- y[n - a + 1]
+  p <- pbinom(a - 1, size = n, prob = .5)
+  z0 <- qnorm(1 - p)
+  se <- (ul1 - ll1)/(2*z0)
+  out <- t(c(median, se, ll, ul))
+  colnames(out) <- c("Estimate", "SE", "LL", "UL")
+  rownames(out) <- ""
+  return(out)
+
+
+}
+
+wrapper_ci.prop <- function(alpha, f, n) {
+
+  # return(
+  #     statpsych::ci.prop(
+  #       alpha = alpha,
+  #       f = f,
+  #       n = n
+  #     )
+  # )
+
+  if (f > n) {stop("f cannot be greater than n")}
+  z <- qnorm(1 - alpha/2)
+  p.mle <- f/n
+  se.mle <- sqrt(p.mle*(1 - p.mle)/n)
+  b1 <- 2*n*p.mle + z^2
+  b2 <- 2*(n + z^2)
+  LL.wil <- (b1 - 1 - z*sqrt(z^2 - 2 - 1/n + 4*p.mle*(n*(1 - p.mle) + 1)))/b2
+  UL.wil <- (b1 + 1 + z*sqrt(z^2 + 2 - 1/n + 4*p.mle*(n*(1 - p.mle) - 1)))/b2
+  if (p.mle == 0) {LL.wil = 0}
+  if (p.mle == 1) {UL.wil = 1}
+  p.adj <- (f + 2)/(n + 4)
+  se.adj <- sqrt(p.adj*(1 - p.adj)/(n + 4))
+  LL.adj <- p.adj - z*se.adj
+  UL.adj <- p.adj + z*se.adj
+  if (LL.adj < 0) {LL.adj = 0}
+  if (UL.adj > 1) {UL.adj = 1}
+  out1 <- t(c(p.adj, se.adj, LL.adj, UL.adj))
+  out2 <- t(c(p.mle, se.mle, LL.wil, UL.wil))
+  out <- rbind(out1, out2)
+  colnames(out) <- c("Estimate", "SE", "LL", "UL")
+  rownames(out) <- c("Adjusted Wald", "Wilson with cc")
+  return(out)
+
+
+}
+
+
+stolen_ci.stdmean <- function(alpha, m, sd, n, h) {
+  z <- qnorm(1 - alpha/2)
+  df <- n - 1
+  adj <- 1 - 3/(4*df - 1)
+  est <- (m - h)/sd
+  estu <- adj*est
+  se <- sqrt(est^2/(2*df) + 1/df)
+  ll <- est - z*se
+  ul <- est + z*se
+  out <- t(c(est, estu, se, ll, ul))
+  colnames(out) <- c("Estimate", "adj Estimate", "SE", "LL", "UL")
+  rownames(out) <- ""
+  return(out)
+}
+

@@ -14,7 +14,7 @@
 #' If you want to compare your estimate to a known value or reference, then
 #' use [esci::estimate_pdiff_one()].
 #'
-#' The estimated proportions are from [statpsych::ci.prop1()].
+#' The estimated proportions are from [statpsych::ci.prop()].
 #'
 #'
 #' @param data For raw data - a data frame or tibble

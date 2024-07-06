@@ -244,7 +244,7 @@ overview_nominal.base <- function(
       res_ta <- res
     } else {
       res <- as.data.frame(
-        statpsych::ci.prop1(
+        wrapper_ci.prop(
           alpha = 1 - conf_level,
           f = overview_table$cases[x],
           n = overview_table$n[x]
@@ -252,7 +252,7 @@ overview_nominal.base <- function(
       )
 
       res_ta <- as.data.frame(
-        statpsych::ci.prop1(
+        wrapper_ci.prop(
           alpha = (1 - conf_level)*2,
           f = overview_table$cases[x],
           n = overview_table$n[x]
