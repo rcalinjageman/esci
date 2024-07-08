@@ -1,4 +1,4 @@
-# esci <img src="man/figures/esci_logo.svg" align="right" />
+# esci <img src="man/figures/esci_logo.svg" align="right" alt = "esci logo"/>
 
 esci provides student-friendly tools for estimation statistics:
 
@@ -90,4 +90,4 @@ plot_mdiff(estimate)
 
 ```
 
-<img src="man/figures/plot_mdiff.png" align="right" />
+<img src="man/figures/plot_mdiff.png" align="right" alt="Example difference plot"/>

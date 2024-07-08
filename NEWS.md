@@ -3,7 +3,7 @@ esci version 1.0.3 (Release data: July 2024)
 
 Changes:
 
-* Tweaks to deal with changes in statpsych 1.6.  No substantive updates.  
+* Tweaks to deal with changes in statpsych 1.6. No substantive updates.  
 
 
 

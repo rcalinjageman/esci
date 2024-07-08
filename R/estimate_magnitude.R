@@ -16,9 +16,11 @@
 #' If you want to compare your sample to a known value or reference, then
 #' use [esci::estimate_mdiff_one()].
 #'
-#' The estimated mean is from [statpsych::ci.mean()].
+#' The estimated mean is from [statpsych::ci.mean1()] (renamed ci.mean as of
+#' statpsych 1.6).
 #'
-#' The estimated median is from [statpsych::ci.median()]
+#' The estimated median is from [statpsych::ci.median1()] (renamed ci.median
+#' as of statpsych 1.6)
 #'
 #'
 #' @param data For raw data - A data frame or tibble
