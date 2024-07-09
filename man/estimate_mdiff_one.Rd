@@ -149,12 +149,12 @@ Once you generate an estimate with this function, you can visualize
 it with \code{\link[=plot_mdiff]{plot_mdiff()}} and you can test hypotheses with
 \code{\link[=test_mdiff]{test_mdiff()}}.
 
-The estimated mean differences are from \code{\link[statpsych:ci.mean1]{statpsych::ci.mean1()}} (renamed
+The estimated mean differences are from \code{\link[statpsych:ci.mean]{statpsych::ci.mean1()}} (renamed
 ci.mean as of statpsych 1.6).
 
 The estimated SMDs are from \code{\link[=CI_smd_one]{CI_smd_one()}}.
 
-The estimated median differences are from \code{\link[statpsych:ci.median1]{statpsych::ci.median1()}} (renamed
+The estimated median differences are from \code{\link[statpsych:ci.median]{statpsych::ci.median1()}} (renamed
 ci.median as of statpsych 1.6)
 }
 \examples{
