@@ -1,3 +1,12 @@
+esci version 1.0.3 (Release data: July 2024)
+===========
+
+Changes:
+
+* Tweaks to deal with changes in statpsych 1.6. No substantive updates.  
+
+
+
 esci version 1.0.2 (Release data: March 2024)
 ===========
 

@@ -222,7 +222,7 @@ apply_ci_prop1 <- function(
 ) {
 
   res <- as.data.frame(
-    statpsych::ci.prop1(
+    wrapper_ci.prop(
       alpha = 1 - conf_level,
       f = myrow[["cases"]],
       n = myrow[["N"]]
@@ -279,7 +279,7 @@ apply_ci_mean1 <- function(
 ) {
 
   res <- as.data.frame(
-    statpsych::ci.mean1(
+    wrapper_ci.mean(
       alpha = 1 - conf_level,
       m = myrow[["mean"]] - reference_mean,
       sd = myrow[["sd"]],

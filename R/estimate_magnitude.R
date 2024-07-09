@@ -16,9 +16,11 @@
 #' If you want to compare your sample to a known value or reference, then
 #' use [esci::estimate_mdiff_one()].
 #'
-#' The estimated mean is from [statpsych::ci.mean1()].
+#' The estimated mean is from [statpsych::ci.mean1()] (renamed ci.mean as of
+#' statpsych 1.6).
 #'
-#' The estimated median is from [statpsych::ci.median1()]
+#' The estimated median is from [statpsych::ci.median1()] (renamed ci.median
+#' as of statpsych 1.6)
 #'
 #'
 #' @param data For raw data - A data frame or tibble
@@ -466,7 +468,7 @@ estimate_magnitude.vector <- function(
   estimate$properties$data_source <- NULL
 
   # 2 alpha CI for median
-  mdn_2a <- statpsych::ci.median1(
+  mdn_2a <- wrapper_ci.median(
     alpha = (1 - conf_level)*2,
     y =outcome_variable[!is.na(outcome_variable)]
   )

@@ -1,4 +1,5 @@
 test_that("Compare estimate_proportion to ESCI_One_Proportion example", {
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   estimate <- esci::estimate_proportion(
     cases = c(8, 22-8),
@@ -7,11 +8,22 @@ test_that("Compare estimate_proportion to ESCI_One_Proportion example", {
 
   testthat::expect_s3_class(estimate, "esci_estimate")
 
-  mysp <- as.list(
-    as.data.frame(
-      statpsych::ci.prop1(.05, 8, 22)
-    )[1, ]
-  )
+
+  if (statpsych_version > 150) {
+    mysp <- as.list(
+      as.data.frame(
+        statpsych::ci.prop(.05, 8, 22)
+      )[1, ]
+    )
+
+  } else {
+    mysp <- as.list(
+      as.data.frame(
+        statpsych::ci.prop1(.05, 8, 22)
+      )[1, ]
+    )
+
+  }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_proportion$effect_size, .3636363636)
@@ -28,6 +40,7 @@ test_that("Compare estimate_proportion to ESCI_One_Proportion example", {
 
 
 test_that("Call estimate_proportion with vector", {
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   dep_status <- as.factor(
     c(
@@ -50,11 +63,21 @@ test_that("Call estimate_proportion with vector", {
       conf_level = myconf_level
     )
 
-    mysp <- as.list(
-      as.data.frame(
-        statpsych::ci.prop1(1 - myconf_level, 8, 22)
-      )[1, ]
-    )
+    if (statpsych_version > 150) {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.prop(1 - myconf_level, 8, 22)
+        )[1, ]
+      )
+
+    } else {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.prop1(1 - myconf_level, 8, 22)
+        )[1, ]
+      )
+
+    }
 
     testthat::expect_s3_class(estimate, "esci_estimate")
     testthat::expect_equal(estimate$es_proportion$effect_size, .3636363636)
@@ -74,6 +97,8 @@ test_that("Call estimate_proportion with vector", {
 
 
 test_that("Call estimate_proportion with dataframe", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   dep_status <- as.factor(
     c(
@@ -102,11 +127,21 @@ test_that("Call estimate_proportion with dataframe", {
       conf_level = myconf_level
     )
 
-    mysp <- as.list(
-      as.data.frame(
-        statpsych::ci.prop1(1 - myconf_level, 8, 22)
-      )[1, ]
-    )
+    if (statpsych_version > 150) {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.prop(1 - myconf_level, 8, 22)
+        )[1, ]
+      )
+
+    } else {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.prop1(1 - myconf_level, 8, 22)
+        )[1, ]
+      )
+    }
+
 
     testthat::expect_s3_class(estimate, "esci_estimate")
     testthat::expect_equal(estimate$es_proportion$effect_size, .3636363636)

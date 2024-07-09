@@ -285,7 +285,7 @@ overview.base <- function(
   # Analysis ----------------------------------------
   if (n_means == 1) {
     res <- as.data.frame(
-        statpsych::ci.mean1(
+       wrapper_ci.mean (
         alpha = 1 - conf_level,
         m = overview_table$mean,
         sd = overview_table$sd,
@@ -725,7 +725,7 @@ wrap_ci_median1 <- function(
 
   if(length(na.omit(x)) < 2) return(c(median(x), NA, NA, NA))
 
-  res <- statpsych::ci.median1(
+  res <- wrapper_ci.median(
     alpha = 1 - conf_level,
     y = if(na.rm) x[!is.na(x)] else x
   )
@@ -743,7 +743,7 @@ wrap_ci_mean1 <- function(
 
   if(length(x) < 2) return(c(mean(x), NA, NA, NA))
 
-  res <- statpsych::ci.mean1(
+  res <- wrapper_ci.mean(
     alpha = 1 - conf_level,
     m = mean(x, na.rm = na.rm),
     sd = sd(x, na.rm = na.rm),

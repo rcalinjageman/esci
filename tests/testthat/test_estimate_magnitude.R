@@ -52,7 +52,9 @@ test_that("estimate_magnitude of pen group from ESCI_summary_two: summary data, 
 })
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   mymean <- 24.5
   mysd <- 3.65
@@ -64,11 +66,23 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
     n = myn
   )
 
-  mysp <- as.list(
-    as.data.frame(
-      statpsych::ci.mean1(.05, mymean, mysd, myn)
+
+  if (statpsych_version > 150) {
+    mysp <- as.list(
+      as.data.frame(
+        statpsych::ci.mean(.05, mymean, mysd, myn)
+      )
     )
-  )
+
+  } else {
+    mysp <- as.list(
+      as.data.frame(
+        statpsych::ci.mean1(.05, mymean, mysd, myn)
+      )
+    )
+
+  }
+
 
   testthat::expect_s3_class(estimate, "esci_estimate")
   testthat::expect_equal(estimate$es_mean$effect_size, mysp$Estimate)
@@ -87,7 +101,9 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
   mymean <- 24.5
   mysd <- 3.65
@@ -102,11 +118,22 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
       conf_level = myconf_level
     )
 
-    mysp <- as.list(
-      as.data.frame(
-        statpsych::ci.mean1(1 - myconf_level, mymean, mysd, myn)
+    if (statpsych_version > 150) {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.mean(1 - myconf_level, mymean, mysd, myn)
+        )
       )
-    )
+
+    } else {
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.mean1(1 - myconf_level, mymean, mysd, myn)
+        )
+      )
+
+    }
+
 
     testthat::expect_s3_class(estimate, "esci_estimate")
     testthat::expect_equal(estimate$es_mean$effect_size, mysp$Estimate)
@@ -126,7 +153,10 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean1 example", {
 })
 
 
-test_that("Compare estimate_magnitude to statpsych::ci.median1 example", {
+test_that("Compare estimate_magnitude to statpsych::ci.median example", {
+
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
+
 
   myconfs <- c(0.90, 0.95, 0.99)
 
@@ -139,11 +169,23 @@ test_that("Compare estimate_magnitude to statpsych::ci.median1 example", {
       conf_level = myconf_level
     )
 
-    mysp <- as.list(
-      as.data.frame(
-        statpsych::ci.median1(1 - myconf_level, y)
+    if (statpsych_version > 150) {
+
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.median(1 - myconf_level, y)
+        )
       )
-    )
+
+    } else {
+
+      mysp <- as.list(
+        as.data.frame(
+          statpsych::ci.median1(1 - myconf_level, y)
+        )
+      )
+
+    }
 
     testthat::expect_s3_class(estimate, "esci_estimate")
     testthat::expect_equal(estimate$es_median$effect_size, mysp$Estimate)

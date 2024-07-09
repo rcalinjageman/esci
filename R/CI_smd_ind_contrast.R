@@ -2,11 +2,11 @@
 #' contrast
 #'
 #'
-#' @description `CI_smd_ind_contrast` returns the point estimate
+#' @description \loadmathjax  `CI_smd_ind_contrast` returns the point estimate
 #'   and confidence interval for a standardized mean difference (smd aka Cohen's
 #' *d* aka Hedges *g*). A standardized mean difference is a difference in means standardized
 #'   to a standard deviation:
-#'   d = psi/s
+#'   \mjdeqn{d = \frac{ \psi }{s}}{d = psi/s}
 #'
 #'
 #' @param means A vector of 2 or more means
@@ -88,16 +88,16 @@
 #' When equal variance is assumed, the standardized mean difference is
 #' d_s, defined in Kline, p. 196:
 #'
-#'  d_s = psi / sd_s
+#'  \mjdeqn{ d_s = \frac{ \psi }{ sd_{pooled} } }{ d_s = psi / sd_s}
 #'
 #'
 #' where psi is defined in Kline, equation 7.8:
 #'
-#' psi = sum(contrasts*means)
+#' \mjdeqn{ \psi =\sum_{i=1}^{a}c_iM_i }{psi = sum(contrasts*means)}
 #'
 #'
 #' and where sd_pooled is defined in Kline, equation 3.11
-#' sqrt(sum(variances*dfs) / sum(dfs))
+#' \mjdeqn{sd_{pooled} = { \frac{ \sum_{i=1}^{a} (n_i -1) s_i^2 } { \sum_{i=1}^{a} (n_i-1) } }}{sqrt(sum(variances*dfs) / sum(dfs))}
 #'
 #'
 #' The CI for d_s is derived from lambda-prime transformation from Lecoutre,
@@ -115,12 +115,12 @@
 #' assumed, the standardized mean difference is d_avg, defined in Bonett,
 #' equation 6:
 #'
-#' d_avg = psi / sd_avg
+#' \mjdeqn{ d_{avg} = \frac{ \psi }{ sd_{avg} }}{ d_avg = psi / sd_avg}
 #'
 #' Where sd_avg is the square root of the average of the group variances, as
 #' given in Bonett, explanation of equation 6:
 #'
-#' sqrt(mean(variances))
+#' \mjdeqn{sd_{avg} = \sqrt{ \frac{ \sum_{i=1}^{a} s_i^2 }{ a } }}{sqrt(mean(variances))}
 #'
 #'
 #' #### If only 2 groups ####
