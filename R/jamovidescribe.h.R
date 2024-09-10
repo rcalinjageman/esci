@@ -31,8 +31,7 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             axis.title.x = "15",
             fill_regular = "#008DF9",
             fill_highlighted = "#E20134",
-            color = "black",
-            marker_size = "4", ...) {
+            color = "black", ...) {
 
             super$initialize(
                 package="esci",
@@ -261,17 +260,6 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                     "gray90",
                     "gray95",
                     "gray100"))
-            private$..marker_size <- jmvcore::OptionList$new(
-                "marker_size",
-                marker_size,
-                default="4",
-                options=list(
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6"))
 
             self$.addOption(private$..outcome_variable)
             self$.addOption(private$..show_details)
@@ -299,7 +287,6 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             self$.addOption(private$..fill_regular)
             self$.addOption(private$..fill_highlighted)
             self$.addOption(private$..color)
-            self$.addOption(private$..marker_size)
         }),
     active = list(
         outcome_variable = function() private$..outcome_variable$value,
@@ -327,8 +314,7 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
         axis.title.x = function() private$..axis.title.x$value,
         fill_regular = function() private$..fill_regular$value,
         fill_highlighted = function() private$..fill_highlighted$value,
-        color = function() private$..color$value,
-        marker_size = function() private$..marker_size$value),
+        color = function() private$..color$value),
     private = list(
         ..outcome_variable = NA,
         ..show_details = NA,
@@ -355,8 +341,7 @@ jamovidescribeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
         ..axis.title.x = NA,
         ..fill_regular = NA,
         ..fill_highlighted = NA,
-        ..color = NA,
-        ..marker_size = NA)
+        ..color = NA)
 )
 
 jamovidescribeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -544,7 +529,6 @@ jamovidescribeBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
 #' @param fill_regular .
 #' @param fill_highlighted .
 #' @param color .
-#' @param marker_size .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$debug} \tab \tab \tab \tab \tab a preformatted \cr
@@ -589,8 +573,7 @@ jamovidescribe <- function(
     axis.title.x = "15",
     fill_regular = "#008DF9",
     fill_highlighted = "#E20134",
-    color = "black",
-    marker_size = "4") {
+    color = "black") {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("jamovidescribe requires jmvcore to be installed (restart may be required)")
@@ -628,8 +611,7 @@ jamovidescribe <- function(
         axis.title.x = axis.title.x,
         fill_regular = fill_regular,
         fill_highlighted = fill_highlighted,
-        color = color,
-        marker_size = marker_size)
+        color = color)
 
     analysis <- jamovidescribeClass$new(
         options = options,

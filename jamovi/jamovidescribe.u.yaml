@@ -242,8 +242,3 @@ children:
                 cell:
                   column: 0
                   row: 7
-              - type: ComboBox
-                name: marker_size
-                cell:
-                  column: 1
-                  row: 8

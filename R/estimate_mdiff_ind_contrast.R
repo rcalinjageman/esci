@@ -928,13 +928,16 @@ Invalid groups are those with n < 2.
         }
 
 
-        estimate$es_median_ratio <- as.data.frame(
-          statpsych::ci.ratio.median2(
-            alpha = 1 - conf_level,
-            y1 = vec_comparison,
-            y2 = vec_reference
+        estimate$es_median_ratio <- data.frame("Median1" = NA, "Median2" = NA, "Median1/Median2" = NA, "LL" = NA, "UL" = NA)
+        if (all(vec_comparison >= 0) & all(vec_reference >= 0) ) {
+          estimate$es_median_ratio <- as.data.frame(
+            statpsych::ci.ratio.median2(
+              alpha = 1 - conf_level,
+              y1 = vec_comparison,
+              y2 = vec_reference
+            )
           )
-        )
+        }
 
         estimate$es_median_ratio_properties <- estimate$es_mean_ratio_properties
 

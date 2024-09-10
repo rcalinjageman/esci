@@ -367,22 +367,5 @@ options:
          - name: 'gray100'
            title: 'Gray100'
 
-    - name: marker_size
-      type: List
-      title: 'Size'
-      default: '4'
-      options:
-        - name: '1'
-          title: '1'
-        - name: '2'
-          title: '2'
-        - name: '3'
-          title: '3'
-        - name: '4'
-          title: '4'
-        - name: '5'
-          title: '5'
-        - name: '6'
-          title: '6'
 
 ...

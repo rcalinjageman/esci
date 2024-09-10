@@ -317,7 +317,8 @@ plot_mdiff <- function(
     axis.text.y = ggtext::element_markdown(),
     axis.title.y = ggtext::element_markdown(),
     axis.text.x = ggtext::element_markdown(),
-    axis.title.x = ggtext::element_markdown()
+    axis.title.x = ggtext::element_markdown(),
+    axis.title.y.right = ggtext::element_markdown()
   )
 
   # Attach warnings and return    -------------------
@@ -675,11 +676,11 @@ plot_mdiff_base <- function(
 
   daxis_name <- difference_es_name
   # epart <-
-  daxis_name <- gsub("<sub>", "[", daxis_name)
-  daxis_name <- gsub("</sub>", "]", daxis_name)
-  daxis_name <- gsub("<i>", "italic(", daxis_name)
-  daxis_name <- gsub("</i>", ")", daxis_name)
-  daxis_name <- parse(text = daxis_name)
+  # daxis_name <- gsub("<sub>", "[", daxis_name)
+  # daxis_name <- gsub("</sub>", "]", daxis_name)
+  # daxis_name <- gsub("<i>", "italic(", daxis_name)
+  # daxis_name <- gsub("</i>", ")", daxis_name)
+  # daxis_name <- parse(text = daxis_name)
 
 
   # Initialize htests
