@@ -1,7 +1,7 @@
 ---
 title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
-version: 1.0.3
+version: 1.0.4
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -16,7 +16,7 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.03 - minor tweaks for compatibility with changes in statpsych.
+  1.04 - Several bug fixes for R4.4.
 
 
   Please submit feedback, bug reports, and feature requests via the links
