@@ -422,7 +422,7 @@
 #'   \item{USAorNot}{factor}
 #'   \item{Country}{factor}
 #' }
-#' @source <https://psycnet.apa.org/fulltext/2014-20922-002.html>
+#' @source <https://econtent.hogrefe.com/doi/10.1027/1864-9335/a000178>
 "data_gender_math_iat_ma"
 
 #' Gender math IAT - Ch07 - Ithaca and SDSU replications of Nosek et al. (2002)
@@ -448,7 +448,7 @@
 #'   \item{SDSU gender}{factor}
 #'   \item{SDSU IAT}{numeric}
 #' }
-#' @source <https://psycnet.apa.org/fulltext/2014-20922-002.html>
+#' @source <https://econtent.hogrefe.com/doi/10.1027/1864-9335/a000178>
 "data_gender_math_iat"
 
 #' Halagappa - Ch14 - from Halagappa et al. (2007)
