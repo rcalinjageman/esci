@@ -17,7 +17,7 @@ A data frame with 6 rows and 4 columns:
 }
 }
 \source{
-\url{https://www.sciencedirect.com/science/article/abs/pii/S0969996106003251}
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0969996106003251/}
 }
 \usage{
 data_halagappa
