@@ -1,126 +1,372 @@
-<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://rcalinjageman.github.io/esci/404.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/authors.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/index.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/news/index.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/CI_diamond_ratio.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/CI_smd_ind_contrast.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/CI_smd_one.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_altruism_happiness.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_anchor_estimate_ma.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_basol_badnews.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bem_and_honorton_1994.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bem_psychic.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bodywellf.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bodywellfm.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bodywellm.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_bushman_2005.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_campus_involvement.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_chap_8_paired_ex_8.18.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_clean_moral.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_college_survey_1.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_college_survey_2.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_damischrcj.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_effronraj_fakenews.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_emotion_heartrate.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_exam_scores.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_flag_priming_ma.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_gender_math_iat.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_gender_math_iat_ma.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_halagappa.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_halagappa_et_al_2007.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_home_prices.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_kardas_expt_3.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_kardas_expt_4.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_labels_flavor.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_3groups.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_prequiz.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_quiz.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_quiz_prequiz.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread_prequiz.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread_quiz.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_macnamara_r_ma.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain2.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_meditationbrain.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_organicmoral.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_penlaptop1.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_powerperformance_ma.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_rattanmotivation.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_religionsharing.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_religious_belief.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_selfexplain.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_simmonscredibility.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_sleep_beauty.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_smithrecall.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_stickgold.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_studystrategies.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_thomason1.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_thomason_1.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/data_videogameaggression.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/esci_document_data.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/esci_plot_difference_axis_x.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_correlation.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_magnitude.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_between.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_mixed.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_ind_contrast.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_one.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_paired.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_ind_contrast.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_one.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_paired.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_proportion.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_r.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/estimate_rdiff_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/geom_meta_diamond_h.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/index.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovicorrelation.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovidescribe.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimagnitude.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimdiff2x2.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimdiffindcontrast.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimdiffpaired.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimdifftwo.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimetamdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimetamean.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimetapdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimetaproportion.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovimetar.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovipdiffpaired.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovipdifftwo.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamoviproportion.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jamovirdifftwo.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/jesci_document_data.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_any.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_d1.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_d2.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_mdiff_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_mean.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_pdiff_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_proportion.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_r.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/meta_smd_two.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/overview.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/overview_nominal.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_correlation.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_describe.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_interaction.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_magnitude.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_mdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_meta.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_pdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_proportion.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_rdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/plot_scatter.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/print.esci_estimate.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/test_correlation.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/test_mdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/test_pdiff.html</loc></url>
-<url><loc>https://rcalinjageman.github.io/esci/reference/test_rdiff.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/404.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/CI_diamond_ratio.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/CI_smd_ind_contrast.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/CI_smd_one.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_altruism_happiness.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_anchor_estimate_ma.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_basol_badnews.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bem_and_honorton_1994.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bem_psychic.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bodywellf.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bodywellfm.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bodywellm.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_bushman_2005.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_campus_involvement.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_chap_8_paired_ex_8.18.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_clean_moral.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_college_survey_1.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_college_survey_2.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_damischrcj.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_effronraj_fakenews.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_emotion_heartrate.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_exam_scores.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_flag_priming_ma.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_gender_math_iat.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_gender_math_iat_ma.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_halagappa.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_halagappa_et_al_2007.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_home_prices.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_kardas_expt_3.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_kardas_expt_4.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_labels_flavor.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_3groups.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_prequiz.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_quiz.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_quiz_prequiz.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread_prequiz.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_latimier_reread_quiz.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_macnamara_r_ma.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain2.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_meditationbrain.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_organicmoral.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_penlaptop1.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_powerperformance_ma.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_rattanmotivation.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_religionsharing.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_religious_belief.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_selfexplain.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_simmonscredibility.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_sleep_beauty.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_smithrecall.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_stickgold.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_studystrategies.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_thomason1.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_thomason_1.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/data_videogameaggression.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/esci_document_data.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/esci_plot_difference_axis_x.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_correlation.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_magnitude.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_between.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_mixed.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_ind_contrast.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_one.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_paired.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_mdiff_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_ind_contrast.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_one.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_paired.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_pdiff_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_proportion.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_r.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/estimate_rdiff_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/geom_meta_diamond_h.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovicorrelation.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovidescribe.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimagnitude.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimdiff2x2.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimdiffindcontrast.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimdiffpaired.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimdifftwo.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimetamdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimetamean.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimetapdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimetaproportion.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovimetar.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovipdiffpaired.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovipdifftwo.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamoviproportion.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jamovirdifftwo.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/jesci_document_data.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_any.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_d1.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_d2.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_mdiff_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_mean.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_pdiff_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_proportion.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_r.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/meta_smd_two.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/overview.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/overview_nominal.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_correlation.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_describe.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_interaction.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_magnitude.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_mdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_meta.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_pdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_proportion.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_rdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/plot_scatter.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/print.esci_estimate.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/test_correlation.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/test_mdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/test_pdiff.html</loc>
+  </url>
+  <url>
+    <loc>https://rcalinjageman.github.io/esci/reference/test_rdiff.html</loc>
+  </url>
 </urlset>
-

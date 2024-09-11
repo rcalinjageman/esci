@@ -206,7 +206,7 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
           args$fill_regular <- self$options$fill_regular
           args$fill_highlighted <- self$options$fill_highlighted
           args$color <- self$options$color
-          args$marker_size <- as.numeric(self$options$marker_size)
+          # args$marker_size <- as.numeric(self$options$marker_size)
 
           args$ggtheme <- ggtheme[[1]]
 

@@ -1,4 +1,9 @@
-# esci <img src="man/figures/esci_logo.svg" align="right" alt = "esci logo"/>
+# esci: Estimation Statistics with Confidence Intervals <img src="man/figures/esci_logo.svg" align="right" alt = "esci logo"/>
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/esci)](https://CRAN.R-project.org/package=esci)
+![Download
+count](https://cranlogs.r-pkg.org/badges/last-month/esci)
 
 esci provides student-friendly tools for estimation statistics:
 

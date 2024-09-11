@@ -306,13 +306,19 @@ wrapper_ci_ratio.2 <- function(
     statpsych_cols <- c("Mean1/Mean2", "LL", "UL", "Mean1", "Mean2")
     esci_cols <- c("effect_size", "LL", "UL", "comparison_mean", "reference_mean")
   } else if (mean_or_median == "median") {
-    es_ratio <- as.data.frame(
-      statpsych::ci.ratio.median2(
-        alpha = 1 - conf_level,
-        y1 = comparison_measure,
-        y2 = reference_measure
+    es_ration <- data.frame("Median1" = NA, "Median2" = NA, "Median1/Median2" = NA, "LL" = NA, "UL" = NA)
+
+    if (all(comparison_measure >= 0) & all(reference_measure >= 0)) {
+      es_ratio <- as.data.frame(
+        statpsych::ci.ratio.median2(
+          alpha = 1 - conf_level,
+          y1 = comparison_measure,
+          y2 = reference_measure
+        )
       )
-    )
+
+    }
+
     statpsych_cols <- c("Median1/Median2", "LL", "UL", "Median1", "Median2")
     esci_cols <- c("effect_size", "LL", "UL", "comparison_median", "reference_median")
   } else {

@@ -291,9 +291,7 @@ jamovi_mdiff_two <- function(
 
     if (length(estimate$warnings) > 0) {
       if (!self$options$show_ratio) {
-        if (!is.na(estimate$warnings["neg_values"])) {
-          estimate$warnings <- estimate$warnings[names(estimate$warnings) != "neg_values"]
-        }
+        estimate$warnings <- estimate$warnings[! names(estimate$warnings) %in% c("neg_values")]
       } else {
         to_show <- is.na(estimate$warnings["neg_values"])
         self$results$es_mean_ratio$setVisible(to_show & self$options$effect_size == "mean_difference")

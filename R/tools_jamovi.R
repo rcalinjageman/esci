@@ -818,7 +818,7 @@ jamovi_contingency_table <- function(self, estimate) {
   # Now set each row
   for(x in 1:crows) {
 
-    observed_values <- if (print_observed) format(observed[x, ], digits = 0) else NULL
+    observed_values <- if (print_observed) format(observed[x, ], digits = 1) else NULL
     expected_values <- if (print_expected) format(expected[x, ], digits = 2) else NULL
 
     cell_values <- paste(
@@ -893,16 +893,18 @@ jamovi_contingency_table <- function(self, estimate) {
     values = total_values
   )
 
-  # Set a note with the chi square results
+
+  #Set a note with the chi square results
   mynote <- glue::glue(
-    "&#120536;<sup>2</sup>({format(estimate$properties$chi_square$parameter, digits = 0)}) = {format(estimate$properties$chi_square$statistic, digits = 2)}, <i>p</i> = {esci_pvalr(estimate$properties$chi_square$p.value)}.  Continuity correction has *not* been applied."
+    "&#120536;<sup>2</sup>({format(estimate$properties$chi_square$parameter, digits = 1)}) = {format(estimate$properties$chi_square$statistic, digits = 2)}, <i>p</i> = {esci_pvalr(estimate$properties$chi_square$p.value)}.  Continuity correction has *not* been applied."
   )
 
   tbl$setNote(
-    key = 1,
-    note = mynote
+    key = "1",
+    note = mynote,
+    init = FALSE
   )
-
+  #
   # Finally, rename title for outcome variable
   tbl$getColumn("outcome_variable_level")$setTitle(estimate$properties$outcome_variable_name)
 

@@ -707,7 +707,7 @@ jamovirdifftwoClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
             myplot$layers$summary_Comparison_line_CI$aes_params$alpha <- as.numeric(self$options$sp_alpha_summary_comparison)
 
             if (!self$options$show_line) {
-              myplot$layers$summary_Comparison_line$aes_params$colou <- NA
+              myplot$layers$summary_Comparison_line$aes_params$colour <- NA
             }
 
             #myplot$layers$summary_Comparison_line$aes_params$linetype <- self$options$sp_linetype_summary_comparison

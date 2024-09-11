@@ -31,8 +31,7 @@ jamovidescribe(
   axis.title.x = "15",
   fill_regular = "#008DF9",
   fill_highlighted = "#E20134",
-  color = "black",
-  marker_size = "4"
+  color = "black"
 )
 }
 \arguments{
@@ -89,8 +88,6 @@ jamovidescribe(
 \item{fill_highlighted}{.}
 
 \item{color}{.}
-
-\item{marker_size}{.}
 }
 \value{
 A results object containing:
