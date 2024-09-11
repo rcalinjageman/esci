@@ -17,7 +17,7 @@ A data frame with 155 rows and 4 columns:
 }
 }
 \source{
-\url{https://econtent.hogrefe.com/doi/10.1027/1864-9335/a000178/}
+\url{https://psycnet.apa.org/fulltext/2014-20922-002.html}
 }
 \usage{
 data_gender_math_iat

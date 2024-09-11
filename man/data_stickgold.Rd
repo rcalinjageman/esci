@@ -16,7 +16,7 @@ A data frame with 11 rows and 3 columns:
 }
 }
 \source{
-\url{https://www.statcrunch.com/app/index.html?dataid=1053539/}
+\url{https://www.statcrunch.com/app/index.html?dataid=1053539}
 }
 \usage{
 data_stickgold

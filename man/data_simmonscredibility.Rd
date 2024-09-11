@@ -17,7 +17,7 @@ A data frame with 3 rows and 4 columns:
 }
 }
 \source{
-\url{http://datacolada.org/94/}
+\url{http://datacolada.org/94}
 }
 \usage{
 data_simmonscredibility
