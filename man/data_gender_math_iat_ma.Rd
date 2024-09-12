@@ -22,7 +22,7 @@ A data frame with 30 rows and 9 columns:
 }
 }
 \source{
-\url{https://psycnet.apa.org/fulltext/2014-20922-002.html}
+\doi{10.1027/1864-9335/a000178}
 }
 \usage{
 data_gender_math_iat_ma

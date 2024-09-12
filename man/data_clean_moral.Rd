@@ -17,7 +17,7 @@ A data frame with 208 rows and 4 columns:
 }
 }
 \source{
-\url{https://econtent.hogrefe.com/doi/full/10.1027/1864-9335/a000186}
+\doi{10.1027/1864-9335/a000186}
 }
 \usage{
 data_clean_moral

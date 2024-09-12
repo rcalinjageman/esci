@@ -25,7 +25,7 @@ A data frame with 8 rows and 12 columns:
 }
 }
 \source{
-\url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0140806}
+\doi{10.1371/journal.pone.0140806}
 }
 \usage{
 data_powerperformance_ma

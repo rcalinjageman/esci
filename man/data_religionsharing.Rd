@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_religionsharing}
 \alias{data_religionsharing}
-\title{ReligionSharing - Ch14 - for End-of-Chapter Exercise 14.3}
+\title{ReligionSharing - Ch14 - \strong{RETRACTED DATA} used in End-of-Chapter Exercise 14.3}
 \format{
 \subsection{\code{data_religionsharing}}{
 
@@ -16,6 +16,9 @@ A data frame with 3 rows and 4 columns:
 }
 }
 }
+\source{
+\doi{10.1016/j.cub.2015.09.056}
+}
 \usage{
 data_religionsharing
 }
@@ -26,6 +29,8 @@ to play a game in which they were given 10 stickers but then asked if they
 would give some of these stickers away to another child who had not been able
 to be tested that day. The number of stickers donated was considered a
 measure of altruistic sharing. In addition, the parents of each child
-reported the family's religion. Summary data provided.
+reported the family's religion. Summary data provided.  \strong{THIS STUDY
+HAS BEEN RETRACTED DUE TO AN ERRONEOUS ANALYSIS - THE DATASET WILL BE
+REMOVED FROM FUTURE VERSIONS OF ESCI AND THE BOOK}
 }
 \keyword{datasets}

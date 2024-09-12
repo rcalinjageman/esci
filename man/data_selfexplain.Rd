@@ -17,7 +17,7 @@ A data frame with 52 rows and 4 columns:
 }
 }
 \source{
-\url{https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/j.2044-8279.2012.02083.x}
+\doi{10.1111/j.2044-8279.2012.02083.x}
 }
 \usage{
 data_selfexplain

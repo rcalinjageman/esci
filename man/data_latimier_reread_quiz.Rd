@@ -16,7 +16,7 @@ A data frame with 190 rows and 3 columns:
 }
 }
 \source{
-\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF}
+\doi{10.7910/DVN/XPYPMF}
 }
 \usage{
 data_latimier_reread_quiz

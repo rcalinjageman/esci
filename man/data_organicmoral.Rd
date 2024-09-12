@@ -19,7 +19,7 @@ A data frame with 106 rows and 6 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/full/10.1177/1948550616639649}
+\doi{10.1177/1948550616639649}
 }
 \usage{
 data_organicmoral

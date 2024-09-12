@@ -248,7 +248,7 @@ datasets:
     description: from O’Reilly et al. (1998)
   - name: Ch14 - ReligionSharing
     path: ReligionSharing.omv
-    description: for End-of-Chapter Exercise 14.3
+    description: for End-of-Chapter Exercise 14.3, but data has been RETRACTED!
   - name: Ch14 - OrganicMoral
     path: OrganicMoral.omv
     description: from Eskine (2013)

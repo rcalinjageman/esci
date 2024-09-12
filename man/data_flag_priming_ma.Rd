@@ -20,7 +20,7 @@ A data frame with 25 rows and 7 columns:
 }
 }
 \source{
-\url{https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ad}
+\doi{10.5334/jopd.ad}
 }
 \usage{
 data_flag_priming_ma

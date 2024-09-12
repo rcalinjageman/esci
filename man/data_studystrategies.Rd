@@ -23,7 +23,7 @@ A data frame with 3 rows and 10 columns:
 }
 }
 \source{
-\url{https://www.sciencedirect.com/science/article/abs/pii/S0361476X97909772}
+\doi{10.1006/ceps.1997.0977}
 }
 \usage{
 data_studystrategies

@@ -15,7 +15,7 @@ A data frame with 65 rows and 2 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/full/10.1177/0956797614524581}
+\doi{10.1177/0956797614524581}
 }
 \usage{
 data_penlaptop1

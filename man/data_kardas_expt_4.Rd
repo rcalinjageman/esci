@@ -17,7 +17,7 @@ A data frame with 270 rows and 4 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/abs/10.1177/0956797617740646}
+\doi{10.1177/0956797617740646}
 }
 \usage{
 data_kardas_expt_4

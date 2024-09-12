@@ -17,7 +17,7 @@ A data frame with 16 rows and 4 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/full/10.1177/0956797614535810}
+\doi{10.1177/0956797614535810}
 }
 \usage{
 data_macnamara_r_ma

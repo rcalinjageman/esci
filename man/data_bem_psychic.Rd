@@ -18,7 +18,7 @@ A data frame with 10 rows and 5 columns:
 }
 }
 \source{
-\url{https://psycnet.apa.org/record/1994-20286-001}
+\doi{10.1037/0033-2909.115.1.25}
 }
 \usage{
 data_bem_psychic

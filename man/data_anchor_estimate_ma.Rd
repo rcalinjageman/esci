@@ -22,7 +22,7 @@ A data frame with 30 rows and 9 columns:
 }
 }
 \source{
-\url{https://econtent.hogrefe.com/doi/10.1027/1864-9335/a000178}
+\doi{10.1027/1864-9335/a000178}
 }
 \usage{
 data_anchor_estimate_ma
