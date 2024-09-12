@@ -19,7 +19,7 @@ A data frame with 50 rows and 6 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/full/10.1177/0956797613516148}
+\doi{10.1177/0956797613516148}
 }
 \usage{
 data_altruism_happiness

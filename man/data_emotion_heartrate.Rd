@@ -16,7 +16,7 @@ A data frame with 68 rows and 3 columns:
 }
 }
 \source{
-\url{https://ieeexplore.ieee.org/abstract/document/6464255}
+\doi{10.1109/T-AFFC.2013.3}
 }
 \usage{
 data_emotion_heartrate

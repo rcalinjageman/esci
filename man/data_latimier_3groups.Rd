@@ -15,6 +15,9 @@ A data frame with 285 rows and 3 columns:
 }
 }
 }
+\source{
+\doi{10.7910/DVN/XPYPMF}
+}
 \usage{
 data_latimier_3groups
 }

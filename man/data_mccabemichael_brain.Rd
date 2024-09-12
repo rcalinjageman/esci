@@ -22,7 +22,7 @@ A data frame with 10 rows and 9 columns:
 }
 }
 \source{
-\url{https://link.springer.com/article/10.3758/s13423-013-0391-6}
+\doi{10.3758/s13423-013-0391-6}
 }
 \usage{
 data_mccabemichael_brain

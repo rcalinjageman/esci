@@ -15,7 +15,7 @@ A data frame with 54 rows and 2 columns:
 }
 }
 \source{
-\url{https://www.sciencedirect.com/science/article/pii/S0022103111003027}
+\doi{10.1016/j.jesp.2011.12.012}
 }
 \usage{
 data_rattanmotivation

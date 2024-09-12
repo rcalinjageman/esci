@@ -18,7 +18,7 @@ A data frame with 138 rows and 5 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/full/10.1177/0956797619887896}
+\doi{10.1177/0956797619887896}
 }
 \usage{
 data_effronraj_fakenews

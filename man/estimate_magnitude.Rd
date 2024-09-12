@@ -109,10 +109,10 @@ it with \code{\link[=plot_magnitude]{plot_magnitude()}}.
 If you want to compare your sample to a known value or reference, then
 use \code{\link[=estimate_mdiff_one]{estimate_mdiff_one()}}.
 
-The estimated mean is from \code{\link[statpsych:ci.mean1]{statpsych::ci.mean1()}} (renamed ci.mean as of
+The estimated mean is from \code{\link[statpsych:ci.mean]{statpsych::ci.mean1()}} (renamed ci.mean as of
 statpsych 1.6).
 
-The estimated median is from \code{\link[statpsych:ci.median1]{statpsych::ci.median1()}} (renamed ci.median
+The estimated median is from \code{\link[statpsych:ci.median]{statpsych::ci.median1()}} (renamed ci.median
 as of statpsych 1.6)
 }
 \examples{

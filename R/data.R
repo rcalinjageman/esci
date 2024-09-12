@@ -20,7 +20,7 @@
 #'   \item{Kidney_Rate, per million population}{numeric - State where data was collected}
 #'   \item{WB Change 2013-2010}{numeric - State where data was collected}
 #' }
-#' @source <https://journals.sagepub.com/doi/full/10.1177/0956797613516148>
+#' @source \doi{10.1177/0956797613516148}
 "data_altruism_happiness"
 
 #' Anchor Estimate ma - Ch9 - Many Labs replications of Jacowitz and Kahneman (1995)
@@ -50,7 +50,7 @@
 #'   \item{USAorNot}{factor}
 #'   \item{Country}{factor}
 #' }
-#' @source <https://econtent.hogrefe.com/doi/10.1027/1864-9335/a000178>
+#' @source \doi{10.1027/1864-9335/a000178}
 "data_anchor_estimate_ma"
 
 #' Basol badnews - Ch07 - from Basol et al. (2020)
@@ -85,7 +85,7 @@
 #'   \item{Diff confidence}{numeric}
 #'   \item{Condition}{factor}
 #' }
-#' @source <https://journalofcognition.org/articles/10.5334/joc.91>
+#' @source \doi{10.5334/joc.91}
 "data_basol_badnews"
 
 #' Bem Psychic - Ch13 - from Bem and Honorton (1994)
@@ -120,7 +120,7 @@
 #'   \item{N(Hits)}{integer}
 #'   \item{Proportion Hits}{numeric}
 #' }
-#' @source <https://psycnet.apa.org/record/1994-20286-001>
+#' @source \doi{10.1037/0033-2909.115.1.25}
 "data_bem_psychic"
 
 #' BodyWellF - Ch12 - Body Satisfaction and Well-being data for females from Figure 11.24 right panel
@@ -225,7 +225,7 @@
 #'   \item{Johnson Condition}{factor}
 #'   \item{Johnson Moral judgment}{numeric}
 #' }
-#' @source <https://econtent.hogrefe.com/doi/full/10.1027/1864-9335/a000186>
+#' @source \doi{10.1027/1864-9335/a000186}
 "data_clean_moral"
 
 #' College survey 1 - Ch03 - for End-of-Chapter Exercise 3.3
@@ -329,7 +329,7 @@
 #'   \item{AccurOld}{numeric}
 #'   \item{AccurNew}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/full/10.1177/0956797619887896>
+#' @source \doi{10.1177/0956797619887896}
 "data_effronraj_fakenews"
 
 #' Emotion heartrate - Ch8 - from Lakens (2013)
@@ -348,7 +348,7 @@
 #'   \item{HR_baseline}{numeric}
 #'   \item{HR_anger}{numeric}
 #' }
-#' @source <https://ieeexplore.ieee.org/abstract/document/6464255>
+#' @source \doi{10.1109/T-AFFC.2013.3}
 "data_emotion_heartrate"
 
 #' Exam Scores - Ch11 - for End-of-Chapter Exercise 11.2
@@ -393,7 +393,7 @@
 #'   \item{s Noflag}{numeric}
 #'   \item{n Noflag}{integer}
 #' }
-#' @source <https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ad>
+#' @source \doi{10.5334/jopd.ad}
 "data_flag_priming_ma"
 
 #' Gender math IAT ma - Ch9 - Many Labs replications of Nosek et al. (2002)
@@ -422,7 +422,7 @@
 #'   \item{USAorNot}{factor}
 #'   \item{Country}{factor}
 #' }
-#' @source <https://psycnet.apa.org/fulltext/2014-20922-002.html>
+#' @source \doi{10.1027/1864-9335/a000178}
 "data_gender_math_iat_ma"
 
 #' Gender math IAT - Ch07 - Ithaca and SDSU replications of Nosek et al. (2002)
@@ -448,7 +448,7 @@
 #'   \item{SDSU gender}{factor}
 #'   \item{SDSU IAT}{numeric}
 #' }
-#' @source <https://psycnet.apa.org/fulltext/2014-20922-002.html>
+#' @source \doi{10.1027/1864-9335/a000178}
 "data_gender_math_iat"
 
 #' Halagappa - Ch14 - from Halagappa et al. (2007)
@@ -477,7 +477,7 @@
 #'   \item{SD}{numeric}
 #'   \item{n}{integer}
 #' }
-#' @source <https://www.sciencedirect.com/science/article/abs/pii/S0969996106003251>
+#' @source \doi{10.1016/j.nbd.2006.12.019}
 "data_halagappa"
 
 #' Home Prices - Ch12 - for End-of-Chapter Exercise 12.2
@@ -531,7 +531,7 @@
 #'   \item{Prediction}{numeric}
 #'   \item{Performance}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/abs/10.1177/0956797617740646>
+#' @source \doi{10.1177/0956797617740646}
 "data_kardas_expt_3"
 
 #' Kardas Expt 4 - Ch07 - from Kardas and O'Brien (2018), Experiment 4
@@ -565,7 +565,7 @@
 #'   \item{Performance}{integer}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/abs/10.1177/0956797617740646>
+#' @source \doi{10.1177/0956797617740646}
 "data_kardas_expt_4"
 
 #' Labels flavor - Ch8 - from Floretta-Schiller et al. (2015)
@@ -623,6 +623,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_3groups"
 
 #' Latimier Prequiz - Ch03 - Prequiz group in Latimier et al. (2019)
@@ -638,7 +639,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{TIme}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_prequiz"
 
 #' Latimier Quiz Prequiz - Ch07 - Quiz and Prequiz groups in Latimier et al. (2019)
@@ -654,7 +655,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_quiz_prequiz"
 
 #' Latimier Quiz - Ch03 - Quiz group in Latimier et al. (2019)
@@ -670,7 +671,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_quiz"
 
 #' Latimier Reread Prequiz - Ch07 - Reread and Prequiz groups in Latimier et al. (2019)
@@ -686,7 +687,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_reread_prequiz"
 
 #' Latimier Reread Quiz - Ch07 - Reread and Quiz groups in Latimier et al. (2019)
@@ -702,7 +703,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_reread_quiz"
 
 #' Latimier Reread - Ch03 - Reread group in Latimier et al. (2019)
@@ -718,7 +719,7 @@
 #'   \item{Test%}{numeric}
 #'   \item{Time}{numeric}
 #' }
-#' @source <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XPYPMF>
+#' @source \doi{10.7910/DVN/XPYPMF}
 "data_latimier_reread"
 
 #' Macnamara r ma - Ch11 - from Macnamara et al. (2014)
@@ -748,7 +749,7 @@
 #'   \item{N}{integer}
 #'   \item{Instrument_Type}{factor}
 #' }
-#' @source <https://journals.sagepub.com/doi/full/10.1177/0956797614535810>
+#' @source \doi{10.1177/0956797614535810}
 "data_macnamara_r_ma"
 
 #' McCabeMichael brain - Ch9 - from Michael et al. (2013)
@@ -800,7 +801,7 @@
 #'   \item{SimpleCritique}{factor}
 #'   \item{Research group}{factor}
 #' }
-#' @source <https://link.springer.com/article/10.3758/s13423-013-0391-6>
+#' @source \doi{10.3758/s13423-013-0391-6}
 "data_mccabemichael_brain"
 
 #' McCabeMichael brain2 - Ch9 - from Michael et al. (2013)
@@ -821,7 +822,7 @@
 #'   \item{SimpleCritique}{factor}
 #'   \item{Research group}{factor}
 #' }
-#' @source <https://link.springer.com/article/10.3758/s13423-013-0391-6>
+#' @source \doi{10.3758/s13423-013-0391-6}
 "data_mccabemichael_brain2"
 
 #' MeditationBrain - Ch15 - from Holzel et al. (2011)
@@ -854,7 +855,7 @@
 #'   \item{MeditationPre}{numeric}
 #'   \item{MeditationPost}{numeric}
 #' }
-#' @source <https://link.springer.com/chapter/10.1007/978-94-007-2079-4_9>
+#' @source \doi{10.1007/978-94-007-2079-4_9}
 "data_meditationbrain"
 
 #' OrganicMoral - Ch14 - from Eskine (2013)
@@ -888,7 +889,7 @@
 #'   \item{ReplicationGroup}{factor}
 #'   \item{MoralJudgmentment}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/full/10.1177/1948550616639649>
+#' @source \doi{10.1177/1948550616639649}
 "data_organicmoral"
 
 #'
@@ -901,7 +902,7 @@
 #'   \item{condition}{factor}
 #'   \item{transcription}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/full/10.1177/0956797614524581>
+#' @source \doi{10.1177/0956797614524581}
 "data_penlaptop1"
 
 #' PowerPerformance ma - Ch9 - from Burgmer and Englich (2012), and Cusack et al. (2015)
@@ -935,7 +936,7 @@
 #'   \item{n Control}{integer}
 #'   \item{n Power}{integer}
 #' }
-#' @source <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0140806>
+#' @source \doi{10.1371/journal.pone.0140806}
 "data_powerperformance_ma"
 
 #' RattanMotivation - Ch14 - from Rattan et al. (2012)
@@ -963,10 +964,10 @@
 #'   \item{Group}{factor}
 #'   \item{Motivation}{numeric}
 #' }
-#' @source <https://www.sciencedirect.com/science/article/pii/S0022103111003027>
+#' @source \doi{10.1016/j.jesp.2011.12.012}
 "data_rattanmotivation"
 
-#' ReligionSharing - Ch14 - for End-of-Chapter Exercise 14.3
+#' ReligionSharing - Ch14 - **RETRACTED DATA** used in End-of-Chapter Exercise 14.3
 #'
 #' To what extent is a religious upbringing related to prosocial behavior in
 #' childhood? To investigate, a large international sample of children was asked
@@ -974,7 +975,9 @@
 #' would give some of these stickers away to another child who had not been able
 #' to be tested that day. The number of stickers donated was considered a
 #' measure of altruistic sharing. In addition, the parents of each child
-#' reported the family's religion. Summary data provided.
+#' reported the family's religion. Summary data provided.  **THIS STUDY
+#' HAS BEEN RETRACTED DUE TO AN ERRONEOUS ANALYSIS - THE DATASET WILL BE
+#' REMOVED FROM FUTURE VERSIONS OF ESCI AND THE BOOK**
 #'
 #' @format ## `data_religionsharing`
 #' A data frame with 3 rows and 4 columns:
@@ -984,6 +987,7 @@
 #'   \item{SD}{numeric}
 #'   \item{N}{integer}
 #' }
+#' @source \doi{10.1016/j.cub.2015.09.056}
 "data_religionsharing"
 
 #' Religious belief - Ch03 - for End-of-Chapter Exercise 3.5
@@ -1025,7 +1029,7 @@
 #'   \item{Pretest}{numeric}
 #'   \item{Posttest}{numeric}
 #' }
-#' @source <https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/j.2044-8279.2012.02083.x>
+#' @source \doi{10.1111/j.2044-8279.2012.02083.x}
 "data_selfexplain"
 
 #' SimmonsCredibility - Ch14 - from Simmons and Nelson (2020)
@@ -1158,7 +1162,7 @@
 #'   \item{EaseUseSD}{numeric}
 #'   \item{EaseUseN}{integer}
 #' }
-#' @source <https://www.sciencedirect.com/science/article/abs/pii/S0361476X97909772>
+#' @source \doi{10.1006/ceps.1997.0977}
 "data_studystrategies"
 
 #' Thomason 1 - Ch11 - from Thomason 1
@@ -1201,7 +1205,7 @@
 #'   \item{Difficulty}{factor}
 #'   \item{Agression}{numeric}
 #' }
-#' @source <https://journals.sagepub.com/doi/10.1177/0956797619829688>
+#' @source \doi{10.1177/0956797619829688}
 "data_videogameaggression"
 
 

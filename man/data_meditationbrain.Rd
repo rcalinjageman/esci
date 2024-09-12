@@ -20,7 +20,7 @@ A data frame with 33 rows and 7 columns:
 }
 }
 \source{
-\url{https://link.springer.com/chapter/10.1007/978-94-007-2079-4_9}
+\doi{10.1007/978-94-007-2079-4_9}
 }
 \usage{
 data_meditationbrain

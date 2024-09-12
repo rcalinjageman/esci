@@ -16,7 +16,7 @@ A data frame with 198 rows and 3 columns:
 }
 }
 \source{
-\url{https://journalofcognition.org/articles/10.5334/joc.91}
+\doi{10.5334/joc.91}
 }
 \usage{
 data_basol_badnews

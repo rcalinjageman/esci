@@ -16,7 +16,7 @@ A data frame with 223 rows and 3 columns:
 }
 }
 \source{
-\url{https://journals.sagepub.com/doi/10.1177/0956797619829688}
+\doi{10.1177/0956797619829688}
 }
 \usage{
 data_videogameaggression
