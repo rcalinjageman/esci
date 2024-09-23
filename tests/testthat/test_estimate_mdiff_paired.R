@@ -275,6 +275,25 @@ test_that("Compare estimate_mdiff_paired to statpsych::ci.median.ps example and 
 })
 
 
+
+test_that("Ensure negative values processed correctly", {
+
+  y1 <- c(-21, -4, 9, 12, 35, 18, 10, 22, 24, 1, 6, 8, 13, 16, 19)
+  y2 <- c(-67, -28, 30, 28, 52, 40, 25, 37, 44, 10, 14, 20, 28, 40, 51)
+  myconfs <- 0.95
+
+
+    estimate <- esci::estimate_mdiff_paired(
+      comparison_measure = y1,
+      reference_measure = y2,
+      conf_level = myconfs
+    )
+
+    testthat::expect_s3_class(estimate, "esci_estimate")
+
+
+})
+
 test_that("Test different types of calls to estimate_mdiff_paired", {
 
   bk_wrapper <- c(

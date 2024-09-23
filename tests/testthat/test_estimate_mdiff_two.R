@@ -294,3 +294,37 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.ratio.mean2 and ci.ratio.
 
 
 })
+
+
+
+
+test_that("Compare estimate_mdiff_two to statpsych::ci.ratio.mean2 and ci.ratio.median2 example", {
+
+  y2 <- c(-32, -39, 26, 35, 43, 27, 40, 37, 34, 29, 49, 42, 40)
+  y1 <- c(36, 44, -47, -42, 49, 39, 46, 31, 33, 48)
+
+  mydata <- data.frame(
+    myoutcome = c(y1, y2),
+    mycondition = as.factor(
+      c(
+        rep("Group 1", times = length(y1)),
+        rep("Group 2", times = length(y2))
+      )
+    )
+  )
+
+  myconf_level <- 0.95
+
+    estimate <- esci::estimate_mdiff_two(
+      data = mydata,
+      outcome_variable = "myoutcome",
+      grouping_variable = "mycondition",
+      conf_level = myconf_level,
+      switch_comparison_order = TRUE
+    )
+
+    testthat::expect_s3_class(estimate, "esci_estimate")
+
+
+
+})

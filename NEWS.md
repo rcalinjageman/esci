@@ -1,3 +1,12 @@
+esci version 1.0.5 (Release data: September 2024)
+===========
+
+Changes:
+
+* Fixed bug in estimate_mdiff_paired where negative
+values where causing an error due to changes in statpsych ci.ratio.median.ps
+
+
 esci version 1.0.4 (Release data: September 2024)
 ===========
 
