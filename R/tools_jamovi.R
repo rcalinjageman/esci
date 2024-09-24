@@ -722,14 +722,14 @@ jamovi_set_notes <- function(result_element) {
   if(length(notes) > 0) {
     result_element$setContent(
       paste(
-        "<div class='jmv-results-error-message' style='color:black'>",
+        "<div class = 'error-box'><div class = 'icon'></div><div class='jmv-results-error-message'>",
         paste(
           "<li>",
           notes,
           "</li>",
           collapse = ""
         ),
-        "</div>"
+        "</div></div>"
       )
     )
     result_element$setVisible(TRUE)
