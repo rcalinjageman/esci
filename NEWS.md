@@ -1,3 +1,12 @@
+esci version 1.0.5 (Release data: TBD)
+===========
+
+Changes:
+
+* data_effronraj_badnews updated to v1.1, fixed invalid negative value in
+in synthetic data for participant 46.
+
+
 esci version 1.0.5 (Release data: September 2024)
 ===========
 

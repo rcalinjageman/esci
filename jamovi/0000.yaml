@@ -1,7 +1,7 @@
 ---
 title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
-version: 1.0.5
+version: 1.0.6
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -16,7 +16,7 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.05 - Fixed negative values with means and medians paired.
+  1.06 - Fixed invalud value in data_effronraj_badnews
 
 
   Please submit feedback, bug reports, and feature requests via the links
@@ -164,9 +164,9 @@ datasets:
   - name: Ch07 - Basol badnews
     path: Basol badnews.omv
     description: from Basol et al. (2020)
-  - name: Ch08 - EffronRaj fakenews
+  - name: Ch08 - EffronRaj fakenews v1.1
     path: EffronRaj fakenews.omv
-    description: from Effron and Raj (2020)
+    description: from Effron and Raj (2020), v1.1 fixed invalid data for ID46
   - name: Ch08 - Emotion heartrate
     path: Emotion heartrate.omv
     description: from Lakens (2013)
