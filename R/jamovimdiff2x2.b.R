@@ -321,8 +321,11 @@ jamovimdiff2x2Class <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
 
 
         myplot$scales$scales[[2]]$labels <- mylabs
-        myplot <- myplot + ggplot2::guides(x = ggh4x::guide_axis_nested(delim = " - "))
-
+        myplot <- myplot + guides(x = legendry::compose_stack(
+          "line", "ticks",
+          legendry::primitive_bracket(key = legendry::key_range_auto(sep = " - ")),
+          theme = ggplot2::theme(legendry.guide.spacing = ggplot2::unit(0, "cm"))
+        ))
 
         print(myplot)
         TRUE
