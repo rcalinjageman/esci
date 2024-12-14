@@ -28,7 +28,7 @@ Imports:
     Rdpack,
     stringr,
     mathjaxr,
-    legendry
+    legendry (>= 0.2)
 RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
