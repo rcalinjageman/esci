@@ -16,7 +16,7 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.06 - Fixed invalud value in data_effronraj_badnews
+  1.06 - Statpsych 1.7, fixes to bad data, dependency on ggh4x to legendry
 
 
   Please submit feedback, bug reports, and feature requests via the links
