@@ -588,9 +588,11 @@ esci_plot_difference_axis_x <- function(
 
   # Just plot a truncated axis
   myplot <- myplot + ggplot2::guides(
-    x.sec = ggh4x::guide_axis_truncated(
-      trunc_lower = new_lower + reference_value,
-      trunc_upper = new_upper + reference_value
+    x.sec = legendry::guide_axis_base(
+      cap = as.vector(rbind(
+        new_lower + reference_value,
+        new_upper + reference_value
+      ))
     )
   )
 

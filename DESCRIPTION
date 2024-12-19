@@ -22,13 +22,13 @@ Imports:
     metafor,
     ggplot2,
     ggdist,
-    ggh4x,
     ggtext,
     ggbeeswarm,
     glue,
     Rdpack,
     stringr,
-    mathjaxr
+    mathjaxr,
+    legendry (>= 0.2)
 RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
