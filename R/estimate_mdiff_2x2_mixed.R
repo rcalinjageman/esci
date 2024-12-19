@@ -5,9 +5,8 @@
 #' `estimate_mdiff_2x2_mixed` is suitable for a 2x2 mixed-factorial design
 #' with a continuous outcome variable.  It estimates each main effect, the
 #' simple effects for the repeated-measures factor, and the interaction.
-#' It can express these estimates as mean differences.
-#' This function accepts raw data only.  Standardized mean differences are not
-#' (yet) available; stay tuned.  Median differences are also not yet available.
+#' It can express these estimates as mean differences, median difference,
+#' or standardized mean differences.  This function accepts raw data only.
 #'
 #' @details
 #' Reach for this function in place of a 2x2 mixed-factorial ANOVA.

@@ -2,7 +2,7 @@ pandoc: '3.2'
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-12-19T13:17Z
+last_built: 2024-12-19T13:26Z
 urls:
   reference: https://rcalinjageman.github.io/esci/reference
   article: https://rcalinjageman.github.io/esci/articles
