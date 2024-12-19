@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_effronraj_fakenews}
 \alias{data_effronraj_fakenews}
-\title{EffronRaj fakenews - Ch8 - from Effron and Raj (2020)}
+\title{EffronRaj fakenews - Ch8 - from Effron and Raj (2020), v1.1}
 \format{
 \subsection{\code{data_effronraj_fakenews}}{
 
@@ -41,5 +41,9 @@ headline. That's the Unethicality DV. They also rated how likely they would
 be to share the headline if they saw it posted by an acquaintance on social
 media; there were three further similar ratings. Finally, they rated how
 accurate they believed the headline to be.
+}
+\details{
+v1.1 -- Participant 46 had an invalid negative value for UnethOld; replaced
+with 0.
 }
 \keyword{datasets}

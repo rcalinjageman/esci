@@ -1,3 +1,13 @@
+esci version 1.0.6 (Release data: 12/18/2024)
+===========
+
+Changes:
+* Updates to deal with statpsych 1.7
+* Changed dependency on ggh4x to replacement packaged legendry, thanks to Teun
+* data_effronraj_badnews updated to v1.1, fixed invalid negative value in
+in synthetic data for participant 46.
+
+
 esci version 1.0.5 (Release data: September 2024)
 ===========
 

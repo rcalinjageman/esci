@@ -300,7 +300,7 @@
 #' }
 "data_damischrcj"
 
-#' EffronRaj fakenews - Ch8 - from Effron and Raj (2020)
+#' EffronRaj fakenews - Ch8 - from Effron and Raj (2020), v1.1
 #'
 #' *Synthetic data* meant to represent Experiment 1 of Effron & Raj, 2020.
 #' 138 U.S. adults, recruited in August 2018 on Prolific Academic, worked
@@ -319,6 +319,9 @@
 #' be to share the headline if they saw it posted by an acquaintance on social
 #' media; there were three further similar ratings. Finally, they rated how
 #' accurate they believed the headline to be.
+#'
+#' v1.1 -- Participant 46 had an invalid negative value for UnethOld; replaced
+#'   with 0.
 #'
 #' @format ## `data_effronraj_fakenews`
 #' A data frame with 138 rows and 5 columns:
