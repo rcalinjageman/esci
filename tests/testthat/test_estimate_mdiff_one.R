@@ -28,6 +28,8 @@ test_that("Compare estimate_mdiff one to ESCI_Data_two, pen group", {
 
   }
 
+  testthat::expect_snapshot(estimate)
+
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
@@ -51,9 +53,7 @@ test_that("Compare estimate_mdiff_one to ESCI_summary_two, pen group", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean$effect_size, 12.09)
-  testthat::expect_equal(estimate$es_mean$LL, 11.01117343)
-  testthat::expect_equal(estimate$es_mean$UL, 13.16882657)
+  testthat::expect_snapshot(estimate)
 
 
   suppressWarnings(myplot <- plot_mdiff(estimate))

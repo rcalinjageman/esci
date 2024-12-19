@@ -10,6 +10,7 @@ test_that("Compare estimate_pdiff_ind_contrast to ESCI_Two_proportions example",
     conf_level = 0.95
   )
 
+
   mysp <- as.list(
     as.data.frame(
       statpsych::ci.prop2(.05, 10, 78, 20, 252)
@@ -17,6 +18,8 @@ test_that("Compare estimate_pdiff_ind_contrast to ESCI_Two_proportions example",
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], 10/20)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 78/252)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], 10/20 - 78/252)
@@ -87,6 +90,9 @@ test_that("Call estimate_pdiff_ind_contrast with vector", {
 
   }
 
+  # testthat::expect_snapshot(estimate)
+
+
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
@@ -152,6 +158,9 @@ test_that("Call estimate_pdiff_ind_contrast with dataframe", {
 
   }
 
+  # testthat::expect_snapshot(estimate)
+
+
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
@@ -182,6 +191,7 @@ test_that("Test different estimate_pdiff_ind_contrast calls", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], (20+30)/(50+50))
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 10/50)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], (20+30)/(50+50) - 10/50)

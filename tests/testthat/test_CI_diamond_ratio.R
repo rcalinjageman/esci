@@ -42,6 +42,7 @@ test_that("CI_diamond_ratio compare to example from Cairns et al. 2022", {
   testthat::expect_equal(res$UL, 2.67, tolerance = 1e-2)
   testthat::expect_equal(res$LL_bWT_DL, 1, tolerance = 1e-2)
   testthat::expect_equal(res$UL_bWT_DL, 3.09, tolerance = 1e-2)
+  testthat::expect_snapshot(res)
 
 
   # Data set from Cairns et al., 2022, Figure 2

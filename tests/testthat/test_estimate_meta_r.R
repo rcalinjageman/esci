@@ -91,6 +91,7 @@ test_that("Some tests for meta_r; needs development ", {
     }
   }
 
+  testthat::expect_snapshot(estimate)
 
   testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.42754504)
   testthat::expect_equal(estimate$es_meta$LL[[1]], 0.37518079)

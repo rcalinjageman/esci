@@ -947,6 +947,10 @@ jamovi_mdiff_2x2 <- function(
   # Do analysis, then post any notes that have emerged
   estimate <- try(do.call(what = call, args = args))
 
+  #self$results$debug$setVisible(TRUE)
+  #self$results$debug$setContent(estimate)
+  #return()
+
   # For summary data, store in a list based on outcome_variable_name
   if (!is(estimate, "try-error")) {
 

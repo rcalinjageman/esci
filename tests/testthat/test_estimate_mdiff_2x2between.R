@@ -22,17 +22,12 @@ test_that("Compare estimate_mdiff_2x2_between to ESCI_Ind_groups_2_x_2, Frenda",
   )
 
 
+  testthat::expect_snapshot(estimates)
+
   # Main effect A
   estimate <- estimates$main_effect_A
-
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 0.48)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -0.069157098725)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 1.029157098725)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 99)
-
-  mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .08597066926)
+  mytesta <- test_mdiff(estimate)
+  testthat::expect_snapshot(mytesta)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -40,15 +35,8 @@ test_that("Compare estimate_mdiff_2x2_between to ESCI_Ind_groups_2_x_2, Frenda",
 
   # Main effect B
   estimate <- estimates$main_effect_B
-
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 0.24)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -0.309157098725)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 0.789157098725)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 99)
-
-  mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .38794636218)
+  mytestb <- test_mdiff(estimate)
+  testthat::expect_snapshot(mytestb)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -56,15 +44,8 @@ test_that("Compare estimate_mdiff_2x2_between to ESCI_Ind_groups_2_x_2, Frenda",
 
   # Interaction
   estimate <- estimates$interaction
-
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 1.2)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 0.101685802551)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 2.298314197449)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 99)
-
-  mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .03256133745)
+  mytesti <- test_mdiff(estimate)
+  testthat::expect_snapshot(mytesti)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -73,14 +54,8 @@ test_that("Compare estimate_mdiff_2x2_between to ESCI_Ind_groups_2_x_2, Frenda",
   # simple_effect_B_at_A2
   estimate <- estimates$simple_effect_B_at_A2
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 0.84)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 0.059539372542)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 1.620460627458)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 99)
-
-  mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .03517984586)
+  mytests1 <- test_mdiff(estimate)
+  testthat::expect_snapshot(mytests1)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -88,15 +63,8 @@ test_that("Compare estimate_mdiff_2x2_between to ESCI_Ind_groups_2_x_2, Frenda",
 
   # simple_effect_B_at_A1
   estimate <- estimates$simple_effect_B_at_A1
-
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], -0.36)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -1.132771172668)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 0.412771172668)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 99)
-
-  mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .35754695877)
+  mytests2 <- test_mdiff(estimate)
+  testthat::expect_snapshot(mytests2)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -127,6 +95,7 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
     assume_equal_variance = FALSE
   )
 
+  testthat::expect_snapshot(estimates)
 
   # Main effect A
   estimate <- estimates$main_effect_A
@@ -381,6 +350,7 @@ test_that("Test different call types to estimate_mdiff_2x2between and compare to
   )
 
   testthat::expect_s3_class(estimates, "esci_estimate")
+  testthat::expect_snapshot(estimates)
 
   # Main effect of A
   estimate <- estimates$main_effect_A

@@ -9,14 +9,7 @@ test_that("estimate_magnitude of pen group from ESCI_summary_two: summary data, 
   )
 
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean$effect_size, 8.811764706)
-  testthat::expect_equal(estimate$es_mean$LL, 7.154641985)
-  testthat::expect_equal(estimate$es_mean$UL, 10.46888743)
-
-  testthat::expect_equal(estimate$overview$mean, 8.811764706)
-  testthat::expect_equal(estimate$overview$mean_LL, 7.154641985)
-  testthat::expect_equal(estimate$overview$mean_UL, 10.46888743)
+  testthat::expect_snapshot(estimate)
 
   suppressWarnings(myplot <- plot_magnitude(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -36,14 +29,8 @@ test_that("estimate_magnitude of pen group from ESCI_summary_two: summary data, 
   )
 
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean$effect_size, 8.811764706)
-  testthat::expect_equal(estimate$es_mean$LL, 6.585497431)
-  testthat::expect_equal(estimate$es_mean$UL, 11.03803198)
+  testthat::expect_snapshot(estimate)
 
-  testthat::expect_equal(estimate$overview$mean, 8.811764706)
-  testthat::expect_equal(estimate$overview$mean_LL, 6.585497431)
-  testthat::expect_equal(estimate$overview$mean_UL, 11.03803198)
 
   suppressWarnings(try(myplot <- plot_magnitude(estimate), silent = TRUE))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -82,6 +69,9 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
     )
 
   }
+
+
+  testthat::expect_snapshot(estimate)
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")

@@ -51,6 +51,8 @@ test_that("estimate_rdiff_two compared to ESCI_Two_Correlations, summary data", 
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_r$effect_size[[1]], r2$Estimate)
   testthat::expect_equal(estimate$es_r$LL[[1]], r2$LL)
   testthat::expect_equal(estimate$es_r$UL[[1]], r2$UL)
@@ -139,6 +141,10 @@ test_that("estimate_rdiff_two of from Thomason1, ESCI_Scatterplots", {
     )
   )
 
+
+  testthat::expect_snapshot(estimate)
+
+
   testthat::expect_equal(estimate$es_r_difference$effect_size[[3]], mysp$Estimate)
   testthat::expect_equal(estimate$es_r_difference$LL[[3]], mysp$LL)
   testthat::expect_equal(estimate$es_r_difference$UL[[3]], mysp$UL)
@@ -200,4 +206,7 @@ test_that("Compare estimate_rdiff_two to statpsych::ci.cor", {
       }
     }
   }
+
+  testthat::expect_snapshot(estimate)
+
 })

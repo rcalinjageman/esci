@@ -21,6 +21,8 @@ test_that("estimate_r compared to ESCI_One_correlation, summary data", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_r$effect_size[[1]], mysp$Estimate)
   testthat::expect_equal(estimate$es_r$LL[[1]], mysp$LL)
   testthat::expect_equal(estimate$es_r$UL[[1]], mysp$UL)
@@ -82,6 +84,8 @@ test_that("estimate_r of from Thomason1, ESCI_Scatterplots", {
   )
 
 
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_r$effect_size[[1]], mysp$Estimate)
   testthat::expect_equal(estimate$es_r$LL[[1]], mysp$LL)
   testthat::expect_equal(estimate$es_r$UL[[1]], mysp$UL)
@@ -133,4 +137,7 @@ test_that("Compare estimate_r to statpsych::ci.cor", {
     }
 
   }
+
+  testthat::expect_snapshot(estimate)
+
 })

@@ -24,13 +24,11 @@ test_that("Compare meta_d2 to ESCI_d_two_groups and d_subsets", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.53196097)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.22118968)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.84273227)
+  testthat::expect_snapshot(estimate)
 
 
   # Random effects or not, equal variance or not
-  estimate <- esci::meta_d2(
+  estimate_d2 <- esci::meta_d2(
     data = testd,
     ds = smd_corrected,
     comparison_ns = n1,
@@ -39,13 +37,14 @@ test_that("Compare meta_d2 to ESCI_d_two_groups and d_subsets", {
     assume_equal_variance = FALSE,
     random_effects = TRUE
   )
-  testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_s3_class(estimate_d2, "esci_estimate")
+  testthat::expect_snapshot(estimate)
 
 
   for (aeq in c(TRUE, FALSE)) {
     for (rw in c(TRUE, FALSE)) {
       for (mod in c("NULL", "subset")) {
-        estimate <- esci::meta_d2(
+        estimate_vary <- esci::meta_d2(
           data = testd,
           ds = smd_corrected,
           comparison_ns = n1,
@@ -55,10 +54,12 @@ test_that("Compare meta_d2 to ESCI_d_two_groups and d_subsets", {
           assume_equal_variance = aeq,
           random_effects = rw
         )
-        testthat::expect_s3_class(estimate, "esci_estimate")
+        testthat::expect_s3_class(estimate_vary, "esci_estimate")
       }
     }
   }
+
+  testthat::expect_snapshot(estimate_vary)
 
   # Plot
   suppressWarnings(myplot <- esci::plot_meta(estimate))

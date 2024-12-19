@@ -23,6 +23,8 @@ test_that("overview_nominal to esci examples", {
 
   res <- overview_nominal(outcome_variable = dep_status, count_NA = FALSE)
 
+  testthat::expect_snapshot(res)
+
   testthat::expect_equal(res[res$outcome_variable_level == "Depressed", "P"], 0.3636364, tolerance = 1e-5)
   testthat::expect_equal(res[res$outcome_variable_level == "Depressed", "P_LL"], 0.1976126, tolerance = 1e-5)
   testthat::expect_equal(res[res$outcome_variable_level == "Depressed", "P_UL"], 0.5716182, tolerance = 1e-5)

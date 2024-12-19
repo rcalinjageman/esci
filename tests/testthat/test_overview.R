@@ -18,6 +18,8 @@ test_that("overview to esci examples", {
   # Should return mean_UL of 42.67480699	37.07480699	46.37480699	38.57480699	35.07480699	43.47480699
 
 
+  testthat::expect_snapshot(res)
+
   testthat::expect_equal(res[res$grouping_variable_level == "NFree10", "mean_LL"], 32.32519301)
   testthat::expect_equal(res[res$grouping_variable_level == "NFree10", "mean_UL"], 42.67480699)
 

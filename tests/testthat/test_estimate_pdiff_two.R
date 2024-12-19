@@ -17,6 +17,8 @@ test_that("Compare estimate_pdiff_two to ESCI_Two_proportions example", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], 10/20)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 78/252)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], 10/20 - 78/252)
@@ -86,6 +88,9 @@ test_that("Call estimate_pdiff_two with vector", {
 
   }
 
+  # testthat::expect_snapshot(estimate)
+
+
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
@@ -149,6 +154,9 @@ test_that("Call estimate_pdiff_two with dataframe", {
 
 
   }
+
+  # testthat::expect_snapshot(estimate)
+
 
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")

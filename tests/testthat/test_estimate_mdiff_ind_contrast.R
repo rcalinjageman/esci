@@ -25,31 +25,10 @@ test_that("Compare estimate_mdiff_ind_contrast to ESCI_Ind_groups_contrasts, Hal
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], -4.533333333)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -8.75854555)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], -0.308121117)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 108)
-
-  group_means <- c(
-    37.500000000,	31.900000000,	41.200000000,	33.400000000,	29.900000000,	38.300000000
-  )
-  group_ss <- c(
-    10.000000,	13.500000,	14.800000,	10.000000,	8.700000,	10.000000
-  )
-  group_LLs <- c(
-    32.325193008,	26.725193008,	36.025193008,	28.225193008,	24.725193008,	33.125193008
-  )
-  group_ULs <- c(
-    42.674806992,	37.074806992,	46.374806992,	38.574806992,	35.074806992,	43.474806992
-  )
-
-  testthat::expect_equal(estimate$overview$mean, group_means)
-  testthat::expect_equal(estimate$overview$sd, group_ss)
-  testthat::expect_equal(estimate$overview$mean_LL, group_LLs)
-  testthat::expect_equal(estimate$overview$mean_UL, group_ULs)
+  testthat::expect_snapshot(estimate)
 
   # At 99% CI
-  estimate <- estimate_mdiff_ind_contrast(
+  estimate_99 <- estimate_mdiff_ind_contrast(
     means = data_h$Mean,
     sds = data_h$SD,
     ns = data_h$n,
@@ -68,10 +47,8 @@ test_that("Compare estimate_mdiff_ind_contrast to ESCI_Ind_groups_contrasts, Hal
     conf_level = 0.99
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], -4.533333333)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -10.1226593)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 1.055992629)
+  testthat::expect_s3_class(estimate_99, "esci_estimate")
+  testthat::expect_snapshot(estimate_99)
 
   # Plot
   suppressWarnings(myplot <- plot_mdiff(estimate))
@@ -79,7 +56,7 @@ test_that("Compare estimate_mdiff_ind_contrast to ESCI_Ind_groups_contrasts, Hal
 
   # NHST
   mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$p, .0357202984311926)
+  testthat::expect_snapshot(mytest)
 
 })
 
@@ -226,6 +203,7 @@ test_that("Test different call types to estimate_mdiff_ind_contrasts and compare
   )
   testthat::expect_s3_class(from_vector, "esci_estimate")
 
+  testthat::expect_snapshot(from_vector)
 
   mysp <- as.list(
     as.data.frame(
@@ -253,6 +231,7 @@ test_that("Test different call types to estimate_mdiff_ind_contrasts and compare
     contrast = NULL
   )
   testthat::expect_s3_class(from_df_nc, "esci_estimate")
+  testthat::expect_snapshot(from_df_nc)
 
 
   # Check - works with dataframe
@@ -263,6 +242,7 @@ test_that("Test different call types to estimate_mdiff_ind_contrasts and compare
     contrast = contrast
   )
   testthat::expect_s3_class(from_df, "esci_estimate")
+  testthat::expect_snapshot(from_df)
 
 
   # Check - Data frame - tidycolumns
@@ -271,6 +251,7 @@ test_that("Test different call types to estimate_mdiff_ind_contrasts and compare
     contrast = contrast
   )
   testthat::expect_s3_class(from_tidy, "esci_estimate")
+  testthat::expect_snapshot(from_tidy)
 
 
   # Check - data frame multiple dvs
@@ -281,6 +262,7 @@ test_that("Test different call types to estimate_mdiff_ind_contrasts and compare
     contrast = contrast
   )
   testthat::expect_s3_class(from_df_dvs, "esci_estimate")
+  # testthat::expect_snapshot(from_df_dvs)
 
 
   # Check - warning if group levels auto-generated
@@ -379,6 +361,7 @@ test_that("Compare estimate_mdiff_ind_contrast to statpsych::ci.lc.median exampl
 
   }
 
+  testthat::expect_snapshot(estimate)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")

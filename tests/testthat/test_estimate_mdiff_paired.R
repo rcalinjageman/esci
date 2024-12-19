@@ -11,35 +11,25 @@ test_that("Compare estimate_mdiff_paired to ESCI_Data_paired, Thomasaon1", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 1.666666667)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 0.715217957)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 2.618115376)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 11)
-  testthat::expect_equal(estimate$es_r$effect_size, .89239080809841)
+  testthat::expect_snapshot(estimate)
 
   mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$t, 3.855498)
-  testthat::expect_equal(mytest$point_null$p, .002674000908089)
-
+  testthat::expect_snapshot(mytest)
 
   # At 99% CI
-  estimate <- esci::estimate_mdiff_paired(
+  estimate_99 <- esci::estimate_mdiff_paired(
     data = data_thomason_1,
     comparison_measure = Posttest,
     reference_measure = Pretest,
     conf_level = 0.99
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 1.666666667)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 0.324078968)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 3.009254365)
+  testthat::expect_snapshot(estimate_99)
+
 
   # Plot
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
-
-
 
 
 })
@@ -70,18 +60,13 @@ test_that("Compare estimate_mdiff_paired to ESCI_Summary_paired, penlaptop1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 1.37)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 0.235003117)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 2.504996883)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 15)
+  testthat::expect_snapshot(estimate)
 
   mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$t, 2.572769953052)
-  testthat::expect_equal(mytest$point_null$p, .02121728585978)
-
+  testthat::expect_snapshot(mytest)
 
   # At 99% CI
-  estimate <- estimate_mdiff_paired(
+  estimate_99 <- estimate_mdiff_paired(
     comparison_mean = 14.25,
     comparison_sd = 4.28,
     reference_mean = 12.88,
@@ -93,11 +78,8 @@ test_that("Compare estimate_mdiff_paired to ESCI_Summary_paired, penlaptop1", {
     conf_level = 0.99
   )
 
-
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 1.37)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], -0.19912461)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 2.93912461)
+  testthat::expect_snapshot(estimate_99)
 
   # Plot
   suppressWarnings(myplot <- plot_mdiff(estimate))
@@ -290,6 +272,7 @@ test_that("Ensure negative values processed correctly", {
     )
 
     testthat::expect_s3_class(estimate, "esci_estimate")
+    testthat::expect_snapshot(estimate)
 
 
 })
@@ -374,6 +357,7 @@ test_that("Test different types of calls to estimate_mdiff_paired", {
     reference_measure = bk_wrapper
   )
   testthat::expect_s3_class(from_vector, "esci_estimate")
+  testthat::expect_snapshot(from_vector)
 
   # Check data frame, column as strings
   from_df_strings <- estimate_mdiff_paired(
@@ -382,9 +366,11 @@ test_that("Test different types of calls to estimate_mdiff_paired", {
     reference_measure = "bk"
   )
   testthat::expect_s3_class(from_df_strings, "esci_estimate")
+  testthat::expect_snapshot(from_df_strings)
 
   # Check data frame, columns as tidy
   from_df_tidy <- estimate_mdiff_paired(wrapper, wc, bk)
   testthat::expect_s3_class(from_df_tidy, "esci_estimate")
+  testthat::expect_snapshot(from_df_tidy)
 
 })
