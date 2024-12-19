@@ -20,6 +20,8 @@ test_that("pdiff_paired tests - Bonett & Price 2012 - Example 1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], 82/200)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 110/200)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], 82/200 - 110/200)
@@ -58,6 +60,8 @@ test_that("pdiff_paired tests - Bonett & Price 2012 - Example 2", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], 30/39)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 22/39)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], 30/39 - 22/39)
@@ -92,6 +96,8 @@ test_that("pdiff_paired tests - Bonett & Price 2012 - Example 3", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], 60/100)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], 40/100)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], 60/100 - 40/100)
@@ -126,6 +132,8 @@ test_that("pdiff_paired tests - Bonett & Price 2012 - Example 4", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], (158+290)/2097 )
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[2], (158+515)/2097)
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[3], (158+290)/2097 - (158+515)/2097)

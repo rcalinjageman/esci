@@ -2,6 +2,9 @@ esci version 1.0.6 (Release data: 12/18/2024)
 ===========
 
 Changes:
+* Updated estimate_mdiff_2x2_mixed to return smds and medians (if raw data passed)
+* Updated jamovi 2x2 mixed for smds and medians
+* Tests updated to use expect_snapshot (why did no one tell me?)
 * Updates to deal with statpsych 1.7
 * Changed dependency on ggh4x to replacement packaged legendry, thanks to Teun
 * data_effronraj_badnews updated to v1.1, fixed invalid negative value in

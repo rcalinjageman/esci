@@ -57,6 +57,9 @@ test_that("Some tests for meta_pdiff_two; needs development ", {
     }
   }
 
+
+  testthat::expect_snapshot(estimate)
+
   # Plot
   suppressWarnings(myplot <- esci::plot_meta(estimate))
   testthat::expect_s3_class(myplot, "ggplot")

@@ -16,7 +16,8 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.06 - Statpsych 1.7, fixes to bad data, dependency on ggh4x to legendry
+  1.06 - Added medians and <i>d</i> for mixed 2x2 designs + updates for
+  statpsych 1.7
 
 
   Please submit feedback, bug reports, and feature requests via the links

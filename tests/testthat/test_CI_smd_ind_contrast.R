@@ -22,6 +22,7 @@ test_that("CI_smd_ind_contrast compare to publshed examples", {
   testthat::expect_equal(res$effect_size, -0.8528028, tolerance = 1e-5)
   testthat::expect_equal(res$LL, -2.121155, tolerance = 1e-5)
   testthat::expect_equal(res$UL, 0.4482578, tolerance = 1e-5)
+  testthat::expect_snapshot(res)
 
 
 

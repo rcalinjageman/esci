@@ -17,14 +17,10 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.2100000)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 3.433079059)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 6.986920941)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 149)
-
+  testthat::expect_snapshot(estimate)
 
   # At 99% CI
-  estimate <- estimate_mdiff_two(
+  estimate_99 <- estimate_mdiff_two(
     comparison_mean = 12.09,
     comparison_sd = 5.52,
     comparison_n = 103,
@@ -39,10 +35,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.2100000)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 2.863663568)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 7.556336432)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 149)
+  testthat::expect_snapshot(estimate_99)
 
   # Plot
   suppressWarnings(myplot <- plot_mdiff(estimate))
@@ -50,8 +43,8 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
 
   # NHST
   mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$t, 5.79374603394)
-  testthat::expect_equal(mytest$point_null$p, .000000039513745)
+  testthat::expect_snapshot(mytest)
+
 
 })
 
@@ -71,21 +64,17 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.707590133)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 2.685265324)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 8.729914942)
-  testthat::expect_equal(estimate$es_mean_difference$df[3], 63)
+  testthat::expect_snapshot(estimate)
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
   mytest <- test_mdiff(estimate)
-  testthat::expect_equal(mytest$point_null$t, 3.7738197)
-  testthat::expect_equal(mytest$point_null$p, .000357928154872)
+  testthat::expect_snapshot(mytest)
 
 
   # At 99% CI
-  estimate <- esci::estimate_mdiff_two(
+  estimate_99 <- esci::estimate_mdiff_two(
     data = data_penlaptop1,
     outcome_variable = transcription,
     grouping_variable = condition,
@@ -95,9 +84,7 @@ test_that("Compare estimate_mdiff_two to ESCI_Data_two, penlaptop1", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_mean_difference$effect_size[3], 5.707590133)
-  testthat::expect_equal(estimate$es_mean_difference$LL[3], 1.690390444)
-  testthat::expect_equal(estimate$es_mean_difference$UL[3], 9.724789822)
+  testthat::expect_snapshot(estimate_99)
 
   # Plot
   suppressWarnings(myplot <- plot_mdiff(estimate))
@@ -167,6 +154,8 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.mean2 example", {
 
   }
 
+  testthat::expect_snapshot(estimate)
+
 
   suppressWarnings(myplot <- plot_mdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -219,6 +208,9 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.median2 example", {
     testthat::expect_equal(estimate$es_median_difference$SE[3], mysp$SE)
 
   }
+
+  testthat::expect_snapshot(estimate)
+
 
   suppressWarnings(myplot <- plot_mdiff(estimate, effect_size = "median"))
   testthat::expect_s3_class(myplot, "ggplot")
@@ -291,6 +283,7 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.ratio.mean2 and ci.ratio.
 
   }
 
+  testthat::expect_snapshot(estimate)
 
 
 })
@@ -324,6 +317,7 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.ratio.mean2 and ci.ratio.
     )
 
     testthat::expect_s3_class(estimate, "esci_estimate")
+    testthat::expect_snapshot(estimate)
 
 
 

@@ -2388,7 +2388,7 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 options=options,
                 name="es_median_difference",
                 title="Median Difference",
-                visible="(effect_size == 'median_difference' & design == 'fully_between')",
+                visible="(effect_size == 'median_difference')",
                 refs="lc_median_bs",
                 rows="15 - switch - outcome_variable - grouping_variable_A - grouping_variable_B - outcome_variable_level1 - outcome_variable_level2 - outcome_variable_name_bs - grouping_variable - repeated_measures_name - outcome_variable_name - conf_level - effect_size - assume_equal_variance - show_details",
                 columns=list(
@@ -2542,7 +2542,7 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                 title="Standardized Mean Difference",
                 rows=5,
                 refs="lc_stdmean_bs",
-                visible="(effect_size == 'mean_difference' & design == 'fully_between')",
+                visible="(effect_size == 'mean_difference')",
                 clearWith=list(
                     "switch",
                     "outcome_variable",
@@ -2633,12 +2633,12 @@ jamovimdiff2x2Results <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                         `name`="df", 
                         `title`="<i>df</i>", 
                         `type`="number", 
-                        `visible`="(show_details & !assume_equal_variance)"),
+                        `visible`="(show_details & !assume_equal_variance & design == 'fully_between')"),
                     list(
                         `name`="df_i", 
                         `title`="<i>df</i>", 
                         `type`="integer", 
-                        `visible`="(show_details & assume_equal_variance)"),
+                        `visible`="(show_details & assume_equal_variance & design == 'fully_between')"),
                     list(
                         `name`="d_biased", 
                         `title`="<i>d</i><sub>biased</sub>", 

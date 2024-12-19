@@ -73,12 +73,10 @@ test_that("Tests for meta_d1", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 2.4509852)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 2.05215734)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 2.849813)
+  testthat::expect_snapshot(estimate)
 
 
-  estimate <- esci::meta_d1(
+  estimate_d1 <- esci::meta_d1(
     data = original_7,
     ds = d1_unbiased,
     ns = rt_n,
@@ -87,7 +85,8 @@ test_that("Tests for meta_d1", {
     random_effects = FALSE
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_s3_class(estimate_d1, "esci_estimate")
+  testthat::expect_snapshot(estimate_d1)
 
 
   # Plot

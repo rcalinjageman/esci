@@ -51,7 +51,7 @@ package by Matthew Kay.
 
 ## Installation
 
-Assuming submission to CRAN goes well, you will be able to install esci with:
+esci is availableon CRAN; you can install with: 
 
 ``` r
 install.packages("esci")

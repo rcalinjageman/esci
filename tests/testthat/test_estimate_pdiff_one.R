@@ -29,6 +29,8 @@ test_that("Compare estimate_pdiff_one to ESCI_One_Proportion example", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
+  testthat::expect_snapshot(estimate)
+
   testthat::expect_equal(estimate$es_proportion_difference$effect_size[1], .3636363636)
   # Can't compare the CI to esci because statpsych uses a slight adjustment
   #  in its calculation of the CI
@@ -102,6 +104,9 @@ test_that("Call estimate_pdiff_one with vector", {
 
   }
 
+  testthat::expect_snapshot(estimate)
+
+
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
@@ -165,6 +170,9 @@ test_that("Call estimate_proportion with dataframe", {
 
 
   }
+
+  testthat::expect_snapshot(estimate)
+
 
   suppressWarnings(myplot <- plot_pdiff(estimate))
   testthat::expect_s3_class(myplot, "ggplot")

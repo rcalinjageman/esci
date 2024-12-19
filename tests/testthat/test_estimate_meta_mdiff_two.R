@@ -35,15 +35,14 @@ test_that("Compare meta_mdiff_two to ESCI_Original_two_groups", {
   )
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.0943163245)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.01498243444)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.17365021465)
-  testthat::expect_equal(estimate$es_meta$diamond_ratio[[1]], 1.397516897)
+  testthat::expect_snapshot(estimate)
+
+
   suppressWarnings(myplot <- esci::plot_meta(estimate))
   testthat::expect_s3_class(myplot, "ggplot")
 
   # Fixed effects
-  estimate <- esci::meta_mdiff_two(
+  estimate_fe <- esci::meta_mdiff_two(
     data = esci_test,
     comparison_means = bM,
     comparison_sds = bS,
@@ -57,17 +56,16 @@ test_that("Compare meta_mdiff_two to ESCI_Original_two_groups", {
     random_effects = FALSE
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.0684524822)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.01168473203)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.12522023244)
-  testthat::expect_equal(estimate$es_meta$diamond_ratio[[1]], 1.397516897)
-  suppressWarnings(myplot <- esci::plot_meta(estimate))
+  testthat::expect_s3_class(estimate_fe, "esci_estimate")
+  testthat::expect_snapshot(estimate_fe)
+
+
+  suppressWarnings(myplot <- esci::plot_meta(estimate_fe))
   testthat::expect_s3_class(myplot, "ggplot")
 
 
   # Random effects with moderator
-  estimate <- esci::meta_mdiff_two(
+  estimate_mod <- esci::meta_mdiff_two(
     data = esci_test,
     comparison_means = bM,
     comparison_sds = bS,
@@ -83,26 +81,15 @@ test_that("Compare meta_mdiff_two to ESCI_Original_two_groups", {
     random_effects = TRUE
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.0943163245)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.01498243444)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.17365021465)
-  testthat::expect_equal(estimate$es_meta$diamond_ratio[[1]], 1.397516897)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[2]], 0.0324369811895)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[2]], -0.0308546401245)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[2]], 0.0957286025036)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[1]], 0.2166330957690)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[1]], 0.0882531509332)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[1]], 0.3450130406048)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[3]], 0.1841961145795)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[3]], 0.0410624722566)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[3]], 0.3273297569023)
-  suppressWarnings(myplot <- esci::plot_meta(estimate))
+  testthat::expect_s3_class(estimate_mod, "esci_estimate")
+  testthat::expect_snapshot(estimate_mod)
+
+  suppressWarnings(myplot <- esci::plot_meta(estimate_mod))
   testthat::expect_s3_class(myplot, "ggplot")
 
 
   # Fixed effects with moderator
-  estimate <- esci::meta_mdiff_two(
+  estimate_mod_fe <- esci::meta_mdiff_two(
     data = esci_test,
     comparison_means = bM,
     comparison_sds = bS,
@@ -118,22 +105,9 @@ test_that("Compare meta_mdiff_two to ESCI_Original_two_groups", {
     random_effects = FALSE
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 0.0684524822)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 0.01168473203)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 0.12522023244)
-  testthat::expect_equal(estimate$es_meta$diamond_ratio[[1]], 1.397516897)
-  testthat::expect_equal(estimate$es_meta$diamond_ratio[[1]], 1.397516897)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[2]], 0.0324369811895)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[2]], -0.03085464)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[2]], 0.095728603)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[1]], 0.216633096)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[1]], 0.088253151)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[1]], 0.345013041)
-  testthat::expect_equal(estimate$es_meta_difference$effect_size[[3]], 0.184196115)
-  testthat::expect_equal(estimate$es_meta_difference$LL[[3]], 0.041062472)
-  testthat::expect_equal(estimate$es_meta_difference$UL[[3]], 0.327329757)
-  suppressWarnings(myplot <- esci::plot_meta(estimate))
+  testthat::expect_s3_class(estimate_mod_fe, "esci_estimate")
+  testthat::expect_snapshot(estimate_mod_fe)
+  suppressWarnings(myplot <- esci::plot_meta(estimate_mod_fe))
   testthat::expect_s3_class(myplot, "ggplot")
 
 })

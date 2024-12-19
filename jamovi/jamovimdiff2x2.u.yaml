@@ -272,9 +272,6 @@ children:
     contentLink: '(design:fully_between)'
     stretchFactor: 1
     children:
-      - type: ComboBox
-        name: effect_size
-        enable: '(switch:from_raw)'
       - type: CheckBox
         name: assume_equal_variance
         enable: '(effect_size:mean_difference)'
@@ -286,6 +283,9 @@ children:
         name: conf_level
         format: number
         suffix: '%'
+      - type: ComboBox
+        name: effect_size
+        enable: '(switch:from_raw)'
   - type: Label
     label: Results options
     stretchFactor: 1

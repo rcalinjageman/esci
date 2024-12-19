@@ -5,9 +5,8 @@
 #' `estimate_mdiff_2x2_mixed` is suitable for a 2x2 mixed-factorial design
 #' with a continuous outcome variable.  It estimates each main effect, the
 #' simple effects for the repeated-measures factor, and the interaction.
-#' It can express these estimates as mean differences.
-#' This function accepts raw data only.  Standardized mean differences are not
-#' (yet) available; stay tuned.  Median differences are also not yet available.
+#' It can express these estimates as mean differences, median difference,
+#' or standardized mean differences.  This function accepts raw data only.
 #'
 #' @details
 #' Reach for this function in place of a 2x2 mixed-factorial ANOVA.
@@ -311,36 +310,143 @@ estimate_mdiff_2x2_mixed <- function(
     assume_equal_variance = FALSE
   )
 
+  statpsych_version <- as.numeric(gsub("\\.", "", utils::packageVersion("statpsych")))
 
-  sp <- as.data.frame(
-    statpsych::ci.2x2.mean.mixed(
-      alpha = 1 - conf_level,
-      y11 = data[data[[grouping_variable]] == a2, b2],
-      y12 = data[data[[grouping_variable]] == a2, b1],
-      y21 = data[data[[grouping_variable]] == a1, b2],
-      y22 = data[data[[grouping_variable]] == a1, b1]
-    )
-  )
+  if (statpsych_version >= 170) {
 
-  sp_ta <- as.data.frame(
-   statpsych::ci.2x2.mean.mixed(
-      alpha = (1 - conf_level)*2,
-      y11 = data[data[[grouping_variable]] == a2, b2],
-      y12 = data[data[[grouping_variable]] == a2, b1],
-      y21 = data[data[[grouping_variable]] == a1, b2],
-      y22 = data[data[[grouping_variable]] == a1, b1]
+    sp <- as.data.frame(
+      statpsych::ci.2x2.mean.mixed(
+        alpha = 1 - conf_level,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
     )
-  )
+
+    sp_ta <- as.data.frame(
+      statpsych::ci.2x2.mean.mixed(
+        alpha = (1 - conf_level)*2,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+    mysmds <- as.data.frame(
+      statpsych::ci.2x2.stdmean.mixed(
+        alpha = (1 - conf_level),
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+
+    median_sp <- as.data.frame(
+      statpsych::ci.2x2.median.mixed(
+        alpha = 1 - conf_level,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+    median_sp_ta <- as.data.frame(
+      statpsych::ci.2x2.median.mixed(
+        alpha = (1 - conf_level)*2,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+  } else {
+    sp <- as.data.frame(
+      fixed.ci.2x2.mean.mixed(
+        alpha = 1 - conf_level,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+    sp_ta <- as.data.frame(
+      fixed.ci.2x2.mean.mixed(
+        alpha = (1 - conf_level)*2,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+    mysmds <- as.data.frame(
+      fixed.ci.2x2.stdmean.mixed(
+        alpha = (1 - conf_level),
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+
+    median_sp <- as.data.frame(
+      fixed.ci.2x2.median.mixed(
+        alpha = 1 - conf_level,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+    median_sp_ta <- as.data.frame(
+      fixed.ci.2x2.median.mixed(
+        alpha = (1 - conf_level)*2,
+        y11 = data[data[[grouping_variable]] == a2, b2],
+        y12 = data[data[[grouping_variable]] == a1, b2],
+        y21 = data[data[[grouping_variable]] == a2, b1],
+        y22 = data[data[[grouping_variable]] == a1, b1]
+      )
+    )
+
+   }
+
+
 
   sp$ta_LL <- sp_ta$LL
   sp$ta_UL <- sp_ta$UL
 
+  median_sp$ta_LL <- median_sp_ta$LL
+  median_sp$ta_UL <- median_sp_ta$UL
+
   esci_names <- c("effect_size", "LL", "UL", "ta_LL", "ta_UL", "SE", "df", "t", "p")
   statpsych_names <- c("Estimate", "LL", "UL", "ta_LL", "ta_UL", "SE", "df", "t", "p")
+
+  d_esci_names <- c("effect_size", "LL", "UL", "SE", "d_biased")
+  d_statpsych_names <- c("adj Estimate", "LL", "UL", "SE", "Estimate")
+
+  mdn_esci_names <- c("effect_size", "LL", "UL", "ta_LL", "ta_UL", "SE")
+  mdn_statpsych_names <- c("Estimate", "LL", "UL", "ta_LL", "ta_UL", "SE")
 
   tbl_fix <- c(
     "main_effect_A" = 3,
     "main_effect_B" = 2,
+    "interaction" = 1,
+    "simple_effect_B_at_A1" = 5,
+    "simple_effect_B_at_A2" = 4
+  )
+
+  mdn_tbl_fix <- c(
+    "main_effect_A" = 2,
+    "main_effect_B" = 3,
     "interaction" = 1,
     "simple_effect_B_at_A1" = 5,
     "simple_effect_B_at_A2" = 4
@@ -352,6 +458,9 @@ estimate_mdiff_2x2_mixed <- function(
     estimate[[cestimate]]$es_mean_difference$p <- NA
     estimate[[cestimate]]$es_mean_difference[3, esci_names] <-
       sp[tbl_fix[[x]], statpsych_names]
+    estimate[[cestimate]]$es_smd[1, d_esci_names] <- mysmds[tbl_fix[[x]], d_statpsych_names]
+    estimate[[cestimate]]$es_median_difference[3, mdn_esci_names] <-
+      median_sp[mdn_tbl_fix[[x]], mdn_statpsych_names]
 
   }
 
@@ -360,6 +469,11 @@ estimate_mdiff_2x2_mixed <- function(
   estimate$interaction$es_mean_difference[2, esci_names] <-
     sp[5, statpsych_names]
 
+
+  estimate$interaction$es_median_difference[1, mdn_esci_names] <-
+    median_sp[4, mdn_statpsych_names]
+  estimate$interaction$es_median_difference[2, mdn_esci_names] <-
+    median_sp[5, mdn_statpsych_names]
 
   ws_estimate <- esci::estimate_mdiff_paired(
     data = data,
@@ -370,10 +484,10 @@ estimate_mdiff_2x2_mixed <- function(
   )
 
   esci_copy_columns <- c("LL", "UL", "ta_LL", "ta_UL", "SE", "df")
-  estimate$main_effect_B$es_mean_difference[1, esci_copy_columns] <-
-    ws_estimate$es_mean_difference[1, esci_copy_columns]
-  estimate$main_effect_B$es_mean_difference[2, esci_copy_columns] <-
-    ws_estimate$es_mean_difference[2, esci_copy_columns]
+  # estimate$main_effect_B$es_mean_difference[1, esci_copy_columns] <-
+  #   ws_estimate$es_mean_difference[1, esci_copy_columns]
+  # estimate$main_effect_B$es_mean_difference[2, esci_copy_columns] <-
+  #   ws_estimate$es_mean_difference[2, esci_copy_columns]
 
 
   data$esci_ov <- (data[[outcome_variable_level1]] + data[[outcome_variable_level2]])/2
@@ -441,8 +555,8 @@ estimate_mdiff_2x2_mixed <- function(
       estimate[[x]]$properties$data_type <- "data.frame"
       estimate[[x]]$properties$data_source <- deparse(substitute(data))
 
-      estimate[[x]]$es_median_difference <- NULL
-      estimate[[x]]$es_median_difference_properties <- NULL
+      # estimate[[x]]$es_median_difference <- NULL
+      # estimate[[x]]$es_median_difference_properties <- NULL
       # estimate[[x]]$es_smd <- NULL
       # estimate[[x]]$es_smd_properties <- NULL
     }
@@ -492,4 +606,295 @@ estimate_mdiff_2x2_mixed <- function(
 
   return(estimate)
 
+}
+
+
+
+
+fixed.ci.2x2.stdmean.mixed <- function(alpha, y11, y12, y21, y22) {
+  if (length(y11) != length(y21)) {stop("length of y11 must equal length of y21")}
+  if (length(y12) != length(y22)) {stop("length of y12 must equal length of y22")}
+  z <- qnorm(1 - alpha/2)
+  n1 <- length(y11)
+  n2 <- length(y12)
+  df1 <- n1 - 1
+  df2 <- n2 - 1
+  adj1 <- 1 - 3/(4*(df1 + df2) - 1)
+  adj2 <- sqrt((n1 - 2)/df1)
+  adj3 <- sqrt((n2 - 2)/df2)
+  adj4 <- sqrt((n1 + n2 - 2)/(n1 + n2 - 1))
+  diff1 <- y11 - y21
+  diff2 <- y12 - y22
+  ave1 <- (y11 + y21)/2
+  ave2 <- (y12 + y22)/2
+  vd1 <- var(diff1)
+  vd2 <- var(diff2)
+  va1 <- var(ave1)
+  va2 <- var(ave2)
+  sd1 <- sd(y11)
+  sd2 <- sd(y12)
+  sd3 <- sd(y21)
+  sd4 <- sd(y22)
+  cor1 <- cor(y11, y21)
+  cor2 <- cor(y12, y22)
+  s <- sqrt((sd1^2 + sd2^2 + sd3^2 + sd4^2)/4)
+  v01 <- (sd1^4 + sd3^4 + 2*(cor1^2*sd1^2*sd3^2))/(32*s^4*df1)
+  v02 <- (sd2^4 + sd4^4 + 2*(cor2^2*sd2^2*sd4^2))/(32*s^4*df2)
+  v0 <- v01 + v02
+  # AB
+  est1 <- (mean(diff1) - mean(diff2))/s
+  est1u <- adj1*est1
+  v1 <- (vd1/df1 + vd2/df2)/(s^2)
+  se1 <- sqrt(est1*v0/s^4 + v1)
+  LL1 <- est1 - z*se1
+  UL1 <- est1 + z*se1
+  row1 <- c(est1, est1u, se1, LL1, UL1)
+  # A
+  est2 <- (mean(diff1) + mean(diff2))/(2*s)
+  est2u <- adj4*est2
+  v2 <- (vd1/df1 + vd2/df2)/(4*s^2)
+  se2 <- sqrt(est2*v0/s^4 + v2)
+  LL2 <- est2 - z*se2
+  UL2 <- est2 + z*se2
+  row2 <- c(est2, est2u, se2, LL2, UL2)
+  # B
+  est3 <- (mean(ave1) - mean(ave2))/s
+  est3u <- adj1*est3
+  v3 <- (va1/df1 + va2/df2)/(s^2)
+  se3 <- sqrt(est3*v0/s^4 + v3)
+  LL3 <- est3 - z*se3
+  UL3 <- est3 + z*se3
+  row3 <- c(est3, est3u, se3, LL3, UL3)
+  # A at b1
+  est4 <- mean(diff1)/s
+  est4u <- adj2*est4
+  v4 <- vd1/df1
+  se4 <- sqrt(est4*v0/s^4 + v4/s^2)
+  LL4 <- est4 - z*se4
+  UL4 <- est4 + z*se4
+  row4 <- c(est4, est4u, se4, LL4, UL4)
+  # A at b2
+  est5 <- mean(diff2)/s
+  est5u <- adj3*est5
+  v5 <- vd2/df2
+  se5 <- sqrt(est5*v0/s^4 + v5/s^2)
+  LL5 <- est5 - z*se5
+  UL5 <- est5 + z*se5
+  row5 <- c(est5, est5u, se5, LL5, UL5)
+  # B at a1
+  est6 <- (mean(y11) - mean(y12))/s
+  est6u <- adj1*est6
+  v6 <- var(y11)/df1 + var(y21)/df2
+  se6 <- sqrt(est6*v0/s^4 + v6/s^2)
+  LL6 <- est6 - z*se6
+  UL6 <- est6 + z*se6
+  row6 <- c(est6, est6u, se6, LL6, UL6)
+  # B at a2
+  est7 <- (mean(y21) - mean(y22))/s
+  est7u <- adj1*est7
+  v7 <- var(y12)/df1 + var(y22)/df2
+  se7 <- sqrt(est7*v0/s^4 + v7/s^2)
+  LL7 <- est7 - z*se7
+  UL7 <- est7 + z*se7
+  row7 <- c(est7, est7u, se7, LL7, UL7)
+  out <- rbind(row1, row2, row3, row4, row5, row6, row7)
+  rownames(out) <- c("AB:", "A:", "B:", "A at b1:", "A at b2:", "B at a1:", "B at a2:")
+  colnames(out) = c("Estimate", "adj Estimate", "SE", "LL", "UL")
+  return(out)
+}
+
+
+fixed.ci.2x2.median.mixed <- function(alpha, y11, y12, y21, y22) {
+  if (length(y11) != length(y21)) {stop("length of y11 must equal length of y21")}
+  if (length(y12) != length(y22)) {stop("length of y12 must equal length of y22")}
+  z <- qnorm(1 - alpha/2)
+  n1 <- length(y11)
+  n2 <- length(y12)
+  median11 <- median(y11)
+  median12 <- median(y12)
+  median21 <- median(y21)
+  median22 <- median(y22)
+  # Group 1
+  a1 <- (y11 < median11)
+  a2 <- (y21 < median21)
+  a3 <- a1 + a2
+  a4 <- sum(a3 == 2)
+  a <- round(n1/2 - sqrt(n1))
+  if (a < 1) {a = 1}
+  p <- pbinom(a - 1, size = n1, prob = .5)
+  z0 <- qnorm(1 - p)
+  y11 <- sort(y11)
+  y21 <- sort(y21)
+  L1 <- y11[a]
+  U1 <- y11[n1 - a + 1]
+  se11 <- (U1 - L1)/(2*z0)
+  L2 <- y21[a]
+  U2 <- y21[n1 - a + 1]
+  se21 <- (U2 - L2)/(2*z0)
+  if (n1/2 == trunc(n1/2)) {
+    p00 <- (sum(a4) + .25)/(n1 + 1)
+  } else {
+    p00 <- (sum(a4) + .25)/n1
+  }
+  cov1 <- (4*p00 - 1)*se11*se21
+  # Group 2
+  a1 <- (y12 < median12)
+  a2 <- (y22 < median22)
+  a3 <- a1 + a2
+  a4 <- sum(a3 == 2)
+  a <- round(n2/2 - sqrt(n2))
+  if (a < 1) {a = 1}
+  p <- pbinom(a - 1, size = n2, prob = .5)
+  z0 <- qnorm(1 - p)
+  y12 <- sort(y12)
+  y22 <- sort(y22)
+  L1 <- y12[a]
+  U1 <- y12[n2 - a + 1]
+  se12 <- (U1 - L1)/(2*z0)
+  L2 <- y22[a]
+  U2 <- y22[n2 - a + 1]
+  se22 <- (U2 - L2)/(2*z0)
+  if (n2/2 == trunc(n2/2)) {
+    p00 <- (sum(a4) + .25)/(n2 + 1)
+  } else {
+    p00 <- (sum(a4) + .25)/n2
+  }
+  cov2 <- (4*p00 - 1)*se12*se22
+  # AB
+  est1 <- (median11 - median12) - (median21 - median22)
+  se1 <- sqrt(se11^2 + se21^2 - 2*cov1 + se12^2 + se22^2 - 2*cov2)
+  LL1 <- est1 - z*se1
+  UL1 <- est1 + z*se1
+  row1 <- c(est1, se1, LL1, UL1)
+  # A
+  est2 <- (median11 + median21)/2 - (median12 + median22)/2
+  se2 <- se1/2
+  LL2 <- est2 - z*se2
+  UL2 <- est2 + z*se2
+  row2 <- c(est2, se2, LL2, UL2)
+  # B
+  est3 <- (median11 + median12)/2 - (median21 + median22)/2
+  se3 <- sqrt(se11^2 + se21^2 + 2*cov1 + se12^2 + se22^2 + 2*cov2)/2
+  LL3 <- est3 - z*se3
+  UL3 <- est3 + z*se3
+  row3 <- c(est3, se3, LL3, UL3)
+  # A at b1
+  est4 <- median11 - median21
+  se4 <- sqrt(se11^2 + se21^2 - 2*cov1)
+  LL4 <- est4 - z*se4
+  UL4 <- est4 + z*se4
+  row4 <- c(est4, se4, LL4, UL4)
+  # A at b2
+  est5 <- median12 - median22
+  se5 <- sqrt(se12^2 + se22^2 - 2*cov2)
+  LL5 <- est5 - z*se5
+  UL5 <- est5 + z*se5
+  row5 <- c(est5, se5, LL5, UL5)
+  #B at a1
+  est6 <- median11 - median12
+  se6 <- sqrt(se11^2 + se12^2)
+  LL6 <- est6 - z*se6
+  UL6 <- est6 + z*se6
+  row6 <- c(est6, se6, LL6, UL6)
+  #B at a2
+  est7 <- median21 - median22
+  se7 <- sqrt(se21^2 + se22^2)
+  LL7 <- est7 - z*se7
+  UL7 <- est7 + z*se7
+  row7 <- c(est7, se7, LL7, UL7)
+  out <- rbind(row1, row2, row3, row4, row5, row6, row7)
+  rownames(out) <- c("AB:", "A:", "B:", "A at b1:", "A at b2:", "B at a1:", "B at a2:")
+  colnames(out) = c("Estimate", "SE", "LL", "UL")
+  return(out)
+}
+
+
+
+fixed.ci.2x2.mean.mixed <- function(alpha, y11, y12, y21, y22) {
+  if (length(y11) != length(y21)) {stop("length of y11 must equal length of y21")}
+  if (length(y12) != length(y22)) {stop("length of y12 must equal length of y22")}
+  n1 <- length(y11)
+  n2 <- length(y12)
+  diff1 <- y11 - y21
+  diff2 <- y12 - y22
+  ave1 <- (y11 + y21)/2
+  ave2 <- (y12 + y22)/2
+  vd1 <- var(diff1)
+  vd2 <- var(diff2)
+  va1 <- var(ave1)
+  va2 <- var(ave2)
+  # AB
+  est1 <- mean(diff1) - mean(diff2)
+  se1 <- sqrt(vd1/n1 + vd2/n2)
+  df1 <- (se1^4)/(vd1^2/(n1^3 - n1^2) + vd2^2/(n2^3 - n2^2))
+  tcrit1 <- qt(1 - alpha/2, df1)
+  t1 <- est1/se1
+  p1 <- 2*(1 - pt(abs(t1), df1))
+  LL1 <- est1 - tcrit1*se1
+  UL1 <- est1 + tcrit1*se1
+  row1 <- c(est1, se1, t1, df1, p1, LL1, UL1)
+  # A
+  est2 <- (mean(diff1) + mean(diff2))/2
+  se2 <- sqrt(vd1/n1 + vd2/n2)/2
+  df2 <- (se2^4)/(vd1^2/((n1^3 - n1^2)*16) + vd2^2/((n2^3 - n2^2)*16))
+  tcrit2 <- qt(1 - alpha/2, df2)
+  t2 <- est2/se2
+  p2 <- 2*(1 - pt(abs(t2), df2))
+  LL2 <- est2 - tcrit2*se2
+  UL2 <- est2 + tcrit2*se2
+  row2 <- c(est2, se2, t2, df2, p2, LL2, UL2)
+  # B
+  est3 <- mean(ave1) - mean(ave2)
+  se3 <- sqrt(va1/n1 + va2/n2)
+  df3 <- (se3^4)/(va1^2/(n1^3 - n1^2) + va2^2/(n2^3 - n2^2))
+  tcrit3 <- qt(1 - alpha/2, df3)
+  t3 <- est3/se3
+  p3 <- 2*(1 - pt(abs(t3), df3))
+  LL3 <- est3 - tcrit3*se3
+  UL3 <- est3 + tcrit3*se3
+  row3 <- c(est3, se3, t3, df3, p3, LL3, UL3)
+  # A at b1
+  est4 <- mean(diff1)
+  se4 <- sqrt(vd1/n1)
+  df4 <- n1 - 1
+  tcrit4 <- qt(1 - alpha/2, df4)
+  t4 <- est4/se4
+  p4 <- 2*(1 - pt(abs(t4), df4))
+  LL4 <- est4 - tcrit4*se4
+  UL4 <- est4 + tcrit4*se4
+  row4 <- c(est4, se4, t4, df4, p4, LL4, UL4)
+  # A at b2
+  est5 <- mean(diff2)
+  se5 <- sqrt(vd2/n2)
+  df5 <- n2 - 1
+  tcrit5 <- qt(1 - alpha/2, df5)
+  t5 <- est5/se5
+  p5 <- 2*(1 - pt(abs(t5), df5))
+  LL5 <- est5 - tcrit5*se5
+  UL5 <- est5 + tcrit5*se5
+  row5 <- c(est5, se5, t5, df5, p5, LL5, UL5)
+  # B at a1
+  est6 <- mean(y11) - mean(y12)
+  se6 <- sqrt(var(y11)/n1 + var(y12)/n2)
+  df6 <- (se6^4)/(var(y11)^2/(n1^3 - n1^2) + var(y12)^2/(n2^3 - n2^2))
+  tcrit6 <- qt(1 - alpha/2, df6)
+  t6 <- est6/se6
+  p6 <- 2*(1 - pt(abs(t6), df6))
+  LL6 <- est6 - tcrit6*se6
+  UL6 <- est6 + tcrit6*se6
+  row6 <- c(est6, se6, t6, df6, p6, LL6, UL6)
+  # B at a2
+  est7 <- mean(y21) - mean(y22)
+  se7 <- sqrt(var(y21)/n1 + var(y22)/n2)
+  df7 <- (se7^4)/(var(y21)^2/(n1^3 - n1^2) + var(y22)^2/(n2^3 - n2^2))
+  tcrit7 <- qt(1 - alpha/2, df7)
+  t7 <- est7/se7
+  p7 <- 2*(1 - pt(abs(t7), df7))
+  LL7 <- est7 - tcrit7*se7
+  UL7 <- est7 + tcrit7*se7
+  row7 <- c(est7, se7, t7, df7, p7, LL7, UL7)
+  out <- rbind(row1, row2, row3, row4, row5, row6, row7)
+  rownames(out) <- c("AB:", "A:", "B:", "A at b1:", "A at b2:", "B at a1:", "B at a2:")
+  colnames(out) <- c("Estimate", "SE", "t", "df", "p", "LL", "UL")
+  return(out)
 }

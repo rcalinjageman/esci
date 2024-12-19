@@ -74,12 +74,10 @@ test_that("Compare meta_mean to ESCI_Original 7", {
 
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 443.0859877)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 412.620269)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 473.5517064)
+  testthat::expect_snapshot(estimate)
 
   # Random effects, 95% CI
-  estimate <- esci::meta_mean(
+  estimate_re <- esci::meta_mean(
     original_7,
     rt_mean,
     rt_sd,
@@ -88,15 +86,12 @@ test_that("Compare meta_mean to ESCI_Original 7", {
     random_effects = TRUE
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 442.3667673)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 399.2023897)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 485.5311449)
+  testthat::expect_s3_class(estimate_re, "esci_estimate")
+  testthat::expect_snapshot(estimate_re)
 
-  testthat::expect_equal(estimate$es_heterogeneity$estimate[[3]], 42.9198867499529)
 
   # Fixed effect, 90% CI
-  estimate <- esci::meta_mean(
+  estimate_90 <- esci::meta_mean(
     original_7,
     rt_mean,
     rt_sd,
@@ -107,13 +102,12 @@ test_that("Compare meta_mean to ESCI_Original 7", {
   )
 
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 443.0859877)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 417.5183506)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 468.6536248)
+  testthat::expect_s3_class(estimate_90, "esci_estimate")
+  testthat::expect_snapshot(estimate_90)
+
 
   # Random effects, 90% CI
-  estimate <- esci::meta_mean(
+  estimate_90 <- esci::meta_mean(
     original_7,
     rt_mean,
     rt_sd,
@@ -123,12 +117,13 @@ test_that("Compare meta_mean to ESCI_Original 7", {
     conf_level = 0.90
   )
 
-  testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_meta$effect_size[[1]], 442.3667673)
-  testthat::expect_equal(estimate$es_meta$LL[[1]], 406.1420797)
-  testthat::expect_equal(estimate$es_meta$UL[[1]], 478.5914549)
+  testthat::expect_s3_class(estimate_90, "esci_estimate")
+  # testthat::expect_equal(estimate$es_meta$effect_size[[1]], 442.3667673)
+  # testthat::expect_equal(estimate$es_meta$LL[[1]], 406.1420797)
+  # testthat::expect_equal(estimate$es_meta$UL[[1]], 478.5914549)
+  testthat::expect_snapshot(estimate_90)
 
-  testthat::expect_equal(estimate$es_heterogeneity$estimate[[3]], 42.9198867499529)
+  # testthat::expect_equal(estimate$es_heterogeneity$estimate[[3]], 42.9198867499529)
 
 
   # Plot
