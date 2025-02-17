@@ -269,8 +269,32 @@ jamovi_mdiff_paired <- function(self, save_raw_data = FALSE) {
     args$data <- self$data
     args$comparison_measure <- self$options$comparison_measure
     args$reference_measure <- self$options$reference_measure
-    args$data[[args$comparison_measure]] <- as.numeric(args$data[[args$comparison_measure]])
-    args$data[[args$reference_measure]] <- as.numeric(args$data[[args$reference_measure]])
+
+
+    if (is.null(levels(self$data[[args$comparison_measure]]))) {
+      args$data[[args$comparison_measure]] <- as.numeric(args$data[[args$comparison_measure]])
+    } else {
+      args$data[[args$comparison_measure]] <- as.numeric(levels(self$data[[args$comparison_measure]]))[self$data[[args$comparison_measure]]]
+      notes <- c(
+        notes,
+        paste(
+          "Converted nominal variable ",args$comparison_measure, "to numeric; be sure this makes sense."
+        )
+      )
+    }
+
+    if (is.null(levels(self$data[[args$reference_measure]]))) {
+      args$data[[args$reference_measure]] <- as.numeric(args$data[[args$reference_measure]])
+    } else {
+      args$data[[args$reference_measure]] <- as.numeric(levels(self$data[[args$reference_measure]]))[self$data[[args$reference_measure]]]
+      notes <- c(
+        notes,
+        paste(
+          "Converted nominal variable ",args$reference_measure, "to numeric; be sure this makes sense."
+        )
+      )
+    }
+
 
     # self$results$debug$setContent(args$data)
     # self$results$debug$setVisible(TRUE)

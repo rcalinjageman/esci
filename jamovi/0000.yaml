@@ -1,7 +1,7 @@
 ---
 title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
-version: 1.0.6
+version: 1.0.7
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -16,8 +16,7 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.06 - Added medians and <i>d</i> for mixed 2x2 designs + updates for
-  statpsych 1.7
+  1.07 - Fixed conversion of ordinal/nominal integer types.
 
 
   Please submit feedback, bug reports, and feature requests via the links

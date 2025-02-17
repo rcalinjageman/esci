@@ -37,6 +37,8 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
             # First - are options needed for analysis defined?
             if (is.null(self$options$outcome_variable)) return(TRUE)
 
+            notes <- c(NULL)
+
 
             # Yes, we're doing the analysis
             args <- list()
@@ -44,7 +46,19 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
             args$data <- self$data
             args$outcome_variable <- self$options$outcome_variable
 
-            args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
+            if (is.null(levels(self$data[[args$outcome_variable]]))) {
+              args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
+            } else {
+              args$data[[args$outcome_variable]] <- as.numeric(levels(self$data[[args$outcome_variable]]))[self$data[[args$outcome_variable]]]
+              notes <- c(
+                notes,
+                paste(
+                  "Converted nominal variable ",args$outcome_variable, "to numeric; be sure this makes sense."
+                )
+              )
+            }
+
+            #args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
 
             call <- esci::estimate_magnitude
 
@@ -56,6 +70,9 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
             estimate$overview$moe <- (estimate$overview$mean_UL - estimate$overview$mean_LL)/2
 
             jamovi_estimate_filler(self, estimate, TRUE)
+
+            self$results$help$setState(notes)
+            jamovi_set_notes(self$results$help)
 
             image <- self$results$describe_plot
             image$setState("histogram")
@@ -69,6 +86,8 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
           # First - are options needed for analysis defined?
           if (is.null(self$options$outcome_variable)) return(TRUE)
 
+          notes <- c(NULL)
+
 
           # Yes, we're doing the analysis
           args <- list()
@@ -76,7 +95,15 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
 
           args$data <- self$data
           args$outcome_variable <- self$options$outcome_variable
-          args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
+
+          if (is.null(levels(self$data[[args$outcome_variable]]))) {
+            args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
+          } else {
+            args$data[[args$outcome_variable]] <- as.numeric(levels(self$data[[args$outcome_variable]]))[self$data[[args$outcome_variable]]]
+
+          }
+
+#          args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
           call <- esci::estimate_magnitude
 
           estimate <- try(do.call(what = call, args = args))
@@ -84,7 +111,7 @@ jamovidescribeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Clas
           if(is.null(estimate)) return(TRUE)
           if(is(estimate, "try-error")) stop(estimate[1])
 
-          notes <- NULL
+
           args <- list()
           args$estimate <- estimate
           args$type <- image$state

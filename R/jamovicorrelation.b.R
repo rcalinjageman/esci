@@ -916,6 +916,33 @@ jamovi_correlation <- function(self) {
         args$data <- self$data
         args$x <- unname(self$options$x)
         args$y <- unname(self$options$y)
+
+        if (is.null(levels(self$data[[args$x]]))) {
+          args$data[[args$x]] <- as.numeric(args$data[[args$x]])
+        } else {
+          args$data[[args$x]] <- as.numeric(levels(self$data[[args$x]]))[self$data[[args$x]]]
+          notes <- c(
+            notes,
+            paste(
+              "Converted nominal variable ",args$x, "to numeric; be sure this makes sense."
+            )
+          )
+        }
+
+
+        if (is.null(levels(self$data[[args$y]]))) {
+          args$data[[args$y]] <- as.numeric(args$data[[args$y]])
+        } else {
+          args$data[[args$y]] <- as.numeric(levels(self$data[[args$y]]))[self$data[[args$y]]]
+          notes <- c(
+            notes,
+            paste(
+              "Converted nominal variable ",args$y, "to numeric; be sure this makes sense."
+            )
+          )
+        }
+
+
     } else {
         args$x_variable_name <- jamovi_sanitize(
             self$options$x_variable_name,

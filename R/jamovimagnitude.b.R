@@ -578,7 +578,20 @@ jamovi_magnitude <- function(self, save_raw_data = FALSE) {
         args$data <- self$data
         args$outcome_variable <- unname(self$options$outcome_variable)
         for (x in 1:length(self$options$outcome_variable)) {
-          args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+
+          if (is.null(levels(self$data[[args$outcome_variable[[x]]]]))) {
+            args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+          } else {
+            args$data[[args$outcome_variable[[x]]]] <- as.numeric(levels(self$data[[args$outcome_variable[[x]]]]))[self$data[[args$outcome_variable[[x]]]]]
+            notes <- c(
+              notes,
+              paste(
+                "Converted nominal variable ", args$outcome_variable[[x]], "to numeric; be sure this makes sense."
+              )
+            )
+          }
+
+
         }
     } else {
         args$outcome_variable_name <- jamovi_sanitize(

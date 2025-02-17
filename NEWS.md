@@ -1,3 +1,9 @@
+esci version 1.0.7 (Release data: 02/18/2025)
+===========
+Changes:
+* Improved analysis of ordinal data in jamovi
+
+
 esci version 1.0.6 (Release data: 12/18/2024)
 ===========
 

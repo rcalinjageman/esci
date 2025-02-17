@@ -837,7 +837,23 @@ jamovi_mdiff_2x2 <- function(
       args$data <- self$data
       args$grouping_variable_A <- self$options$grouping_variable_A
       args$grouping_variable_B <- self$options$grouping_variable_B
+
       args$outcome_variable <- self$options$outcome_variable
+
+
+      if (is.null(levels(self$data[[args$outcome_variable]]))) {
+        args$data[[args$outcome_variable]] <- as.numeric(args$data[[args$outcome_variable]])
+      } else {
+        args$data[[args$outcome_variable]] <- as.numeric(levels(self$data[[args$outcome_variable]]))[self$data[[args$outcome_variable]]]
+        notes <- c(
+          notes,
+          paste(
+            "Converted nominal variable ", args$outcome_variable, "to numeric; be sure this makes sense."
+          )
+        )
+      }
+
+
 
     } else {
       args$means <- c(
@@ -938,6 +954,30 @@ jamovi_mdiff_2x2 <- function(
     args$outcome_variable_level2 <- self$options$outcome_variable_level2
     args$outcome_variable_name <- self$options$outcome_variable_name
     args$repeated_measures_name <- self$options$repeated_measures_name
+
+    if (is.null(levels(self$data[[args$outcome_variable_level1]]))) {
+      args$data[[args$outcome_variable_level1]] <- as.numeric(args$data[[args$outcome_variable_level1]])
+    } else {
+      args$data[[args$outcome_variable_level1]] <- as.numeric(levels(self$data[[args$outcome_variable_level1]]))[self$data[[args$outcome_variable_level1]]]
+      notes <- c(
+        notes,
+        paste(
+          "Converted nominal variable ",args$outcome_variable_level1, "to numeric; be sure this makes sense."
+        )
+      )
+    }
+
+    if (is.null(levels(self$data[[args$outcome_variable_level2]]))) {
+      args$data[[args$outcome_variable_level2]] <- as.numeric(args$data[[args$outcome_variable_level2]])
+    } else {
+      args$data[[args$outcome_variable_level2]] <- as.numeric(levels(self$data[[args$outcome_variable_level2]]))[self$data[[args$outcome_variable_level2]]]
+      notes <- c(
+        notes,
+        paste(
+          "Converted nominal variable ",args$outcome_variable_level2, "to numeric; be sure this makes sense."
+        )
+      )
+    }
 
   }
 

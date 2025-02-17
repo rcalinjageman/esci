@@ -237,7 +237,17 @@ jamovi_mdiff_two <- function(
       args$outcome_variable_name <- outcome_variable
     }
     for (x in 1:length(args$outcome_variable)) {
-      args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+      if (is.null(levels(self$data[[args$outcome_variable[[x]]]]))) {
+        args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+      } else {
+        args$data[[args$outcome_variable[[x]]]] <- as.numeric(levels(self$data[[args$outcome_variable[[x]]]]))[self$data[[args$outcome_variable[[x]]]]]
+        notes <- c(
+          notes,
+          paste(
+            "Converted nominal variable ", args$outcome_variable[[x]], "to numeric; be sure this makes sense."
+          )
+        )
+      }
     }
     args$grouping_variable <- unname(self$options$grouping_variable)
     args$grouping_variable_name <- unname(self$options$grouping_variable)
