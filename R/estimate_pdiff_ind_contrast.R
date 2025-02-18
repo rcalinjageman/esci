@@ -479,23 +479,24 @@ The contrast passed was: {passed_contrast}.
 
   # Odds ratio?
   if (length(cases) < 20) {
+
     estimate$es_odds_ratio <- as.data.frame(
       statpsych::ci.oddsratio(
         alpha = 1 - conf_level,
-        f00 = cases[1],
-        f01 = ns[1] - cases[1],
-        f10 = cases[2],
-        f11 = ns[2] - cases[2]
+        f00 = cases[2],
+        f01 = cases[1],
+        f10 = ns[2],
+        f11 = ns[1]
       )
     )
 
     res_2a <- as.data.frame(
       statpsych::ci.oddsratio(
         alpha = (1 - conf_level)*2,
-        f00 = cases[1],
-        f01 = ns[1] - cases[1],
-        f10 = cases[2],
-        f11 = ns[2] - cases[2]
+        f00 = cases[2],
+        f01 = cases[1],
+        f10 = ns[2],
+        f11 = ns[1]
       )
     )
 
@@ -506,7 +507,7 @@ The contrast passed was: {passed_contrast}.
       outcome_variable_name = outcome_variable_name,
       case_label = paste("P_", case_label, sep = ""),
       grouping_variable_name = grouping_variable_name,
-      effect = paste(contrast_labels[[1]], " / ", contrast_labels[[2]], sep = ""),
+      effect = paste(contrast_labels[[1]], ", ", contrast_labels[[2]], " Odds Ratio", sep = ""),
       effect_size = estimate$es_odds_ratio$Estimate,
       estimate$es_odds_ratio
     )

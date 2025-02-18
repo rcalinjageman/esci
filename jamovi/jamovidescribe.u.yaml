@@ -237,8 +237,3 @@ children:
                 cell:
                   column: 1
                   row: 6
-              - type: Label
-                label: 'Markers'
-                cell:
-                  column: 0
-                  row: 7

@@ -351,10 +351,22 @@ jamovimagnitudeClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cla
               }
 
             } else {
-              myplot <- myplot + ggplot2::scale_y_continuous(
-                limits = c(ymin, ymax),
-                n.breaks = breaks
-              )
+              limits <- c(ymin, ymax)
+
+              pargs <- list()
+              pargs$n.breaks <- breaks
+              if (all(is.na(limits))) {
+
+              } else {
+                pargs$limits <- limits
+              }
+
+              myplot <- myplot + do.call(ggplot2::scale_y_continuous, pargs)
+
+              # myplot <- myplot + ggplot2::scale_y_continuous(
+              #   limits = c(ymin, ymax),
+              #   n.breaks = breaks
+              # )
             }
 
 
