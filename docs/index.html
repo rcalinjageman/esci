@@ -47,7 +47,7 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="esci-estimation-statistics-with-confidence-intervals-">esci: Estimation Statistics with Confidence Intervals <img src="reference/figures/esci_logo.svg" align="right" alt="esci logo"><a class="anchor" aria-label="anchor" href="#esci-estimation-statistics-with-confidence-intervals-"></a>
+<div class="page-header"><h1 id="esci-estimation-statistics-with-confidence-intervals-">esci: Estimation Statistics with Confidence Intervals <img src="reference/figures/esci_logo.svg" alt="esci logo" align="right"><a class="anchor" aria-label="anchor" href="#esci-estimation-statistics-with-confidence-intervals-"></a>
 </h1></div>
 <p><a href="https://CRAN.R-project.org/package=esci" class="external-link"><img src="https://www.r-pkg.org/badges/version/esci" alt="CRAN status"></a> <img src="https://cranlogs.r-pkg.org/badges/last-month/esci" alt="Download count"></p>
 <p>esci provides student-friendly tools for estimation statistics:</p>
@@ -60,12 +60,12 @@
 <p>esci is both an R package and a module in <a href="https://www.jamovi.org/" class="external-link">jamovi</a>. If you’re looking for the R package, stay here. If you want esci in jamovi, download and install jamovi and <a href="https://thenewstatistics.com/itns/esci/jesci/" class="external-link">then use the module library to add esci</a>.</p>
 <p>Leave comments, bug reports, suggestions, and questions about esci <a href="https://github.com/rcalinjageman/esci/discussions" class="external-link">here</a></p>
 <p><strong>esci is still under development; expect breaking changes in the future especially for the visualization functions</strong>. If you need production-ready estimation, turn to <a href="https://cran.r-project.org/package=statpsych" class="external-link">statpsych</a></p>
-<p>esci is built on top of <a href="https://cran.r-project.org/package=statpsych" class="external-link">statpsych</a> and <a href="https://www.metafor-project.org/doku.php/metafor" class="external-link">metafor</a>. That is, almost all of the statistical calculations are passed off to these packages. The only exception is for confidence intervals for Cohen’s d (see documentation). Why does esci exist, then?</p>
+<p>esci is built on top of <a href="https://cran.r-project.org/package=statpsych" class="external-link">statpsych</a> and <a href="https://www.metafor-project.org/doku.php/metafor" class="external-link">metafor</a>. That is, almost all of the statistical calculations are passed off to these packages. The only exception is for confidence intervals for Cohen’s <em>d</em> (see documentation). Why does esci exist, then?</p>
 <ul>
-<li>To provide a design-based approach; each function in esci is for one type of research design (e.g. two groups with a continuous variable); it provides all the effect sizes relevant to that design in one convenient function (e.g. mean difference, cohen’s d, median difference, ratio of means, ratio of medians).<br>
-</li>
+<li>To provide a design-based approach; each function in esci is for one type of research design (e.g. two groups with a continuous variable); it provides all the effect sizes relevant to that design in one convenient function (e.g. mean difference, cohen’s <em>d</em>, median difference, ratio of means, ratio of medians).</li>
 <li>To make visualization easier; esci provides visualizations that emphasize effect sizes and uncertainty</li>
-<li>To integrate with GUIs for students; esci integrates into <a href="https://www.jamovi.org/" class="external-link">jamovi</a> and integration into <a href="https://jasp-stats.org/" class="external-link">JASP</a> is planned.</li>
+<li>To integrate with GUIs for students; esci integrates into <a href="https://www.jamovi.org/" class="external-link">jamovi</a> and (very soon) <a href="https://jasp-stats.org/" class="external-link">JASP</a>.</li>
+<li>To support student learning, from intro to advanced levels; esci is extensively used in the recently released second edition of our intro textbook (<a href="https://thenewstatistics.com/itns/" class="external-link uri">https://thenewstatistics.com/itns/</a>) and should be ideal for use in higher level and graduate courses.</li>
 </ul>
 <p>The visualizations produced by esci are exquisite in a large part because of the lovely <a href="https://CRAN.R-project.org/package=ggdist" class="external-link">ggdist</a> package by Matthew Kay.</p>
 <div class="section level2">
@@ -104,10 +104,10 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rcalinjageman/esci/" class="external-link">esci</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_penlaptop1"</span><span class="op">)</span></span>
-<span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/estimate_mdiff_two.html">estimate_mdiff_two</a></span><span class="op">(</span><span class="va">data_penlaptop1</span>, <span class="va">transcription</span>, <span class="va">condition</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"data_kardas_expt_4"</span><span class="op">)</span></span>
+<span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/estimate_mdiff_two.html">estimate_mdiff_two</a></span><span class="op">(</span><span class="va">data_kardas_expt_4</span>, <span class="va">Prediction</span>, <span class="va">Exposure</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/plot_mdiff.html">plot_mdiff</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/plot_mdiff.png" align="right" alt="Example difference plot"></p>
+<p><img src="reference/figures/plot_mdiff.png" alt="Example difference plot" align="right"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
