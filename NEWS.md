@@ -1,3 +1,11 @@
+esci version 1.0.7 (Release data: 02/18/2025)
+===========
+Changes:
+* Improved analysis of ordinal data in jamovi
+* Fixed error with odds ratio for estimate_pdiff_two and estimate_pdiff_ind_contrast
+* Small tweaks to outputs in jamovi and R
+
+
 esci version 1.0.6 (Release data: 12/18/2024)
 ===========
 

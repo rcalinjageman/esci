@@ -1687,12 +1687,12 @@ jamovirdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                         `combineBelow`=TRUE),
                     list(
                         `name`="x_variable_name", 
-                        `title`="<i>X</i>-variable name", 
+                        `title`="<i>X</i>-variable", 
                         `type`="text", 
                         `combineBelow`=TRUE),
                     list(
                         `name`="y_variable_name", 
-                        `title`="<i>Y</i>-variable name", 
+                        `title`="<i>Y</i>-variable", 
                         `type`="text", 
                         `combineBelow`=TRUE),
                     list(
@@ -1759,12 +1759,12 @@ jamovirdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                         `combineBelow`=TRUE),
                     list(
                         `name`="x_variable_name", 
-                        `title`="<i>X</i>-variable name", 
+                        `title`="<i>X</i>-variable", 
                         `type`="text", 
                         `combineBelow`=TRUE),
                     list(
                         `name`="y_variable_name", 
-                        `title`="<i>Y</i>-variable name", 
+                        `title`="<i>Y</i>-variable", 
                         `type`="text", 
                         `combineBelow`=TRUE),
                     list(

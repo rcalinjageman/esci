@@ -850,9 +850,9 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
         help = function() private$.items[["help"]],
         overview = function() private$.items[["overview"]],
         es_proportion_difference = function() private$.items[["es_proportion_difference"]],
-        contingency_table = function() private$.items[["contingency_table"]],
-        es_phi = function() private$.items[["es_phi"]],
         es_odds_ratio = function() private$.items[["es_odds_ratio"]],
+        es_phi = function() private$.items[["es_phi"]],
+        contingency_table = function() private$.items[["contingency_table"]],
         point_null = function() private$.items[["point_null"]],
         interval_null = function() private$.items[["interval_null"]],
         estimation_plot_warnings = function() private$.items[["estimation_plot_warnings"]],
@@ -1011,10 +1011,10 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                         `visible`="(show_details)"))))
             self$add(jmvcore::Table$new(
                 options=options,
-                name="contingency_table",
-                title="Chi-Square Analysis",
-                rows=0,
-                visible="(show_chi_square)",
+                name="es_odds_ratio",
+                title="Odds Ratio",
+                rows=1,
+                visible=TRUE,
                 clearWith=list(
                     "outcome_variable",
                     "grouping_variable",
@@ -1033,9 +1033,36 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                     "show_details"),
                 columns=list(
                     list(
-                        `name`="outcome_variable_level", 
-                        `title`="Outcome variable level", 
-                        `type`="text"))))
+                        `name`="grouping_variable_name", 
+                        `title`="Grouping variable", 
+                        `type`="text", 
+                        `combineBelow`=TRUE, 
+                        `visible`=FALSE),
+                    list(
+                        `name`="outcome_variable_name", 
+                        `title`="Outcome variable", 
+                        `type`="text"),
+                    list(
+                        `name`="effect", 
+                        `title`="Effect", 
+                        `type`="text", 
+                        `visible`=FALSE),
+                    list(
+                        `name`="effect_plus", 
+                        `title`="Effect", 
+                        `type`="text"),
+                    list(
+                        `name`="effect_size", 
+                        `type`="number", 
+                        `title`="<i>OR</i>"),
+                    list(
+                        `name`="LL", 
+                        `title`="LL", 
+                        `type`="number"),
+                    list(
+                        `name`="UL", 
+                        `title`="UL", 
+                        `type`="number"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="es_phi",
@@ -1094,10 +1121,10 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                         `visible`="(show_details)"))))
             self$add(jmvcore::Table$new(
                 options=options,
-                name="es_odds_ratio",
-                title="Odds Ratio",
-                rows=1,
-                visible=TRUE,
+                name="contingency_table",
+                title="Chi-Square Analysis",
+                rows=0,
+                visible="(show_chi_square)",
                 clearWith=list(
                     "outcome_variable",
                     "grouping_variable",
@@ -1116,36 +1143,9 @@ jamovipdifftwoResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                     "show_details"),
                 columns=list(
                     list(
-                        `name`="grouping_variable_name", 
-                        `title`="Grouping variable", 
-                        `type`="text", 
-                        `combineBelow`=TRUE, 
-                        `visible`=FALSE),
-                    list(
-                        `name`="outcome_variable_name", 
-                        `title`="Outcome variable", 
-                        `type`="text"),
-                    list(
-                        `name`="effect", 
-                        `title`="Effect", 
-                        `type`="text", 
-                        `visible`=FALSE),
-                    list(
-                        `name`="effect_plus", 
-                        `title`="Effect", 
-                        `type`="text"),
-                    list(
-                        `name`="effect_size", 
-                        `type`="number", 
-                        `title`="<i>OR</i>"),
-                    list(
-                        `name`="LL", 
-                        `title`="LL", 
-                        `type`="number"),
-                    list(
-                        `name`="UL", 
-                        `title`="UL", 
-                        `type`="number"))))
+                        `name`="outcome_variable_level", 
+                        `title`="Outcome variable level", 
+                        `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="point_null",
@@ -1360,9 +1360,9 @@ jamovipdifftwoBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
 #'   \code{results$help} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$overview} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$es_proportion_difference} \tab \tab \tab \tab \tab a table \cr
-#'   \code{results$contingency_table} \tab \tab \tab \tab \tab a table \cr
-#'   \code{results$es_phi} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$es_odds_ratio} \tab \tab \tab \tab \tab a table \cr
+#'   \code{results$es_phi} \tab \tab \tab \tab \tab a table \cr
+#'   \code{results$contingency_table} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$point_null} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$interval_null} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$estimation_plot_warnings} \tab \tab \tab \tab \tab a html \cr

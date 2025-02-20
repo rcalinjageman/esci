@@ -38,6 +38,7 @@
 #' @importFrom stats quantile
 #' @importFrom stats rnorm
 #' @importFrom stats sd
+#' @importFrom stats var
 #' @importFrom utils head
 #' @importFrom utils tail
 #' @importFrom utils packageVersion

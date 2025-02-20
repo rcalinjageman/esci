@@ -241,7 +241,19 @@ jamovi_mdiff_contrastindependent <- function(
     args$grouping_variable <- self$options$grouping_variable
     args$outcome_variable <- outcome_variables
     for (x in 1:length(args$outcome_variable)) {
-      args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+
+      if (is.null(levels(self$data[[args$outcome_variable[[x]]]]))) {
+        args$data[[args$outcome_variable[[x]]]] <- as.numeric(args$data[[args$outcome_variable[[x]]]])
+      } else {
+        args$data[[args$outcome_variable[[x]]]] <- as.numeric(levels(self$data[[args$outcome_variable[[x]]]]))[self$data[[args$outcome_variable[[x]]]]]
+        notes <- c(
+          notes,
+          paste(
+            "Converted nominal variable ", args$outcome_variable[[x]], "to numeric; be sure this makes sense."
+          )
+        )
+      }
+
     }
     call <- esci::estimate_mdiff_ind_contrast
   } else {
