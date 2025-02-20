@@ -41,10 +41,10 @@
       -- es_odds_ratio --
         outcome_variable_name case_label grouping_variable_name
       1   My outcome variable P_Affected   My grouping variable
-                        effect effect_size        SE        LL       UL     ta_LL
-      1 Replication / Original   0.4498567 0.2056321 0.1836475 1.101954 0.2120998
-            ta_UL
-      1 0.9541313
+                                  effect effect_size        SE        LL       UL
+      1 Replication, Original Odds Ratio    1.647507 0.6604793 0.7509026 3.614687
+            ta_LL    ta_UL
+      1 0.8520137 3.185721
       
       -- es_phi --
         grouping_variable_name outcome_variable_name
