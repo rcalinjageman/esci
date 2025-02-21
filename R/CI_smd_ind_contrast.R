@@ -145,7 +145,7 @@
 #' * Cousineau & Goulet-Pelletier (2020)
 #' [https://osf.io/preprints/psyarxiv/s2597](https://osf.io/preprints/psyarxiv/s2597)
 #' * Delacre et al., 2021,
-#' [https://osf.io/preprints/psyarxiv/tu6mp/](https://osf.io/preprints/psyarxiv/tu6mp/)
+#' [https://doi.org/10.31234/osf.io/tu6mp](https://doi.org/10.31234/osf.io/tu6mp)
 #' * Huynh, C.-L. (1989). A unified approach to the estimation of effect size
 #' in meta-analysis. NBER Working Paper Series, 58(58), 99–104.
 #' * Kelley, K. (2007). Confidence intervals for standardized effect sizes:

@@ -216,7 +216,7 @@ Contrasts of Means. \emph{Psychological Methods}, 13(2), 99–109.
 \item Cousineau & Goulet-Pelletier (2020)
 \url{https://osf.io/preprints/psyarxiv/s2597}
 \item Delacre et al., 2021,
-\url{https://osf.io/preprints/psyarxiv/tu6mp/}
+\url{https://doi.org/10.31234/osf.io/tu6mp}
 \item Huynh, C.-L. (1989). A unified approach to the estimation of effect size
 in meta-analysis. NBER Working Paper Series, 58(58), 99–104.
 \item Kelley, K. (2007). Confidence intervals for standardized effect sizes:
