@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # esci: Estimation Statistics with Confidence Intervals <img src="man/figures/esci_logo.svg" alt="esci logo" align="right"/>
 
 [![CRAN
