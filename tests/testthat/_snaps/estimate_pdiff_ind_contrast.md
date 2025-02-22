@@ -41,10 +41,10 @@
       -- es_odds_ratio --
         outcome_variable_name   case_label grouping_variable_name
       1   My outcome variable P_egocentric   My grouping variable
-                        effect effect_size        SE        LL       UL     ta_LL
-      1 Replication / Original   0.4498567 0.2056321 0.1836475 1.101954 0.2120998
-            ta_UL
-      1 0.9541313
+                                  effect effect_size        SE        LL       UL
+      1 Replication, Original Odds Ratio    1.647507 0.6604793 0.7509026 3.614687
+            ta_LL    ta_UL
+      1 0.8520137 3.185721
       
       -- es_phi --
         grouping_variable_name outcome_variable_name
@@ -106,10 +106,10 @@
       -- es_odds_ratio --
         outcome_variable_name  case_label grouping_variable_name
       1   My outcome variable P_Depressed   My grouping variable
-                              effect effect_size        SE        LL        UL
-      1 (Drug and Therapy) / Control   0.3857272 0.1731468 0.1600256 0.9297603
-          ta_LL     ta_UL
-      1 0.18434 0.8071252
+                                        effect effect_size        SE        LL
+      1 (Drug and Therapy), Control Odds Ratio    1.952381 0.8366187 0.8429746
+              UL    ta_LL    ta_UL
+      1 4.521834 0.964843 3.950686
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.

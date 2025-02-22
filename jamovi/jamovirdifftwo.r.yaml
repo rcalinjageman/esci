@@ -136,11 +136,11 @@ items:
           visible: false
           combineBelow: true
         - name: x_variable_name
-          title: '<i>X</i>-variable name'
+          title: '<i>X</i>-variable'
           type: text
           combineBelow: true
         - name: y_variable_name
-          title: '<i>Y</i>-variable name'
+          title: '<i>Y</i>-variable'
           type: text
           combineBelow: true
         - name: grouping_variable_level
@@ -197,11 +197,11 @@ items:
           visible: false
           combineBelow: true
         - name: x_variable_name
-          title: '<i>X</i>-variable name'
+          title: '<i>X</i>-variable'
           type: text
           combineBelow: true
         - name: y_variable_name
-          title: '<i>Y</i>-variable name'
+          title: '<i>Y</i>-variable'
           type: text
           combineBelow: true
         - name: grouping_variable_level

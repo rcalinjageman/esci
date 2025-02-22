@@ -142,10 +142,12 @@
 #' * Bonett, D. G. (2008). Confidence Intervals for Standardized Linear
 #' Contrasts of Means. *Psychological Methods*, 13(2), 99–109.
 #' \doi{doi:10.1037/1082-989X.13.2.99}
-#' * Cousineau & Goulet-Pelletier (2020)
-#' [https://osf.io/preprints/psyarxiv/s2597](https://osf.io/preprints/psyarxiv/s2597)
-#' * Delacre et al., 2021,
-#' [https://osf.io/preprints/psyarxiv/tu6mp/](https://osf.io/preprints/psyarxiv/tu6mp/)
+#' * Cousineau & Goulet-Pelletier (2020)  A review of five techniques to derive
+#' confidence intervals with a special attention to the Cohen’s dp in the
+#' between-group design. \doi{doi:10.31234/osf.io/s2597}
+#' * Delacre M, Lakens D, Ley C, Liu L, Leys C (2021) Why Hedges gs based on the
+#' non-pooled standard deviation should be reported with Welch’s t-test.
+#' \doi{doi:10.31234/osf.io/tu6mp}
 #' * Huynh, C.-L. (1989). A unified approach to the estimation of effect size
 #' in meta-analysis. NBER Working Paper Series, 58(58), 99–104.
 #' * Kelley, K. (2007). Confidence intervals for standardized effect sizes:

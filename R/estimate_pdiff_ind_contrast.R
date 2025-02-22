@@ -479,23 +479,24 @@ The contrast passed was: {passed_contrast}.
 
   # Odds ratio?
   if (length(cases) < 20) {
+
     estimate$es_odds_ratio <- as.data.frame(
       statpsych::ci.oddsratio(
         alpha = 1 - conf_level,
-        f00 = cases[1],
-        f01 = ns[1] - cases[1],
-        f10 = cases[2],
-        f11 = ns[2] - cases[2]
+        f00 = cases[2],
+        f01 = cases[1],
+        f10 = ns[2],
+        f11 = ns[1]
       )
     )
 
     res_2a <- as.data.frame(
       statpsych::ci.oddsratio(
         alpha = (1 - conf_level)*2,
-        f00 = cases[1],
-        f01 = ns[1] - cases[1],
-        f10 = cases[2],
-        f11 = ns[2] - cases[2]
+        f00 = cases[2],
+        f01 = cases[1],
+        f10 = ns[2],
+        f11 = ns[1]
       )
     )
 
@@ -506,7 +507,7 @@ The contrast passed was: {passed_contrast}.
       outcome_variable_name = outcome_variable_name,
       case_label = paste("P_", case_label, sep = ""),
       grouping_variable_name = grouping_variable_name,
-      effect = paste(contrast_labels[[1]], " / ", contrast_labels[[2]], sep = ""),
+      effect = paste(contrast_labels[[1]], ", ", contrast_labels[[2]], " Odds Ratio", sep = ""),
       effect_size = estimate$es_odds_ratio$Estimate,
       estimate$es_odds_ratio
     )
@@ -752,14 +753,50 @@ case_label must be either a numeric or a valid level from outcome_variable.
 
   # Do the analysis --------------------------------------------------
   # Create overview -- which will gracefully deal with missing and n=0 or n=1
-  all_overview <- overview_nominal.vector(
-    outcome_variable = outcome_variable,
-    grouping_variable = grouping_variable,
-    outcome_variable_name = outcome_variable_name,
-    grouping_variable_name = grouping_variable_name,
-    conf_level = conf_level,
-    count_NA = count_NA
-  )
+
+  if (anyNA(grouping_variable)) {
+    mynas <- which(is.na(grouping_variable))
+
+    all_overview <- overview_nominal.vector(
+      outcome_variable = outcome_variable[-mynas],
+      grouping_variable = grouping_variable[-mynas],
+      outcome_variable_name = outcome_variable_name,
+      grouping_variable_name = grouping_variable_name,
+      conf_level = conf_level,
+      count_NA = count_NA
+    )
+
+    all_overview <- rbind(
+      all_overview,
+      data.frame(
+        grouping_variable_name = grouping_variable_name,
+        grouping_variable_level = "Missing",
+        outcome_variable_name = outcome_variable_name,
+        outcome_variable_level = "--",
+        cases = length(mynas),
+        n = NA,
+        P = NA,
+        P_LL = NA,
+        P_UL = NA,
+        P_SE = NA,
+        P_adjusted = NA,
+        ta_LL = NA,
+        ta_UL = NA)
+    )
+    rownames(all_overview)[nrow(all_overview)] <- "missing"
+
+  } else {
+    all_overview <- overview_nominal.vector(
+      outcome_variable = outcome_variable,
+      grouping_variable = grouping_variable,
+      outcome_variable_name = outcome_variable_name,
+      grouping_variable_name = grouping_variable_name,
+      conf_level = conf_level,
+      count_NA = count_NA
+    )
+
+  }
+
 
   message <- NULL
   message_html <- NULL
@@ -798,7 +835,7 @@ case_label must be either a numeric or a valid level from outcome_variable.
 
 
   # From the overview function, get just the valid groups
-  no_miss_overview <- all_overview[! "missing" %in% row.names(all_overview), ]
+  no_miss_overview <- all_overview[row.names(all_overview) != "missing", ]
 
   just_case <- no_miss_overview[no_miss_overview$outcome_variable_level == case_label, ]
 
@@ -890,7 +927,7 @@ Outcomes with missing grouping variables were **dropped** from the analysis
     }
   }
 
-  estimate <- esci_build_chi_square(estimate)
+  estimate <- esci_build_chi_square(estimate, count_NA = count_NA)
 
 
   return(estimate)
@@ -991,10 +1028,45 @@ estimate_pdiff_ind_contrast.jamovi <- function(
 }
 
 
-esci_build_chi_square <- function(estimate) {
+esci_build_chi_square <- function(estimate, count_NA = TRUE) {
 
-  o <- estimate$overview
+  o <- estimate$overview[row.names(estimate$overview) != "missing", ]
   ctable <- NULL
+
+  if (count_NA) {
+    all_o_levels <- unique(o$outcome_variable_level)
+    for (myg in unique(o$grouping_variable_level)) {
+      oj <- o[o$grouping_variable_level == myg, ]
+      np <- all_o_levels[!all_o_levels %in% oj$outcome_variable_level]
+      if (length(np) > 0) {
+        for (addthis in np) {
+          o <- rbind(
+            o,
+            data.frame(
+              grouping_variable_name = o$grouping_variable_name[1],
+              grouping_variable_level = myg,
+              outcome_variable_name = o$outcome_variable_name[1],
+              outcome_variable_level = addthis,
+              cases = 0,
+              n = 0,
+              P = NA,
+              P_LL = NA,
+              P_UL = NA,
+              P_SE = NA,
+              P_adjusted = NA,
+              ta_LL = NA,
+              ta_UL = NA
+            )
+          )
+        }
+
+      }
+    }
+
+  } else {
+    o <- o[o$outcome_variable_level != "Missing", ]
+  }
+
 
   for (mylevel in unique(o$outcome_variable_level)) {
     ctable <- rbind(

@@ -129,11 +129,12 @@ items:
           type: number
           visible: (show_details)
 
-    - name: contingency_table
-      title: Chi-Square Analysis
+
+    - name:  es_odds_ratio
+      title: Odds Ratio
       type: Table
-      rows: 0
-      visible: (show_chi_square)
+      rows:  1
+      visible: true
       clearWith:
         - outcome_variable
         - grouping_variable
@@ -151,9 +152,31 @@ items:
         - conf_level
         - show_details
       columns:
-        - name: outcome_variable_level
-          title: 'Outcome variable level'
+        - name: grouping_variable_name
+          title: 'Grouping variable'
           type: text
+          combineBelow: true
+          visible: false
+        - name: outcome_variable_name
+          title: 'Outcome variable'
+          type: text
+        - name: effect
+          title: 'Effect'
+          type: text
+          visible: false
+        - name: effect_plus
+          title: 'Effect'
+          type: text
+        - name: effect_size
+          type: number
+          title: <i>OR</i>
+        - name: LL
+          title: LL
+          type: number
+        - name: UL
+          title: UL
+          type: number
+
 
     - name:  es_phi
       title: Correlation
@@ -204,11 +227,11 @@ items:
           type: number
           visible: (show_details)
 
-    - name:  es_odds_ratio
-      title: Odds Ratio
+    - name: contingency_table
+      title: Chi-Square Analysis
       type: Table
-      rows:  1
-      visible: true
+      rows: 0
+      visible: (show_chi_square)
       clearWith:
         - outcome_variable
         - grouping_variable
@@ -226,30 +249,10 @@ items:
         - conf_level
         - show_details
       columns:
-        - name: grouping_variable_name
-          title: 'Grouping variable'
+        - name: outcome_variable_level
+          title: 'Outcome variable level'
           type: text
-          combineBelow: true
-          visible: false
-        - name: outcome_variable_name
-          title: 'Outcome variable'
-          type: text
-        - name: effect
-          title: 'Effect'
-          type: text
-          visible: false
-        - name: effect_plus
-          title: 'Effect'
-          type: text
-        - name: effect_size
-          type: number
-          title: <i>OR</i>
-        - name: LL
-          title: LL
-          type: number
-        - name: UL
-          title: UL
-          type: number
+
 
     - name:  point_null
       title: Hypothesis Evaluation
