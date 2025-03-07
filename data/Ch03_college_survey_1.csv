@@ -1,0 +1,244 @@
+"ID","Gender","Gender_Code","Age","Shool_Year","School_Year_Code","Transfer","Transfer_Code","Student_Athlete","Student_Athlete_Code","Wealth_SR","GPA","ACT","Subjective_Well_Being","Positive_Affect","Negative_Affect","Relationship_Confidence","Exercise","Academic_Motivation_Intrinsic","Academic_Motivation_Extrinsic","Academic_Motivation_Amotivation","Intelligence_Value","Raven_Score"
+21466926,"Female","1",52,"Post-bac","5","No",FALSE,"non-athlete",FALSE,4,3.9,NA,6.5,3.8,1.5,3.86,67,6.17,6.83,1,3,0.875
+21466578,"Male","2",27,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,4,4,23,5.25,3.4,2.7,4.57,1,2.5,6.33,1,3.33,0.875
+21421645,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.9,30,5.5,3.5,1.7,4.71,126,1.5,5.17,1.5,3,0.75
+21450687,"Male","2",19,"Sophomore","2","No",FALSE,"In season",TRUE,2,2.5,24,6.25,4.8,2.1,4.57,100,7,7,1,3.67,0.75
+21466410,"Female","1",24,"Post-bac","5","No",FALSE,"non-athlete",FALSE,1,3.5,29,3.75,4,2.3,3.29,79,6,4.67,1,2.33,0.75
+21496229,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.3,27,4.25,3.2,1.5,4.29,76,3.67,5.17,3,2.67,0.75
+21466341,"Male","2",20,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.5,31,2,4.6,2.9,2.29,49,5,7,7,3.67,0.75
+21473012,"Female","1",31,"Post-bac","5","No",FALSE,"non-athlete",FALSE,4,3.9,NA,4.25,3.1,3.2,4.14,29,5.83,6.33,1.5,3,0.75
+21463897,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,2.9,18,6,2.9,2.6,1.86,20,4.5,7,5.5,4,0.75
+21481343,"Male","2",21,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3.4,19,5.75,3,1.7,2.57,18,7,6,1,3.67,0.75
+21416834,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.9,30,3.5,2.8,2.4,2,17,1.67,3.67,2,3.33,0.75
+21418517,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3,26,5.25,3.9,1.6,4,6,6.17,5.17,1,4,0.75
+21426968,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,1.8,23,6.5,3.3,1.3,3,5,5,4.17,1,3.67,0.75
+21478908,"Female","1",22,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.4,NA,5.25,3.4,2.2,3.29,3.5,5.17,5.83,2.5,3.67,0.75
+21466657,"Female","1",52,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,4,3.6,NA,4.75,4.1,1.3,3.86,3,3.5,6.17,1,3.33,0.75
+21468106,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,5,3.9,31,6.5,3.2,1.9,3.43,3,4.67,6.83,2,3.67,0.75
+21468139,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3.3,21,3.25,3.3,2.8,4.57,0,5.5,6.5,3,3.67,0.75
+21412291,"Female","1",19,"First-year","1","Yes",TRUE,"In season",TRUE,4,NA,24,5.75,3.7,1.5,4,112,3.83,5.83,2,4,0.714285714285714
+21467182,"Female","1",20,"Junior","3","No",FALSE,"Out of season",TRUE,3,3.4,27,6.5,3.9,1.4,4.86,157,4,5.17,1.5,3,0.625
+21405085,"Male","2",20,"Sophomore","2","Yes",TRUE,"non-athlete",FALSE,3,3.4,22,6.75,4.7,1.5,5,125,2.83,5.83,1,3,0.625
+21466414,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3,29,4.5,3.8,1.7,4.71,115,4.17,5.33,2,3.67,0.625
+21466428,"Female","1",21,"Senior","4","No",FALSE,"Out of season",TRUE,2,3.5,29,5.5,3.3,1.8,4,97,4.5,4.33,1,3.67,0.625
+21469059,"Male","2",27,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.8,NA,6,3.9,4,3,67,6.17,5.67,1,3,0.625
+21442672,"Male","2",22,"Senior","4","Yes",TRUE,"non-athlete",FALSE,2,3.5,26,4.25,3.2,3.1,3.43,61,2.83,4.17,5.5,3.67,0.625
+21466592,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3.8,29,6.25,3.6,1.3,4.29,61,4.17,5.5,1,3.67,0.625
+21460280,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.2,21,6.75,3.4,2.2,3.14,44,5.33,6.5,1,3,0.625
+21442069,"Male","2",20,"Junior","3","No",FALSE,"In season",TRUE,3,3.9,26,4.67,4.3,2,3.14,38,5.17,6.17,1,3.67,0.625
+21396986,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,4,23,4.75,3.7,3.4,3.14,36.5,7,7,1.5,3,0.625
+21422686,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,NA,3.2,24,6,4.3,2.8,3.43,33,5.5,3.5,1,4,0.625
+21449550,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3,18,5.75,3.6,1.8,4.86,28,4,4.67,1.5,2.67,0.625
+21468432,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,2.9,21,5.25,2.9,3.3,3.71,20,4.5,6.83,1,4,0.625
+21468670,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.3,21,6,3.1,2.5,3.86,13,4.5,4.17,3.5,2.33,0.625
+21466606,"Male","2",21,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3.8,27,6,3.5,3,5,2,3.5,4.5,1,4.33,0.625
+21471998,"Female","1",39,"Post-bac","5","No",FALSE,"non-athlete",FALSE,2,3.9,23,5,2.6,2.2,4.14,1,6.33,6.33,1,3.33,0.625
+21468172,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,4,21,4.75,3.8,2.8,4.14,0,5.33,4.17,2,2.33,0.625
+21451555,"Male","2",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.8,29,4,1.2,1.2,4.14,0,2.67,5.5,2,3.67,0.625
+21471361,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,2.9,21,6.25,4.1,1,4.29,0,7,7,1,5,0.625
+21489553,"Female","1",44,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,4,3.6,NA,6,3.3,2.9,4,NA,6,5,1,3.33,0.625
+21475614,"Female","1",20,"Sophomore","2","No",FALSE,"Out of season",TRUE,4,3.9,28,4.25,3.4,2,3.43,NA,4.83,6.17,1,3.33,0.625
+21393395,"Female","1",20,"Junior","3","Yes",TRUE,"non-athlete",FALSE,3,3.5,28,5.75,3.1,1.3,1.71,260,5,5.33,1,3,0.5
+21442706,"Male","2",22,"Senior","4","No",FALSE,"In season",TRUE,4,3.2,24,6,4.9,1.4,3.43,227,4.67,6.17,1,3,0.5
+21442045,"Male","2",21,"Junior","3","No",FALSE,"In season",TRUE,2,2.9,22,4,2.6,2.5,3.71,216,4.67,6,3,3.67,0.5
+21473205,"Male","2",19,"Sophomore","2","No",FALSE,"Out of season",TRUE,3,3.8,29,6,4,1.7,4,155,5.33,6,1,3.67,0.5
+21363617,"Male","2",25,"Senior","4","Yes",TRUE,"Out of season",TRUE,2,2.7,20,4.5,3.3,1.4,3.71,152,6.5,7,1,3,0.5
+21475884,"Female","1",25,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.5,25,4.5,3.8,1.9,4.43,151,5,6.17,1,3,0.5
+21418902,"Male","2",25,"Post-bac","5","Yes",TRUE,"Out of season",TRUE,2,2.3,NA,4.5,3.3,1.7,5,150,3,7,5,4,0.5
+21468984,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3,21,4.5,3.5,2,3.57,65,4.83,5.67,1,4.33,0.5
+21467298,"Female","1",22,"Senior","4","No",FALSE,"Out of season",TRUE,2,3.8,27,5,3.8,2.7,3.71,56,6,5.17,1,3,0.5
+21363679,"Male","2",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,3.5,28,5.5,4.1,2,3,49.5,3.5,5.33,2,3.33,0.5
+21481743,"Female","1",18,"First-year","1","No",FALSE,"Out of season",TRUE,3,3.6,26,5.75,3,2,3,49,4.17,6.83,1,3.33,0.5
+21468737,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3.2,26,2,2.8,2.3,3.43,41,3.33,6,4.5,3.33,0.5
+21442494,"Female","1",19,"First-year","1","No",FALSE,"Out of season",TRUE,3,3.7,27,5.75,2.9,2.2,3.29,38,4.5,6.17,1,3.67,0.5
+21467805,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.8,21,6.5,3.6,2,4.43,37,4.5,6.5,1,3.67,0.5
+21427275,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3,22,5.25,3.7,2.8,3.57,31,5.83,4.33,3,3.67,0.5
+21427440,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.5,21,5,3.9,2.1,4.29,29,6,7,1,3.33,0.5
+21473133,"Female","1",22,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,3,3.5,26,3.75,2.8,2.3,3.29,27,4.17,6.67,1,3,0.5
+21483617,"Female","1",20,"Sophomore","2","Yes",TRUE,"non-athlete",FALSE,3,3.2,29,6.5,2.9,2.7,5,14,6,6,1,3.67,0.5
+21466992,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.7,26,4.5,3.3,3.2,1,7,5.67,6.17,4.5,4,0.5
+21467119,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,2.9,22,3,3.1,3.5,3.57,7,5.5,6.5,4.5,3,0.5
+21449529,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,2.9,20,3.75,2.9,2.8,3.43,7,4.17,6,2.5,3.67,0.5
+21489051,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.2,NA,6,2.5,3.1,3.86,5,4.67,6.33,1,3.67,0.5
+21466374,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.3,25,4.5,2.3,1.4,4.57,4,4.5,6.67,1,3.67,0.5
+21466865,"Female","1",31,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,5,3.8,28,4.75,3.5,2.4,3,3,3.67,2.5,2.5,3.33,0.5
+21441574,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.9,26,6,3.2,3,2.29,3,6.33,5.17,1,3.33,0.5
+21421156,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,4,32,6.75,3.67,1.7,4.43,3,4.33,6.67,1,3,0.5
+21475882,"Female","1",NA,"Post-bac","5",NA,NA,"non-athlete",FALSE,1,NA,NA,3,2.9,3.8,4.86,1.5,4.67,6,1,3.33,0.5
+21467711,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.4,26,5.5,4,1.6,4,1,6.67,6.33,1,3.67,0.5
+21467864,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.5,18,2.25,1.6,2.3,3.29,1,3.33,6.83,2.5,4,0.5
+21482282,"Male","2",59,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,3,3.5,NA,3.75,4.4,1.6,2.83,0,4.83,3.5,1,3,0.5
+21466849,"Female","1",23,"Sophomore","2","Yes",TRUE,"non-athlete",FALSE,2,2.7,19,3.75,3.4,3.3,4.14,0,4.83,7,1,3.67,0.5
+21483506,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.5,28,5.5,3.1,2.6,2,0,3.67,4.67,1.5,3,0.5
+21495506,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,5,3.7,31,6,4,1.4,4.43,0,6,5,4,3.67,0.5
+21483764,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.8,27,2.5,1.6,2.7,4.29,0,4.17,4.5,3.5,3.33,0.5
+21468528,"Male","2",24,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,NA,NA,3,1.9,2.6,1.71,NA,3.17,4.5,1,3.67,0.5
+21466331,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.3,17,6.25,4.7,4.6,2.86,NA,6,6,4,3,0.5
+21423025,"Male","2",20,"Sophomore","2","Yes",TRUE,"Out of season",TRUE,4,3.5,25,6,4.7,2.1,4.86,NA,4.67,6.33,1,3.33,0.5
+21449545,"Male","2",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.3,26,3.25,3.1,1.9,3.14,NA,3.67,4.33,5,3.67,0.5
+21477004,"Male","2",21,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3.2,24,5.25,3.2,4.2,2.57,12,6.5,5.67,3.5,3.33,0.428571428571429
+21479232,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.9,NA,3.25,3,3.8,2.43,3,4.5,3.33,5,3,0.428571428571429
+21446469,"Female","1",20,"Sophomore","2","No",FALSE,"Out of season",TRUE,3,3.4,26,5.25,4.9,3,3.29,295,4.33,6.17,7,4,0.375
+21481009,"Female","1",21,"First-year","1","Yes",TRUE,"non-athlete",FALSE,4,3,NA,6,4.5,2.1,NA,265,5.17,6.33,1,3,0.375
+21363755,"Male","2",18,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3,23,5,3.2,1.1,2.43,223,6.17,5.83,1,3,0.375
+21449567,"Female","1",20,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,NA,3.5,3.2,2.7,3.29,182,4.33,5.17,3,3.67,0.375
+21467739,"Male","2",20,"Junior","3","No",FALSE,"Out of season",TRUE,3,3.3,29,5.75,3.5,2.7,3.71,153,4.67,4.83,1.5,4,0.375
+21449542,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.4,24,5.75,3.2,2.6,3.29,62,4.5,4.5,4.5,3.33,0.375
+21442153,"Male","2",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,2.5,28,6.5,3.4,2,4.86,61,2.17,6.5,1,4.33,0.375
+21394133,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.5,22,5.5,4.5,1.6,2.29,56.5,4.83,4,1,4,0.375
+21464473,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.9,28,6,4.6,1.6,4.57,56,6.83,6.33,1,3.67,0.375
+21461189,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3.5,28,5.75,3.2,2,3.57,54,3.67,5.17,1,3.33,0.375
+21479139,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,1,3.8,25,5,4.2,2.2,5,51,5.17,5.6,1,3,0.375
+21467787,"Female","1",24,"Post-bac","5","No",FALSE,"non-athlete",FALSE,1,3.7,30,5.5,3.5,2.2,2.86,50,5.83,6.33,1,3.33,0.375
+21450542,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.4,29,5.5,2.5,2.2,4.57,43,4,6.33,1,3.33,0.375
+21497632,"Female","1",23,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,3,3.8,28,3.75,3.1,3.1,4.14,39,6.83,5.67,3.5,3.67,0.375
+21419517,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.9,22,3.5,2.56,3.7,2.43,27,3,5.5,1,3.67,0.375
+21399526,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,4,3.9,24,2,2.9,3.1,1,26,5.17,2.83,2.5,3.67,0.375
+21450550,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3.4,27,4,3.4,2.22,4.86,24,7,7,7,5,0.375
+21481269,"Female","1",18,"First-year","1","No",FALSE,"In season",TRUE,4,3.8,21,5.25,4,2.1,3.71,24,5.17,6.83,1,3.67,0.375
+21468585,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.4,25,3,2.9,3.1,4.14,19.5,5.83,6.5,1,4,0.375
+21466327,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.4,25,3.5,3.5,3.9,1.71,17,3.67,5.33,5.5,4.33,0.375
+21466378,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.7,24,4.5,2.8,1.5,4.71,15,4.83,5.5,1.5,4.67,0.375
+21514526,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,2,2.3,18,4.25,3.2,3.1,3.29,15,3.67,5.33,4,4,0.375
+21464725,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,NA,28,3.25,3.7,2,4.57,10,4.67,6.67,1,4,0.375
+21499045,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,1,2.8,21,4.75,4,3.5,3.86,7,5.33,7,1,2.33,0.375
+21420677,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,4,33,6.75,3.5,1.8,3.71,7,6.67,6.67,1,3.67,0.375
+21457029,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3.1,23,4.5,4,2.3,4,7,6,6.5,3.5,4,0.375
+21477745,"Female","1",24,"Senior","4","Yes",TRUE,"non-athlete",FALSE,1,3.1,15,2.5,2.8,3,2.43,5,4.67,5.4,1,4,0.375
+21423523,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3.2,34,3.5,4.3,1.2,3.86,5,5.67,6,1,4,0.375
+21442551,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3,25,6.33,2.7,2,1.43,5,5.83,6.83,1,3.67,0.375
+21466480,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.3,22,2.75,2.4,3.1,2.57,5,2.5,6,2,4,0.375
+21422209,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,NA,3,25,5.5,2.5,3.3,3,5,4.67,4.83,1,3.33,0.375
+21425787,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.5,30,5.25,3.3,2.3,3.86,4,5.67,5.67,1.5,3,0.375
+21467220,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,1,2,22,4.25,2.1,3.5,2.14,4,6.33,6.67,1,4.33,0.375
+21478869,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,31,6.25,3.7,1.8,2.57,4,5.33,5.17,1.5,4.33,0.375
+21466874,"Female","1",26,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.5,NA,2,3.1,2,3.86,3,3.67,6.17,2,3.33,0.375
+21500793,"Female","1",25,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,3,3.8,28,6,2.2,1,4.29,3,3.33,6.5,1,3,0.375
+21514432,"Female","1",41,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.9,NA,5,3.6,1.6,3.29,2,3.83,4.83,1,3.33,0.375
+21491771,"Female","1",23,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.2,20,4.5,4.1,1.9,4.29,2,4,5.17,1,5,0.375
+21455059,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.8,24,3.75,3.1,2.7,4.86,2,4,6.5,1,2.67,0.375
+21470686,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.7,25,6.25,2.4,1.7,3.29,2,4,5.17,1,3.33,0.375
+21467505,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3.4,23,5.75,3.4,1.6,3.57,1,5.33,6,1,3.33,0.375
+21473592,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,2,2.8,20,4.25,3.5,1.4,2.83,1,2.6,4.5,1,2.67,0.375
+21483825,"Male","2",46,"Post-bac","5","No",FALSE,"non-athlete",FALSE,5,3.9,27,1,2.6,3.6,4.86,0,4.67,6,2,3,0.375
+21418438,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.3,22,5.75,4.3,2,3.14,0,6.33,5.5,2,4.67,0.375
+21466489,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3.1,31,5,2.6,2.4,3.86,0,5.33,4.5,3,3.33,0.375
+21455894,"Female","1",21,"Senior","4","Yes",TRUE,"non-athlete",FALSE,1,3,26,3.25,2.3,2,3.33,0,5,6.5,1,3.67,0.375
+21466705,"Male","2",21,"Junior","3","No",FALSE,"non-athlete",FALSE,1,2.8,20,1.75,3.3,3.67,2.86,0,4.33,4.67,4,3.33,0.375
+21468786,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,2,2.8,23,3.25,1.9,1.8,3.29,0,3.67,6.67,4,3.67,0.375
+21468924,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.8,24,3.75,2.4,1.7,3.14,0,4.33,7,1,3,0.375
+21468426,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3,NA,7,4.7,1.6,4.71,0,6.33,3.5,1,2.33,0.375
+21468566,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3,23,6.5,3.3,1.7,3.14,0,4.67,3.67,1,3,0.375
+21442012,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.6,23,5,3.9,1.5,5,25,2.33,5.5,1,3.67,0.333333333333333
+21442435,"Male","2",19,"Sophomore","2","No",FALSE,"Out of season",TRUE,2,3.7,26,6,3.7,1.9,3.86,219,5,6.67,1,3,0.285714285714286
+21501325,"Female","1",NA,"First-year","1","No",FALSE,"In season",TRUE,1,3,18,5.75,4.11,3.6,3.43,100,2.33,6.5,1,3.67,0.285714285714286
+21415864,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,2.9,28,5.25,3.5,2.44,3.14,97,2.67,6,6,3,0.285714285714286
+21467034,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3,19,5.5,4,4,4.14,76.5,6.5,6.67,2,4,0.285714285714286
+21449551,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.2,19,5.25,4.5,3.1,4.29,50,5.83,6.33,1,3.67,0.285714285714286
+21465285,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,2.3,21,6,1.8,2.4,2.14,3,4.67,5.5,2,3.33,0.285714285714286
+21442497,"Male","2",22,"Senior","4","Yes",TRUE,"In season",TRUE,2,3.4,24,4.75,4.5,2,4,1810,4.83,5,1.5,3.33,0.25
+21364838,"Female","1",19,"Sophomore","2","No",FALSE,"In season",TRUE,3,4,36,7,3.7,3.78,2.29,385,4.5,4.5,4.5,3.67,0.25
+21466407,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3.9,23,7,4,1,5,155,6,7,1,5,0.25
+21481320,"Female","1",18,"First-year","1","No",FALSE,"Out of season",TRUE,3,3.4,27,4.25,3,2.1,3.29,152,3,6,1,3.67,0.25
+21466883,"Male","2",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,2.8,NA,6,3.5,1.1,3.71,133,5.67,5.67,1,4,0.25
+21508085,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,4,2.8,22,6,4.4,1.88,4.14,127,7,6.5,1,4,0.25
+21418645,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.3,22,5.75,4.2,2.2,3.14,109,7,7,7,4.67,0.25
+21468829,"Male","2",23,"Senior","4","Yes",TRUE,"non-athlete",FALSE,2,2.7,18,6.75,4.2,2.2,4.14,96,5.2,6.17,1.5,4.33,0.25
+21425259,"Male","2",18,"First-year","1","No",FALSE,"non-athlete",FALSE,4,3.2,27,6.25,4.7,2.4,5,95,3.5,7,1,5,0.25
+21423130,"Male","2",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,2.7,21,6.25,5,1.4,4,73,7,6,1,4,0.25
+21442079,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.5,23,4.5,2.6,3.3,2.43,61,4.33,7,1,3.67,0.25
+21466442,"Female","1",24,"Post-bac","5","No",FALSE,"non-athlete",FALSE,2,3.9,NA,4.75,3.7,2.4,2.71,59,4,5,1.5,3.67,0.25
+21427010,"Male","2",26,"Senior","4","No",FALSE,"non-athlete",FALSE,5,4,NA,6,4,3.7,4.67,57,3,5,1,2.67,0.25
+21467475,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,4,31,5,3.1,1.6,3.43,55,6.17,4.5,1,3.33,0.25
+21473301,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3,19,4.75,3.78,2.2,2.14,54,5.67,6,1.5,4,0.25
+21516638,"Female","1",18,"First-year","1","No",FALSE,"Out of season",TRUE,4,3.5,26,5,3.4,1.7,3.43,48,3.83,5.83,1,4,0.25
+21468655,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,3.9,25,3.75,2,2,2,41,4,4,4,3,0.25
+21478731,"Female","1",19,"Sophomore","2","No",FALSE,"Out of season",TRUE,3,3.5,27,5.5,3.5,2.3,2.86,40,5.33,7,1.5,4,0.25
+21467305,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,NA,2.8,18,5.75,4.2,1.7,4,39,7,6.83,1,3.67,0.25
+21473855,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.7,26,4.25,3.8,1.2,3.71,39,7,4.83,1,3.67,0.25
+21478269,"Male","2",22,"Senior","4","Yes",TRUE,"non-athlete",FALSE,2,3.7,21,5,4.6,2.3,4.71,38,5.33,6.17,2,4,0.25
+21466642,"Female","1",19,"Junior","3","No",FALSE,"non-athlete",FALSE,2,4,29,7,4.3,2.6,4.29,37,4,5.33,1,3.33,0.25
+21422044,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3.9,27,3.5,2.3,2.7,4.29,34,5.17,5.83,2.5,3.67,0.25
+21422307,"Male","2",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3,26,5.5,3.2,1.7,2.57,9,5.5,7,3,4,0.25
+21469218,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.8,24,7,3.5,2.4,4.86,7,7,7,1,4.33,0.25
+21467676,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,23,6.25,4.5,1.8,4.29,7,7,6.67,1,4,0.25
+21466903,"Female","1",30,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.5,31,5.5,3.2,2.4,4,5,5.5,4.17,2,2.67,0.25
+21452686,"Female","1",24,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.2,26,6.75,4.1,2.6,4.17,3,5.83,6,1,3.67,0.25
+21467886,"Female","1",22,"Senior","4","Yes",TRUE,"non-athlete",FALSE,2,3.1,21,3.5,2.5,2.4,2.86,3,4.83,7,1.5,3.33,0.25
+21441564,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,NA,NA,4.5,3.3,2.3,4.71,3,4,6.17,1,4,0.25
+21477686,"Female","1",19,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.3,25,6.25,4.2,2.5,4.14,2,4.67,7,1,3.67,0.25
+21386273,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3,21,4.75,2,3.6,1.86,1,4.83,6.6,1,3.67,0.25
+21468134,"Female","1",22,"Senior","4","No",FALSE,NA,NA,3,3.5,25,6,3.6,1.5,4.86,0,6.5,7,1,3.67,0.25
+21468439,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3,19,4,4.4,3.5,4,0,6.33,7,1.5,4.33,0.25
+21466714,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.9,28,4,2.9,2.6,2,0,3.67,5.33,2,3.33,0.25
+21422223,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,3,26,5,4.1,2.5,5,0,5.83,5.83,1,4.33,0.25
+21441810,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3.5,23,6,3.1,2,4.71,0,5.17,4.17,1,3,0.25
+21456925,"Male","2",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,2,27,6.5,3,1.2,5,0,2.5,4,6.5,4,0.25
+21468449,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,3.6,18,6.25,2.2,2,3.71,0,5.17,5.67,1,4.67,0.25
+21449552,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.5,23,4.5,3.2,2.4,3.29,0,4.67,7,1,4,0.25
+21468530,"Female","1",NA,"First-year","1","No",FALSE,"non-athlete",FALSE,1,2.7,20,5,2.7,2,4.57,0,4.17,6.17,1.5,3,0.25
+21416887,"Female","1",24,"Post-bac","5","No",FALSE,"non-athlete",FALSE,4,3.5,NA,4,3.3,2.7,3,NA,4.83,4.83,4.5,3.33,0.25
+21467152,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.9,32,5.5,3,2.2,4,NA,4.67,6.83,1.5,3.67,0.25
+21424910,"Male","2",23,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.2,20,5.75,3.4,1.9,3.86,2,3.33,5.17,6,3.67,0.166666666666667
+21446153,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3,24,2.75,3.2,3.33,2.71,95,5.67,6.5,1,4,0.142857142857143
+21475830,"Male","2",19,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3,17,2.25,3,3.1,3.43,37,4.67,5.5,2.5,5,0.142857142857143
+21422182,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,5,3.8,33,6.75,5,1.5,4.71,259,7,7,1,3.67,0.125
+21442467,"Male","2",23,"Junior","3","No",FALSE,"non-athlete",FALSE,3,2.1,27,3.67,3.7,2.3,5,217,6.33,6,4.5,5,0.125
+21412253,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,2.9,22,3.5,3.6,1.4,3.86,171,4.83,7,1.5,4,0.125
+21470281,"Female","1",39,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.5,NA,6,3.4,1.3,3,100,3.17,4.17,1,2.67,0.125
+21418655,"Male","2",20,"First-year","1","No",FALSE,"non-athlete",FALSE,4,2.6,20,2.75,3.4,2.4,3,98,5.17,4.67,4.5,4.33,0.125
+21468831,"Female","1",24,"Senior","4","Yes",TRUE,"non-athlete",FALSE,3,3.9,23,4.75,2.78,3.2,3.14,95,3.33,4.67,1,3.33,0.125
+21470452,"Female","1",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,2.5,16,5,4.5,1.3,4,90,4.5,6.67,1,4,0.125
+21463316,"Female","1",18,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3,17,2.5,3.6,3.8,2.57,77,5.17,5.67,1,2.67,0.125
+21468409,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.5,25,5.75,3.8,2.2,2.29,61,4.5,4.83,1,4,0.125
+21418434,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3.9,22,5,4.3,1.8,3.57,61,7,6.17,1,3.67,0.125
+21456384,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,2,3.8,29,3.75,2.7,3.7,2.14,19,4.83,6.17,2,3.67,0.125
+21468922,"Male","2",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,2.6,19,3.5,4.4,2.4,1.71,16,4.83,4.67,1,3.67,0.125
+21470645,"Female","1",20,"Junior","3","No",FALSE,"non-athlete",FALSE,4,3.4,22,5.75,3.6,1.9,4.43,14,6.67,5,1,5,0.125
+21422497,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.5,23,7,4.7,1.2,4,5,5,6,1,5,0.125
+21469070,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,2.4,20,5,4.5,2.8,5,1,5.33,6,1,5,0.125
+21514807,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3.2,15,4.25,3.2,2.6,4,1,4,6.5,1,3.67,0.125
+21475652,"Female","1",22,"Junior","3","No",FALSE,"non-athlete",FALSE,2,2.5,20,3.75,3,2.3,3.29,0,5.83,6,1,3.67,0.125
+21481527,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.5,21,4.75,2.4,2.3,4.29,0,6.17,6.83,7,4,0.125
+21442024,"Male","2",20,"Junior","3","Yes",TRUE,"Out of season",TRUE,3,3.8,26,5.75,3.3,1.3,4.57,0,4.17,5.33,1,5,0.125
+21456383,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.8,21,3.25,2.4,3.9,3,0,2.5,7,5.5,3.33,0.125
+21484756,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3.5,28,4.75,2.7,2.2,4,NA,4.83,5.83,3,3.33,0.125
+21481794,"Male","2",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3,16,5.25,2.7,1.7,2.57,NA,6,6.5,3,4.33,0.125
+21449541,"Male","2",18,"First-year","1","No",FALSE,"non-athlete",FALSE,4,3.5,27,4.5,3.8,3.2,3.83,219,4.5,4.17,5,4.33,0
+21481351,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,2,3.2,22,5.75,1.9,1.8,4.57,77,6.5,6.5,1,3.33,0
+21469072,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.2,20,4,3.2,2.3,3,50,5.33,6.17,1,2.67,0
+21442004,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,2.8,20,3.75,2.9,2.7,2.71,48,4.33,5.5,1,3,0
+21474461,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,1,2.2,19,3.75,2.4,1.4,4.43,37,4.67,4.83,1,3.33,0
+21449540,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,NA,21,6.5,3,2.2,4.57,37,5.17,6.83,5,4.67,0
+21468486,"Female","1",NA,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.1,20,2,3,3,3.71,36,4.67,4.33,4.5,3,0
+21463597,"Male","2",19,"First-year","1","No",FALSE,"non-athlete",FALSE,4,0.8,19,6.25,3.3,1.5,3.43,17,4.33,5,1.5,3.33,0
+21478782,"Male","2",48,"Post-bac","5","No",FALSE,"non-athlete",FALSE,4,3.9,NA,5.75,3.4,3,5,2,4.83,6.5,1.5,5,0
+21468994,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,3.7,22,5.25,3.5,3.2,4.29,1,6,6.67,3,3,0
+21494143,"Male","2",21,"Junior","3","Yes",TRUE,"non-athlete",FALSE,3,3.7,22,6.25,3.4,1.1,4.57,0,5.5,7,1,5,0
+21416524,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,4,2.5,20,5.25,4.3,2.5,5,0,4,4,4,5,0
+21421478,"Male","2",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,34,6,3.7,1.4,4.14,125,3.83,6.33,1,3,NA
+21484040,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,3.6,26,3.75,3.8,3.3,4,101,NA,NA,NA,NA,NA
+21418719,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,22,6,3.5,3.6,3.14,93,NA,NA,NA,NA,NA
+21421480,"Male","2",26,"Senior","4","No",FALSE,"non-athlete",FALSE,5,4,NA,5.25,4.25,3.86,5,62,NA,NA,NA,NA,NA
+21473407,"Male","2",21,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.5,28,4.5,4.2,2.8,4.43,35.5,NA,NA,NA,NA,NA
+21468552,"Female","1",19,"First-year","1","No",FALSE,"non-athlete",FALSE,5,1.5,28,5,3.3,2.4,4,35,4.67,6.5,5,3.67,NA
+21470491,"Male","2",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3.5,27,3,3.2,2.2,3.29,33,NA,NA,NA,NA,NA
+21495072,"Female","1",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.5,30,5,3.4,1.8,3.57,5,5.83,5,2,3.67,NA
+21442048,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,2.7,20,5,4.6,2.9,4.86,5,4.67,6.33,4.5,3.33,NA
+21468187,"Female","1",29,"Post-bac","5","Yes",TRUE,"non-athlete",FALSE,3,3.8,19,4,3,3,3,3,4,4,1,2.33,NA
+21468412,"Female","1",22,"Junior","3","No",FALSE,"non-athlete",FALSE,2,3,19,4.5,3.3,2.5,5,2,NA,NA,NA,NA,NA
+21421751,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,2,3.2,25,4.5,3.1,1.9,2.57,2,NA,NA,NA,NA,NA
+21467054,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.4,26,4.75,3.9,3.6,5,0,2.83,6.83,2,4,NA
+21470540,"Female","1",28,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.5,NA,4.75,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21421721,"Male","2",26,"Senior","4","No",FALSE,"non-athlete",FALSE,5,4,NA,7,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21467660,"Female","1",26,"Post-bac","5","No",FALSE,"non-athlete",FALSE,3,3.9,NA,6,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21466864,"Female","1",22,"Senior","4","No",FALSE,"In season",TRUE,1,3,23,3.75,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21467142,"Female","1",22,"Senior","4","No",FALSE,"non-athlete",FALSE,3,3.3,18,5.75,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21468959,"Female","1",21,"Senior","4","No",FALSE,"non-athlete",FALSE,4,3.6,28,1.75,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21422580,"Male","2",20,"Sophomore","2","No",FALSE,"Out of season",TRUE,3,3,22,5,3.6,3,2.43,NA,NA,NA,NA,NA,NA
+21430837,"Female","1",20,"Sophomore","2","No",FALSE,"In season",TRUE,4,3.4,25,6.5,4.3,2.3,NA,NA,NA,NA,NA,NA,NA
+21441438,"Male","2",20,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,3.7,30,4.25,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21441957,"Male","2",20,"Sophomore","2","No",FALSE,"In season",TRUE,2,2.7,20,5.25,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21469250,"Male","2",20,"Junior","3","No",FALSE,"non-athlete",FALSE,3,3,26,4.75,3.6,1.1,NA,NA,NA,NA,NA,NA,NA
+21423682,"Male","2",19,"First-year","1","No",FALSE,"non-athlete",FALSE,3,4,25,7,3.3,1.6,5,NA,NA,NA,NA,NA,NA
+21441995,"Female","1",19,"Sophomore","2","No",FALSE,"non-athlete",FALSE,3,2.7,21,5.5,3.2,2,3.86,NA,NA,NA,NA,NA,NA
