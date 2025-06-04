@@ -64,7 +64,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
   } else {
     mysp <- as.list(
       as.data.frame(
-        statpsych::ci.mean1(.05, mymean, mysd, myn)
+        statpsych::ci.mean(.05, mymean, mysd, myn)
       )
     )
 
@@ -118,7 +118,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.mean example", {
     } else {
       mysp <- as.list(
         as.data.frame(
-          statpsych::ci.mean1(1 - myconf_level, mymean, mysd, myn)
+          statpsych::ci.mean(1 - myconf_level, mymean, mysd, myn)
         )
       )
 
@@ -171,7 +171,7 @@ test_that("Compare estimate_magnitude to statpsych::ci.median example", {
 
       mysp <- as.list(
         as.data.frame(
-          statpsych::ci.median1(1 - myconf_level, y)
+          statpsych::ci.median(1 - myconf_level, y)
         )
       )
 
