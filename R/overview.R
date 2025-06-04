@@ -10,8 +10,8 @@
 #'
 #' @details
 #' If equal variance is not assumed, each group is treated independently.  In
-#' that case, the estimated mean, CI, and SE is from [statpsych::ci.mean1()],
-#' and the estimated median, CI, and SE is from [statpsych::ci.median1()].  If
+#' that case, the estimated mean, CI, and SE is from [statpsych::ci.mean()],
+#' and the estimated median, CI, and SE is from [statpsych::ci.median()].  If
 #' equal variance is assumed, each group CI is calculated as with respect to all
 #' group data, using [statpsych::ci.lc.mean.bs()] and
 #' [statpsych::ci.lc.median.bs()]
