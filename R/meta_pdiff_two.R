@@ -465,7 +465,7 @@ These are rows {paste(which(!is.whole.number(data[[reference_ns_quoname]])), col
     "RD" = "<i>P</i><sub>diff</sub>",
     "RR" = "ln(<i>RR</i>)",
     "OR" = "ln(<i>OR</i>)",
-    "AS" = "1/2 * <i>d</i><sub>H</sub>",
+    "AS" = "1/2 * <i>d</i><sub><i>h</i></sub>",
     "PETO" = "ln(<i>OR</i>)<sub>Peto</sub>"
   )
   res$properties$effect_size_name_ggplot <- switch(
