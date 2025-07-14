@@ -19,6 +19,7 @@ Imports:
     multcomp,
     sadists,
     statpsych,
+    legendry,
     metafor,
     ggplot2,
     ggdist,
@@ -28,8 +29,6 @@ Imports:
     Rdpack,
     stringr,
     mathjaxr
-Remotes:
-    teunbrand/legendry@v0.2.1
 RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
