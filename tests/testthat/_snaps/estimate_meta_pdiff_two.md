@@ -6,26 +6,22 @@
       Analysis of raw data:
       
       -- es_meta --
-             effect_label moderator_variable_name moderator_variable_level
-      x.flip    My effect                 setting                  Overall
-      1         My effect                 setting                In-Person
-      2         My effect                 setting                   Online
-             effect_size          LL        UL        SE k diamond_ratio
-      x.flip   0.5579311  0.11751343 0.9983488 0.2247070 4             1
-      1        0.7654911 -0.02552414 1.5565063 0.4035866 2             1
-      2        0.4646801 -0.06551995 0.9948802 0.2705152 2             1
-             diamond_ratio_LL diamond_ratio_UL I2 I2_LL    I2_UL       PI_LL
-      x.flip                1         5.079969  0     0 94.67705  0.11751343
-      1                     1        17.550734  0     0 99.65651 -0.02552414
-      2                     1        26.193770  0     0 99.58311 -0.06551995
-                 PI_UL          p     width FE_effect_size RE_effect_size FE_CI_width
-      x.flip 0.9983488 0.01303079 0.8808354      0.5579311      0.5579311   0.8808354
-      1      1.5565063 0.05786481 1.5820305      0.7654911      0.7654911   1.5820305
-      2      0.9948802 0.08584046 1.0604001      0.4646801      0.4646801   1.0604001
-             RE_CI_width
-      x.flip   0.8808354
-      1        1.5820305
-      2        1.0604001
+        effect_label moderator_variable_name moderator_variable_level effect_size
+      1    My effect                 setting                  Overall   0.5579311
+      2    My effect                 setting                In-Person   0.7654911
+      3    My effect                 setting                   Online   0.4646801
+                 LL        UL        SE k diamond_ratio diamond_ratio_LL
+      1  0.11751343 0.9983488 0.2247070 4             1                1
+      2 -0.02552414 1.5565063 0.4035866 2             1                1
+      3 -0.06551995 0.9948802 0.2705152 2             1                1
+        diamond_ratio_UL I2 I2_LL    I2_UL       PI_LL     PI_UL          p     width
+      1         5.079969  0     0 94.67705  0.11751343 0.9983488 0.01303079 0.8808354
+      2        17.550734  0     0 99.65651 -0.02552414 1.5565063 0.05786481 1.5820305
+      3        26.193770  0     0 99.58311 -0.06551995 0.9948802 0.08584046 1.0604001
+        FE_effect_size RE_effect_size FE_CI_width RE_CI_width
+      1      0.5579311      0.5579311   0.8808354   0.8808354
+      2      0.7654911      0.7654911   1.5820305   1.5820305
+      3      0.4646801      0.4646801   1.0604001   1.0604001
       
       -- es_heterogeneity --
               effect_label moderator_variable_name moderator_level       measure

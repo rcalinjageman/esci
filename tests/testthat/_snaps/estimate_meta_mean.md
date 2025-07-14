@@ -31,14 +31,12 @@
       Analysis of raw data:
       
       -- es_meta --
-             effect_label effect_size       LL       UL       SE k diamond_ratio
-      x.flip    My effect    442.3668 399.2024 485.5311 22.02305 7      1.416818
-             diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL    PI_LL
-      x.flip                1         3.099506 42.91989     0 88.26186 358.0917
-                PI_UL            p    width FE_effect_size RE_effect_size FE_CI_width
-      x.flip 526.6418 9.677849e-90 86.32876        443.086       442.3668    60.93144
-             RE_CI_width
-      x.flip    86.32876
+        effect_label effect_size       LL       UL       SE k diamond_ratio
+      1    My effect    442.3668 399.2024 485.5311 22.02305 7      1.416818
+        diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL    PI_LL    PI_UL
+      1                1         3.099506 42.91989     0 88.26186 358.0917 526.6418
+                   p    width FE_effect_size RE_effect_size FE_CI_width RE_CI_width
+      1 9.677849e-90 86.32876        443.086       442.3668    60.93144    86.32876
       
       -- es_heterogeneity --
              effect_label moderator_variable_name moderator_level       measure
@@ -91,14 +89,12 @@
       Analysis of raw data:
       
       -- es_meta --
-             effect_label effect_size       LL       UL       SE k diamond_ratio
-      x.flip    My effect    442.3668 406.1421 478.5915 22.02305 7      1.416818
-             diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL    PI_LL
-      x.flip                1         3.099506 42.91989     0 88.26186 371.6409
-                PI_UL            p    width FE_effect_size RE_effect_size FE_CI_width
-      x.flip 513.0926 9.677849e-90 72.44938        443.086       442.3668    51.13527
-             RE_CI_width
-      x.flip    72.44938
+        effect_label effect_size       LL       UL       SE k diamond_ratio
+      1    My effect    442.3668 406.1421 478.5915 22.02305 7      1.416818
+        diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL    PI_LL    PI_UL
+      1                1         3.099506 42.91989     0 88.26186 371.6409 513.0926
+                   p    width FE_effect_size RE_effect_size FE_CI_width RE_CI_width
+      1 9.677849e-90 72.44938        443.086       442.3668    51.13527    72.44938
       
       -- es_heterogeneity --
              effect_label moderator_variable_name moderator_level       measure

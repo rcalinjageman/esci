@@ -178,6 +178,15 @@ jamovi_meta_run <- function(
     tbl_raw_data$getColumn("effect_size_smd")$setTitle(estimate$properties$effect_size_name_html)
     tbl_es_meta$getColumn("effect_size_smd")$setTitle(estimate$properties$effect_size_name_html)
     tbl_es_meta_difference$getColumn("effect_size_smd")$setTitle(estimate$properties$effect_size_name_html)
+
+    if (has_reference & is.null(ref_note)) {
+      ref_note <- paste(
+        "Effect sizes are relative to a reference value of ",
+        0,
+        ".<br>",
+        sep = ""
+      )
+    }
   }
 
   if (has_effect_size_names) {

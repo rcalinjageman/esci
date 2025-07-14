@@ -1,7 +1,7 @@
 ---
 title: esci (Estimation Statistics with Confidence Intervals)
 name: esci
-version: 1.0.7
+version: 1.0.8
 jms: '1.0'
 authors:
   - Robert J Calin-Jageman
@@ -16,8 +16,7 @@ description: >-
   "_blank"> statpsych</a> package by Doug Bonett.</br>
 
 
-  1.07 - Fixed conversion of ordinal/nominal integer types and odds ratio
-  calculation
+  1.0.8 - Graph labels for meta mean
 
 
   Please submit feedback, bug reports, and feature requests via the links
@@ -29,96 +28,112 @@ analyses:
     ns: esci
     menuGroup: esci
     menuTitle: Describe
+    category: analyses
   - title: 'Means and Medians: Single Group'
     name: jamovimagnitude
     ns: esci
     menuGroup: esci
     menuSubgroup: Means and Medians
     menuTitle: Single Group
+    category: analyses
   - title: 'Means and Medians: Two Groups'
     name: jamovimdifftwo
     ns: esci
     menuGroup: esci
     menuSubgroup: Means and Medians
     menuTitle: Two Groups
+    category: analyses
   - title: 'Means and Medians: Paired'
     name: jamovimdiffpaired
     ns: esci
     menuGroup: esci
     menuSubgroup: Means and Medians
     menuTitle: Paired
+    category: analyses
   - title: 'Means and Medians: Independent Groups Contrast'
     name: jamovimdiffindcontrast
     ns: esci
     menuGroup: esci
     menuSubgroup: Means and Medians
     menuTitle: Independent Groups Contrast
+    category: analyses
   - title: 'Means and Medians: 2x2 Factorial'
     name: jamovimdiff2x2
     ns: esci
     menuGroup: esci
     menuSubgroup: Means and Medians
     menuTitle: 2x2 Factorial
+    category: analyses
   - title: 'Correlations: Single Group'
     name: jamovicorrelation
     ns: esci
     menuGroup: esci
     menuSubgroup: Correlations
     menuTitle: Single Group
+    category: analyses
   - title: 'Correlations: Two Groups'
     name: jamovirdifftwo
     ns: esci
     menuGroup: esci
     menuSubgroup: Correlations
     menuTitle: Two Groups
+    category: analyses
   - title: 'Proportions: Single Group'
     name: jamoviproportion
     ns: esci
     menuGroup: esci
     menuSubgroup: Proportions
     menuTitle: Single Group
+    category: analyses
   - title: 'Proportions: Two Groups'
     name: jamovipdifftwo
     ns: esci
     menuGroup: esci
     menuSubgroup: Proportions
     menuTitle: Two Groups
+    category: analyses
   - title: 'Proportions: Paired'
     name: jamovipdiffpaired
     ns: esci
     menuGroup: esci
     menuSubgroup: Proportions
     menuTitle: Paired
+    category: analyses
   - title: 'Meta-Analysis: Means'
     name: jamovimetamean
     ns: esci
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Means
+    category: analyses
   - title: 'Meta-Analysis: Difference in Means'
     name: jamovimetamdiff
     ns: esci
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Difference in Means
+    category: analyses
   - title: 'Meta-Analysis: Correlations'
     name: jamovimetar
     ns: esci
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Correlations
+    category: analyses
   - title: 'Meta-Analysis: Proportions'
     name: jamovimetaproportion
     ns: esci
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Proportions
+    category: analyses
   - title: 'Meta-Analysis: Difference in Proportions'
     name: jamovimetapdiff
     ns: esci
     menuGroup: esci
     menuSubgroup: Meta-Analysis
     menuTitle: Difference in Proportions
+    category: analyses
 datasets:
   - name: Ch03 - Latimier Quiz
     path: Latimier Quiz.omv

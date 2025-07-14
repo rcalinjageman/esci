@@ -6,14 +6,14 @@
       Analysis of raw data:
       
       -- es_meta --
-                                           effect_label effect_size         LL
-      x.flip Brain Photo Rating - No Brain Photo Rating  0.09431632 0.01498243
-                    UL         SE  k diamond_ratio diamond_ratio_LL diamond_ratio_UL
-      x.flip 0.1736502 0.04047722 10      1.397517                1          2.66465
-                   I2 I2_LL    I2_UL       PI_LL     PI_UL         p     width
-      x.flip 34.93494     0 82.43217 -0.06646225 0.2550949 0.0198004 0.1586678
-             FE_effect_size RE_effect_size FE_CI_width RE_CI_width
-      x.flip     0.06845248     0.09431632   0.1135355   0.1586678
+                                      effect_label effect_size         LL        UL
+      1 Brain Photo Rating - No Brain Photo Rating  0.09431632 0.01498243 0.1736502
+                SE  k diamond_ratio diamond_ratio_LL diamond_ratio_UL       I2 I2_LL
+      1 0.04047722 10      1.397517                1          2.66465 34.93494     0
+           I2_UL       PI_LL     PI_UL         p     width FE_effect_size
+      1 82.43217 -0.06646225 0.2550949 0.0198004 0.1586678     0.06845248
+        RE_effect_size FE_CI_width RE_CI_width
+      1     0.09431632   0.1135355   0.1586678
       
       -- es_heterogeneity --
                                            effect_label moderator_variable_name
@@ -68,26 +68,26 @@
       Analysis of raw data:
       
       -- es_meta --
-                                           effect_label moderator_variable_name
-      x.flip Brain Photo Rating - No Brain Photo Rating                     mod
-      1      Brain Photo Rating - No Brain Photo Rating                     mod
-      2      Brain Photo Rating - No Brain Photo Rating                     mod
-             moderator_variable_level effect_size          LL        UL         SE  k
-      x.flip                  Overall  0.09431632  0.01498243 0.1736502 0.04047722 10
-      1                      Critique  0.21663310  0.08825315 0.3450130 0.06550118  4
-      2                        Simple  0.03243698 -0.03085464 0.0957286 0.03229224  6
-             diamond_ratio diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL
-      x.flip      1.397517                1         2.664650 34.93494     0 82.43217
-      1           1.000000                1         3.079149  0.00000     0 88.41460
-      2           1.000000                1         3.729327 14.90783     0 90.89257
-                   PI_LL     PI_UL            p     width FE_effect_size
-      x.flip -0.06646225 0.2550949 0.0198003989 0.1586678     0.06845248
-      1       0.08825315 0.3450130 0.0009419452 0.2567599     0.21663310
-      2      -0.03085464 0.0957286 0.3151461867 0.1466803     0.03243698
-             RE_effect_size FE_CI_width RE_CI_width
-      x.flip     0.09431632   0.1135355   0.1586678
-      1          0.21663310   0.2567599   0.2567599
-      2          0.03243698   0.1265832   0.1265832
+                                      effect_label moderator_variable_name
+      1 Brain Photo Rating - No Brain Photo Rating                     mod
+      2 Brain Photo Rating - No Brain Photo Rating                     mod
+      3 Brain Photo Rating - No Brain Photo Rating                     mod
+        moderator_variable_level effect_size          LL        UL         SE  k
+      1                  Overall  0.09431632  0.01498243 0.1736502 0.04047722 10
+      2                 Critique  0.21663310  0.08825315 0.3450130 0.06550118  4
+      3                   Simple  0.03243698 -0.03085464 0.0957286 0.03229224  6
+        diamond_ratio diamond_ratio_LL diamond_ratio_UL       I2 I2_LL    I2_UL
+      1      1.397517                1         2.664650 34.93494     0 82.43217
+      2      1.000000                1         3.079149  0.00000     0 88.41460
+      3      1.000000                1         3.729327 14.90783     0 90.89257
+              PI_LL     PI_UL            p     width FE_effect_size RE_effect_size
+      1 -0.06646225 0.2550949 0.0198003989 0.1586678     0.06845248     0.09431632
+      2  0.08825315 0.3450130 0.0009419452 0.2567599     0.21663310     0.21663310
+      3 -0.03085464 0.0957286 0.3151461867 0.1466803     0.03243698     0.03243698
+        FE_CI_width RE_CI_width
+      1   0.1135355   0.1586678
+      2   0.2567599   0.2567599
+      3   0.1265832   0.1265832
       
       -- es_heterogeneity --
                                             effect_label moderator_variable_name

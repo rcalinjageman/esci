@@ -162,6 +162,24 @@ jamovi_meta_mean <- function(self) {
 
   estimate$raw_data$label <- as.character(estimate$raw_data$label)
 
+  # properties cleanup - need to move this into esci
+  if (!is.null(args$reference_mean) & from_raw) {
+    if (self$options$reported_effect_size == "mean_difference") {
+      estimate$properties$effect_size_name_html <- paste(
+        estimate$properties$effect_size_name_html,
+        " - <i>M</i><sub>Reference</sub>",
+        sep = ""
+      )
+      estimate$properties$effect_size_name_ggplot <- paste(
+        estimate$properties$effect_size_name_ggplot,
+        " - <i>M</i><sub>Reference</sub>",
+        sep = ""
+      )
+
+    } else {
+    }
+  }
+
   if (from_raw) {
     if (!is.null(self$options$moderator)) {
       estimate$raw_data$moderator <- as.character(estimate$raw_data$moderator)

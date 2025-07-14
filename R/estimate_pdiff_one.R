@@ -15,8 +15,8 @@
 #' it with [esci::plot_pdiff()] and you can test hypotheses with
 #' [esci::test_pdiff()].
 #'
-#' The estimated proportion differences are from [statpsych::ci.prop1()] (renamed
-#' ci.prop as of statpsych 1.6).
+#' The estimated proportion differences are from [statpsych::ci.prop()] (named
+#' ci.prop in statpsych < 1.6).
 #'
 #'
 #' @param data For raw data - a dataframe or tibble

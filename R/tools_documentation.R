@@ -25,7 +25,7 @@
 #'
 #'
 #'
-#' jesci_document_data <- function(save_files = FALSE) {
+#' jesci_document_data <- function(save_files = FALSE, file_type = "rda") {
 #'
 #' descriptions <- list()
 #' sources <- list()
@@ -843,7 +843,9 @@
 #'     'SmithRecall.omv',
 #'     'MeditationBrain.omv',
 #'     'SelfExplain.omv',
-#'     'VideogameAggression.omv'
+#'     'VideogameAggression.omv',
+#'     'Chap 8 paired Ex 8.18.omv',
+#'     'PenLaptop1.omv'
 #'   ),
 #'   tags = c(
 #'     'Latimier Quiz - Ch03 - Quiz group in Latimier et al. (2019)',
@@ -892,7 +894,9 @@
 #'     'SmithRecall - Ch15 - from Smith et al. (2016)',
 #'     "MeditationBrain - Ch15 - from Holzel et al. (2011)",
 #'     'SelfExplain - Ch15 - from McEldoon et al. (2013)',
-#'     'VideogameAggression - Ch15 - from Hilgard (2015)'
+#'     'VideogameAggression - Ch15 - from Hilgard (2015)',
+#'     'Chap 8 paired Ex 8.18 - Ch8 - Fake data for an exercise',
+#'     'Pen Laptop - Ch20 - From first edition only'
 #'   )
 #' )
 #'
@@ -906,7 +910,7 @@
 #'   )
 #'
 #'   for (myfile in list.files(path = "./data", pattern="*.omv", full.names = TRUE)) {
-#'
+#'     cat(myfile)
 #'     if (! myfile %in% badfiles) {
 #'
 #'       # get the jamovi data
@@ -927,18 +931,33 @@
 #'
 #'       dataname <- gsub(" ", "_", dataname)
 #'       dataname <- tolower(dataname)
-#'       dataname <- paste("data_", dataname, sep = "")
+#'       if (file_type == "rda") dataname <- paste("data_", dataname, sep = "")
 #'
 #'       # Save rda
 #'       if (save_files) {
-#'         to_object <- paste(
-#'           dataname, " <- f", sep = ""
-#'         )
-#'         save_rda <- paste(
-#'           "usethis::use_data(", dataname, ", overwrite = TRUE)", sep = ""
-#'         )
-#'         eval(parse(text = to_object), envir = .GlobalEnv)
-#'         eval(parse(text = save_rda), envir = .GlobalEnv)
+#'
+#'         if (file_type == "rda") {
+#'
+#'           to_object <- paste(
+#'             dataname, " <- f", sep = ""
+#'           )
+#'           save_rda <- paste(
+#'             "usethis::use_data(", dataname, ", overwrite = TRUE)", sep = ""
+#'           )
+#'           eval(parse(text = to_object), envir = .GlobalEnv)
+#'           eval(parse(text = save_rda), envir = .GlobalEnv)
+#'
+#'         } else {
+#'           tsdataname <- paste(
+#'             "./data/",
+#'             strsplit(friendly_name, " - ")[[1]][2],
+#'             "_",
+#'             dataname,
+#'             ".csv",
+#'             sep = ""
+#'           )
+#'           write.csv(x = f, file = tsdataname, row.names = FALSE)
+#'         }
 #'
 #'       }
 #'
@@ -1020,6 +1039,6 @@
 #'
 #'   }
 #'
-#'   write(tdoc, file = "./R/data.R")
+#'   if (save_files & file_type == "rda") write(tdoc, file = "./R/data.R")
 #'
 #' }
