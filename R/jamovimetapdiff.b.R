@@ -15,17 +15,21 @@ jamovimetapdiffClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cla
           tbl_raw_data <- self$results$raw_data
           tbl_es_meta <- self$results$es_meta
 
-          mykey <- "<i>P</i><sub>diff</sub> is calculated as <i>P</i><sub>comparison</sub> - <i>P</i><sub>reference</sub>"
 
-          # tbl_es_meta$setNote(
-          #   key = "mykey",
-          #   note = mykey
-          # )
+          if (self$options$reported_effect_size == "RD") {
+            mykey <- "<i>P</i><sub>diff</sub> is calculated as <i>P</i><sub>comparison</sub> - <i>P</i><sub>reference</sub>"
 
-          tbl_raw_data$setNote(
-            key = "mykey",
-            note = mykey
-          )
+            # tbl_es_meta$setNote(
+            #   key = "mykey",
+            #   note = mykey
+            # )
+
+            tbl_raw_data$setNote(
+              key = "mykey",
+              note = mykey
+            )
+
+          }
 
 
         },

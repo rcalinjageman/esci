@@ -1,3 +1,10 @@
+esci version 1.0.8 (Release data: 7/14/2025)
+===========
+Changes:
+* Better graph labels for meta mean when a reference value is provided (jamovi)
+* Bug fix for legendry package for meta-analyses with moderation (jamovi)
+
+
 esci version 1.0.7 (Release data: 02/18/2025)
 ===========
 Changes:

@@ -1,0 +1,301 @@
+"MLS","Location","Price","Bedrooms","Bathrooms","Size (m2)","Status","Status_Code"
+132842,"Arroyo Grande",795000,3,3,220.273013,"Short Sale",FALSE
+134364,"Paso Robles",399000,4,3,261.800654,"Short Sale",FALSE
+135141,"Paso Robles",545000,4,3,281.681896,"Short Sale",FALSE
+135712,"Morro Bay",909000,4,4,328.87662,"Short Sale",FALSE
+136282,"Santa Maria-Orcutt",109900,3,1,116.035847,"Short Sale",FALSE
+136431,"Oceano",324900,3,3,167.2254,"Short Sale",FALSE
+137036,"Santa Maria-Orcutt",192900,4,2,148.923509,"Short Sale",FALSE
+137090,"Santa Maria-Orcutt",215000,3,2,134.70935,"Short Sale",FALSE
+137159,"Morro Bay",999000,4,3,312.15408,"Short Sale",FALSE
+137570,"Atascadero",319000,3,2,122.910669,"Short Sale",FALSE
+138053,"Santa Maria-Orcutt",350000,3,2,162.58025,"Short Sale",FALSE
+138730,"Santa Maria-Orcutt",249000,3,2,130.0642,"Short Sale",FALSE
+139291,"Arroyo Grande",299000,2,2,116.779071,"Short Sale",FALSE
+139427,"Santa Maria-Orcutt",235900,3,2,130.0642,"Short Sale",FALSE
+139461,"Santa Maria-Orcutt",348000,3,2,148.6448,"Short Sale",FALSE
+139661,"Paso Robles",314000,4,3,166.667982,"Short Sale",FALSE
+139918,"Los Alamos",399000,4,2,171.87055,"Short Sale",FALSE
+139932,"San Miguel",599000,3,3,274.06385,"Short Sale",FALSE
+140044,"Paso Robles",299000,3,2,159.700257,"Short Sale",FALSE
+140073,"San Luis Obispo",425000,3,3,136.753216,"Short Sale",FALSE
+140077,"Morro Bay",1100000,4,3,387.219704,"Short Sale",FALSE
+140080,"Cayucos",1500000,3,3,360.46364,"Short Sale",FALSE
+140113,"Santa Maria-Orcutt",110000,2,1,92.903,"Short Sale",FALSE
+140395,"Santa Maria-Orcutt",200000,3,2,105.816517,"Short Sale",FALSE
+140460,"Santa Maria-Orcutt",134900,3,1,100.33524,"Short Sale",FALSE
+140703,"Santa Maria-Orcutt",250000,4,3,185.806,"Short Sale",FALSE
+140720,"Pismo Beach",950000,3,4,178.37376,"Short Sale",FALSE
+140731,"Santa Maria-Orcutt",239950,4,2,125.233244,"Short Sale",FALSE
+141188,"Santa Maria-Orcutt",170000,3,2,118.91584,"Short Sale",FALSE
+141212,"Santa Maria-Orcutt",285000,3,2,222.9672,"Short Sale",FALSE
+141232,"Santa Maria-Orcutt",279000,3,3,157.9351,"Short Sale",FALSE
+141529,"Santa Maria-Orcutt",219000,3,2,148.6448,"Short Sale",FALSE
+141541,"Santa Maria-Orcutt",155000,3,2,97.54815,"Short Sale",FALSE
+141737,"Atascadero",389000,3,2,131.457745,"Short Sale",FALSE
+141847,"Nipomo",340000,3,1,103.12233,"Short Sale",FALSE
+141869,"Guadalupe",95000,2,1,74.043691,"Short Sale",FALSE
+142216,"Santa Maria-Orcutt",140000,2,2,102.1933,"Short Sale",FALSE
+142340,"Pismo Beach",1100000,3,3,241.733606,"Short Sale",FALSE
+142442,"Santa Maria-Orcutt",360000,4,3,218.414953,"Short Sale",FALSE
+142528,"Morro Bay",415000,3,3,125.41905,"Short Sale",FALSE
+142539,"Santa Maria-Orcutt",250000,4,2,112.041018,"Short Sale",FALSE
+142585,"Santa Maria-Orcutt",559000,3,3,244.149084,"Short Sale",FALSE
+142818,"Nipomo",525000,3,3,219.715595,"Short Sale",FALSE
+142829,"Los Osos",779000,3,3,277.77997,"Short Sale",FALSE
+142870,"Arroyo Grande",595000,3,2,162.58025,"Short Sale",FALSE
+142977,"Templeton",1150000,4,5,510.9665,"Short Sale",FALSE
+143037,"Templeton",550000,3,2,172.056356,"Short Sale",FALSE
+143155,"Grover Beach",500000,3,2,195.0963,"Short Sale",FALSE
+143170,"Santa Maria-Orcutt",279000,4,3,239.68974,"Short Sale",FALSE
+143178,"Santa Maria-Orcutt",375000,4,2,182.368589,"Short Sale",FALSE
+143217,"Santa Maria-Orcutt",330000,3,3,176.5157,"Short Sale",FALSE
+143252,"Santa Maria-Orcutt",199000,3,3,134.70935,"Short Sale",FALSE
+143255,"Santa Maria-Orcutt",165000,2,2,92.903,"Short Sale",FALSE
+143436,"Templeton",1399000,4,3,603.8695,"Foreclosure",TRUE
+143507,"Santa Maria-Orcutt",255000,3,2,113.155854,"Short Sale",FALSE
+143524,"Cambria",325000,2,2,82.962379,"Short Sale",FALSE
+143534,"Morro Bay",789000,3,3,195.0963,"Foreclosure",TRUE
+143540,"Nipomo",498000,4,3,217.485923,"Short Sale",FALSE
+143884,"Nipomo",430000,4,2,201.413704,"Short Sale",FALSE
+143946,"Paso Robles",539900,4,3,281.681896,"Short Sale",FALSE
+144204,"Pismo Beach",499000,3,2,120.123579,"Short Sale",FALSE
+144238,"Los Osos",275000,3,2,111.4836,"Short Sale",FALSE
+144312,"Santa Maria-Orcutt",499000,3,4,209.03175,"Short Sale",FALSE
+144314,"Morro Bay",899000,3,3,225.75429,"Foreclosure",TRUE
+144316,"Morro Bay",1045000,3,3,195.0963,"Foreclosure",TRUE
+144318,"Morro Bay",774000,2,2,143.99965,"Foreclosure",TRUE
+144370,"Santa Maria-Orcutt",239000,3,3,167.2254,"Short Sale",FALSE
+144380,"Santa Maria-Orcutt",195000,3,2,113.155854,"Short Sale",FALSE
+144788,"Grover Beach",325000,2,1,71.349504,"Short Sale",FALSE
+144815,"Nipomo",320000,4,2,179.209887,"Short Sale",FALSE
+144896,"Santa Maria-Orcutt",275000,4,3,174.378931,"Short Sale",FALSE
+145087,"Paso Robles",329000,3,2,157.9351,"Short Sale",FALSE
+145138,"Santa Maria-Orcutt",140000,3,2,100.33524,"Short Sale",FALSE
+145309,"Paso Robles",409000,4,3,203.643376,"Short Sale",FALSE
+145448,"Santa Maria-Orcutt",167900,3,2,120.402288,"Foreclosure",TRUE
+145471,"Nipomo",325000,7,5,249.723264,"Short Sale",FALSE
+145726,"Santa Maria-Orcutt",119000,1,1,83.6127,"Short Sale",FALSE
+145745,"Santa Maria-Orcutt",245000,4,2,137.682246,"Short Sale",FALSE
+145789,"Santa Maria-Orcutt",259900,3,2,160.350578,"Short Sale",FALSE
+145850,"Arroyo Grande",495000,3,2,138.053858,"Short Sale",FALSE
+145952,"San Luis Obispo",399000,4,2,143.349329,"Short Sale",FALSE
+146040,"Santa Maria-Orcutt",329700,4,2,126.998401,"Short Sale",FALSE
+146110,"Atascadero",199000,1,1,66.146936,"Short Sale",FALSE
+146130,"Santa Maria-Orcutt",149000,3,2,96.61912,"Short Sale",FALSE
+146144,"Paso Robles",225000,3,2,135.266768,"Short Sale",FALSE
+146149,"Santa Maria-Orcutt",195000,2,1,75.344333,"Short Sale",FALSE
+146212,"Paso Robles",359900,3,3,181.253753,"Short Sale",FALSE
+146223,"Templeton",799000,4,4,287.9993,"Short Sale",FALSE
+146282,"San Luis Obispo",595000,3,2,196.675651,"Short Sale",FALSE
+146302,"Paso Robles",89000,3,2,144.92868,"Short Sale",FALSE
+146310,"Santa Maria-Orcutt",129900,3,1,96.804926,"Short Sale",FALSE
+146320,"Los Osos",375000,3,3,141.119657,"Short Sale",FALSE
+146423,"Atascadero",599000,3,2,257.712922,"Short Sale",FALSE
+146496,"Paso Robles",235000,3,2,124.49002,"Short Sale",FALSE
+146537,"Santa Maria-Orcutt",255900,3,2,133.78032,"Foreclosure",TRUE
+146544,"Santa Maria-Orcutt",148900,5,2,98.848792,"Short Sale",FALSE
+146581,"Arroyo Grande",749000,3,2,199.276935,"Short Sale",FALSE
+146597,"Santa Maria-Orcutt",189900,3,2,136.753216,"Foreclosure",TRUE
+146649,"Paso Robles",183000,3,1,82.497864,"Short Sale",FALSE
+146667,"Santa Maria-Orcutt",232600,3,3,146.972546,"Short Sale",FALSE
+146773,"Cambria",520000,3,2,156.07704,"Short Sale",FALSE
+146790,"Solvang",355000,3,3,158.120906,"Foreclosure",TRUE
+146797,"Pismo Beach",275000,0,1,36.975394,"Short Sale",FALSE
+146888,"Santa Maria-Orcutt",225000,4,3,180.23182,"Short Sale",FALSE
+146986,"Santa Maria-Orcutt",161900,3,2,111.4836,"Short Sale",FALSE
+147094,"Santa Maria-Orcutt",249999,3,3,187.013739,"Short Sale",FALSE
+147167,"Santa Maria-Orcutt",208000,2,1,117.708101,"Short Sale",FALSE
+147214,"Guadalupe",135000,3,1,102.1933,"Short Sale",FALSE
+147216,"San Luis Obispo",385000,2,3,129.042267,"Short Sale",FALSE
+147240,"Atascadero",750000,4,4,314.662461,"Foreclosure",TRUE
+147241,"Atascadero",810000,4,3,307.044415,"Foreclosure",TRUE
+147249,"Atascadero",890000,4,5,392.886787,"Foreclosure",TRUE
+147253,"Atascadero",895000,4,3,341.511428,"Foreclosure",TRUE
+147374,"San Miguel",229900,3,2,135.452574,"Short Sale",FALSE
+147440,"Grover Beach",240000,2,2,94.76106,"Short Sale",FALSE
+147450,"Atascadero",429000,4,3,233.465239,"Foreclosure",TRUE
+147570,"Santa Maria-Orcutt",399000,4,3,260.1284,"Short Sale",FALSE
+147586,"Santa Maria-Orcutt",385000,3,2,185.806,"Short Sale",FALSE
+147603,"Paso Robles",294900,3,2,122.260348,"Foreclosure",TRUE
+147611,"Paso Robles",399000,3,2,113.34166,"Short Sale",FALSE
+147620,"Santa Maria-Orcutt",269000,3,3,165.36734,"Short Sale",FALSE
+147654,"Cambria",449000,3,3,196.95436,"Short Sale",FALSE
+147761,"Arroyo Grande",555900,5,3,273.785141,"Foreclosure",TRUE
+147767,"Paso Robles",319900,4,2,198.347905,"Foreclosure",TRUE
+147819,"Cambria",332000,4,4,173.914416,"Foreclosure",TRUE
+147876,"Bradley",499000,4,5,315.8702,"Short Sale",FALSE
+147948,"Paso Robles",432000,4,3,289.207039,"Short Sale",FALSE
+148070,"Arroyo Grande",199000,2,1,76.830781,"Short Sale",FALSE
+148168,"Santa Maria-Orcutt",29000,2,2,139.3545,"Foreclosure",TRUE
+148195,"Atascadero",299000,3,2,117.98681,"Short Sale",FALSE
+148289,"Santa Maria-Orcutt",259000,4,3,172.520871,"Short Sale",FALSE
+148318,"Los Osos",99000,1,1,49.981814,"Short Sale",FALSE
+148324,"Avila Beach",779000,2,2,113.620369,"Foreclosure",TRUE
+148325,"Avila Beach",839000,2,2,113.620369,"Foreclosure",TRUE
+148384,"Santa Ynez",525000,3,2,162.208638,"Short Sale",FALSE
+148399,"Santa Ynez",795000,3,2,194.353076,"Short Sale",FALSE
+148472,"Santa Maria-Orcutt",337000,4,2,185.806,"Short Sale",FALSE
+148519,"Oceano",164900,2,1,69.67725,"Foreclosure",TRUE
+148622,"San Luis Obispo",449000,2,3,153.28995,"Short Sale",FALSE
+148624,"Guadalupe",94000,2,2,74.043691,"Foreclosure",TRUE
+148638,"Pismo Beach",899000,3,3,210.518198,"Short Sale",FALSE
+148736,"Santa Maria-Orcutt",180000,3,2,118.91584,"Short Sale",FALSE
+148744,"Bradley",194900,3,2,101.450076,"Foreclosure",TRUE
+148757,"Los Osos",350000,3,2,140.190627,"Short Sale",FALSE
+148806,"King City",167770,3,3,166.575079,"Foreclosure",TRUE
+148842,"Creston",309900,3,2,158.399615,"Foreclosure",TRUE
+148881,"Templeton",479000,2,3,195.0963,"Short Sale",FALSE
+148961,"Los Alamos",350000,3,2,146.972546,"Short Sale",FALSE
+149001,"Grover Beach",350000,3,2,136.56741,"Short Sale",FALSE
+149024,"Santa Maria-Orcutt",275000,3,2,132.293872,"Short Sale",FALSE
+149039,"Paso Robles",379000,4,3,211.540131,"Short Sale",FALSE
+149069,"King City",155900,4,2,312.897304,"Foreclosure",TRUE
+149105,"San Miguel",229000,3,2,135.452574,"Short Sale",FALSE
+149193,"Pismo Beach",604995,2,3,162.487347,"Foreclosure",TRUE
+149207,"Pismo Beach",599000,3,3,185.434388,"Short Sale",FALSE
+149230,"Morro Bay",359000,3,2,93.646224,"Short Sale",FALSE
+149275,"Lompoc",199000,4,2,141.862881,"Foreclosure",TRUE
+149287,"Paso Robles",164900,3,2,133.78032,"Short Sale",FALSE
+149307,"Coalinga",179000,3,2,168.618945,"Short Sale",FALSE
+149317,"Paso Robles",370000,4,2,191.751792,"Short Sale",FALSE
+149324,"Santa Ynez",999000,5,4,223.153006,"Short Sale",FALSE
+149369,"Paso Robles",365000,3,3,198.440808,"Short Sale",FALSE
+149401,"San Miguel",345000,3,2,139.168694,"Short Sale",FALSE
+149412,"Paso Robles",299000,2,1,99.220404,"Short Sale",FALSE
+149439,"Pismo Beach",519500,2,1,58.900502,"Short Sale",FALSE
+149470,"Buellton",645000,4,4,278.709,"Short Sale",FALSE
+149482,"Santa Maria-Orcutt",242500,3,2,113.155854,"Foreclosure",TRUE
+149514,"Santa Maria-Orcutt",259900,3,3,120.7739,"Short Sale",FALSE
+149604,"Santa Maria-Orcutt",310000,4,3,187.106642,"Short Sale",FALSE
+149612,"Atascadero",450000,2,2,135.917089,"Short Sale",FALSE
+149615,"Santa Maria-Orcutt",220000,2,2,143.163523,"Short Sale",FALSE
+149616,"San Luis Obispo",585000,3,2,117.801004,"Short Sale",FALSE
+149633,"Santa Maria-Orcutt",324000,5,4,222.9672,"Short Sale",FALSE
+149666,"Cambria",375000,1,1,51.189553,"Short Sale",FALSE
+149700,"Paso Robles",329000,3,2,131.92226,"Short Sale",FALSE
+149752,"Paso Robles",599900,5,3,256.783892,"Foreclosure",TRUE
+149791,"Santa Maria-Orcutt",74900,2,2,94.203642,"Short Sale",FALSE
+149797,"Los Osos",285000,3,2,104.05136,"Short Sale",FALSE
+149813,"Santa Maria-Orcutt",751900,3,3,315.8702,"Foreclosure",TRUE
+149829,"Santa Maria-Orcutt",295000,3,2,128.763558,"Short Sale",FALSE
+149839,"Coalinga",170000,3,2,122.63196,"Short Sale",FALSE
+149841,"Santa Maria-Orcutt",197000,3,2,127.834528,"Short Sale",FALSE
+149860,"Oceano",1250000,3,3,240.247158,"Short Sale",FALSE
+149864,"Paso Robles",249000,3,2,154.404786,"Short Sale",FALSE
+149869,"Nipomo",179000,2,2,95.968799,"Short Sale",FALSE
+149877,"Santa Maria-Orcutt",132000,3,1,97.54815,"Short Sale",FALSE
+149882,"Lockwood",425000,3,2,139.3545,"Short Sale",FALSE
+149890,"Santa Maria-Orcutt",290000,5,3,232.2575,"Short Sale",FALSE
+149909,"Los Osos",150000,2,2,83.241088,"Short Sale",FALSE
+149911,"Los Osos",150000,2,2,83.241088,"Short Sale",FALSE
+149914,"Los Osos",150000,2,2,83.241088,"Short Sale",FALSE
+149915,"Los Osos",150000,2,2,83.241088,"Short Sale",FALSE
+149916,"Los Osos",150000,2,2,83.241088,"Short Sale",FALSE
+149917,"Los Osos",205000,2,2,128.949364,"Short Sale",FALSE
+149919,"Atascadero",599000,4,3,289.85736,"Short Sale",FALSE
+149922,"Paso Robles",269000,3,3,125.604856,"Short Sale",FALSE
+149948,"Santa Maria-Orcutt",249000,4,3,182.368589,"Short Sale",FALSE
+149956,"Santa Maria-Orcutt",235000,3,3,143.163523,"Short Sale",FALSE
+149961,"Grover Beach",469000,4,3,227.519447,"Foreclosure",TRUE
+149989,"Nipomo",159000,4,2,154.21898,"Short Sale",FALSE
+149994,"King City",69900,3,1,86.957208,"Foreclosure",TRUE
+150143,"Arroyo Grande",1499000,5,7,631.7404,"Short Sale",FALSE
+150194,"Atascadero",239000,3,2,94.946866,"Short Sale",FALSE
+150199,"Atascadero",399500,3,2,154.683495,"Short Sale",FALSE
+150240,"Paso Robles",299900,3,2,112.319727,"Foreclosure",TRUE
+150256,"Lompoc",275000,3,2,157.9351,"Short Sale",FALSE
+150262,"Morro Bay",395000,4,2,161.279608,"Short Sale",FALSE
+150283,"Santa Maria-Orcutt",105000,1,1,67.912093,"Short Sale",FALSE
+150290,"Santa Maria-Orcutt",179999,3,2,100.892658,"Short Sale",FALSE
+150294,"Santa Maria-Orcutt",219000,3,2,105.073293,"Short Sale",FALSE
+150308,"Solvang",325000,3,3,139.3545,"Short Sale",FALSE
+150317,"Atascadero",829900,4,3,355.539781,"Short Sale",FALSE
+150335,"Santa Maria-Orcutt",165000,2,1,102.1933,"Short Sale",FALSE
+150360,"Santa Maria-Orcutt",179000,3,2,129.878394,"Short Sale",FALSE
+150390,"Paso Robles",279000,3,2,128.299043,"Short Sale",FALSE
+150392,"Atascadero",820000,4,4,314.662461,"Foreclosure",TRUE
+150394,"Paso Robles",399000,2,1,116.12875,"Short Sale",FALSE
+150407,"San Miguel",164900,3,1,89.651395,"Short Sale",FALSE
+150424,"Santa Maria-Orcutt",235000,4,2,172.79958,"Short Sale",FALSE
+150439,"Arroyo Grande",1900000,4,5,502.698133,"Short Sale",FALSE
+150455,"Nipomo",289000,3,2,126.998401,"Short Sale",FALSE
+150470,"Paso Robles",355000,3,2,152.36092,"Short Sale",FALSE
+150477,"Santa Maria-Orcutt",199000,3,2,117.893907,"Short Sale",FALSE
+150482,"Santa Maria-Orcutt",209000,3,2,118.451325,"Short Sale",FALSE
+150493,"Lompoc",186900,3,1,84.727536,"Foreclosure",TRUE
+150501,"Santa Maria-Orcutt",240000,4,2,135.63838,"Short Sale",FALSE
+150513,"Nipomo",515000,2,2,185.806,"Short Sale",FALSE
+150543,"Santa Maria-Orcutt",215000,4,2,162.58025,"Short Sale",FALSE
+150556,"Santa Maria-Orcutt",399900,4,4,283.35415,"Short Sale",FALSE
+150571,"Paso Robles",369000,4,3,220.273013,"Short Sale",FALSE
+150572,"Paso Robles",250000,2,2,120.030676,"Short Sale",FALSE
+150588,"Paso Robles",259000,3,2,152.36092,"Short Sale",FALSE
+150611,"Santa Maria-Orcutt",180000,2,2,100.521046,"Short Sale",FALSE
+150636,"Solvang",399900,3,2,141.398366,"Short Sale",FALSE
+150638,"Arroyo Grande",385000,3,2,142.606105,"Short Sale",FALSE
+150669,"Santa Maria-Orcutt",154000,2,2,102.1933,"Short Sale",FALSE
+150732,"San Luis Obispo",254900,2,2,89.744298,"Foreclosure",TRUE
+150744,"Paso Robles",315000,4,2,153.568659,"Short Sale",FALSE
+150746,"Santa Maria-Orcutt",437500,3,3,234.394269,"Short Sale",FALSE
+150751,"Santa Maria-Orcutt",299900,3,3,233.279433,"Short Sale",FALSE
+150773,"Arroyo Grande",399000,3,3,164.624116,"Short Sale",FALSE
+150823,"Paso Robles",330000,3,3,175.493767,"Short Sale",FALSE
+150827,"Arroyo Grande",279000,2,2,81.75464,"Short Sale",FALSE
+150844,"Santa Maria-Orcutt",248000,3,2,130.0642,"Short Sale",FALSE
+150857,"Santa Maria-Orcutt",209000,3,3,138.797082,"Short Sale",FALSE
+150879,"Los Osos",729000,3,2,171.313132,"Short Sale",FALSE
+150903,"Atascadero",454500,4,3,176.5157,"Foreclosure",TRUE
+150929,"Paso Robles",249000,3,2,109.253928,"Short Sale",FALSE
+150949,"Nipomo",1700000,3,5,414.626089,"Short Sale",FALSE
+150966,"Grover Beach",349000,3,2,151.896405,"Short Sale",FALSE
+150969,"Grover Beach",575000,3,3,194.631785,"Short Sale",FALSE
+150980,"Santa Maria-Orcutt",185000,3,2,120.7739,"Short Sale",FALSE
+150981,"Santa Maria-Orcutt",165000,3,2,111.4836,"Short Sale",FALSE
+150987,"Morro Bay",311900,0,1,84.54173,"Foreclosure",TRUE
+151000,"Santa Maria-Orcutt",175000,3,2,148.6448,"Short Sale",FALSE
+151005,"Lompoc",180000,4,2,123.746796,"Short Sale",FALSE
+151009,"Santa Maria-Orcutt",78000,2,2,156.07704,"Short Sale",FALSE
+151021,"Oceano",142900,2,1,121.981639,"Foreclosure",TRUE
+151071,"Atascadero",850000,4,4,347.828832,"Foreclosure",TRUE
+151078,"Paso Robles",389000,3,2,185.620194,"Short Sale",FALSE
+151080,"Santa Maria-Orcutt",641900,3,3,252.138742,"Foreclosure",TRUE
+151083,"Templeton",305000,4,2,166.946691,"Short Sale",FALSE
+151084,"Paso Robles",260000,3,3,156.727361,"Short Sale",FALSE
+151085,"Paso Robles",320000,3,2,154.497689,"Short Sale",FALSE
+151097,"Atascadero",199000,2,1,73.579176,"Short Sale",FALSE
+151107,"Santa Maria-Orcutt",299000,2,2,130.99323,"Short Sale",FALSE
+151114,"Buellton",289000,2,2,100.799755,"Short Sale",FALSE
+151126,"Santa Maria-Orcutt",229900,3,3,176.5157,"Short Sale",FALSE
+151138,"Atascadero",865000,4,3,307.044415,"Foreclosure",TRUE
+151186,"Atascadero",900000,4,4,368.081686,"Short Sale",FALSE
+151187,"Atascadero",199000,2,3,117.05778,"Short Sale",FALSE
+151213,"Santa Maria-Orcutt",160000,2,3,111.4836,"Short Sale",FALSE
+151227,"Santa Maria-Orcutt",299000,3,3,222.9672,"Short Sale",FALSE
+151228,"Oceano",300000,3,3,117.522295,"Short Sale",FALSE
+151232,"Santa Maria-Orcutt",270000,4,2,135.63838,"Short Sale",FALSE
+151246,"Nipomo",490000,3,3,175.958282,"Short Sale",FALSE
+151249,"Santa Maria-Orcutt",295000,3,3,167.2254,"Short Sale",FALSE
+151257,"Paso Robles",225000,3,2,143.99965,"Short Sale",FALSE
+151277,"Atascadero",324900,2,2,132.479678,"Short Sale",FALSE
+151293,"Santa Maria-Orcutt",165000,3,2,103.12233,"Short Sale",FALSE
+151296,"Santa Maria-Orcutt",157900,3,2,99.870725,"Short Sale",FALSE
+151304,"Nipomo",299000,3,2,163.137668,"Short Sale",FALSE
+151308,"Paso Robles",369000,3,3,199.74145,"Short Sale",FALSE
+151373,"Santa Maria-Orcutt",233000,4,2,153.28995,"Short Sale",FALSE
+151395,"Santa Maria-Orcutt",109900,2,2,111.4836,"Foreclosure",TRUE
+151402,"Paso Robles",309000,3,2,138.239664,"Short Sale",FALSE
+151419,"Pismo Beach",1799000,4,4,335.286927,"Foreclosure",TRUE
+151441,"Santa Maria-Orcutt",209900,2,2,103.401039,"Short Sale",FALSE
+151443,"Solvang",499000,3,2,148.6448,"Short Sale",FALSE
+151451,"Arroyo Grande",525000,4,2,182.182783,"Short Sale",FALSE
+151454,"Los Osos",650000,3,3,301.841847,"Short Sale",FALSE
+151470,"Morro Bay",529000,3,3,140.28353,"Short Sale",FALSE
+151498,"Santa Maria-Orcutt",179000,3,2,120.7739,"Short Sale",FALSE
+151521,"Lompoc",282000,3,3,161.279608,"Short Sale",FALSE
+151527,"Templeton",899000,4,3,279.452224,"Short Sale",FALSE
+151534,"Santa Maria-Orcutt",130000,3,2,171.87055,"Short Sale",FALSE
+151636,"Santa Maria-Orcutt",205000,3,2,106.466838,"Short Sale",FALSE
+151640,"Santa Maria-Orcutt",180900,2,2,102.1933,"Short Sale",FALSE
+151647,"Atascadero",409900,4,4,198.347905,"Short Sale",FALSE
+151648,"Atascadero",409900,4,4,198.347905,"Short Sale",FALSE

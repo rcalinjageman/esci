@@ -1,0 +1,9 @@
+"StudyName","Country","Population","Difficulty","Task","M Control","s Control","M Power","s Power","Cohen d unb","n Control","n Power"
+"Burmer & Englich - Ex1","Germany","Undergrads","Normal","Golf",2.28,1.41,3.28,1.41,0.694,18,18
+"Burmer & Englich - Ex2","Germany","Undergrads","Normal","Darts",4.61,2.27,5.97,1.37,0.717,23,23
+"Cusack - Ex1","U.S.","Undergrads","Normal","Golf",4.05,1.67,4.25,1.75,0.119,37,36
+"Cusack - Ex2","U.S.","Undergrads","Difficult","Golf",1.71,1.64,2.31,1.45,0.386,35,35
+"Cusack - Ex3","U.S.","Online","Normal","Mirror-Tracing",44,23,44,22,0.01,83,66
+"Cusack - Ex4 - Easy","U.S.","Online","Normal","Mirror-Tracing",50,21,50,22,-0.01,81,80
+"Cusack - Ex4 - Hard","U.S.","Online","Difficult","Mirror-Tracing",31,15,32,15,0.109,83,68
+"Cusack - Ex5","U.S.","Undergrads","Normal","Word Production",21.6,7.72,24.9,14.1,0.288,44,46

@@ -21,7 +21,7 @@ test_that("Compare estimate_pdiff_one to ESCI_One_Proportion example", {
   } else {
     mysp <- as.list(
       as.data.frame(
-        statpsych::ci.prop1(.05, 8, 22)
+        statpsych::ci.prop(.05, 8, 22)
       )[1, ]
     )
 
@@ -155,7 +155,7 @@ test_that("Call estimate_proportion with dataframe", {
     } else {
       mysp <- as.list(
         as.data.frame(
-          statpsych::ci.prop1(1 - myconf_level, 8, 22)
+          statpsych::ci.prop(1 - myconf_level, 8, 22)
         )[1, ]
       )
 
