@@ -90,8 +90,8 @@ vectors, or a data frame.
 }
 \details{
 If equal variance is not assumed, each group is treated independently.  In
-that case, the estimated mean, CI, and SE is from \code{\link[statpsych:ci.mean]{statpsych::ci.mean1()}},
-and the estimated median, CI, and SE is from \code{\link[statpsych:ci.median]{statpsych::ci.median1()}}.  If
+that case, the estimated mean, CI, and SE is from \code{\link[statpsych:ci.mean]{statpsych::ci.mean()}},
+and the estimated median, CI, and SE is from \code{\link[statpsych:ci.median]{statpsych::ci.median()}}.  If
 equal variance is assumed, each group CI is calculated as with respect to all
 group data, using \code{\link[statpsych:ci.lc.mean.bs]{statpsych::ci.lc.mean.bs()}} and
 \code{\link[statpsych:ci.lc.median.bs]{statpsych::ci.lc.median.bs()}}

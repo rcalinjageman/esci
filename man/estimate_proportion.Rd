@@ -86,8 +86,8 @@ it with \code{\link[=plot_proportion]{plot_proportion()}}.
 If you want to compare your estimate to a known value or reference, then
 use \code{\link[=estimate_pdiff_one]{estimate_pdiff_one()}}.
 
-The estimated proportions are from \code{\link[statpsych:ci.prop]{statpsych::ci.prop1()}} (renamed
-ci.prop as of statpsych 1.6).
+The estimated proportions are from \code{\link[statpsych:ci.prop]{statpsych::ci.prop()}} (named
+ci.prop1 in statpsych < 1.6).
 }
 \examples{
 # From raw data

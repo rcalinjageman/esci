@@ -90,8 +90,8 @@ Once you generate an estimate with this function, you can visualize
 it with \code{\link[=plot_pdiff]{plot_pdiff()}} and you can test hypotheses with
 \code{\link[=test_pdiff]{test_pdiff()}}.
 
-The estimated proportion differences are from \code{\link[statpsych:ci.prop]{statpsych::ci.prop1()}} (renamed
-ci.prop as of statpsych 1.6).
+The estimated proportion differences are from \code{\link[statpsych:ci.prop]{statpsych::ci.prop()}} (named
+ci.prop in statpsych < 1.6).
 }
 \examples{
 # From raw data
