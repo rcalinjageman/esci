@@ -27,6 +27,7 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             reported_effect_size = "mean_difference",
             assume_equal_variance = TRUE,
             random_effects = "random_effects",
+            method = "DL",
             include_PIs = FALSE,
             show_details = FALSE,
             es_plot_width = "600",
@@ -241,6 +242,14 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                     "random_effects",
                     "fixed_effects",
                     "compare"))
+            private$..method <- jmvcore::OptionList$new(
+                "method",
+                method,
+                default="DL",
+                options=list(
+                    "DL",
+                    "REML",
+                    "PM"))
             private$..include_PIs <- jmvcore::OptionBool$new(
                 "include_PIs",
                 include_PIs,
@@ -1517,6 +1526,7 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             self$.addOption(private$..reported_effect_size)
             self$.addOption(private$..assume_equal_variance)
             self$.addOption(private$..random_effects)
+            self$.addOption(private$..method)
             self$.addOption(private$..include_PIs)
             self$.addOption(private$..show_details)
             self$.addOption(private$..es_plot_width)
@@ -1604,6 +1614,7 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
         reported_effect_size = function() private$..reported_effect_size$value,
         assume_equal_variance = function() private$..assume_equal_variance$value,
         random_effects = function() private$..random_effects$value,
+        method = function() private$..method$value,
         include_PIs = function() private$..include_PIs$value,
         show_details = function() private$..show_details$value,
         es_plot_width = function() private$..es_plot_width$value,
@@ -1690,6 +1701,7 @@ jamovimetamdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
         ..reported_effect_size = NA,
         ..assume_equal_variance = NA,
         ..random_effects = NA,
+        ..method = NA,
         ..include_PIs = NA,
         ..show_details = NA,
         ..es_plot_width = NA,
@@ -2232,6 +2244,7 @@ jamovimetamdiffBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
 #' @param reported_effect_size .
 #' @param assume_equal_variance .
 #' @param random_effects .
+#' @param method .
 #' @param include_PIs .
 #' @param show_details .
 #' @param es_plot_width .
@@ -2338,6 +2351,7 @@ jamovimetamdiff <- function(
     reported_effect_size = "mean_difference",
     assume_equal_variance = TRUE,
     random_effects = "random_effects",
+    method = "DL",
     include_PIs = FALSE,
     show_details = FALSE,
     es_plot_width = "600",
@@ -2467,6 +2481,7 @@ jamovimetamdiff <- function(
         reported_effect_size = reported_effect_size,
         assume_equal_variance = assume_equal_variance,
         random_effects = random_effects,
+        method = method,
         include_PIs = include_PIs,
         show_details = show_details,
         es_plot_width = es_plot_width,

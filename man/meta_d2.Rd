@@ -17,6 +17,7 @@ meta_d2(
   effect_label = "My effect",
   assume_equal_variance = FALSE,
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 )
 }
@@ -48,6 +49,9 @@ the effect}
 
 \item{random_effects}{Boolean; TRUE for a random effects model; otherwise
 fixed effects}
+
+\item{method}{If not fixed effects, this controls the approach.  Defaults to
+'DL', other options are REML and PM}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}

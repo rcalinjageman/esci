@@ -35,6 +35,8 @@
 #'   the effect
 #' @param random_effects Boolean; TRUE for a random effects model; otherwise
 #'   fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -140,6 +142,7 @@ meta_d1 <- function(
   contrast = NULL,
   effect_label = "My effect",
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -179,7 +182,7 @@ meta_d1 <- function(
 
   # Check that data is a data.frame
   esci_assert_type(data, "is.data.frame")
-
+  method <- match.arg(method)
   # means
   esci_assert_valid_column_name(data, means_quoname)
   esci_assert_column_type(data, means_quoname, "is.numeric")
@@ -328,6 +331,7 @@ These are rows {paste(which(!is.whole.number(data[[ns_quoname]])), collapse = ',
     effect_size_name = "d1",
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

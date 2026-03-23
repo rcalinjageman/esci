@@ -21,6 +21,7 @@ jamovimetamean(
   reference_mean = "",
   reported_effect_size = "mean_difference",
   random_effects = "random_effects",
+  method = "DL",
   include_PIs = FALSE,
   show_details = FALSE,
   es_plot_width = "600",
@@ -119,6 +120,8 @@ jamovimetamean(
 \item{reported_effect_size}{.}
 
 \item{random_effects}{.}
+
+\item{method}{.}
 
 \item{include_PIs}{.}
 

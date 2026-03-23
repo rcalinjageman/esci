@@ -261,20 +261,17 @@ children:
             collapsed: true
             children:
               - type: Label
-                label: Reference
-                heading: true
+                label: '<em><b>Reference</b></em>'
                 cell:
                   column: 1
                   row: 1
               - type: Label
-                label: Comparison
-                heading: true
+                label: '<em><b>Comparison</b></em>'
                 cell:
                   column: 2
                   row: 1
               - type: Label
-                label: Difference
-                heading: true
+                label: '<em><b>Difference</b></em>'
                 cell:
                   column: 3
                   row: 1

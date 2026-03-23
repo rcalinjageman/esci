@@ -258,14 +258,14 @@
       1 Comparison            motivation              condition
       2  Reference            motivation              condition
       3 Difference            motivation              condition
-                                 effect effect_size       LL       UL        SE
-      1                         Chaling    5.264706 4.520085 6.009327 0.3512521
-      2           (Comfort and Control)    3.890351 3.320808 4.459894 0.2794108
-      3 Chaling ‒ (Comfort and Control)    1.374355 0.463580 2.285130 0.4488301
-              df     ta_LL    ta_UL
-      1 16.00000 4.6514606 5.877951
-      2 31.43404 3.4168059 4.363896
-      3 35.43363 0.6162763 2.132434
+                                 effect effect_size        LL       UL        SE
+      1                         Chaling    5.264706 4.5200847 6.009327 0.3512521
+      2           (Comfort and Control)    3.890351 3.3208046 4.459897 0.2794108
+      3 Chaling ‒ (Comfort and Control)    1.374355 0.4635767 2.285133 0.4488301
+           df     ta_LL    ta_UL
+      1 16.00 4.6514606 5.877951
+      2 31.43 3.4168041 4.363898
+      3 35.43 0.6162742 2.132436
       
       -- es_median_difference --
               type outcome_variable_name grouping_variable_name
@@ -320,14 +320,14 @@
       1 Comparison            motivation              condition
       2  Reference            motivation              condition
       3 Difference            motivation              condition
-                                 effect effect_size       LL       UL        SE
-      1                         Chaling    5.264706 4.520085 6.009327 0.3512521
-      2           (Comfort and Control)    3.890351 3.320808 4.459894 0.2794108
-      3 Chaling ‒ (Comfort and Control)    1.374355 0.463580 2.285130 0.4488301
-              df     ta_LL    ta_UL
-      1 16.00000 4.6514606 5.877951
-      2 31.43404 3.4168059 4.363896
-      3 35.43363 0.6162763 2.132434
+                                 effect effect_size        LL       UL        SE
+      1                         Chaling    5.264706 4.5200847 6.009327 0.3512521
+      2           (Comfort and Control)    3.890351 3.3208046 4.459897 0.2794108
+      3 Chaling ‒ (Comfort and Control)    1.374355 0.4635767 2.285133 0.4488301
+           df     ta_LL    ta_UL
+      1 16.00 4.6514606 5.877951
+      2 31.43 3.4168041 4.363898
+      3 35.43 0.6162742 2.132436
       
       -- es_median_difference --
               type outcome_variable_name grouping_variable_name
@@ -379,14 +379,14 @@
       1 Comparison   My outcome variable   My grouping variable
       2  Reference   My outcome variable   My grouping variable
       3 Difference   My outcome variable   My grouping variable
-                           effect effect_size        LL        UL        SE       df
-      1               (G1 and G2)       35.70 33.228427 38.171573 0.8586501 18.00000
-      2               (G3 and G4)       41.05 38.210040 43.889960 0.9762543 16.50397
-      3 (G1 and G2) ‒ (G3 and G4)       -5.35 -8.900269 -1.799731 1.3001356 33.52169
+                           effect effect_size       LL       UL        SE    df
+      1               (G1 and G2)       35.70 33.22843 38.17157 0.8586501 18.00
+      2               (G3 and G4)       41.05 38.20995 43.89005 0.9762543 16.50
+      3 (G1 and G2) ‒ (G3 and G4)       -5.35 -8.90028 -1.79972 1.3001356 33.52
             ta_LL     ta_UL
       1 33.508399 37.891601
-      2 38.536272 43.563728
-      3 -8.526055 -2.173945
+      2 38.536208 43.563792
+      3 -8.526063 -2.173937
       
       -- es_smd --
         outcome_variable_name grouping_variable_name                    effect

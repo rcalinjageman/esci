@@ -92,6 +92,7 @@ children:
         children:
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -109,6 +110,7 @@ children:
               row: 1
           - type: Label
             label: 'Histogram'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -120,6 +122,7 @@ children:
               row: 2
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 3
@@ -161,7 +164,8 @@ children:
               column: 1
               row: 6
           - type: Label
-            label: '<i>X</i> axis'
+            label: <i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 7

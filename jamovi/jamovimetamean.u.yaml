@@ -107,6 +107,9 @@ children:
         enable: '(switch:from_raw)'
       - type: ComboBox
         name: random_effects
+      - type: ComboBox
+        name: method
+        enable: '(random_effects:random_effects)'
   - type: Label
     label: Results options
     stretchFactor: 1
@@ -127,6 +130,7 @@ children:
         children:
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -144,6 +148,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -166,6 +171,7 @@ children:
               row: 3
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 4
@@ -213,6 +219,7 @@ children:
               row: 7
           - type: Label
             label: 'Difference axis'
+            heading: true
             cell:
               column: 0
               row: 8
@@ -243,6 +250,7 @@ children:
               row: 11
           - type: Label
             label: 'Sample-size scaling'
+            heading: true
             cell:
               column: 0
               row: 12
@@ -264,32 +272,33 @@ children:
             collapsed: true
             children:
               - type: Label
-                label: <b>Reference</b>
+                label: '<em><b>Reference</b></em>'
                 cell:
                   column: 1
                   row: 3
               - type: Label
-                label: <b>Comparison</b>
+                label: '<em><b>Comparison</b></em>'
                 cell:
                   column: 2
                   row: 3
               - type: Label
-                label: <b>Difference</b>
+                label: '<em><b>Difference</b></em>'
                 cell:
                   column: 3
                   row: 3
               - type: Label
-                label: <b>Unused</b>
+                label: '<em><b>Unused</b></em>'
                 cell:
                   column: 4
                   row: 3
               - type: Label
-                label: '<b>Point estimate markers</b>'
+                label: 'Point estimate markers'
+                heading: true
                 cell:
                   column: 0
                   row: 4
               - type: Label
-                label: '<span style="font-weight:normal">Shape</span>'
+                label: 'Shape'
                 cell:
                   column: 0
                   row: 5
@@ -314,7 +323,7 @@ children:
                   column: 4
                   row: 5
               - type: Label
-                label: '<span style="font-weight:normal">Outline</span>'
+                label: 'Outline'
                 cell:
                   column: 0
                   row: 6
@@ -339,7 +348,7 @@ children:
                   column: 4
                   row: 6
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: 'Fill'
                 cell:
                   column: 0
                   row: 7
@@ -364,7 +373,7 @@ children:
                   column: 4
                   row: 7
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 8
@@ -390,11 +399,12 @@ children:
                   row: 8
               - type: Label
                 label: '<b>CIs</b>'
+                heading: true
                 cell:
                   column: 0
                   row: 9
               - type: Label
-                label: '<span style="font-weight:normal">Style</span>'
+                label: 'Style'
                 cell:
                   column: 0
                   row: 10
@@ -419,7 +429,7 @@ children:
                   column: 4
                   row: 10
               - type: Label
-                label: '<span style="font-weight:normal">Thickness</span>'
+                label: 'Thickness'
                 cell:
                   column: 0
                   row: 11
@@ -444,7 +454,7 @@ children:
                   column: 4
                   row: 11
               - type: Label
-                label: '<span style="font-weight:normal">Color</span>'
+                label: 'Color'
                 cell:
                   column: 0
                   row: 12
@@ -469,7 +479,7 @@ children:
                   column: 4
                   row: 12
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 13
@@ -499,27 +509,28 @@ children:
                   column: 0
                   row: 14
               - type: Label
-                label: '<b>Diamonds</b>'
+                label: 'Diamonds'
+                heading: true
                 cell:
                   column: 0
                   row: 15
               - type: Label
-                label: Outline
+                label: '<em><b>Outline</b></em>'
                 cell:
                   column: 1
                   row: 16
               - type: Label
-                label: Fill
+                label: '<em><b>Fill</b></em>'
                 cell:
                   column: 2
                   row: 16
               - type: Label
-                label: Transparency
+                label: '<em><b>Transparency</b></em>'
                 cell:
                   column: 3
                   row: 16
               - type: Label
-                label: '<span style="font-weight:normal">Overall</span>'
+                label: 'Overall'
                 cell:
                   column: 0
                   row: 17
@@ -539,7 +550,7 @@ children:
                   column: 3
                   row: 17
               - type: Label
-                label: '<span style="font-weight:normal">Reference</span>'
+                label: 'Reference'
                 cell:
                   column: 0
                   row: 18
@@ -559,7 +570,7 @@ children:
                   column: 3
                   row: 18
               - type: Label
-                label: '<span style="font-weight:normal">Comparison</span>'
+                label: 'Comparison'
                 cell:
                   column: 0
                   row: 19
@@ -579,7 +590,7 @@ children:
                   column: 3
                   row: 19
               - type: Label
-                label: '<span style="font-weight:normal">Unused</span>'
+                label: 'Unused'
                 cell:
                   column: 0
                   row: 20

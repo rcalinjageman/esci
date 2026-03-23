@@ -27,6 +27,7 @@ jamovimetamdiff(
   reported_effect_size = "mean_difference",
   assume_equal_variance = TRUE,
   random_effects = "random_effects",
+  method = "DL",
   include_PIs = FALSE,
   show_details = FALSE,
   es_plot_width = "600",
@@ -137,6 +138,8 @@ jamovimetamdiff(
 \item{assume_equal_variance}{.}
 
 \item{random_effects}{.}
+
+\item{method}{.}
 
 \item{include_PIs}{.}
 

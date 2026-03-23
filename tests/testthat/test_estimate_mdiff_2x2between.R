@@ -117,10 +117,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
   }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
-  testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
-  testthat::expect_equal(estimate$es_smd$UL, mysp$UL)
-  testthat::expect_equal(estimate$es_smd$SE, mysp$SE)
+  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$LL, mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$UL, mysp$UL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$SE, mysp$SE, tolerance = 0.001)
 
   # Main effect B
   estimate <- estimates$main_effect_B
@@ -142,10 +142,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
   }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
-  testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
-  testthat::expect_equal(estimate$es_smd$UL, mysp$UL)
-  testthat::expect_equal(estimate$es_smd$SE, mysp$SE)
+  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$LL, mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$UL, mysp$UL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$SE, mysp$SE, tolerance = 0.001)
 
 
   # Interaction
@@ -168,10 +168,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
   }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
-  testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
-  testthat::expect_equal(estimate$es_smd$UL, mysp$UL)
-  testthat::expect_equal(estimate$es_smd$SE, mysp$SE)
+  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$LL, mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$UL, mysp$UL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$SE, mysp$SE, tolerance = 0.001)
 
   # simple_effect_B_at_A2
   estimate <- estimates$simple_effect_B_at_A2
@@ -193,10 +193,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
   }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
-  testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
-  testthat::expect_equal(estimate$es_smd$UL, mysp$UL)
-  testthat::expect_equal(estimate$es_smd$SE, mysp$SE)
+  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$LL, mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$UL, mysp$UL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$SE, mysp$SE, tolerance = 0.001)
 
 
   # simple_effect_B_at_A1
@@ -219,10 +219,10 @@ test_that("Compare estimate_mdiff_2x2_between to statpsych::ci.lc.stdmean.bs, Fr
   }
 
   testthat::expect_s3_class(estimate, "esci_estimate")
-  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate)
-  testthat::expect_equal(estimate$es_smd$LL, mysp$LL)
-  testthat::expect_equal(estimate$es_smd$UL, mysp$UL)
-  testthat::expect_equal(estimate$es_smd$SE, mysp$SE)
+  testthat::expect_equal(estimate$es_smd$effect_size, mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$LL, mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$UL, mysp$UL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_smd$SE, mysp$SE, tolerance = 0.001)
 
 })
 

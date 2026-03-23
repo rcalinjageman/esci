@@ -14,6 +14,7 @@ meta_proportion(
   contrast = NULL,
   effect_label = "My effect",
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 )
 }
@@ -37,6 +38,9 @@ express as a vector of contrast weights with 1 weight per moderator level.}
 the effect being synthesized}
 
 \item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
+
+\item{method}{If not fixed effects, this controls the approach.  Defaults to
+'DL', other options are REML and PM}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}

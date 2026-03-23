@@ -15,6 +15,7 @@ meta_any(
   effect_size_name = "Effect size",
   moderator_variable_name = "My moderator",
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 )
 }
@@ -47,6 +48,9 @@ quoted name of the moderator column or 'My moderator'}
 
 \item{random_effects}{Use TRUE to obtain a random effect meta-analysis
 (usually recommended); FALSE for fixed effect.}
+
+\item{method}{If not fixed effects, this controls the approach.  Defaults to
+'DL', other options are REML and PM}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}

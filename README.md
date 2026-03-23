@@ -76,12 +76,12 @@ devtools::install_github('rcalinjageman/esci',  branch = "development")
 
 ## Roadmap
 
--   Finish writing documentation and tests
+-   ~Finish writing documentation and tests~
 -   Review all functions for consistency of parameter names and returned
     object names
 -   Rewrite visualization functions completely to remove clunky
     approaches to the difference axis and other issues
--   Complete JASP integration
+-   ~Complete JASP integration~
 -   Rewrite jamovi integration
 -   Add prediction intervals for basic designs
 -   Repeated measures with 1 IV and multiple groups

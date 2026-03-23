@@ -51,6 +51,8 @@
 #'   Cohen's d_s or d_avg) or 'smd' (to return d_s or d_avg without correction
 #'   for bias).  Defaults to mean_difference.
 #' @param random_effects TRUE for random effect model; FALSE for fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param assume_equal_variance Defaults to FALSE
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
@@ -140,6 +142,7 @@ meta_mdiff_two <- function(
   reported_effect_size = c("mean_difference", "smd_unbiased", "smd"),
   assume_equal_variance = FALSE,
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -206,6 +209,7 @@ meta_mdiff_two <- function(
 
   # Check that data is a data.frame
   esci_assert_type(data, "is.data.frame")
+  method <- match.arg(method)
 
   # reference_means
   esci_assert_valid_column_name(data, reference_means_quoname)
@@ -507,6 +511,7 @@ The rows with r but mismatching n are:
     effect_size_name = reported_effect_size,
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

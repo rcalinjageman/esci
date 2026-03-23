@@ -53,7 +53,7 @@ children:
               column: 2
               row: 0
           - type: Label
-            label: '<span style="font-weight:normal">Name</span> '
+            label: 'Name'
             stretchFactor: 1
             cell:
               column: 0
@@ -78,7 +78,7 @@ children:
               row: 1
           - type: Label
             stretchFactor: 1
-            label: '<span style="font-weight:normal">Correlation (<i>r</i>)</span> '
+            label: 'Correlation (<i>r</i>) '
             cell:
               column: 0
               row: 2
@@ -97,7 +97,7 @@ children:
               column: 2
               row: 2
           - type: Label
-            label: '<span style="font-weight:normal">Sample size (<i>n</i>)</span> '
+            label: 'Sample size (<i>n</i>) '
             stretchFactor: 1
             cell:
               column: 0
@@ -309,20 +309,17 @@ children:
             collapsed: true
             children:
               - type: Label
-                label: Reference
-                heading: true
+                label: '<em><b>Reference</b></em>'
                 cell:
                   column: 1
                   row: 1
               - type: Label
-                label: Comparison
-                heading: true
+                label: '<em><b>Comparison</b></em>'
                 cell:
                   column: 2
                   row: 1
               - type: Label
-                label: Unused
-                heading: true
+                label: '<em><b>Unused</b></em>'
                 cell:
                   column: 3
                   row: 1
@@ -634,20 +631,17 @@ children:
             collapsed: true
             children:
               - type: Label
-                label: Reference
-                heading: true
+                label: '<em><b>Reference</b></em>'
                 cell:
                   column: 1
                   row: 1
               - type: Label
-                label: Comparison
-                heading: true
+                label: '<em><b>Comparison</b></em>'
                 cell:
                   column: 2
                   row: 1
               - type: Label
-                label: Difference
-                heading: true
+                label: '<em><b>Difference</b></em>'
                 cell:
                   column: 3
                   row: 1
@@ -664,32 +658,32 @@ children:
                   column: 0
                   row: 8
               - type: Label
-                label: '<span style="font-weight:normal">Shape</span>'
+                label: 'Shape'
                 cell:
                   column: 0
                   row: 3
               - type: Label
-                label: '<span style="font-weight:normal">Size</span>'
+                label: 'Size'
                 cell:
                   column: 0
                   row: 4
               - type: Label
-                label: '<span style="font-weight:normal">Outline</span>'
+                label: 'Outline'
                 cell:
                   column: 0
                   row: 5
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: 'Fill'
                 cell:
                   column: 0
                   row: 6
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 7
               - type: Label
-                label: '<span style="font-weight:normal">Style</span>'
+                label: 'Style'
                 cell:
                   column: 0
                   row: 9

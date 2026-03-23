@@ -42,6 +42,8 @@
 #'   risk difference), or 'PETO' (log odds ratio estimated using Peto's
 #'   method).  See [metafor::escalc()] for details.
 #' @param random_effects TRUE for random effect model; FALSE for fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -136,6 +138,7 @@ meta_pdiff_two <- function(
   effect_label = "My effect",
   reported_effect_size = c("RD", "RR", "OR", "AS", "PETO"),
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -184,6 +187,7 @@ meta_pdiff_two <- function(
 
   # Check that data is a data.frame
   esci_assert_type(data, "is.data.frame")
+  method <- match.arg(method)
 
   # comparison_cases
   esci_assert_valid_column_name(data, comparison_cases_quoname)
@@ -433,6 +437,7 @@ These are rows {paste(which(!is.whole.number(data[[reference_ns_quoname]])), col
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     contrast = contrast,
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

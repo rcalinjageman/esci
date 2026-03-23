@@ -142,6 +142,7 @@ jamovi_meta_pdiff_two <- function(self) {
   args$comparison_ns <- self$options$comparison_ns
 
   args$random_effects <- self$options$random_effects %in% c("random_effects", "compare")
+  args$method = self$options$method
 
   # self$results$debug$setVisible(TRUE)
   # self$results$debug$setContent(args)

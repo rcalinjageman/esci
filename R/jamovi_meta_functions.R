@@ -135,9 +135,9 @@ jamovi_meta_run <- function(
 
   # Tbl note
   model_note <- if(self$options$random_effects != "fixed_effects")
-    "Estimate is based on a random effects (RE) model."
+    paste("Estimate is based on a random effects (RE) model using the ", self$options$method, " approach.<br>", sep = "")
   else
-    "Estimate is based on a fixed effect (FE) model."
+    "Estimate is based on a fixed effect (FE) model.<br>"
 
 
   correction_note <- NULL

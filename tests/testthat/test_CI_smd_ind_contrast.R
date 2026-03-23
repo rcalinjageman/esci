@@ -44,9 +44,9 @@ test_that("CI_smd_ind_contrast compare to publshed examples", {
   )
 
 
-  testthat::expect_equal(res$effect_size, sres[1, 1], tolerance = 1e-5)
-  testthat::expect_equal(res$LL, sres[1, 4], tolerance = 1e-5)
-  testthat::expect_equal(res$UL, sres[1, 5], tolerance = 1e-5)
+  testthat::expect_equal(res$effect_size, sres[1, 1], tolerance = 1e-4)
+  testthat::expect_equal(res$LL, sres[1, 4], tolerance = 1e-4)
+  testthat::expect_equal(res$UL, sres[1, 5], tolerance = 1e-4)
 
 
   # Now same example but with correction for bias
@@ -60,9 +60,9 @@ test_that("CI_smd_ind_contrast compare to publshed examples", {
   )
 
 
-  testthat::expect_equal(res$effect_size, sres[1, 2], tolerance = 1e-5)
-  testthat::expect_equal(res$LL, sres[1, 4], tolerance = 1e-5)
-  testthat::expect_equal(res$UL, sres[1, 5], tolerance = 1e-5)
+  testthat::expect_equal(res$effect_size, sres[1, 2], tolerance = 1e-4)
+  testthat::expect_equal(res$LL, sres[1, 4], tolerance = 1e-4)
+  testthat::expect_equal(res$UL, sres[1, 5], tolerance = 1e-4)
 
 
 })

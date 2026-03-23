@@ -9,12 +9,12 @@
         grouping_variable_name grouping_variable_level        x_variable_name
       1                 Gender                 Females Satisfaction with life
       2                 Gender                   Males Satisfaction with life
-          y_variable_name  effect effect_size        LL        UL        SE  n df
-      1 Body satisfaction Females        0.41 0.1685419 0.6005378 0.1092338 59 57
-      2 Body satisfaction   Males        0.53 0.2811300 0.7063492 0.1060255 47 45
-            ta_LL     ta_UL
-      1 0.2091420 0.5729339
-      2 0.3242716 0.6817387
+          y_variable_name  effect effect_size     LL     UL      SE  n df  ta_LL
+      1 Body satisfaction Females        0.41 0.1685 0.6005 0.10923 59 57 0.2091
+      2 Body satisfaction   Males        0.53 0.2811 0.7063 0.10603 47 45 0.3243
+         ta_UL
+      1 0.5729
+      2 0.6817
       
       -- es_r_difference --
               type grouping_variable_name grouping_variable_level
@@ -25,14 +25,14 @@
       1 Satisfaction with life Body satisfaction             Males        0.53
       2 Satisfaction with life Body satisfaction           Females        0.41
       3 Satisfaction with life Body satisfaction Males  -  Females        0.12
-                LL        UL        SE  n df      ta_LL     ta_UL        rz       sem
-      1  0.2811300 0.7063492 0.1060255 47 45  0.3242716 0.6817387 0.5901452 0.1507557
-      2  0.1685419 0.6005378 0.1092338 59 57  0.2091420 0.5729339 0.4356112 0.1336306
-      3 -0.1934341 0.4190001        NA NA NA -0.1424341 0.3717311 0.1545339 0.2014557
-                z            p
-      1 3.9145801 9.056166e-05
-      2 3.2598159 1.114846e-03
-      3 0.7670863 4.430302e-01
+             LL     UL      SE  n df   ta_LL  ta_UL        rz       sem         z
+      1  0.2811 0.7063 0.10603 47 45  0.3243 0.6817 0.5901452 0.1507557 3.9145801
+      2  0.1685 0.6005 0.10923 59 57  0.2091 0.5729 0.4356112 0.1336306 3.2598159
+      3 -0.1934 0.4190      NA NA NA -0.1424 0.3717 0.1545339 0.2014557 0.7670863
+                   p
+      1 9.056166e-05
+      2 1.114846e-03
+      3 4.430302e-01
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.
@@ -67,29 +67,25 @@
       1 Comparison                  major                 Science          ls_pre
       2  Reference                  major              Humanities          ls_pre
       3 Difference                  major  Science  -  Humanities          ls_pre
-        y_variable_name                 effect effect_size         LL        UL
-      1         ls_post                Science  0.87969308  0.1536278 0.9842484
-      2         ls_post             Humanities  0.86521602  0.0953317 0.9822849
-      3         ls_post Science  -  Humanities  0.01447705 -0.7209657 0.7914286
-               SE  n df      ta_LL     ta_UL        rz       sem          z
-      1 0.1011329  6  4  0.3246022 0.9774135 1.3744088 0.5773503 2.38054590
-      2 0.1124300  6  4  0.2706371 0.9746090 1.3137294 0.5773503 2.27544611
-      3        NA NA NA -0.5512903 0.6170328 0.0606794 0.8164966 0.07431678
-                 p
-      1 0.01728701
-      2 0.02287918
-      3 0.94075833
+        y_variable_name                 effect effect_size      LL     UL      SE  n
+      1         ls_post                Science      0.8797  0.1536 0.9842 0.10113  6
+      2         ls_post             Humanities      0.8652  0.0953 0.9823 0.11243  6
+      3         ls_post Science  -  Humanities      0.0145 -0.7210 0.7914      NA NA
+        df   ta_LL  ta_UL         rz       sem          z          p
+      1  4  0.3246 0.9774 1.37443942 0.5773503 2.38059891 0.01728452
+      2  4  0.2706 0.9746 1.31366568 0.5773503 2.27533571 0.02288580
+      3 NA -0.5513 0.6170 0.06077374 0.8164966 0.07443233 0.94066639
       
       -- es_r --
         grouping_variable_name grouping_variable_level x_variable_name
       1                  major              Humanities          ls_pre
       2                  major                 Science          ls_pre
-        y_variable_name     effect effect_size        LL        UL        SE n df
-      1         ls_post Humanities   0.8652160 0.0953317 0.9822849 0.1124300 6  4
-      2         ls_post    Science   0.8796931 0.1536278 0.9842484 0.1011329 6  4
-            ta_LL     ta_UL
-      1 0.2706371 0.9746090
-      2 0.3246022 0.9774135
+        y_variable_name     effect effect_size     LL     UL      SE n df  ta_LL
+      1         ls_post Humanities      0.8652 0.0953 0.9823 0.11243 6  4 0.2706
+      2         ls_post    Science      0.8797 0.1536 0.9842 0.10113 6  4 0.3246
+         ta_UL
+      1 0.9746
+      2 0.9774
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.
@@ -105,12 +101,12 @@
         grouping_variable_name grouping_variable_level        x_variable_name
       1                 Gender                 Females Satisfaction with life
       2                 Gender                   Males Satisfaction with life
-          y_variable_name  effect effect_size        LL        UL         SE   n df
-      1 Body satisfaction Females         0.6 0.4041348 0.7405304 0.06432242 100 98
-      2 Body satisfaction   Males         0.6 0.3981150 0.7436090 0.06601096  95 93
-            ta_LL     ta_UL
-      1 0.4251094 0.7288743
-      2 0.4197736 0.7317547
+          y_variable_name  effect effect_size     LL     UL      SE   n df  ta_LL
+      1 Body satisfaction Females         0.6 0.4041 0.7405 0.06432 100 98 0.4251
+      2 Body satisfaction   Males         0.6 0.3981 0.7436 0.06601  95 93 0.4198
+         ta_UL
+      1 0.7289
+      2 0.7318
       
       -- es_r_difference --
               type grouping_variable_name grouping_variable_level
@@ -121,14 +117,14 @@
       1 Satisfaction with life Body satisfaction             Males         0.6
       2 Satisfaction with life Body satisfaction           Females         0.6
       3 Satisfaction with life Body satisfaction Males  -  Females         0.0
-                LL        UL         SE   n df      ta_LL     ta_UL        rz
-      1  0.3981150 0.7436090 0.06601096  95 93  0.4197736 0.7317547 0.6931472
-      2  0.4041348 0.7405304 0.06432242 100 98  0.4251094 0.7288743 0.6931472
-      3 -0.2459803 0.2428719         NA  NA NA -0.2215630 0.2189658 0.0000000
-              sem        z            p
-      1 0.1042572 6.648434 2.962274e-11
-      2 0.1015346 6.826708 8.688528e-12
-      3 0.1455295 0.000000 1.000000e+00
+             LL     UL      SE   n df   ta_LL  ta_UL        rz       sem        z
+      1  0.3981 0.7436 0.06601  95 93  0.4198 0.7318 0.6931472 0.1042572 6.648434
+      2  0.4041 0.7405 0.06432 100 98  0.4251 0.7289 0.6931472 0.1015346 6.826708
+      3 -0.2460 0.2429      NA  NA NA -0.2216 0.2190 0.0000000 0.1455295 0.000000
+                   p
+      1 2.962274e-11
+      2 8.688528e-12
+      3 1.000000e+00
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 99% expected coverage.

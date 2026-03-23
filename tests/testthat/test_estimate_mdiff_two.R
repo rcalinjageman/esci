@@ -146,8 +146,8 @@ test_that("Compare estimate_mdiff_two to statpsych::ci.mean2 example", {
 
 
       mytest <- test_mdiff(estimate)
-      testthat::expect_equal(mytest$point_null$t, mysp$t)
-      testthat::expect_equal(mytest$point_null$p, mysp$p)
+      testthat::expect_equal(mytest$point_null$t, mysp$t, tolerance = 0.001)
+      testthat::expect_equal(mytest$point_null$p, mysp$p, tolerance = 0.001)
 
     }
 

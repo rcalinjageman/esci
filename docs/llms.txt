@@ -1,0 +1,465 @@
+# esci: Estimation Statistics with Confidence Intervals ![esci logo](reference/figures/esci_logo.svg)
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/esci)](https://CRAN.R-project.org/package=esci)
+![Download count](https://cranlogs.r-pkg.org/badges/last-month/esci)
+
+esci provides student-friendly tools for estimation statistics:
+
+- effect sizes with confidence intervals for many research designs
+- meta-analysis
+- visualizations emphasizing effect sizes and uncertainty
+- strong hypothesis testing with interval nulls
+
+esci is both an R package and a module in
+[jamovi](https://www.jamovi.org/). If you’re looking for the R package,
+stay here. If you want esci in jamovi, download and install jamovi and
+[then use the module library to add
+esci](https://thenewstatistics.com/itns/esci/jesci/).
+
+Leave comments, bug reports, suggestions, and questions about esci
+[here](https://github.com/rcalinjageman/esci/discussions)
+
+**esci is still under development; expect breaking changes in the future
+especially for the visualization functions**. If you need
+production-ready estimation, turn to
+[statpsych](https://cran.r-project.org/package=statpsych)
+
+esci is built on top of
+[statpsych](https://cran.r-project.org/package=statpsych) and
+[metafor](https://www.metafor-project.org/doku.php/metafor). That is,
+almost all of the statistical calculations are passed off to these
+packages. The only exception is for confidence intervals for Cohen’s *d*
+(see documentation). Why does esci exist, then?
+
+- To provide a design-based approach; each function in esci is for one
+  type of research design (e.g. two groups with a continuous variable);
+  it provides all the effect sizes relevant to that design in one
+  convenient function (e.g. mean difference, cohen’s *d*, median
+  difference, ratio of means, ratio of medians).
+- To make visualization easier; esci provides visualizations that
+  emphasize effect sizes and uncertainty
+- To integrate with GUIs for students; esci integrates into
+  [jamovi](https://www.jamovi.org/) and (very soon)
+  [JASP](https://jasp-stats.org/).
+- To support student learning, from intro to advanced levels; esci is
+  extensively used in the recently released second edition of our intro
+  textbook (<https://thenewstatistics.com/itns/>) and should be ideal
+  for use in higher level and graduate courses.
+
+The visualizations produced by esci are exquisite in a large part
+because of the lovely
+[ggdist](https://CRAN.R-project.org/package=ggdist) package by Matthew
+Kay.
+
+## Installation
+
+esci is availableon CRAN; you can install with:
+
+``` r
+install.packages("esci")
+```
+
+Or, get the stable branch directly from github
+
+``` r
+# install.packages("devtools")
+devtools::install_github('rcalinjageman/esci')
+```
+
+Or, try out the development branch:
+
+``` r
+# install.packages("devtools")
+devtools::install_github('rcalinjageman/esci',  branch = "development")
+```
+
+## Roadmap
+
+- ~Finish writing documentation and tests~
+- Review all functions for consistency of parameter names and returned
+  object names
+- Rewrite visualization functions completely to remove clunky approaches
+  to the difference axis and other issues
+- ~Complete JASP integration~
+- Rewrite jamovi integration
+- Add prediction intervals for basic designs
+- Repeated measures with 1 IV and multiple groups
+- Fully within-subjects 2x2 design
+- Arbitrarily complex designs
+
+## Example
+
+``` r
+library(esci)
+
+data("data_kardas_expt_4")
+estimate <- estimate_mdiff_two(data_kardas_expt_4, Prediction, Exposure)
+plot_mdiff(estimate)
+```
+
+![Example difference plot](reference/figures/plot_mdiff.png)
+
+# Package index
+
+## Estimates for continuous outcomes
+
+- [`estimate_magnitude()`](https://rcalinjageman.github.io/esci/reference/estimate_magnitude.md)
+  : Estimates for a continuous variable with no grouping (single-group
+  design)
+- [`estimate_mdiff_2x2_between()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_between.md)
+  : Estimates for a 2x2 between-subjects design with a continuous
+  outcome variable
+- [`estimate_mdiff_2x2_mixed()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_2x2_mixed.md)
+  : Estimates for a 2x2 mixed factorial design with a continuous outcome
+  variable
+- [`estimate_mdiff_ind_contrast()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_ind_contrast.md)
+  : Estimates for a multi-group design with a continuous outcome
+  variable
+- [`estimate_mdiff_one()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_one.md)
+  : Estimates for a single-group design with a continuous outcome
+  variable compared to a reference or population value
+- [`estimate_mdiff_paired()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_paired.md)
+  : Estimates for a repeated-measures study with two measures of a
+  continuous variable
+- [`estimate_mdiff_two()`](https://rcalinjageman.github.io/esci/reference/estimate_mdiff_two.md)
+  : Estimates for a two-group study with a continuous outcome variable
+
+## Estimates for categorical outcomes
+
+- [`estimate_pdiff_ind_contrast()`](https://rcalinjageman.github.io/esci/reference/estimate_pdiff_ind_contrast.md)
+  : Estimates for a multi-group study with a categorical outcome
+  variable
+- [`estimate_pdiff_one()`](https://rcalinjageman.github.io/esci/reference/estimate_pdiff_one.md)
+  : Estimates for a single-group design with a categorical outcome
+  variable compared to a reference or population value.
+- [`estimate_pdiff_paired()`](https://rcalinjageman.github.io/esci/reference/estimate_pdiff_paired.md)
+  : Estimates for a repeated-measures study with two measures of a
+  categorical variable
+- [`estimate_pdiff_two()`](https://rcalinjageman.github.io/esci/reference/estimate_pdiff_two.md)
+  : Estimates for a two-group study with a categorical outcome variable
+- [`estimate_proportion()`](https://rcalinjageman.github.io/esci/reference/estimate_proportion.md)
+  : Estimates for a categorical variable with no grouping (single-group
+  design)
+
+## Estimates for Pearson’s r
+
+- [`estimate_r()`](https://rcalinjageman.github.io/esci/reference/estimate_r.md)
+  : Estimates the linear correlation (Pearson's r) between two
+  continuous variables
+- [`estimate_rdiff_two()`](https://rcalinjageman.github.io/esci/reference/estimate_rdiff_two.md)
+  : Estimates the difference in correlation for a design with two groups
+  and two continuous outcome variables
+
+## Meta-analysis
+
+- [`meta_any()`](https://rcalinjageman.github.io/esci/reference/meta_any.md)
+  : Estimate any meta effect.
+- [`meta_d1()`](https://rcalinjageman.github.io/esci/reference/meta_d1.md)
+  : Estimate a meta-analytic Cohen's d1 across multiple studies
+- [`meta_d2()`](https://rcalinjageman.github.io/esci/reference/meta_d2.md)
+  : Estimate meta-analytic standardized mean difference across multiple
+  two group studies (all paired, all independent, or a mix).
+- [`meta_mdiff_two()`](https://rcalinjageman.github.io/esci/reference/meta_mdiff_two.md)
+  : Estimate meta-analytic difference in means across multiple two-group
+  studies.
+- [`meta_mean()`](https://rcalinjageman.github.io/esci/reference/meta_mean.md)
+  : Estimate a meta-analytic mean across multiple single-group studies.
+- [`meta_pdiff_two()`](https://rcalinjageman.github.io/esci/reference/meta_pdiff_two.md)
+  : Estimate meta-analytic difference in proportions over multiple
+  studies with two independent groups and a categorical outcome
+  variable.
+- [`meta_proportion()`](https://rcalinjageman.github.io/esci/reference/meta_proportion.md)
+  : Estimate a meta-analytic proportion of outcomes over multiple
+  studies with a categorical outcome variable.
+- [`meta_r()`](https://rcalinjageman.github.io/esci/reference/meta_r.md)
+  : Estimate meta-analytic Pearson's r across multiple studies with two
+  continuous outcome variables.
+
+## Visualization
+
+- [`plot_correlation()`](https://rcalinjageman.github.io/esci/reference/plot_correlation.md)
+  : Plot an estimated Pearson's r value
+
+- [`plot_describe()`](https://rcalinjageman.github.io/esci/reference/plot_describe.md)
+  : Plot a histogram or dotplot of an estimated magnitude with raw data
+
+- [`plot_interaction()`](https://rcalinjageman.github.io/esci/reference/plot_interaction.md)
+  : Plot the interaction from a 2x2 design
+
+- [`plot_magnitude()`](https://rcalinjageman.github.io/esci/reference/plot_magnitude.md)
+  : Plot the mean or median for a continuous variable
+
+- [`plot_mdiff()`](https://rcalinjageman.github.io/esci/reference/plot_mdiff.md)
+  : Plots for comparing continuous outcome variables between conditions
+
+- [`plot_meta()`](https://rcalinjageman.github.io/esci/reference/plot_meta.md)
+  : Generates a forest plot displaying results of a meta-analysis
+
+- [`plot_pdiff()`](https://rcalinjageman.github.io/esci/reference/plot_pdiff.md)
+  : Plots for comparing categorical outcome variables between conditions
+
+- [`plot_proportion()`](https://rcalinjageman.github.io/esci/reference/plot_proportion.md)
+  : Plot an estimated proportion
+
+- [`plot_rdiff()`](https://rcalinjageman.github.io/esci/reference/plot_rdiff.md)
+  :
+
+  Plots for comparing Pearson *r* values between conditions
+
+- [`plot_scatter()`](https://rcalinjageman.github.io/esci/reference/plot_scatter.md)
+  : Generates a scatter plot of data for two continuous variables
+
+## Hypothesis testing
+
+- [`test_correlation()`](https://rcalinjageman.github.io/esci/reference/test_correlation.md)
+  :
+
+  Test a hypothesis about the strength of a Pearson's *r* correlation
+
+- [`test_mdiff()`](https://rcalinjageman.github.io/esci/reference/test_mdiff.md)
+  : Test a hypothesis about a difference in a continuous outcome
+  variable.
+
+- [`test_pdiff()`](https://rcalinjageman.github.io/esci/reference/test_pdiff.md)
+  : Test a hypothesis about a difference in proportion
+
+- [`test_rdiff()`](https://rcalinjageman.github.io/esci/reference/test_rdiff.md)
+  : Test a hypothesis about a difference in correlation strength
+
+## Sample data sets
+
+- [`data_altruism_happiness`](https://rcalinjageman.github.io/esci/reference/data_altruism_happiness.md)
+  : Altruism Happiness - Ch12 - from Brethel-Haurwitz and Marsh (2014)
+
+- [`data_anchor_estimate_ma`](https://rcalinjageman.github.io/esci/reference/data_anchor_estimate_ma.md)
+  : Anchor Estimate ma - Ch9 - Many Labs replications of Jacowitz and
+  Kahneman (1995)
+
+- [`data_basol_badnews`](https://rcalinjageman.github.io/esci/reference/data_basol_badnews.md)
+  : Basol badnews - Ch07 - from Basol et al. (2020)
+
+- [`data_bem_psychic`](https://rcalinjageman.github.io/esci/reference/data_bem_psychic.md)
+  : Bem Psychic - Ch13 - from Bem and Honorton (1994)
+
+- [`data_bodywellf`](https://rcalinjageman.github.io/esci/reference/data_bodywellf.md)
+  : BodyWellF - Ch12 - Body Satisfaction and Well-being data for females
+  from Figure 11.24 right panel
+
+- [`data_bodywellfm`](https://rcalinjageman.github.io/esci/reference/data_bodywellfm.md)
+  : BodyWellFM - Ch12 - Body Satisfaction and Well-being data from
+  Figure 11.1
+
+- [`data_bodywellm`](https://rcalinjageman.github.io/esci/reference/data_bodywellm.md)
+  : BodyWellM - Ch12 - Body Satisfaction and Well-being data for males
+  from Figure 11.24 left panel
+
+- [`data_campus_involvement`](https://rcalinjageman.github.io/esci/reference/data_campus_involvement.md)
+  : Campus Involvement - Ch11 - for End-of-Chapter Exercise 11.7
+
+- [`data_chap_8_paired_ex_8.18`](https://rcalinjageman.github.io/esci/reference/data_chap_8_paired_ex_8.18.md)
+  :
+
+  *Fictitious* data from an unrealistically small HEAT study comparing
+  scores for a single group of students before and after a workshop on
+  climate change.
+
+- [`data_clean_moral`](https://rcalinjageman.github.io/esci/reference/data_clean_moral.md)
+  : Clean moral - Ch07 - from Schnall et al. (2008), Study 1, and
+  Johnson et al. (2014)
+
+- [`data_college_survey_1`](https://rcalinjageman.github.io/esci/reference/data_college_survey_1.md)
+  : College survey 1 - Ch03 - for End-of-Chapter Exercise 3.3
+
+- [`data_college_survey_2`](https://rcalinjageman.github.io/esci/reference/data_college_survey_2.md)
+  : College survey 2 - Ch05 - for End-of-Chapter Exercise 5.4
+
+- [`data_damischrcj`](https://rcalinjageman.github.io/esci/reference/data_damischrcj.md)
+  : DamischRCJ - Ch9 - from 6 Damisch studies, and Calin-Jageman and
+  Caldwell (2014)
+
+- [`data_effronraj_fakenews`](https://rcalinjageman.github.io/esci/reference/data_effronraj_fakenews.md)
+  : EffronRaj fakenews - Ch8 - from Effron and Raj (2020), v1.1
+
+- [`data_emotion_heartrate`](https://rcalinjageman.github.io/esci/reference/data_emotion_heartrate.md)
+  : Emotion heartrate - Ch8 - from Lakens (2013)
+
+- [`data_exam_scores`](https://rcalinjageman.github.io/esci/reference/data_exam_scores.md)
+  : Exam Scores - Ch11 - for End-of-Chapter Exercise 11.2
+
+- [`data_flag_priming_ma`](https://rcalinjageman.github.io/esci/reference/data_flag_priming_ma.md)
+  : Flag Priming ma - Ch9 - Many Labs replications of Carter et al.
+  (2011)
+
+- [`data_gender_math_iat`](https://rcalinjageman.github.io/esci/reference/data_gender_math_iat.md)
+  : Gender math IAT - Ch07 - Ithaca and SDSU replications of Nosek et
+  al. (2002)
+
+- [`data_gender_math_iat_ma`](https://rcalinjageman.github.io/esci/reference/data_gender_math_iat_ma.md)
+  : Gender math IAT ma - Ch9 - Many Labs replications of Nosek et al.
+  (2002)
+
+- [`data_halagappa`](https://rcalinjageman.github.io/esci/reference/data_halagappa.md)
+  : Halagappa - Ch14 - from Halagappa et al. (2007)
+
+- [`data_home_prices`](https://rcalinjageman.github.io/esci/reference/data_home_prices.md)
+  : Home Prices - Ch12 - for End-of-Chapter Exercise 12.2
+
+- [`data_kardas_expt_3`](https://rcalinjageman.github.io/esci/reference/data_kardas_expt_3.md)
+  : Kardas Expt 3 - Ch07 - from Kardas and O'Brien (2018), Experiment 3
+
+- [`data_kardas_expt_4`](https://rcalinjageman.github.io/esci/reference/data_kardas_expt_4.md)
+  : Kardas Expt 4 - Ch07 - from Kardas and O'Brien (2018), Experiment 4
+
+- [`data_labels_flavor`](https://rcalinjageman.github.io/esci/reference/data_labels_flavor.md)
+  : Labels flavor - Ch8 - from Floretta-Schiller et al. (2015)
+
+- [`data_latimier_3groups`](https://rcalinjageman.github.io/esci/reference/data_latimier_3groups.md)
+  : Latimier 3Groups - Ch14 - 3 groups in Latimier et al. (2019)
+
+- [`data_latimier_prequiz`](https://rcalinjageman.github.io/esci/reference/data_latimier_prequiz.md)
+  : Latimier Prequiz - Ch03 - Prequiz group in Latimier et al. (2019)
+
+- [`data_latimier_quiz`](https://rcalinjageman.github.io/esci/reference/data_latimier_quiz.md)
+  : Latimier Quiz - Ch03 - Quiz group in Latimier et al. (2019)
+
+- [`data_latimier_quiz_prequiz`](https://rcalinjageman.github.io/esci/reference/data_latimier_quiz_prequiz.md)
+  : Latimier Quiz Prequiz - Ch07 - Quiz and Prequiz groups in Latimier
+  et al. (2019)
+
+- [`data_latimier_reread`](https://rcalinjageman.github.io/esci/reference/data_latimier_reread.md)
+  : Latimier Reread - Ch03 - Reread group in Latimier et al. (2019)
+
+- [`data_latimier_reread_prequiz`](https://rcalinjageman.github.io/esci/reference/data_latimier_reread_prequiz.md)
+  : Latimier Reread Prequiz - Ch07 - Reread and Prequiz groups in
+  Latimier et al. (2019)
+
+- [`data_latimier_reread_quiz`](https://rcalinjageman.github.io/esci/reference/data_latimier_reread_quiz.md)
+  : Latimier Reread Quiz - Ch07 - Reread and Quiz groups in Latimier et
+  al. (2019)
+
+- [`data_macnamara_r_ma`](https://rcalinjageman.github.io/esci/reference/data_macnamara_r_ma.md)
+  : Macnamara r ma - Ch11 - from Macnamara et al. (2014)
+
+- [`data_mccabemichael_brain`](https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain.md)
+  : McCabeMichael brain - Ch9 - from Michael et al. (2013)
+
+- [`data_mccabemichael_brain2`](https://rcalinjageman.github.io/esci/reference/data_mccabemichael_brain2.md)
+  : McCabeMichael brain2 - Ch9 - from Michael et al. (2013)
+
+- [`data_meditationbrain`](https://rcalinjageman.github.io/esci/reference/data_meditationbrain.md)
+  : MeditationBrain - Ch15 - from Holzel et al. (2011)
+
+- [`data_organicmoral`](https://rcalinjageman.github.io/esci/reference/data_organicmoral.md)
+  : OrganicMoral - Ch14 - from Eskine (2013)
+
+- [`data_penlaptop1`](https://rcalinjageman.github.io/esci/reference/data_penlaptop1.md)
+  : % transcription scores from pen and laptop group of Meuller et al.,
+  2014
+
+- [`data_powerperformance_ma`](https://rcalinjageman.github.io/esci/reference/data_powerperformance_ma.md)
+  : PowerPerformance ma - Ch9 - from Burgmer and Englich (2012), and
+  Cusack et al. (2015)
+
+- [`data_rattanmotivation`](https://rcalinjageman.github.io/esci/reference/data_rattanmotivation.md)
+  : RattanMotivation - Ch14 - from Rattan et al. (2012)
+
+- [`data_religionsharing`](https://rcalinjageman.github.io/esci/reference/data_religionsharing.md)
+  :
+
+  ReligionSharing - Ch14 - **RETRACTED DATA** used in End-of-Chapter
+  Exercise 14.3
+
+- [`data_religious_belief`](https://rcalinjageman.github.io/esci/reference/data_religious_belief.md)
+  : Religious belief - Ch03 - for End-of-Chapter Exercise 3.5
+
+- [`data_selfexplain`](https://rcalinjageman.github.io/esci/reference/data_selfexplain.md)
+  : SelfExplain - Ch15 - from McEldoon et al. (2013)
+
+- [`data_simmonscredibility`](https://rcalinjageman.github.io/esci/reference/data_simmonscredibility.md)
+  : SimmonsCredibility - Ch14 - from Simmons and Nelson (2020)
+
+- [`data_sleep_beauty`](https://rcalinjageman.github.io/esci/reference/data_sleep_beauty.md)
+  : Sleep Beauty - Ch11 - for End-of-Chapter Exercise 11.6
+
+- [`data_smithrecall`](https://rcalinjageman.github.io/esci/reference/data_smithrecall.md)
+  : SmithRecall - Ch15 - from Smith et al. (2016)
+
+- [`data_stickgold`](https://rcalinjageman.github.io/esci/reference/data_stickgold.md)
+  : Stickgold - Ch06 - from Stickgold et al. (2000)
+
+- [`data_studystrategies`](https://rcalinjageman.github.io/esci/reference/data_studystrategies.md)
+  : StudyStrategies - Ch14 - from O'Reilly et al. (1998)
+
+- [`data_thomason_1`](https://rcalinjageman.github.io/esci/reference/data_thomason_1.md)
+  : Thomason 1 - Ch11 - from Thomason 1
+
+- [`data_videogameaggression`](https://rcalinjageman.github.io/esci/reference/data_videogameaggression.md)
+  : VideogameAggression - Ch15 - from Hilgard (2015)
+
+## Summarizing data
+
+- [`overview()`](https://rcalinjageman.github.io/esci/reference/overview.md)
+  : Calculates descriptive statistics for a continuous variable
+- [`overview_nominal()`](https://rcalinjageman.github.io/esci/reference/overview_nominal.md)
+  : Calculates descriptive statistics for a numerical variable
+
+## Confidence intervals in place of psychstat
+
+- [`CI_diamond_ratio()`](https://rcalinjageman.github.io/esci/reference/CI_diamond_ratio.md)
+  : Estimate the diamond ratio for a meta-analytic effect, a measure of
+  heterogeneity
+- [`CI_smd_ind_contrast()`](https://rcalinjageman.github.io/esci/reference/CI_smd_ind_contrast.md)
+  : Estimate standardized mean difference (Cohen's d) for an independent
+  groups contrast
+- [`CI_smd_one()`](https://rcalinjageman.github.io/esci/reference/CI_smd_one.md)
+  : Estimate standardized mean difference (Cohen's d1) for a single
+  group
+
+## Functions for jamovi
+
+- [`jamovicorrelation()`](https://rcalinjageman.github.io/esci/reference/jamovicorrelation.md)
+  : Correlations: Single Group
+- [`jamovidescribe()`](https://rcalinjageman.github.io/esci/reference/jamovidescribe.md)
+  : Describe
+- [`jamovimagnitude()`](https://rcalinjageman.github.io/esci/reference/jamovimagnitude.md)
+  : Means and Medians: Single Group
+- [`jamovimdiff2x2()`](https://rcalinjageman.github.io/esci/reference/jamovimdiff2x2.md)
+  : Means and Medians: 2x2 Factorial
+- [`jamovimdiffindcontrast()`](https://rcalinjageman.github.io/esci/reference/jamovimdiffindcontrast.md)
+  : Means and Medians: Independent Groups Contrast
+- [`jamovimdiffpaired()`](https://rcalinjageman.github.io/esci/reference/jamovimdiffpaired.md)
+  : Means and Medians: Paired
+- [`jamovimdifftwo()`](https://rcalinjageman.github.io/esci/reference/jamovimdifftwo.md)
+  : Means and Medians: Two Groups
+- [`jamovimetamdiff()`](https://rcalinjageman.github.io/esci/reference/jamovimetamdiff.md)
+  : Meta-Analysis: Difference in Means
+- [`jamovimetamean()`](https://rcalinjageman.github.io/esci/reference/jamovimetamean.md)
+  : Meta-Analysis: Means
+- [`jamovimetapdiff()`](https://rcalinjageman.github.io/esci/reference/jamovimetapdiff.md)
+  : Meta-Analysis: Difference in Proportions
+- [`jamovimetaproportion()`](https://rcalinjageman.github.io/esci/reference/jamovimetaproportion.md)
+  : Meta-Analysis: Proportions
+- [`jamovimetar()`](https://rcalinjageman.github.io/esci/reference/jamovimetar.md)
+  : Meta-Analysis: Correlations
+- [`jamovipdiffpaired()`](https://rcalinjageman.github.io/esci/reference/jamovipdiffpaired.md)
+  : Proportions: Paired
+- [`jamovipdifftwo()`](https://rcalinjageman.github.io/esci/reference/jamovipdifftwo.md)
+  : Proportions: Two Groups
+- [`jamoviproportion()`](https://rcalinjageman.github.io/esci/reference/jamoviproportion.md)
+  : Proportions: Single Group
+- [`jamovirdifftwo()`](https://rcalinjageman.github.io/esci/reference/jamovirdifftwo.md)
+  : Correlations: Two Groups
+
+## Visualization helpers
+
+- [`geom_meta_diamond_h()`](https://rcalinjageman.github.io/esci/reference/geom_meta_diamond_h.md)
+  : Meta-analysis diamond
+- [`esci_plot_difference_axis_x()`](https://rcalinjageman.github.io/esci/reference/esci_plot_difference_axis_x.md)
+  : Add a difference axis to the x axis of an esci forest plot
+
+## Class esci-estimate
+
+- [`print(`*`<esci_estimate>`*`)`](https://rcalinjageman.github.io/esci/reference/print.esci_estimate.md)
+  : Print an esci_estimate
+

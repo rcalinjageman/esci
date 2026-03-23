@@ -20,6 +20,7 @@ meta_mdiff_two(
   reported_effect_size = c("mean_difference", "smd_unbiased", "smd"),
   assume_equal_variance = FALSE,
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 )
 }
@@ -63,6 +64,9 @@ for bias).  Defaults to mean_difference.}
 \item{assume_equal_variance}{Defaults to FALSE}
 
 \item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
+
+\item{method}{If not fixed effects, this controls the approach.  Defaults to
+'DL', other options are REML and PM}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}

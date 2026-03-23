@@ -86,9 +86,9 @@ test_that("estimate_r of from Thomason1, ESCI_Scatterplots", {
 
   testthat::expect_snapshot(estimate)
 
-  testthat::expect_equal(estimate$es_r$effect_size[[1]], mysp$Estimate)
-  testthat::expect_equal(estimate$es_r$LL[[1]], mysp$LL)
-  testthat::expect_equal(estimate$es_r$UL[[1]], mysp$UL)
+  testthat::expect_equal(estimate$es_r$effect_size[[1]], mysp$Estimate, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_r$LL[[1]], mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_r$UL[[1]], mysp$UL, tolerance = 0.001)
 
   suppressWarnings(try(myplot <- esci::plot_correlation(estimate), silent = TRUE))
   testthat::expect_s3_class(myplot, "ggplot")

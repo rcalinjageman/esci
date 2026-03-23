@@ -120,7 +120,7 @@ jamovi_meta_r <- function(self) {
   args$ns <- self$options$ns
 
   args$random_effects <- self$options$random_effects %in% c("random_effects", "compare")
-
+  args$method = self$options$method
 
 
   # Do analysis, then post any notes that have emerged

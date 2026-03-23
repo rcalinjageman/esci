@@ -17,7 +17,7 @@ in which Pearson's r is a suitable measure of correlation)."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.10</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -146,10 +146,10 @@ point null) or about a range of values (an interval null)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $point_null</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             test_type           outcome_variable_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Nil Hypothesis Test My x variable and My y variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                            effect null_words confidence        LL        UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 My x variable and My y variable       0.00         95 0.2978573 0.7058914</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                              CI                      CI_compare        t df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2978573, 0.7058914] The 95% CI does not contain H_0 4.103289 48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            effect null_words confidence     LL     UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 My x variable and My y variable       0.00         95 0.2979 0.7059</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        CI                      CI_compare        t df</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2979, 0.7059] The 95% CI does not contain H_0 4.103289 48</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              p p_result null_decision</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 4.073183e-05 p &lt; 0.05    Reject H_0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                        conclusion significant</span>
@@ -178,10 +178,10 @@ point null) or about a range of values (an interval null)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $point_null</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             test_type           outcome_variable_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Nil Hypothesis Test My x variable and My y variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                            effect null_words confidence        LL        UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 My x variable and My y variable       0.00         95 0.2978573 0.7058914</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                              CI                      CI_compare        t df</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2978573, 0.7058914] The 95% CI does not contain H_0 4.103289 48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            effect null_words confidence     LL     UL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 My x variable and My y variable       0.00         95 0.2979 0.7059</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        CI                      CI_compare        t df</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2979, 0.7059] The 95% CI does not contain H_0 4.103289 48</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              p p_result null_decision</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 4.073183e-05 p &lt; 0.05    Reject H_0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                        conclusion significant</span>
@@ -192,12 +192,10 @@ point null) or about a range of values (an interval null)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Practical significance test My x variable and My y variable</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                            effect          rope confidence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 My x variable and My y variable (-0.10, 0.10)         95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                             CI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2978573, 0.7058914]\n90% CI [0.3391487, 0.6820747]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               rope_compare p_result                             conclusion</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI fully outside H_0 p &lt; 0.05 At α = 0.05, conclude Ͱ is substantive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   significant</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                 CI             rope_compare</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [0.2979, 0.7059]\n90% CI [0.3391, 0.6821] 95% CI fully outside H_0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   p_result                             conclusion significant</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 p &lt; 0.05 At α = 0.05, conclude Ͱ is substantive        TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -212,7 +210,7 @@ point null) or about a range of values (an interval null)</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

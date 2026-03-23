@@ -36,6 +36,8 @@
 #'   quoted name of the moderator column or 'My moderator'
 #' @param random_effects Use TRUE to obtain a random effect meta-analysis
 #'   (usually recommended); FALSE for fixed effect.
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -126,6 +128,7 @@ meta_any <- function(
   effect_size_name = "Effect size",
   moderator_variable_name = "My moderator",
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 ) {
 
@@ -300,6 +303,7 @@ After dropping any NA rows, current data has:
 
   # Check options
   esci_assert_type(random_effects, "is.logical")
+  method <- match.arg(method)
 
   # Check conf.level
   esci_assert_type(conf_level, "is.numeric")
@@ -353,7 +357,7 @@ After dropping any NA rows, current data has:
     data = data,
     yi = yi,
     vi = vi,
-    method="DL",
+    method = method,
     level = conf_level * 100
   )
 
@@ -411,7 +415,7 @@ After dropping any NA rows, current data has:
       yi = yi,
       vi = vi,
       mods = ~ moderator -1,
-      method="DL",
+      method= method,
       level = conf_level * 100
     )
 
@@ -445,7 +449,7 @@ After dropping any NA rows, current data has:
         data = data[data$moderator == lev, ],
         yi = yi,
         vi = vi,
-        method = "DL",
+        method = method,
         level = conf_level * 100
       )
       FEjustl <- metafor::rma(
@@ -649,6 +653,8 @@ After dropping any NA rows, current data has:
     effect_size_name_ggplot = "effect_size",
     model = if (random_effects) "random_effects" else "fixed_effects"
   )
+
+  if (random_effects) properties$method = method else properties$method = "FE"
 
 
   # Fix up data just a bit

@@ -292,10 +292,10 @@
       1 Comparison   My outcome variable   My grouping variable           Treated
       2  Reference   My outcome variable   My grouping variable           Control
       3 Difference   My outcome variable   My grouping variable Treated ‒ Control
-        effect_size        LL        UL        SE       df     ta_LL     ta_UL
-      1        15.4 14.056336 16.743664 0.4874731 29.00000 14.199831 16.600169
-      2        10.3  8.924592 11.675408 0.4807546 19.00000  9.079132 11.520868
-      3         5.1  3.260617  6.939383 0.6846568 46.17476  3.450073  6.749927
+        effect_size        LL        UL        SE    df     ta_LL     ta_UL
+      1        15.4 14.056336 16.743664 0.4874731 29.00 14.199831 16.600169
+      2        10.3  8.924592 11.675408 0.4807546 19.00  9.079132 11.520868
+      3         5.1  3.260609  6.939391 0.6846568 46.17  3.450067  6.749933
       
       -- es_smd --
         outcome_variable_name grouping_variable_name            effect effect_size
@@ -333,10 +333,10 @@
       1 Comparison             myoutcome            mycondition           Group 1
       2  Reference             myoutcome            mycondition           Group 2
       3 Difference             myoutcome            mycondition Group 1 ‒ Group 2
-        effect_size        LL         UL       SE       df     ta_LL      ta_UL
-      1        34.2  28.33027 40.0697304 1.806162  9.00000  29.10403 39.2959748
-      2        41.5  34.87072 48.1292751 2.039880  9.00000  35.74460 47.2553953
-      3        -7.3 -15.15592  0.5559194 2.724579 17.73989 -14.26401 -0.3359923
+        effect_size        LL         UL       SE    df     ta_LL      ta_UL
+      1        34.2  28.33027 40.0697304 1.806162  9.00  29.10403 39.2959748
+      2        41.5  34.87072 48.1292751 2.039880  9.00  35.74460 47.2553953
+      3        -7.3 -15.15591  0.5559134 2.724579 17.74 -14.26400 -0.3359968
       
       -- es_median_difference --
               type outcome_variable_name grouping_variable_name            effect
@@ -398,10 +398,10 @@
       1 Comparison             myoutcome            mycondition           Group 1
       2  Reference             myoutcome            mycondition           Group 2
       3 Difference             myoutcome            mycondition Group 1 ‒ Group 2
-        effect_size        LL       UL       SE       df     ta_LL    ta_UL
-      1   41.500000 34.870725 48.12928 2.039880  9.00000 35.744605 47.25540
-      2   36.384615 30.674928 42.09430 1.869247 12.00000 31.373169 41.39606
-      3    5.115385 -2.760215 12.99098 2.766802 19.92414 -1.881322 12.11209
+        effect_size        LL       UL       SE    df     ta_LL    ta_UL
+      1   41.500000 34.870725 48.12928 2.039880  9.00 35.744605 47.25540
+      2   36.384615 30.674928 42.09430 1.869247 12.00 31.373169 41.39606
+      3    5.115385 -2.760385 12.99115 2.766802 19.92 -1.881447 12.11222
       
       -- es_median_difference --
               type outcome_variable_name grouping_variable_name            effect
@@ -463,10 +463,10 @@
       1 Comparison             myoutcome            mycondition           Group 1
       2  Reference             myoutcome            mycondition           Group 2
       3 Difference             myoutcome            mycondition Group 1 ‒ Group 2
-        effect_size         LL       UL        SE       df      ta_LL    ta_UL
-      1   23.700000  -2.399473 49.79947 11.537427  9.00000   2.550593 44.84941
-      2   25.461538   8.614096 42.30898  7.732396 12.00000  11.680186 39.24289
-      3   -1.761538 -31.144112 27.62103 13.888922 16.41673 -25.972286 22.44921
+        effect_size         LL       UL        SE    df      ta_LL    ta_UL
+      1   23.700000  -2.399473 49.79947 11.537427  9.00   2.550593 44.84941
+      2   25.461538   8.614096 42.30898  7.732396 12.00  11.680186 39.24289
+      3   -1.761538 -31.143649 27.62057 13.888922 16.42 -25.971998 22.44892
       
       -- es_median_difference --
               type outcome_variable_name grouping_variable_name            effect

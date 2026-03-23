@@ -34,6 +34,8 @@
 #' be one of 'mean_difference', 'smd_unbiased' (to return an unbiased Cohen's
 #' d1) or 'smd' (to return Cohen's d1 without correction for bias)
 #' @param random_effects TRUE for random effect model; FALSE for fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -87,6 +89,7 @@ meta_mean <- function(
   reference_mean = 0,
   reported_effect_size = c("mean_difference", "smd_unbiased", "smd"),
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -239,6 +242,7 @@ These are rows {paste(which(!is.whole.number(data[[ns_quoname]])), collapse = ',
   # Check options
   esci_assert_type(reference_mean, "is.numeric")
   reported_effect_size <- match.arg(reported_effect_size)
+  method <- match.arg(method)
   report_smd <- reported_effect_size != "mean_difference"
   correct_bias <- reported_effect_size == "smd_unbiased"
 
@@ -319,6 +323,7 @@ These are rows {paste(which(!is.whole.number(data[[ns_quoname]])), collapse = ',
     effect_size_name = reported_effect_size,
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

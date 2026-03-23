@@ -36,16 +36,16 @@
       
       -- es_smd --
         comparison_measure_name reference_measure_name             effect effect_size
-      1                Posttest                Pretest Posttest - Pretest   0.5105098
-               LL        UL numerator denominator        SE  d_biased df
-      1 0.1806393 0.8902152  1.666667    3.112779 0.1810176 0.5105098 11
+      1                Posttest                Pretest Posttest - Pretest      0.5105
+            LL     UL numerator denominator      SE d_biased df
+      1 0.1806 0.8902  1.666667    3.112779 0.18102   0.5105 11
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name               effect effect_size      LL
-      1         Pretest        Posttest Pretest and Posttest   0.8923908 0.62894
-              UL         SE  n df     ta_LL     ta_UL
-      1 0.967157 0.06139936 12 10 0.6882891 0.9596343
+        x_variable_name y_variable_name               effect effect_size     LL
+      1         Pretest        Posttest Pretest and Posttest      0.8924 0.6289
+            UL     SE  n df  ta_LL  ta_UL
+      1 0.9672 0.0614 12 10 0.6883 0.9596
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name             effect
@@ -147,16 +147,16 @@
       
       -- es_smd --
         comparison_measure_name reference_measure_name             effect effect_size
-      1                Posttest                Pretest Posttest - Pretest   0.5105098
-                LL       UL numerator denominator        SE  d_biased df
-      1 0.06915683 1.001698  1.666667    3.112779 0.1810176 0.5105098 11
+      1                Posttest                Pretest Posttest - Pretest      0.5105
+            LL     UL numerator denominator      SE d_biased df
+      1 0.0692 1.0017  1.666667    3.112779 0.18102   0.5105 11
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name               effect effect_size        LL
-      1         Pretest        Posttest Pretest and Posttest   0.8923908 0.4887161
-               UL         SE  n df     ta_LL     ta_UL
-      1 0.9780952 0.06139936 12 10 0.5494077 0.9741826
+        x_variable_name y_variable_name               effect effect_size     LL
+      1         Pretest        Posttest Pretest and Posttest      0.8924 0.4887
+            UL     SE  n df  ta_LL  ta_UL
+      1 0.9781 0.0614 12 10 0.5494 0.9742
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name             effect
@@ -209,16 +209,16 @@
       
       -- es_smd --
         comparison_measure_name reference_measure_name         effect effect_size
-      1                   After                 Before After - Before   0.3424327
-                LL        UL numerator denominator       SE  d_biased df
-      1 0.05110995 0.6577932      1.37    3.865126 0.154769 0.3424327 15
+      1                   After                 Before After - Before      0.3424
+            LL     UL numerator denominator      SE d_biased df
+      1 0.0511 0.6578      1.37    3.865126 0.15477   0.3424 15
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name           effect effect_size        LL
-      1          Before           After Before and After   0.8707222 0.6430976
-               UL         SE  n df     ta_LL     ta_UL
-      1 0.9518053 0.06244354 16 14 0.6915049 0.9428632
+        x_variable_name y_variable_name           effect effect_size     LL     UL
+      1          Before           After Before and After      0.8707 0.6431 0.9518
+             SE  n df  ta_LL  ta_UL
+      1 0.06244 16 14 0.6915 0.9429
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.
@@ -280,16 +280,16 @@
       
       -- es_smd --
         comparison_measure_name reference_measure_name         effect effect_size
-      1                   After                 Before After - Before   0.3424327
-                LL      UL numerator denominator       SE  d_biased df
-      1 -0.0442069 0.75311      1.37    3.865126 0.154769 0.3424327 15
+      1                   After                 Before After - Before      0.3424
+             LL     UL numerator denominator      SE d_biased df
+      1 -0.0442 0.7531      1.37    3.865126 0.15477   0.3424 15
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name           effect effect_size        LL
-      1          Before           After Before and After   0.8707222 0.5317828
-               UL         SE  n df     ta_LL     ta_UL
-      1 0.9655115 0.06244354 16 14 0.5795743 0.9604938
+        x_variable_name y_variable_name           effect effect_size     LL     UL
+      1          Before           After Before and After      0.8707 0.5318 0.9655
+             SE  n df  ta_LL  ta_UL
+      1 0.06244 16 14 0.5796 0.9605
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 99% expected coverage.
@@ -320,17 +320,17 @@
       11       -10.4 -21.379887  0.5798875 5.119338 14 -19.416741 -1.383259
       
       -- es_smd --
-        comparison_measure_name reference_measure_name  effect effect_size         LL
-      1                      y1                     y2 y1 - y2  -0.4157442 -0.8900751
-                UL numerator denominator        SE   d_biased df
-      1 0.02719875     -10.4    24.10542 0.2340027 -0.4157442 14
+        comparison_measure_name reference_measure_name  effect effect_size      LL
+      1                      y1                     y2 y1 - y2     -0.4157 -0.8901
+            UL numerator denominator    SE d_biased df
+      1 0.0272     -10.4    24.10542 0.234  -0.4157 14
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name    effect effect_size        LL        UL
-      1              y2              y1 y2 and y1   0.9336117 0.7956616 0.9766029
-                SE  n df     ta_LL     ta_UL
-      1 0.03430812 15 13 0.8267061 0.9719999
+        x_variable_name y_variable_name    effect effect_size     LL     UL      SE
+      1              y2              y1 y2 and y1      0.9336 0.7957 0.9766 0.03431
+         n df  ta_LL ta_UL
+      1 15 13 0.8267 0.972
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name  effect effect_size
@@ -393,17 +393,15 @@
       -- es_smd --
         comparison_measure_name reference_measure_name                  effect
       1              wc_wrapper             bk_wrapper wc_wrapper - bk_wrapper
-        effect_size         LL       UL  numerator denominator        SE   d_biased
-      1  -0.3718897 -0.8165806 0.059636 -0.4333333    1.144954 0.2235287 -0.3718897
-        df
-      1 29
+        effect_size      LL     UL  numerator denominator      SE d_biased df
+      1     -0.3719 -0.8166 0.0596 -0.4333333    1.144954 0.22353  -0.3719 29
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name                    effect effect_size
-      1      bk_wrapper      wc_wrapper bk_wrapper and wc_wrapper     0.32798
-                 LL        UL        SE  n df      ta_LL     ta_UL
-      1 -0.04226176 0.6119942 0.1657199 30 28 0.01835401 0.5726524
+        x_variable_name y_variable_name                    effect effect_size      LL
+      1      bk_wrapper      wc_wrapper bk_wrapper and wc_wrapper       0.328 -0.0423
+           UL      SE  n df  ta_LL  ta_UL
+      1 0.612 0.16572 30 28 0.0184 0.5727
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name
@@ -469,17 +467,17 @@
       11  -0.4333333 -0.9398777 0.07321103 0.2476711 29 -0.8541581 -0.0125086
       
       -- es_smd --
-        comparison_measure_name reference_measure_name  effect effect_size         LL
-      1                      wc                     bk wc - bk  -0.3718897 -0.8165806
-              UL  numerator denominator        SE   d_biased df
-      1 0.059636 -0.4333333    1.144954 0.2235287 -0.3718897 29
+        comparison_measure_name reference_measure_name  effect effect_size      LL
+      1                      wc                     bk wc - bk     -0.3719 -0.8166
+            UL  numerator denominator      SE d_biased df
+      1 0.0596 -0.4333333    1.144954 0.22353  -0.3719 29
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name    effect effect_size          LL        UL
-      1              bk              wc bk and wc     0.32798 -0.04226176 0.6119942
-               SE  n df      ta_LL     ta_UL
-      1 0.1657199 30 28 0.01835401 0.5726524
+        x_variable_name y_variable_name    effect effect_size      LL    UL      SE
+      1              bk              wc bk and wc       0.328 -0.0423 0.612 0.16572
+         n df  ta_LL  ta_UL
+      1 30 28 0.0184 0.5727
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name  effect effect_size
@@ -541,17 +539,17 @@
       11  -0.4333333 -0.9398777 0.07321103 0.2476711 29 -0.8541581 -0.0125086
       
       -- es_smd --
-        comparison_measure_name reference_measure_name  effect effect_size         LL
-      1                      wc                     bk wc - bk  -0.3718897 -0.8165806
-              UL  numerator denominator        SE   d_biased df
-      1 0.059636 -0.4333333    1.144954 0.2235287 -0.3718897 29
+        comparison_measure_name reference_measure_name  effect effect_size      LL
+      1                      wc                     bk wc - bk     -0.3719 -0.8166
+            UL  numerator denominator      SE d_biased df
+      1 0.0596 -0.4333333    1.144954 0.22353  -0.3719 29
       This standardized mean difference is called d_average because the standardizer used was s_average. d_average has been corrected for bias. Correction for bias can be important when df < 50.
       
       -- es_r --
-        x_variable_name y_variable_name    effect effect_size          LL        UL
-      1              bk              wc bk and wc     0.32798 -0.04226176 0.6119942
-               SE  n df      ta_LL     ta_UL
-      1 0.1657199 30 28 0.01835401 0.5726524
+        x_variable_name y_variable_name    effect effect_size      LL    UL      SE
+      1              bk              wc bk and wc       0.328 -0.0423 0.612 0.16572
+         n df  ta_LL  ta_UL
+      1 30 28 0.0184 0.5727
       
       -- es_median_difference --
               type comparison_measure_name reference_measure_name  effect effect_size

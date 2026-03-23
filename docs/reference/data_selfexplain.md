@@ -1,0 +1,47 @@
+# SelfExplain - Ch15 - from McEldoon et al. (2013)
+
+Self-explaining is a learning strategy where students write or say their
+own explanations of the material they are studying. Self-explaining has
+generally been found to be more effective than standard studying, but it
+may also take more time. This raises the question of whether it's the
+study strategy or the extra time that benefits learning. To explore this
+issue, grade school children took a pretest of mathematics conceptual
+knowledge, studied mathematics problems, and then took a similar
+posttest (McEldoon et al., 2013). Participants were randomly assigned to
+one of two study conditions: normal study + more practice (More Practice
+group), or self-explaining (Self-Explain group). The first condition was
+intended to make time spent learning to be similar for the two groups.
+You can find part of the data from this study in SelfExplain, the scores
+being percent correct.
+
+## Usage
+
+``` r
+data_selfexplain
+```
+
+## Format
+
+### `data_selfexplain`
+
+A data frame with 52 rows and 4 columns:
+
+- Student ID:
+
+  factor
+
+- Condition:
+
+  factor
+
+- Pretest:
+
+  numeric
+
+- Posttest:
+
+  numeric
+
+## Source
+
+[doi:10.1111/j.2044-8279.2012.02083.x](https://doi.org/10.1111/j.2044-8279.2012.02083.x)

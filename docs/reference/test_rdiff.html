@@ -17,7 +17,7 @@ At the moment, it can only test hypotheses for independent-group designs."></hea
 
     <a class="navbar-brand me-2" href="../index.html">esci</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.10</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,12 +154,10 @@ point null) or about a range of values (an interval null)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $point_null</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             test_type                        outcome_variable_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Nil Hypothesis Test Satisfaction with life and Body satisfaction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              effect null_words confidence         LL        UL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Males  -  Females       0.00         95 -0.1987466 0.4209803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               CI              CI_compare         t df         p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 95% CI [-0.1987466, 0.4209803] The 95% CI contains H_0 0.7570586 NA 0.4490148</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   p_result      null_decision</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 p ≥ 0.05 Fail to reject H_0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              effect null_words confidence      LL    UL                      CI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Males  -  Females       0.00         95 -0.1987 0.421 95% CI [-0.1987, 0.421]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                CI_compare         t df         p p_result      null_decision</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 The 95% CI contains H_0 0.7570586 NA 0.4490148 p ≥ 0.05 Fail to reject H_0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                              conclusion significant</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 At α = 0.05, 0.00 remains a plausible value of Ͱ_diff       FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -176,7 +174,7 @@ point null) or about a range of values (an interval null)</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

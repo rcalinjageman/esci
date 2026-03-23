@@ -78,6 +78,7 @@ children:
         children:
           - type: Label
             label: 'Distributions'
+            heading: true
             cell:
               column: 0
               row: 9
@@ -103,6 +104,7 @@ children:
               row: 12
           - type: Label
             label: 'Data'
+            heading: true
             cell:
               column: 0
               row: 11
@@ -121,6 +123,7 @@ children:
               row: 11
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -138,6 +141,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -180,6 +184,7 @@ children:
               row: 5
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 6
@@ -209,6 +214,7 @@ children:
             children:
               - type: Label
                 label: 'Summary'
+                heading: true
                 cell:
                   column: 0
                   row: 1
@@ -239,6 +245,7 @@ children:
                   row: 4
               - type: Label
                 label: 'CI'
+                heading: true
                 cell:
                   column: 0
                   row: 5
@@ -267,6 +274,7 @@ children:
                   row: 7
               - type: Label
                 label: 'Error distribution'
+                heading: true
                 cell:
                   column: 0
                   row: 8
@@ -284,6 +292,7 @@ children:
                   row: 9
               - type: Label
                 label: 'The raw data'
+                heading: true
                 cell:
                   column: 0
                   row: 10

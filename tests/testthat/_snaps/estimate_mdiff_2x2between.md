@@ -329,53 +329,53 @@
       14  Reference    False Memory Score            Interaction
       15 Difference    False Memory Score            Interaction
                                    effect effect_size          LL        UL        SE
-      1                           Morning        1.80  1.35221241 2.2477876 0.2227969
-      2                           Evening        1.32  0.98790888 1.6520911 0.1648426
-      3                        Difference        0.48 -0.07078234 1.0307823 0.2771489
-      4                          No Sleep        1.68  1.29645382 2.0635462 0.1897367
-      5                             Sleep        1.44  1.03387273 1.8461273 0.2020187
-      6                        Difference        0.24 -0.31078234 0.7907823 0.2771489
+      1                           Morning        1.80  1.35221243 2.2477876 0.2227969
+      2                           Evening        1.32  0.98790986 1.6520901 0.1648426
+      3                        Difference        0.48 -0.07078228 1.0307823 0.2771489
+      4                          No Sleep        1.68  1.29645276 2.0635472 0.1897367
+      5                             Sleep        1.44  1.03387295 1.8461270 0.2020187
+      6                        Difference        0.24 -0.31078228 0.7907823 0.2771489
       7                          No Sleep        2.22  1.54143331 2.8985667 0.3294751
       8                             Sleep        1.38  0.76083043 1.9991696 0.3000000
-      9                        Difference        0.84 -0.05557518 1.7355752 0.4455938
+      9                        Difference        0.84 -0.05557513 1.7355751 0.4455938
       10                         No Sleep        1.14  0.75224761 1.5277524 0.1882715
       11                            Sleep        1.50  0.94260594 2.0573941 0.2706403
-      12                       Difference       -0.36 -1.02418224 0.3041822 0.3296852
-      13 Simple effect of Rest at Morning        0.84 -0.05557518 1.7355752 0.4455938
-      14 Simple effect of Rest at Evening       -0.36 -1.02418224 0.3041822 0.3296852
-      15        Difference of differences        1.20  0.09843532 2.3015647 0.5542979
-               df       ta_LL     ta_UL
-      1  48.73990  1.42643123 2.1735688
-      2  44.60524  1.04310735 1.5968927
-      3  87.91926  0.01927583 0.9407242
-      4  39.75348  1.36046476 1.9995352
-      5  48.26899  1.10120657 1.7787934
-      6  87.91926 -0.22072417 0.7007242
-      7  25.00000  1.65721014 2.7827899
-      8  24.00000  0.86673538 1.8932646
-      9  48.73990  0.09286247 1.5871375
-      10 25.00000  0.81840579 1.4615942
-      11 25.00000  1.03770833 1.9622917
-      12 44.60524 -0.91378530 0.1937853
-      13 48.73990  0.09286247 1.5871375
-      14 44.60524 -0.91378530 0.1937853
-      15 87.91926  0.27855166 2.1214483
-                                            effect_type           effects_complex
-      1                     Main effect of Testing Time                   Morning
-      2                     Main effect of Testing Time                   Evening
-      3                     Main effect of Testing Time         Morning ‒ Evening
-      4                             Main effect of Rest                  No Sleep
-      5                             Main effect of Rest                     Sleep
-      6                             Main effect of Rest          No Sleep ‒ Sleep
-      7  Simple effect of Rest at Testing Time: Morning         Morning: No Sleep
-      8  Simple effect of Rest at Testing Time: Morning            Morning: Sleep
-      9  Simple effect of Rest at Testing Time: Morning Morning: No Sleep ‒ Sleep
-      10 Simple effect of Rest at Testing Time: Evening         Evening: No Sleep
-      11 Simple effect of Rest at Testing Time: Evening            Evening: Sleep
-      12 Simple effect of Rest at Testing Time: Evening Evening: No Sleep ‒ Sleep
-      13           Interaction of Testing Time and Rest Morning: No Sleep ‒ Sleep
-      14           Interaction of Testing Time and Rest Evening: No Sleep ‒ Sleep
-      15           Interaction of Testing Time and Rest Difference of differences
+      12                       Difference       -0.36 -1.02418027 0.3041803 0.3296852
+      13 Simple effect of Rest at Morning        0.84 -0.05557513 1.7355751 0.4455938
+      14 Simple effect of Rest at Evening       -0.36 -1.02418027 0.3041803 0.3296852
+      15        Difference of differences        1.20  0.09843545 2.3015646 0.5542979
+            df       ta_LL     ta_UL                                    effect_type
+      1  48.74  1.42643125 2.1735688                    Main effect of Testing Time
+      2  44.61  1.04310798 1.5968920                    Main effect of Testing Time
+      3  87.92  0.01927587 0.9407241                    Main effect of Testing Time
+      4  39.75  1.36046409 1.9995359                            Main effect of Rest
+      5  48.27  1.10120671 1.7787933                            Main effect of Rest
+      6  87.92 -0.22072413 0.7007241                            Main effect of Rest
+      7  25.00  1.65721014 2.7827899 Simple effect of Rest at Testing Time: Morning
+      8  24.00  0.86673538 1.8932646 Simple effect of Rest at Testing Time: Morning
+      9  48.74  0.09286250 1.5871375 Simple effect of Rest at Testing Time: Morning
+      10 25.00  0.81840579 1.4615942 Simple effect of Rest at Testing Time: Evening
+      11 25.00  1.03770833 1.9622917 Simple effect of Rest at Testing Time: Evening
+      12 44.61 -0.91378405 0.1937840 Simple effect of Rest at Testing Time: Evening
+      13 48.74  0.09286250 1.5871375           Interaction of Testing Time and Rest
+      14 44.61 -0.91378405 0.1937840           Interaction of Testing Time and Rest
+      15 87.92  0.27855174 2.1214483           Interaction of Testing Time and Rest
+                   effects_complex
+      1                    Morning
+      2                    Evening
+      3          Morning ‒ Evening
+      4                   No Sleep
+      5                      Sleep
+      6           No Sleep ‒ Sleep
+      7          Morning: No Sleep
+      8             Morning: Sleep
+      9  Morning: No Sleep ‒ Sleep
+      10         Evening: No Sleep
+      11            Evening: Sleep
+      12 Evening: No Sleep ‒ Sleep
+      13 Morning: No Sleep ‒ Sleep
+      14 Evening: No Sleep ‒ Sleep
+      15 Difference of differences
       
       -- es_smd --
         outcome_variable_name grouping_variable_name                    effect
@@ -489,37 +489,37 @@
       14  Reference                     o            Interaction
       15 Difference                     o            Interaction
                                  effect effect_size        LL        UL        SE
-      1                         Silence      6.9375  6.330821  7.544179 0.2824874
-      2                           Music     11.8125 11.287682 12.337318 0.2443559
-      3                      Difference     -4.8750 -5.641320 -4.108680 0.3735089
+      1                         Silence      6.9375  6.330800  7.544200 0.2824874
+      2                           Music     11.8125 11.287695 12.337305 0.2443559
+      3                      Difference     -4.8750 -5.641324 -4.108676 0.3735089
       4                        Stressed     11.8750 11.342556 12.407444 0.2477578
       5                            Calm      6.8750  6.274364  7.475636 0.2795085
-      6                      Difference      5.0000  4.233680  5.766320 0.3735089
+      6                      Difference      5.0000  4.233676  5.766324 0.3735089
       7                        Stressed      9.3750  8.488266 10.261734 0.3750000
       8                            Calm      4.5000  3.500764  5.499236 0.4225771
-      9                      Difference      4.8750  3.661641  6.088359 0.5649747
+      9                      Difference      4.8750  3.661600  6.088400 0.5649747
       10                       Stressed     14.3750 13.609100 15.140900 0.3238992
       11                           Calm      9.2500  8.384636 10.115364 0.3659625
-      12                     Difference      5.1250  4.075364  6.174636 0.4887119
-      13 Simple effect of v2 at Silence      4.8750  3.661641  6.088359 0.5649747
-      14   Simple effect of v2 at Music      5.1250  4.075364  6.174636 0.4887119
-      15      Difference of differences     -0.2500 -1.782640  1.282640 0.7470179
-               df     ta_LL     ta_UL                        effect_type
-      1  13.80490  6.439455  7.435545                  Main effect of v1
-      2  13.79635 11.381664 12.243336                  Main effect of v1
-      3  27.04290 -5.511158 -4.238842                  Main effect of v1
-      4  13.70994 11.437968 12.312032                  Main effect of v2
-      5  13.72000  6.381988  7.368012                  Main effect of v2
-      6  27.04290  4.363842  5.636158                  Main effect of v2
-      7   7.00000  8.664533 10.085467 Simple effect of v2 at v1: Silence
-      8   7.00000  3.699394  5.300606 Simple effect of v2 at v1: Silence
-      9  13.80490  3.878910  5.871090 Simple effect of v2 at v1: Silence
-      10  7.00000 13.761347 14.988653   Simple effect of v2 at v1: Music
-      11  7.00000  8.556655  9.943345   Simple effect of v2 at v1: Music
-      12 13.79635  4.263328  5.986672   Simple effect of v2 at v1: Music
-      13 13.80490  3.878910  5.871090           Interaction of v1 and v2
-      14 13.79635  4.263328  5.986672           Interaction of v1 and v2
-      15 27.04290 -1.522315  1.022315           Interaction of v1 and v2
+      12                     Difference      5.1250  4.075390  6.174610 0.4887119
+      13 Simple effect of v2 at Silence      4.8750  3.661600  6.088400 0.5649747
+      14   Simple effect of v2 at Music      5.1250  4.075390  6.174610 0.4887119
+      15      Difference of differences     -0.2500 -1.782648  1.282648 0.7470179
+            df     ta_LL     ta_UL                        effect_type
+      1  13.80  6.439442  7.435558                  Main effect of v1
+      2  13.80 11.381672 12.243328                  Main effect of v1
+      3  27.04 -5.511160 -4.238840                  Main effect of v1
+      4  13.71 11.437969 12.312031                  Main effect of v2
+      5  13.72  6.381988  7.368012                  Main effect of v2
+      6  27.04  4.363840  5.636160                  Main effect of v2
+      7   7.00  8.664533 10.085467 Simple effect of v2 at v1: Silence
+      8   7.00  3.699394  5.300606 Simple effect of v2 at v1: Silence
+      9  13.80  3.878884  5.871116 Simple effect of v2 at v1: Silence
+      10  7.00 13.761347 14.988653   Simple effect of v2 at v1: Music
+      11  7.00  8.556655  9.943345   Simple effect of v2 at v1: Music
+      12 13.80  4.263344  5.986656   Simple effect of v2 at v1: Music
+      13 13.80  3.878884  5.871116           Interaction of v1 and v2
+      14 13.80  4.263344  5.986656           Interaction of v1 and v2
+      15 27.04 -1.522320  1.022320           Interaction of v1 and v2
                    effects_complex
       1                    Silence
       2                      Music

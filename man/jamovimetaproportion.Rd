@@ -13,6 +13,7 @@ jamovimetaproportion(
   effect_label = "My effect",
   conf_level = 95,
   random_effects = "random_effects",
+  method = "DL",
   include_PIs = FALSE,
   show_details = FALSE,
   es_plot_width = "600",
@@ -95,6 +96,8 @@ jamovimetaproportion(
 \item{conf_level}{.}
 
 \item{random_effects}{.}
+
+\item{method}{.}
 
 \item{include_PIs}{.}
 

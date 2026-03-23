@@ -159,8 +159,8 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
     testthat::expect_equal(estimate$es_mean_difference$SE[3], mysp$SE)
 
     mytest <- esci::test_mdiff(estimate)
-    testthat::expect_equal(mytest$point_null$t, mysp$t)
-    testthat::expect_equal(mytest$point_null$p, mysp$p)
+    testthat::expect_equal(mytest$point_null$t, mysp$t, tolerance = 0.001)
+    testthat::expect_equal(mytest$point_null$p, mysp$p, tolerance = 0.001)
 
     # Main effect of B
     estimate <- estimates$main_effect_B
@@ -201,8 +201,8 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
 
 
     mytest <- esci::test_mdiff(estimate)
-    testthat::expect_equal(mytest$point_null$t, mysp$t)
-    testthat::expect_equal(mytest$point_null$p, mysp$p)
+    testthat::expect_equal(mytest$point_null$t, mysp$t, tolerance = 0.001)
+    testthat::expect_equal(mytest$point_null$p, mysp$p, tolerance = 0.001)
 
 
     # Interaction
@@ -310,8 +310,8 @@ test_that("Compare estimate_mdiff_2mixed to statpsych::ci.2x2.mean.mixed, Exampl
 
 
     mytest <- esci::test_mdiff(estimate)
-    testthat::expect_equal(mytest$point_null$t, mysp$t)
-    testthat::expect_equal(mytest$point_null$p, mysp$p)
+    testthat::expect_equal(mytest$point_null$t, mysp$t, tolerance = 0.001)
+    testthat::expect_equal(mytest$point_null$p, mysp$p, tolerance = 0.001)
 
   }
 

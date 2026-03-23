@@ -16,6 +16,7 @@ meta_mean(
   reference_mean = 0,
   reported_effect_size = c("mean_difference", "smd_unbiased", "smd"),
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = 0.95
 )
 }
@@ -46,6 +47,9 @@ be one of 'mean_difference', 'smd_unbiased' (to return an unbiased Cohen's
 d1) or 'smd' (to return Cohen's d1 without correction for bias)}
 
 \item{random_effects}{TRUE for random effect model; FALSE for fixed effects}
+
+\item{method}{If not fixed effects, this controls the approach.  Defaults to
+'DL', other options are REML and PM}
 
 \item{conf_level}{The confidence level for the confidence interval.  Given in
 decimal form.  Defaults to 0.95.}

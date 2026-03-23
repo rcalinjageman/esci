@@ -29,6 +29,8 @@
 #' @param effect_label Optional character giving a human-friendly name of
 #' the effect being synthesized
 #' @param random_effects TRUE for random effect model; FALSE for fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
 #'
@@ -114,6 +116,7 @@ meta_proportion <- function(
   contrast = NULL,
   effect_label = "My effect",
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -153,6 +156,7 @@ meta_proportion <- function(
 
   # Check that data is a data.frame
   esci_assert_type(data, "is.data.frame")
+  method <- match.arg(method)
 
   # cases
   esci_assert_valid_column_name(data, cases_quoname)
@@ -320,6 +324,7 @@ These are rows {paste(which(!is.whole.number(data[[ns_quoname]])), collapse = ',
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     contrast = contrast,
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

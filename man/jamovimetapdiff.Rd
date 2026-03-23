@@ -16,6 +16,7 @@ jamovimetapdiff(
   reported_effect_size = "RD",
   conf_level = 95,
   random_effects = "random_effects",
+  method = "DL",
   include_PIs = FALSE,
   show_details = FALSE,
   es_plot_width = "600",
@@ -104,6 +105,8 @@ jamovimetapdiff(
 \item{conf_level}{.}
 
 \item{random_effects}{.}
+
+\item{method}{.}
 
 \item{include_PIs}{.}
 

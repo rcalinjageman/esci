@@ -16,6 +16,7 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             reported_effect_size = "RD",
             conf_level = 95,
             random_effects = "random_effects",
+            method = "DL",
             include_PIs = FALSE,
             show_details = FALSE,
             es_plot_width = "600",
@@ -156,6 +157,14 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                 options=list(
                     "random_effects",
                     "fixed_effects"))
+            private$..method <- jmvcore::OptionList$new(
+                "method",
+                method,
+                default="DL",
+                options=list(
+                    "DL",
+                    "REML",
+                    "PM"))
             private$..include_PIs <- jmvcore::OptionBool$new(
                 "include_PIs",
                 include_PIs,
@@ -1421,6 +1430,7 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
             self$.addOption(private$..reported_effect_size)
             self$.addOption(private$..conf_level)
             self$.addOption(private$..random_effects)
+            self$.addOption(private$..method)
             self$.addOption(private$..include_PIs)
             self$.addOption(private$..show_details)
             self$.addOption(private$..es_plot_width)
@@ -1497,6 +1507,7 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
         reported_effect_size = function() private$..reported_effect_size$value,
         conf_level = function() private$..conf_level$value,
         random_effects = function() private$..random_effects$value,
+        method = function() private$..method$value,
         include_PIs = function() private$..include_PIs$value,
         show_details = function() private$..show_details$value,
         es_plot_width = function() private$..es_plot_width$value,
@@ -1572,6 +1583,7 @@ jamovimetapdiffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
         ..reported_effect_size = NA,
         ..conf_level = NA,
         ..random_effects = NA,
+        ..method = NA,
         ..include_PIs = NA,
         ..show_details = NA,
         ..es_plot_width = NA,
@@ -1978,6 +1990,7 @@ jamovimetapdiffBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
 #' @param reported_effect_size .
 #' @param conf_level .
 #' @param random_effects .
+#' @param method .
 #' @param include_PIs .
 #' @param show_details .
 #' @param es_plot_width .
@@ -2073,6 +2086,7 @@ jamovimetapdiff <- function(
     reported_effect_size = "RD",
     conf_level = 95,
     random_effects = "random_effects",
+    method = "DL",
     include_PIs = FALSE,
     show_details = FALSE,
     es_plot_width = "600",
@@ -2171,6 +2185,7 @@ jamovimetapdiff <- function(
         reported_effect_size = reported_effect_size,
         conf_level = conf_level,
         random_effects = random_effects,
+        method = method,
         include_PIs = include_PIs,
         show_details = show_details,
         es_plot_width = es_plot_width,

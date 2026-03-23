@@ -134,10 +134,10 @@
                                          effect effect_size         LL        UL
       1                            Self-Explain  43.4919048  35.092318 51.891491
       2                           More Practice  43.3337097  36.134882 50.532537
-      3                              Difference   0.1581951 -10.621499 10.937889
-      4                                Posttest  49.0422350  42.714312 55.370159
-      5                                 Pretest  37.7833794  32.376783 43.189975
-      6                              Difference  11.2588556   6.518621 15.999090
+      3                              Difference   0.1581951 -10.621510 10.937900
+      4                                Posttest  49.0422350  42.714296 55.370174
+      5                                 Pretest  37.7833794  32.376775 43.189984
+      6                              Difference  11.2588556   6.518651 15.999060
       7                                Posttest  52.0628571  41.567349 62.558365
       8                                 Pretest  34.9209524  26.671779 43.170126
       9                              Difference  17.1419048   8.528143 25.755667
@@ -146,23 +146,23 @@
       12                             Difference   5.3758065   1.027574  9.724039
       13  Simple effect of Time at Self-Explain  17.1419048   8.528143 25.755667
       14 Simple effect of Time at More Practice   5.3758065   1.027574  9.724039
-      15              Difference of differences  11.7660983   2.285629 21.246568
-               SE       df     ta_LL     ta_UL
-      1  4.026718 20.00000 36.546951 50.436859
-      2  3.524911 30.00000 37.351017 49.316402
-      3  5.351584 44.84162 -8.830069  9.146459
-      4  3.130854 39.95316 43.770196 54.314274
-      5  2.686188 46.13257 33.274449 42.292310
-      6  2.322984 30.60522  7.318628 15.199083
-      7  5.031492 20.00000 43.384952 60.740763
-      8  3.954611 20.00000 28.100363 41.741542
-      9  4.129393 20.00000 10.019866 24.263943
-      10 3.727343 30.00000 39.695340 52.347886
-      11 3.636409 30.00000 34.473872 46.817741
-      12 2.129115 30.00000  1.762143  8.989470
-      13 4.129393 20.00000 10.019866 24.263943
-      14 2.129115 30.00000  1.762143  8.989470
-      15 4.645967 30.60522  3.885643 19.646553
+      15              Difference of differences  11.7660983   2.285690 21.246507
+               SE    df     ta_LL     ta_UL
+      1  4.026718 20.00 36.546951 50.436859
+      2  3.524911 30.00 37.351017 49.316402
+      3  5.351584 44.84 -8.830076  9.146466
+      4  3.130854 39.95 43.770187 54.314283
+      5  2.686188 46.13 33.274444 42.292315
+      6  2.322984 30.61  7.318647 15.199064
+      7  5.031492 20.00 43.384952 60.740763
+      8  3.954611 20.00 28.100363 41.741542
+      9  4.129393 20.00 10.019866 24.263943
+      10 3.727343 30.00 39.695340 52.347886
+      11 3.636409 30.00 34.473872 46.817741
+      12 2.129115 30.00  1.762143  8.989470
+      13 4.129393 20.00 10.019866 24.263943
+      14 2.129115 30.00  1.762143  8.989470
+      15 4.645967 30.61  3.885682 19.646515
                                                effect_type
       1                           Main effect of Condition
       2                           Main effect of Condition
@@ -179,22 +179,22 @@
       13                 Interaction of Condition and Time
       14                 Interaction of Condition and Time
       15                 Interaction of Condition and Time
-                           effects_complex          t            p
-      1                       Self-Explain         NA           NA
-      2                      More Practice         NA           NA
-      3       Self-Explain ‒ More Practice 0.02956042 9.765488e-01
-      4                           Posttest         NA           NA
-      5                            Pretest         NA           NA
-      6                 Posttest ‒ Pretest 4.84672173 3.429798e-05
-      7             Self-Explain: Posttest         NA           NA
-      8              Self-Explain: Pretest         NA           NA
-      9   Self-Explain: Posttest ‒ Pretest 4.15119285 4.939971e-04
-      10           More Practice: Posttest         NA           NA
-      11            More Practice: Pretest         NA           NA
-      12 More Practice: Posttest ‒ Pretest 2.52490193 1.709441e-02
-      13  Self-Explain: Posttest ‒ Pretest 4.15119285 4.939971e-04
-      14 More Practice: Posttest ‒ Pretest 2.52490193 1.709441e-02
-      15         Difference of differences 2.53254000 1.667635e-02
+                           effects_complex      t       p
+      1                       Self-Explain     NA      NA
+      2                      More Practice     NA      NA
+      3       Self-Explain ‒ More Practice 0.0296 0.97652
+      4                           Posttest     NA      NA
+      5                            Pretest     NA      NA
+      6                 Posttest ‒ Pretest 4.8467 0.00003
+      7             Self-Explain: Posttest     NA      NA
+      8              Self-Explain: Pretest     NA      NA
+      9   Self-Explain: Posttest ‒ Pretest 4.1512 0.00049
+      10           More Practice: Posttest     NA      NA
+      11            More Practice: Pretest     NA      NA
+      12 More Practice: Posttest ‒ Pretest 2.5249 0.01709
+      13  Self-Explain: Posttest ‒ Pretest 4.1512 0.00049
+      14 More Practice: Posttest ‒ Pretest 2.5249 0.01709
+      15         Difference of differences 2.5325 0.01668
       [1] "Variances are not assumed equal."
       
       -- es_median_difference --
@@ -286,18 +286,18 @@
       3   My outcome variable                   Time                Difference
       4   My outcome variable                   Time                Difference
       5   My outcome variable            Interaction Difference of differences
-        effect_size          LL        UL  numerator denominator        SE  df
-      1 0.007556428 -0.51177959 0.5271238  0.1581951    20.61956 0.2650312 100
-      2 0.540648193  0.32014425 0.7719116 11.2588556    20.61956 0.1152489 100
-      3 0.810291854  0.42913484 1.2335490 17.1419048    20.61956 0.2052115 100
-      4 0.256331859  0.05498837 0.4664395  5.3758065    20.61956 0.1049639 100
-      5 0.562025551  0.11886097 1.0223950 11.7660983    20.61956 0.2304976 100
-           d_biased                                       effect_type
-      1 0.007672088                          Main effect of Condition
-      2 0.546027909                               Main effect of Time
-      3 0.831341901  Simple effect of Time at Condition: Self-Explain
-      4 0.260713918 Simple effect of Time at Condition: More Practice
-      5 0.570627983                 Interaction of Condition and Time
+        effect_size      LL     UL  numerator denominator      SE  df d_biased
+      1      0.0076 -0.5118 0.5271  0.1581951    20.61956 0.26503 100   0.0077
+      2      0.5406  0.3201 0.7719 11.2588556    20.61956 0.11525 100   0.5460
+      3      0.8103  0.4291 1.2335 17.1419048    20.61956 0.20521 100   0.8313
+      4      0.2563  0.0550 0.4664  5.3758065    20.61956 0.10496 100   0.2607
+      5      0.5620  0.1189 1.0224 11.7660983    20.61956 0.23050 100   0.5706
+                                              effect_type
+      1                          Main effect of Condition
+      2                               Main effect of Time
+      3  Simple effect of Time at Condition: Self-Explain
+      4 Simple effect of Time at Condition: More Practice
+      5                 Interaction of Condition and Time
                           effects_complex
       1      Self-Explain ‒ More Practice
       2                Posttest ‒ Pretest
@@ -381,10 +381,10 @@
                                    effect effect_size         LL         UL        SE
       1                                B2  14.5000000 10.8561681 18.1438319 0.9036961
       2                                B1  18.2500000 16.3197585 20.1802415 0.4787136
-      3                        Difference  -3.7500000 -7.2343751 -0.2656249 1.0226599
-      4                          posttest  17.4166667 15.8611808 18.9721526 0.4901814
-      5                           pretest  15.3333333 13.1766359 17.4900308 0.6346478
-      6                        Difference   2.0833333  0.4582355  3.7084312 0.4901814
+      3                        Difference  -3.7500000 -7.2345575 -0.2654425 1.0226599
+      4                          posttest  17.4166667 15.8610449 18.9722885 0.4901814
+      5                           pretest  15.3333333 13.1769484 17.4897182 0.6346478
+      6                        Difference   2.0833333  0.4584220  3.7082447 0.4901814
       7                          posttest  16.5000000 13.6017146 19.3982854 0.7187953
       8                           pretest  12.5000000  7.9919271 17.0080729 1.1180340
       9                        Difference   4.0000000  1.9178103  6.0821897 0.5163978
@@ -393,39 +393,39 @@
       12                       Difference   0.1666667 -3.1934525  3.5267858 0.8333333
       13 Simple effect of Rmeasures at B2   4.0000000  1.9178103  6.0821897 0.5163978
       14 Simple effect of Rmeasures at B1   0.1666667 -3.1934525  3.5267858 0.8333333
-      15        Difference of differences   3.8333333  0.5831376  7.0835290 0.9803627
-               df      ta_LL      ta_UL                               effect_type
-      1  5.000000 11.4591258 17.5408742                    Main effect of Between
-      2  5.000000 16.6391624 19.8608376                    Main effect of Between
-      3  7.601289 -6.7495135 -0.7504865                    Main effect of Between
-      4  9.943850 16.0605058 18.7728276                  Main effect of Rmeasures
-      5  7.666363 13.4758689 17.1907977                  Main effect of Rmeasures
-      6  8.346534  0.6774755  3.4891912                  Main effect of Rmeasures
-      7  5.000000 14.0813042 18.9186958 Simple effect of Rmeasures at Between: B2
-      8  5.000000  8.7378939 16.2621061 Simple effect of Rmeasures at Between: B2
-      9  5.000000  2.2623576  5.7376424 Simple effect of Rmeasures at Between: B2
-      10 5.000000 16.0900467 20.5766200 Simple effect of Rmeasures at Between: B1
-      11 5.000000 16.1445954 20.1887379 Simple effect of Rmeasures at Between: B1
-      12 5.000000 -2.6374417  2.9707750 Simple effect of Rmeasures at Between: B1
-      13 5.000000  2.2623576  5.7376424      Interaction of Between and Rmeasures
-      14 5.000000 -2.6374417  2.9707750      Interaction of Between and Rmeasures
-      15 8.346534  1.0216176  6.6450491      Interaction of Between and Rmeasures
-                   effects_complex         t            p
-      1                         B2        NA           NA
-      2                         B1        NA           NA
-      3                    B2 ‒ B1 -3.666908 0.0069250119
-      4                   posttest        NA           NA
-      5                    pretest        NA           NA
-      6         posttest ‒ pretest  4.250128 0.0025414549
-      7               B2: posttest        NA           NA
-      8                B2: pretest        NA           NA
-      9     B2: posttest ‒ pretest  7.745967 0.0005732451
-      10              B1: posttest        NA           NA
-      11               B1: pretest        NA           NA
-      12    B1: posttest ‒ pretest  0.200000 0.8493605140
-      13    B2: posttest ‒ pretest  7.745967 0.0005732451
-      14    B1: posttest ‒ pretest  0.200000 0.8493605140
-      15 Difference of differences  3.910117 0.0041247610
+      15        Difference of differences   3.8333333  0.5835106  7.0831561 0.9803627
+           df      ta_LL      ta_UL                               effect_type
+      1  5.00 11.4591258 17.5408742                    Main effect of Between
+      2  5.00 16.6391624 19.8608376                    Main effect of Between
+      3  7.60 -6.7496422 -0.7503578                    Main effect of Between
+      4  9.94 16.0604082 18.7729251                  Main effect of Rmeasures
+      5  7.67 13.4760895 17.1905772                  Main effect of Rmeasures
+      6  8.35  0.6776079  3.4890588                  Main effect of Rmeasures
+      7  5.00 14.0813042 18.9186958 Simple effect of Rmeasures at Between: B2
+      8  5.00  8.7378939 16.2621061 Simple effect of Rmeasures at Between: B2
+      9  5.00  2.2623576  5.7376424 Simple effect of Rmeasures at Between: B2
+      10 5.00 16.0900467 20.5766200 Simple effect of Rmeasures at Between: B1
+      11 5.00 16.1445954 20.1887379 Simple effect of Rmeasures at Between: B1
+      12 5.00 -2.6374417  2.9707750 Simple effect of Rmeasures at Between: B1
+      13 5.00  2.2623576  5.7376424      Interaction of Between and Rmeasures
+      14 5.00 -2.6374417  2.9707750      Interaction of Between and Rmeasures
+      15 8.35  1.0218824  6.6447842      Interaction of Between and Rmeasures
+                   effects_complex       t       p
+      1                         B2      NA      NA
+      2                         B1      NA      NA
+      3                    B2 ‒ B1 -3.6669 0.00693
+      4                   posttest      NA      NA
+      5                    pretest      NA      NA
+      6         posttest ‒ pretest  4.2501 0.00254
+      7               B2: posttest      NA      NA
+      8                B2: pretest      NA      NA
+      9     B2: posttest ‒ pretest  7.7460 0.00057
+      10              B1: posttest      NA      NA
+      11               B1: pretest      NA      NA
+      12    B1: posttest ‒ pretest  0.2000 0.84936
+      13    B2: posttest ‒ pretest  7.7460 0.00057
+      14    B1: posttest ‒ pretest  0.2000 0.84936
+      15 Difference of differences  3.9101 0.00412
       [1] "Variances are not assumed equal."
       
       -- es_median_difference --
@@ -501,24 +501,18 @@
       3   My outcome variable              Rmeasures                Difference
       4   My outcome variable              Rmeasures                Difference
       5   My outcome variable            Interaction Difference of differences
-        effect_size         LL         UL  numerator denominator        SE df
-      1 -1.76225718 -3.3637051 -0.4545188 -3.7500000    1.964264 0.5647087 20
-      2  1.01125934  0.3399783  1.7812572  2.0833333    1.964264 0.2797699 20
-      3  1.82139908  1.2647697  2.8080024  4.0000000    1.964264 0.2995604 20
-      4  0.07589163 -1.1130248  1.2827236  0.1666667    1.964264 0.4650441 20
-      5  1.80141845  0.5279724  3.3751009  3.8333333    1.964264 0.5526625 20
-           d_biased                               effect_type
-      1 -1.90911195                    Main effect of Between
-      2  1.06061775                  Main effect of Rmeasures
-      3  2.03638608 Simple effect of Rmeasures at Between: B2
-      4  0.08484942 Simple effect of Rmeasures at Between: B1
-      5  1.95153666      Interaction of Between and Rmeasures
-                  effects_complex
-      1                   B2 ‒ B1
-      2        posttest ‒ pretest
-      3    B2: posttest ‒ pretest
-      4    B1: posttest ‒ pretest
-      5 Difference of differences
+        effect_size      LL      UL  numerator denominator      SE df d_biased
+      1     -1.7623 -3.3637 -0.4545 -3.7500000    1.964264 0.56471 20  -1.9091
+      2      1.0113  0.3400  1.7813  2.0833333    1.964264 0.27977 20   1.0606
+      3      1.8214  1.2648  2.8080  4.0000000    1.964264 0.29956 20   2.0364
+      4      0.0759 -1.1130  1.2827  0.1666667    1.964264 0.46504 20   0.0848
+      5      1.8014  0.5280  3.3751  3.8333333    1.964264 0.55266 20   1.9515
+                                      effect_type           effects_complex
+      1                    Main effect of Between                   B2 ‒ B1
+      2                  Main effect of Rmeasures        posttest ‒ pretest
+      3 Simple effect of Rmeasures at Between: B2    B2: posttest ‒ pretest
+      4 Simple effect of Rmeasures at Between: B1    B1: posttest ‒ pretest
+      5      Interaction of Between and Rmeasures Difference of differences
       This standardized mean difference is called d_avg because the standardizer used was s_avg. d_avg has been corrected for bias. Correction for bias can be important when df < 50.  See the rightmost column for the biased value.
       
       

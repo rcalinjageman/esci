@@ -50,6 +50,8 @@
 #'   the effect
 #' @param random_effects Boolean; TRUE for a random effects model; otherwise
 #'   fixed effects
+#' @param method If not fixed effects, this controls the approach.  Defaults to
+#'   'DL', other options are REML and PM
 #' @param assume_equal_variance Defaults to FALSE
 #' @param conf_level The confidence level for the confidence interval.  Given in
 #'   decimal form.  Defaults to 0.95.
@@ -105,6 +107,7 @@ meta_d2 <- function(
   effect_label = "My effect",
   assume_equal_variance = FALSE,
   random_effects = TRUE,
+  method = c("DL", "REML", "PM"),
   conf_level = .95
 )  {
 
@@ -157,6 +160,7 @@ meta_d2 <- function(
 
 
   esci_assert_type(data, "is.data.frame")
+  method <- match.arg(method)
 
   # ds
   esci_assert_valid_column_name(data, ds_quoname)
@@ -384,6 +388,7 @@ The rows with r but mismatching n are:
     effect_size_name = if(assume_equal_variance)"d_s" else "d_avg",
     moderator_variable_name = if (moderator) moderator_quoname else "My moderator",
     random_effects = random_effects,
+    method = method,
     conf_level = conf_level
   )
 

@@ -64,6 +64,18 @@ options:
           - name: fixed_effects
             title: Fixed effect (FE)
 
+    - name: method
+      title: Method
+      type: List
+      default: DL
+      options:
+          - name: DL
+            title: DerSimonian-Laird estimator (DL)
+          - name: REML
+            title: Maximum likelihood (REML)
+          - name: PM
+            title: Paul-Mandel
+
     - name: include_PIs
       title: Prediction intervals
       type: Bool

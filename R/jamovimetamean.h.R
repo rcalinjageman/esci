@@ -21,6 +21,7 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             reference_mean = "",
             reported_effect_size = "mean_difference",
             random_effects = "random_effects",
+            method = "DL",
             include_PIs = FALSE,
             show_details = FALSE,
             es_plot_width = "600",
@@ -193,6 +194,14 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
                     "random_effects",
                     "fixed_effects",
                     "compare"))
+            private$..method <- jmvcore::OptionList$new(
+                "method",
+                method,
+                default="DL",
+                options=list(
+                    "DL",
+                    "REML",
+                    "PM"))
             private$..include_PIs <- jmvcore::OptionBool$new(
                 "include_PIs",
                 include_PIs,
@@ -1463,6 +1472,7 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
             self$.addOption(private$..reference_mean)
             self$.addOption(private$..reported_effect_size)
             self$.addOption(private$..random_effects)
+            self$.addOption(private$..method)
             self$.addOption(private$..include_PIs)
             self$.addOption(private$..show_details)
             self$.addOption(private$..es_plot_width)
@@ -1544,6 +1554,7 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
         reference_mean = function() private$..reference_mean$value,
         reported_effect_size = function() private$..reported_effect_size$value,
         random_effects = function() private$..random_effects$value,
+        method = function() private$..method$value,
         include_PIs = function() private$..include_PIs$value,
         show_details = function() private$..show_details$value,
         es_plot_width = function() private$..es_plot_width$value,
@@ -1624,6 +1635,7 @@ jamovimetameanOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cl
         ..reference_mean = NA,
         ..reported_effect_size = NA,
         ..random_effects = NA,
+        ..method = NA,
         ..include_PIs = NA,
         ..show_details = NA,
         ..es_plot_width = NA,
@@ -2102,6 +2114,7 @@ jamovimetameanBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
 #' @param reference_mean .
 #' @param reported_effect_size .
 #' @param random_effects .
+#' @param method .
 #' @param include_PIs .
 #' @param show_details .
 #' @param es_plot_width .
@@ -2202,6 +2215,7 @@ jamovimetamean <- function(
     reference_mean = "",
     reported_effect_size = "mean_difference",
     random_effects = "random_effects",
+    method = "DL",
     include_PIs = FALSE,
     show_details = FALSE,
     es_plot_width = "600",
@@ -2313,6 +2327,7 @@ jamovimetamean <- function(
         reference_mean = reference_mean,
         reported_effect_size = reported_effect_size,
         random_effects = random_effects,
+        method = method,
         include_PIs = include_PIs,
         show_details = show_details,
         es_plot_width = es_plot_width,

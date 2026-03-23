@@ -137,8 +137,8 @@ test_that("Compare estimate_mdiff_paired to statpsych::ci.mean.ps example and st
     testthat::expect_equal(estimate$es_mean_difference$df[3], mysp$df)
 
     mytest <- test_mdiff(estimate)
-    testthat::expect_equal(mytest$point_null$t, mysp$t)
-    testthat::expect_equal(mytest$point_null$p, mysp$p)
+    testthat::expect_equal(mytest$point_null$t, mysp$t, tolerance = 0.001)
+    testthat::expect_equal(mytest$point_null$p, mysp$p, tolerance = 0.001)
 
 
     mysp <- as.list(

@@ -1,7 +1,7 @@
 Package: esci
 Type: Package
 Title: Estimation Statistics with Confidence Intervals
-Version: 1.0.8
+Version: 1.0.10
 Authors@R: person("Robert", "Calin-Jageman", email = "rcalinjageman@dom.edu",
   role = c("aut", "cre", "cph"))
 Description: A collection of functions and 'jamovi' module for the estimation approach to inferential statistics, the approach which emphasizes effect sizes, interval estimates, and meta-analysis. Nearly all functions are based on 'statpsych' and 'metafor'.  This package is still under active development, and breaking changes are likely, especially with the plot and hypothesis test functions.  Data sets are included for all examples from Cumming & Calin-Jageman (2024) <ISBN:9780367531508>.
@@ -11,26 +11,27 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    jmvcore (>= 0.8.5),
-    R6,
-    rlang,
-    methods,
-    stats,
-    multcomp,
-    sadists,
-    statpsych,
-    metafor,
-    ggplot2,
-    ggdist,
-    ggtext,
     ggbeeswarm,
+    ggdist,
+    ggplot2,
+    ggtext,
     glue,
+    jmvcore (>= 0.8.5),
+    legendry,
+    metafor,
+    mathjaxr,
+    methods,
+    multcomp,
+    R6,
     Rdpack,
-    stringr,
-    mathjaxr
+    rlang,
+    sadists,
+    statpsych (>= 1.9),
+    stats,
+    stringr
 Remotes:
-    teunbrand/legendry@v0.2.1
-RoxygenNote: 7.3.2
+    dgbonett/statpsych
+RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
 Suggests: 

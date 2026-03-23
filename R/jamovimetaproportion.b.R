@@ -115,6 +115,7 @@ jamovi_meta_proportion <- function(self) {
   args$ns <- unname(self$options$ns)
 
   args$random_effects <- self$options$random_effects %in% c("random_effects", "compare")
+  args$method <- self$options$method
 
   # self$results$debug$setVisible(TRUE)
   # self$results$debug$setContent(args)

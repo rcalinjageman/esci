@@ -49,10 +49,8 @@
       -- es_phi --
         grouping_variable_name outcome_variable_name
       1   My grouping variable   My outcome variable
-                                              effect effect_size         SE
-      1 My grouping variable and My outcome variable   0.1062688 0.06521775
-                 LL        UL
-      1 -0.02260905 0.2316724
+                                              effect effect_size     SE     LL    UL
+      1 My grouping variable and My outcome variable       0.106 0.0652 -0.023 0.232
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.

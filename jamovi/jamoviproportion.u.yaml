@@ -104,6 +104,7 @@ children:
         children:
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -121,6 +122,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -163,6 +165,7 @@ children:
               row: 5
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 6
@@ -187,6 +190,7 @@ children:
               row: 7
           - type: Label
             label: 'Distributions'
+            heading: true
             cell:
               column: 0
               row: 8
@@ -203,6 +207,7 @@ children:
             children:
               - type: Label
                 label: 'Summary'
+                heading: true
                 cell:
                   column: 0
                   row: 1
@@ -233,6 +238,7 @@ children:
                   row: 4
               - type: Label
                 label: 'CI'
+                heading: true
                 cell:
                   column: 0
                   row: 5

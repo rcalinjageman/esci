@@ -62,7 +62,7 @@ children:
               column: 2
               row: 1
           - type: Label
-            label: '<span style="font-weight:normal">Name</span> '
+            label: 'Name '
             stretchFactor: 1
             cell:
               column: 0
@@ -87,7 +87,7 @@ children:
               row: 2
           - type: Label
             stretchFactor: 1
-            label: '<span style="font-weight:normal">Mean (<i>M</i>)</span> '
+            label: 'Mean (<i>M</i>) '
             cell:
               column: 0
               row: 3
@@ -111,7 +111,7 @@ children:
               row: 3
           - type: Label
             stretchFactor: 1
-            label: '<span style="font-weight:normal">Standard deviation (<i>s</i>)</span> '
+            label: 'Standard deviation (<i>s</i>) '
             cell:
               column: 0
               row: 4
@@ -134,7 +134,7 @@ children:
               column: 2
               row: 4
           - type: Label
-            label: '<span style="font-weight:normal">Sample size (<i>n</i>)</span> '
+            label: 'Sample size (<i>n</i>) '
             stretchFactor: 1
             cell:
               column: 0
@@ -211,6 +211,7 @@ children:
         children:
           - type: Label
             label: 'Dimensions'
+            heading: true
             cell:
               column: 0
               row: 1
@@ -228,6 +229,7 @@ children:
               row: 1
           - type: Label
             label: '<i>Y</i> axis'
+            heading: true
             cell:
               column: 0
               row: 2
@@ -270,6 +272,7 @@ children:
               row: 5
           - type: Label
             label: '<i>X</i> axis'
+            heading: true
             cell:
               column: 0
               row: 6
@@ -299,6 +302,7 @@ children:
               row: 8
           - type: Label
             label: 'Difference axis'
+            heading: true
             cell:
               column: 0
               row: 9
@@ -315,6 +319,7 @@ children:
               row: 10
           - type: Label
             label: 'Distributions'
+            heading: true
             cell:
               column: 0
               row: 11
@@ -340,6 +345,7 @@ children:
               row: 12
           - type: Label
             label: 'Data'
+            heading: true
             cell:
               column: 0
               row: 13
@@ -362,117 +368,121 @@ children:
             collapsed: true
             children:
               - type: Label
-                label: Reference
+                label: '<em><b>Reference</b></em>'
                 cell:
                   column: 1
                   row: 1
               - type: Label
-                label: Comparison
+                label: '<em><b>Comparison</b></em>'
                 cell:
                   column: 2
                   row: 1
               - type: Label
-                label: Difference
+                label: '<em><b>Difference</b></em>'
                 cell:
                   column: 3
                   row: 1
               - type: Label
                 label: 'Summary'
+                heading: true
                 cell:
                   column: 0
                   row: 2
               - type: Label
                 label: 'CI'
+                heading: true
                 cell:
                   column: 0
                   row: 8
               - type: Label
                 label: 'Error distribution'
+                heading: true
                 cell:
                   column: 0
                   row: 13
               - type: Label
                 label: 'Raw data'
+                heading: true
                 cell:
                   column: 0
                   row: 16
               - type: Label
-                label: '<span style="font-weight:normal">Shape</span>'
+                label: 'Shape'
                 cell:
                   column: 0
                   row: 3
               - type: Label
-                label: '<span style="font-weight:normal">Size</span>'
+                label: 'Size'
                 cell:
                   column: 0
                   row: 4
               - type: Label
-                label: '<span style="font-weight:normal">Outline</span>'
+                label: 'Outline'
                 cell:
                   column: 0
                   row: 5
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: 'Fill'
                 cell:
                   column: 0
                   row: 6
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 7
               - type: Label
-                label: '<span style="font-weight:normal">Style</span>'
+                label: 'Style'
                 cell:
                   column: 0
                   row: 9
               - type: Label
-                label: '<span style="font-weight:normal">Thickness</span>'
+                label: 'Thickness'
                 cell:
                   column: 0
                   row: 10
               - type: Label
-                label: '<span style="font-weight:normal">Color</span>'
+                label: 'Color'
                 cell:
                   column: 0
                   row: 11
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 12
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: 'Fill'
                 cell:
                   column: 0
                   row: 14
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 15
               - type: Label
-                label: '<span style="font-weight:normal">Shape</span>'
+                label: 'Shape'
                 cell:
                   column: 0
                   row: 17
               - type: Label
-                label: '<span style="font-weight:normal">Size</span>'
+                label: 'Size'
                 cell:
                   column: 0
                   row: 18
               - type: Label
-                label: '<span style="font-weight:normal">Outline</span>'
+                label: 'Outline'
                 cell:
                   column: 0
                   row: 19
               - type: Label
-                label: '<span style="font-weight:normal">Fill</span>'
+                label: 'Fill'
                 cell:
                   column: 0
                   row: 20
               - type: Label
-                label: '<span style="font-weight:normal">Transparency</span>'
+                label: 'Transparency'
                 cell:
                   column: 0
                   row: 21

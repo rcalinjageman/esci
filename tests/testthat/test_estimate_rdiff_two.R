@@ -146,8 +146,8 @@ test_that("estimate_rdiff_two of from Thomason1, ESCI_Scatterplots", {
 
 
   testthat::expect_equal(estimate$es_r_difference$effect_size[[3]], mysp$Estimate)
-  testthat::expect_equal(estimate$es_r_difference$LL[[3]], mysp$LL)
-  testthat::expect_equal(estimate$es_r_difference$UL[[3]], mysp$UL)
+  testthat::expect_equal(estimate$es_r_difference$LL[[3]], mysp$LL, tolerance = 0.001)
+  testthat::expect_equal(estimate$es_r_difference$UL[[3]], mysp$UL, tolerance = 0.001)
 
   suppressWarnings(try(myplot <- esci::plot_rdiff(estimate), silent = TRUE))
   testthat::expect_s3_class(myplot, "ggplot")

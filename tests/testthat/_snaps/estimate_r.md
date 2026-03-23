@@ -8,8 +8,8 @@
       -- es_r --
         x_variable_name y_variable_name                          effect effect_size
       1   My x variable   My y variable My x variable and My y variable         0.4
-                LL        UL        SE  n df      ta_LL     ta_UL
-      1 0.03953651 0.6606395 0.1559841 30 28 0.09986615 0.6250829
+            LL     UL      SE  n df  ta_LL  ta_UL
+      1 0.0395 0.6606 0.15598 30 28 0.0999 0.6251
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 95% expected coverage.
@@ -31,10 +31,10 @@
       2 2.895922   8  18 11.5 15.25 12       0 11 0.8359806  1.450186
       
       -- es_r --
-        x_variable_name y_variable_name             effect effect_size      LL
-      1          ls_pre         ls_post ls_pre and ls_post   0.8923908 0.62894
-              UL         SE  n df     ta_LL     ta_UL
-      1 0.967157 0.06139936 12 10 0.6882891 0.9596343
+        x_variable_name y_variable_name             effect effect_size     LL     UL
+      1          ls_pre         ls_post ls_pre and ls_post      0.8924 0.6289 0.9672
+            SE  n df  ta_LL  ta_UL
+      1 0.0614 12 10 0.6883 0.9596
       
       -- regression --
             component    values        LL       UL
@@ -55,8 +55,8 @@
       -- es_r --
         x_variable_name y_variable_name                          effect effect_size
       1   My x variable   My y variable My x variable and My y variable        0.91
-              LL        UL         SE   n  df     ta_LL     ta_UL
-      1 0.853283 0.9445006 0.01685618 105 103 0.8598598 0.9417717
+            LL     UL      SE   n  df  ta_LL  ta_UL
+      1 0.8533 0.9445 0.01686 105 103 0.8599 0.9418
       
       
       Note: LL and UL are lower and upper boundaries of confidence intervals with 99% expected coverage.
