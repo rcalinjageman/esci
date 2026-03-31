@@ -17,7 +17,6 @@ Imports:
     ggtext,
     glue,
     jmvcore (>= 0.8.5),
-    legendry,
     metafor,
     mathjaxr,
     methods,
@@ -26,12 +25,11 @@ Imports:
     Rdpack,
     rlang,
     sadists,
-    statpsych (>= 1.9),
     stats,
     stringr
 Remotes:
-    dgbonett/statpsych
-    teunbrand/legendry
+    dgbonett/statpsych@f28fd492d66f1277102308d125e9d220fe544296
+    teunbrand/legendry@ca91cd14198a965a63ec4c61505a03805393346b
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 RdMacros: Rdpack, mathjaxr
